@@ -1,0 +1,16 @@
+{
+  "triggerSymbol": "@",
+  "limitLinkDirectories": [
+    "Atlas/People",
+    "Atlas/Places"
+  ],
+  "includeSymbol": true,
+  "showAddNewNote": false,
+  "addNewNoteTemplateFile": "",
+  "addNewNoteDirectory": "",
+  "useCompatibilityMode": false,
+  "leavePopupOpenForXSpaces": 0,
+  "invalidCharacterRegex": "[[]^|#]",
+  "invalidCharacterRegexFlags": "i",
+  "removeAccents": true
+}

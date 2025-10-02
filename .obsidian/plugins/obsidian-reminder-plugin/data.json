@@ -1,0 +1,56 @@
+{
+  "scanned": true,
+  "reminders": {
+    "Efforts/🧭 Compass/Task Kanban.md": [
+      {
+        "title": "[[DBA ACID & Transcation]] ",
+        "time": "2025-07-22",
+        "rowNumber": 58
+      }
+    ],
+    "Atlas/People/梁咏琪.md": [
+      {
+        "title": " 梁咏琪过生日 🔺",
+        "time": "2026-05-01",
+        "rowNumber": 33
+      },
+      {
+        "title": " 胃病攻略和治疗 [[Calendar/养胃攻略（梁咏琪版） v0.1]]",
+        "time": "2025-04-28",
+        "rowNumber": 36
+      },
+      {
+        "title": " 国贸意面餐厅",
+        "time": "2025-08-04",
+        "rowNumber": 38
+      }
+    ],
+    "Atlas/People/蔡坤.md": [
+      {
+        "title": " 自己过生日 🔺",
+        "time": "2026-02-28",
+        "rowNumber": 35
+      }
+    ]
+  },
+  "debug": false,
+  "settings": {
+    "reminderTime": "09:00",
+    "reminderTimeStep": 15,
+    "laters": "In 30 minutes\nIn 1 hour\nIn 3 hours\nTomorrow\nNext week",
+    "useSystemNotification": true,
+    "autoCompleteTrigger": "(@",
+    "primaryReminderFormat": "ReminderPluginReminderFormat",
+    "enableReminderPluginReminderFormat": true,
+    "dateFormat": "YYYY-MM-DD",
+    "dateTimeFormat": "YYYY-MM-DD HH:mm",
+    "strictDateFormat": false,
+    "linkDatesToDailyNotes": false,
+    "enableTasksPluginReminderFormat": true,
+    "useCustomEmojiForTasksPlugin": false,
+    "removeTagsForTasksPlugin": true,
+    "enableKanbanPluginReminderFormat": true,
+    "editDetectionSec": 10,
+    "reminderCheckIntervalSec": 5
+  }
+}

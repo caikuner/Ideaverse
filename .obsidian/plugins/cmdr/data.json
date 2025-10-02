@@ -1,0 +1,117 @@
+{
+  "confirmDeletion": false,
+  "showAddCommand": true,
+  "debug": false,
+  "editorMenu": [
+    {
+      "id": "workspace:toggle-stacked-tabs",
+      "icon": "lucide-layers",
+      "name": "Toggle stacked tabs",
+      "mode": "any"
+    }
+  ],
+  "fileMenu": [],
+  "leftRibbon": [
+    {
+      "id": "workspace:toggle-stacked-tabs",
+      "icon": "lucide-layers",
+      "name": "Toggle stacked tabs",
+      "mode": "any"
+    }
+  ],
+  "rightRibbon": [],
+  "titleBar": [],
+  "statusBar": [
+    {
+      "id": "workspaces:save",
+      "icon": "lucide-save",
+      "name": "工作区: Save layout",
+      "mode": "any"
+    }
+  ],
+  "pageHeader": [
+    {
+      "id": "workspace:toggle-pin",
+      "icon": "lucide-pin",
+      "name": "解锁/锁定",
+      "mode": "any"
+    },
+    {
+      "id": "editor:toggle-source",
+      "icon": "lucide-code-2",
+      "name": "切换实时阅览/源码模式",
+      "mode": "any"
+    },
+    {
+      "id": "workspace:copy-url",
+      "icon": "lucide-copy",
+      "name": "复制 Obsidian 链接",
+      "mode": "any"
+    },
+    {
+      "id": "obsidian-mindmap-nextgen:mindmapnextgen:pinned",
+      "icon": "lucide-map",
+      "name": "Mindmap NextGen: Open pinned mindmap",
+      "mode": "any"
+    },
+    {
+      "id": "obsidian-excalidraw-plugin:excalidraw-autocreate-newtab",
+      "icon": "excalidraw-icon",
+      "name": "Excalidraw: 新建绘图 - 于新页签",
+      "mode": "any"
+    },
+    {
+      "id": "obsidian-excalidraw-plugin:fullscreen",
+      "icon": "lucide-fullscreen",
+      "name": "Excalidraw: 切换全屏模式",
+      "mode": "any"
+    }
+  ],
+  "macros": [],
+  "explorer": [],
+  "hide": {
+    "statusbar": [],
+    "leftRibbon": [
+      "Obsidian42 - Text Transporter",
+      "File Info Panel",
+      "Omnisearch",
+      "Create new book note",
+      "Toggle stacked tabs",
+      "Show a random prompt",
+      "Open Symbols for the active editor",
+      "Show Slide Preview",
+      "Open Markdown Table Editor",
+      "Open LexTest",
+      "Open ChatGPT--",
+      "Publish changes",
+      "Dangerzone Writing",
+      "Toggle Privacy Glasses",
+      "Hide all",
+      "Reveal non-private",
+      "Reveal all",
+      "New Excalidraw drawing",
+      "3D Graph",
+      "Open today's daily note",
+      "Publish changes...",
+      "Open today's daily note",
+      "Create new drawing",
+      "Find Journey",
+      "Create new canvas",
+      "Open projects",
+      "Open in Headings Mode",
+      "Manage workspace layouts",
+      "BRAT"
+    ]
+  },
+  "spacing": 8,
+  "advancedToolbar": {
+    "rowHeight": 48,
+    "rowCount": 1,
+    "spacing": 0,
+    "buttonWidth": 48,
+    "columnLayout": false,
+    "mappedIcons": [],
+    "tooltips": false,
+    "heightOffset": 0
+  }
+}

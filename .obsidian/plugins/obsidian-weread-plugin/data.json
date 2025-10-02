@@ -1,0 +1,59 @@
+{
+  "cookies": [
+    {
+      "name": "wr_gid",
+      "value": "279384110"
+    },
+    {
+      "name": "wr_fp",
+      "value": "2135740903"
+    },
+    {
+      "name": "wr_localvid",
+      "value": "14332c70652bbb8143e82fc"
+    },
+    {
+      "name": "wr_name",
+      "value": "2025 关键词是勇气"
+    },
+    {
+      "name": "wr_avatar",
+      "value": "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIF0PZeyH6RwdgUicoQghiagJAic65tCyZACzfwZlOEPw2oMrvwdETYMwnJxo7IvBMtiayVUlYhk63H4Q/132"
+    },
+    {
+      "name": "wr_gender",
+      "value": "1"
+    },
+    {
+      "name": "wr_skey",
+      "value": "dLhkPY7E"
+    },
+    {
+      "name": "wr_vid",
+      "value": "5422008"
+    },
+    {
+      "name": "wr_rt",
+      "value": "web@kCh79E_4n80L3Ny0XVM_AL"
+    }
+  ],
+  "noteLocation": "X/Weread",
+  "dailyNotesLocation": "/",
+  "insertAfter": "<!-- start of weread -->",
+  "insertBefore": "<!-- end of weread -->",
+  "dailyNotesFormat": "YYYY-MM-DD",
+  "lastCookieTime": 1742301523453,
+  "isCookieValid": true,
+  "user": "2025 关键词是勇气",
+  "userVid": "5422008",
+  "template": "---\nisbn: {{metaData.isbn}}\nlastReadDate: {{metaData.lastReadDate}}\n---\n# 元数据\n> [!abstract] {{metaData.title}}\n> - ![ {{metaData.title}}|200]({{metaData.cover}})\n> - 书名： {{metaData.title}}\n> - 作者： {{metaData.author}}\n> - 简介： {{metaData.intro}}\n> - 出版时间： {{metaData.publishTime}}\n> - ISBN： {{metaData.isbn}}\n> - 分类： {{metaData.category}}\n> - 出版社： {{metaData.publisher}}\n> - PC地址：{{metaData.pcUrl}}\n\n# 高亮划线\n{% for chapter in chapterHighlights %}\n{% if chapter.level == 1 %}## {{chapter.chapterTitle}}{% elif chapter.level == 2 %}### {{chapter.chapterTitle}}{% elif chapter.level == 3 %}#### {{chapter.chapterTitle}}{% endif %}\n{% for highlight in chapter.highlights %}{% if highlight.reviewContent %}\n> 📌 {{ highlight.markText |trim }} ^{{highlight.bookmarkId}}\n- 💭 {{highlight.reviewContent}} - ⏱ {{highlight.createTime}} {% else %}\n> 📌 {{ highlight.markText |trim }} \n> ⏱ {{highlight.createTime}} ^{{highlight.bookmarkId}}{% endif %}\n{% endfor %}{% endfor %}\n# 读书笔记\n{% for chapter in bookReview.chapterReviews %}{% if chapter.reviews or chapter.chapterReview %}\n## {{chapter.chapterTitle}}\n{% if chapter.chapterReviews %}{% for chapterReview in chapter.chapterReviews %}\n### 章节评论 No.{{loop.index}}\n- {{chapterReview.content}} ^{{chapterReview.reviewId}}\n    - ⏱ {{chapterReview.createTime}} {% endfor %}{% endif %}{% if chapter.reviews %}{% for review in chapter.reviews %}\n### 划线评论\n> 📌 {{review.abstract |trim }}  ^{{review.reviewId}}\n    - 💭 {{review.content}}\n    - ⏱ {{review.createTime}}\n{% endfor %} {% endif %} {% endif %} {% endfor %}\n# 本书评论\n{% if bookReview.bookReviews %}{% for bookReview in bookReview.bookReviews %}\n## 书评 No.{{loop.index}} \n{{bookReview.mdContent}} ^{{bookReview.reviewId}}\n⏱ {{bookReview.createTime}}\n{% endfor %}{% endif %}\n",
+  "noteCountLimit": -1,
+  "subFolderType": "category",
+  "fileNameType": "BOOK_NAME_AUTHOR",
+  "dailyNotesToggle": false,
+  "notesBlacklist": "",
+  "showEmptyChapterTitleToggle": false,
+  "convertTags": false,
+  "saveArticleToggle": false,
+  "saveReadingInfoToggle": true
+}
