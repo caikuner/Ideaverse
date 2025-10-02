@@ -1,0 +1,141 @@
+/*
+ * @lc app=leetcode.cn id=15 lang=javascript
+ *
+ * [15] 三数之和
+ *
+ * https://leetcode.cn/problems/3sum/description/
+ *
+ * algorithms
+ * Medium (37.84%)
+ * Likes:    6803
+ * Dislikes: 0
+ * Total Accepted:    1.7M
+ * Total Submissions: 4.6M
+ * Testcase Example:  '[-1,0,1,2,-1,-4]'
+ *
+ * 给你一个整数数组 nums ，判断是否存在三元组 [nums[i], nums[j], nums[k]] 满足 i != j、i != k 且 j !=
+ * k ，同时还满足 nums[i] + nums[j] + nums[k] == 0 。请
+ * 
+ * 你返回所有和为 0 且不重复的三元组。
+ * 
+ * 注意：答案中不可以包含重复的三元组。
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 示例 1：
+ * 
+ * 
+ * 输入：nums = [-1,0,1,2,-1,-4]
+ * 输出：[[-1,-1,2],[-1,0,1]]
+ * 解释：
+ * nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。
+ * nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
+ * nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
+ * 不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
+ * 注意，输出的顺序和三元组的顺序并不重要。
+ * 
+ * 
+ * 示例 2：
+ * 
+ * 
+ * 输入：nums = [0,1,1]
+ * 输出：[]
+ * 解释：唯一可能的三元组和不为 0 。
+ * 
+ * 
+ * 示例 3：
+ * 
+ * 
+ * 输入：nums = [0,0,0]
+ * 输出：[[0,0,0]]
+ * 解释：唯一可能的三元组和为 0 。
+ * 
+ * 
+ * 
+ * 
+ * 提示：
+ * 
+ * 
+ * 3 <= nums.length <= 3000
+ * -10^5 <= nums[i] <= 10^5
+ * 
+ * 
+ */
+
+/** 固定一个数，变成两数之和
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+    let res = []
+    for (let i = 0; i < nums.length; ++i) {
+        const map = new Map()
+        for (let j = 0; j < nums.length; ++j) {
+            if (i === j) continue
+
+            const numk = -(nums[j] + nums[i])
+            if (map.has(numk)) {
+                const k = map.get(numk)
+                if (i !== k && j !== k) {
+                    res.push([nums[i], nums[j], numk])
+                }
+            } else {
+                map.set(nums[j], j)
+            }
+        }
+    }
+    return res  // bug: 这样得到的结果包含重复三元组
+};
+
+
+
+// @lc code=start
+/** 固定一个数，变成两数之和
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+    nums.sort((a, b) => a - b)
+    let res = []
+    for (let i = 0; i < nums.length - 2; ++i) {
+        if (nums[i] > 0) {
+            return res  // 三元组的最小值都>0的话，和必然>0
+        }
+        if (nums[i] === nums[i - 1]) {
+            continue  // 跳过i重复值，必须和nums[i-1]比，因为i-1已经找过了，才可以放心跳过i，不会漏解
+        }
+
+        let j = i + 1, k = nums.length - 1
+        while (k > j) {
+            const twoSum = nums[i] + nums[j]
+            if (twoSum > 0) {
+                return res
+            }
+            if (nums[k] + twoSum > 0) {
+                k--
+            } else if (nums[k] + twoSum < 0) {
+                j++
+            } else {
+                res.push([nums[i], nums[j], nums[k]])
+                k--
+                j++
+
+                // 三元组已经保证 i<j<k，但由于值可以重复，最终的三元组也可能会重复，如何去掉这些？
+
+                while (j < k && nums[j] === nums[j - 1]) {
+                    j++ // 跳过j重复值，必须和nums[j-1]比，因为j-1已经找过了，才可以放心跳过j，不会漏解
+                }
+                while (j < k && nums[k] === nums[k + 1]) {
+                    k-- // 跳过k重复值，必须和nums[k+1]比，因为k+1已经找过了，才可以放心跳过k，不会漏解
+                }
+            }
+        }
+    }
+    return res
+};
+// @lc code=end
+
+
+console.log(threeSum([-1, 0, 1, 2, -1, -4]))

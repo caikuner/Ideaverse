@@ -1,0 +1,8 @@
+{
+  "snapToObjects": true,
+  "snapToGrid": true,
+  "zoomBreakpoint": 1.25,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "X/Canvas",
+  "cardLabelVisibility": "always"
+}

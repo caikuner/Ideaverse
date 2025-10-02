@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{
+			"id":"ee8fc220ae58e31a",
+			"type":"text",
+			"text":"- [AI Engineer Roadmap](https://roadmap.sh/ai-engineer)\n- [AI Agents Roadmap](https://roadmap.sh/ai-agents)\n- [AI Red Teaming Roadmap](https://roadmap.sh/ai-red-teaming) 安全\n  \n- [Lordog/dive-into-llms: 《动手学大模型Dive into LLMs》系列编程实践教程](https://github.com/Lordog/dive-into-llms)\n- [microsoft/AI-For-Beginners: 12 Weeks, 24 Lessons, AI for All!](https://github.com/microsoft/AI-For-Beginners)\n- [generative-ai-for-beginners/17-ai-agents/images/autogen.png at main · microsoft/generative-ai-for-beginners](https://github.com/microsoft/generative-ai-for-beginners/blob/main/17-ai-agents/images/autogen.png?WT.mc_id=academic-105485-koreyst)\n  \n",
+			"styleAttributes":{},
+			"x":-340,
+			"y":-380,
+			"width":600,
+			"height":260,
+			"color":"1"
+		}
+	],
+	"edges":[],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}

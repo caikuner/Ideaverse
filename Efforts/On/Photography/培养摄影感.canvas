@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{
+			"id":"6f413bd8b65ca64a",
+			"type":"text",
+			"text":"- 是枝裕和\n- 上田义彦\n- 滨田英明\n- 川内伦子",
+			"styleAttributes":{},
+			"x":-260,
+			"y":-280,
+			"width":220,
+			"height":160,
+			"color":"4"
+		}
+	],
+	"edges":[],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}

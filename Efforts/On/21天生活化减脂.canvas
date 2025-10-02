@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{
+			"id":"329de922735211bf",
+			"type":"text",
+			"text":"21天生活化减脂",
+			"createdAt":"2024-06-04 00:47:24",
+			"updatedAt":"2024-06-04 00:50:02",
+			"deletedAt":"",
+			"pinned":false,
+			"visibility":"PUBLIC",
+			"rowStatus":"NORMAL",
+			"thinoType":"JOURNAL",
+			"hasId":"",
+			"linkId":"",
+			"resourceList":[],
+			"x":-800,
+			"y":-680,
+			"width":180,
+			"height":60
+		}
+	],
+	"edges":[],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}

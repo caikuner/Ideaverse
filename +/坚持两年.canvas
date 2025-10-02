@@ -1,0 +1,210 @@
+{
+  "edges": [
+    {
+      "fromNode": "c42b688fe9a35df0",
+      "fromSide": "right",
+      "id": "3758f90f381c29b1",
+      "toNode": "a23f5f0c7e7e5bf5",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c42b688fe9a35df0",
+      "fromSide": "right",
+      "id": "ed66ff0b6e97469a",
+      "toNode": "fbf179a38e5448f6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c42b688fe9a35df0",
+      "fromSide": "right",
+      "id": "0ef5b23696dc4052",
+      "toNode": "7d1c112016725a68",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "fbf179a38e5448f6",
+      "fromSide": "right",
+      "id": "79ce42929de38e0b",
+      "toNode": "8f04236f766e554c",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "7d1c112016725a68",
+      "fromSide": "right",
+      "id": "fe18a8a5437b27ad",
+      "toNode": "837aeca9da8679ad",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c42b688fe9a35df0",
+      "fromSide": "right",
+      "id": "a252805f9343e054",
+      "toNode": "3ce0d53d2a7a51c3",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "3ce0d53d2a7a51c3",
+      "fromSide": "right",
+      "id": "e0ae16f79b9dd160",
+      "toNode": "cad5f3845d56fc97",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cf38c78b18fc5d67",
+      "fromSide": "right",
+      "id": "c1b4e8dd20b1d671",
+      "toNode": "59d84587688fbc79",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cf38c78b18fc5d67",
+      "fromSide": "top",
+      "id": "286a9f342cab06bc",
+      "toNode": "c42b688fe9a35df0",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "#877878",
+      "height": 120,
+      "id": "8f04236f766e554c",
+      "styleAttributes": {
+      },
+      "text": "- 大厂互跳\n- 外企\n- 远程开发， web3…，  参考 大圣，pole23",
+      "type": "text",
+      "width": 400,
+      "x": -20,
+      "y": -420
+    },
+    {
+      "color": "5",
+      "height": 60,
+      "id": "7d1c112016725a68",
+      "styleAttributes": {
+      },
+      "text": "副业",
+      "type": "text",
+      "width": 176,
+      "x": -313,
+      "y": -180
+    },
+    {
+      "color": "5",
+      "height": 60,
+      "id": "a23f5f0c7e7e5bf5",
+      "styleAttributes": {
+      },
+      "text": "英语",
+      "type": "text",
+      "width": 179,
+      "x": -313,
+      "y": -100
+    },
+    {
+      "color": "5",
+      "height": 60,
+      "id": "3ce0d53d2a7a51c3",
+      "styleAttributes": {
+      },
+      "text": "爱好",
+      "type": "text",
+      "width": 181,
+      "x": -313,
+      "y": -20
+    },
+    {
+      "color": "#877878",
+      "height": 96,
+      "id": "cad5f3845d56fc97",
+      "styleAttributes": {
+      },
+      "text": "- 摄影\n- 积极心理学",
+      "type": "text",
+      "width": 250,
+      "x": -20,
+      "y": 19
+    },
+    {
+      "color": "#877878",
+      "height": 130,
+      "id": "837aeca9da8679ad",
+      "styleAttributes": {
+      },
+      "text": "- 卖程序课程，参考卡颂\n- 做产品，参考 阿崔的earthworm、法律·日课\n- 读书和写书",
+      "type": "text",
+      "width": 400,
+      "x": -20,
+      "y": -195
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "c42b688fe9a35df0",
+      "styleAttributes": {
+      },
+      "text": "坚持两年可以做到任何事情",
+      "type": "text",
+      "width": 250,
+      "x": -700,
+      "y": -120
+    },
+    {
+      "color": "5",
+      "height": 60,
+      "id": "fbf179a38e5448f6",
+      "styleAttributes": {
+      },
+      "text": "主业",
+      "type": "text",
+      "width": 176,
+      "x": -311,
+      "y": -280
+    },
+    {
+      "color": "1",
+      "createdAt": "2024-06-01 13:23:21",
+      "deletedAt": "",
+      "hasId": "",
+      "height": 60,
+      "id": "cf38c78b18fc5d67",
+      "linkId": "",
+      "pinned": false,
+      "resourceList": [
+      ],
+      "rowStatus": "NORMAL",
+      "styleAttributes": {
+      },
+      "text": "西蒙学习法",
+      "thinoType": "JOURNAL",
+      "type": "text",
+      "updatedAt": "2024-06-01 13:23:29",
+      "visibility": "PUBLIC",
+      "width": 250,
+      "x": -700,
+      "y": 140
+    },
+    {
+      "createdAt": "2024-06-01 13:23:43",
+      "deletedAt": "",
+      "hasId": "",
+      "height": 100,
+      "id": "59d84587688fbc79",
+      "linkId": "",
+      "pinned": false,
+      "resourceList": [
+      ],
+      "rowStatus": "NORMAL",
+      "styleAttributes": {
+      },
+      "text": "在久时间内，将全部精力集中在一个学问中。\n\n(1000小时)\n\n",
+      "thinoType": "JOURNAL",
+      "type": "text",
+      "updatedAt": "2024-06-01 13:26:27",
+      "visibility": "PUBLIC",
+      "width": 361,
+      "x": -311,
+      "y": 260
+    }
+  ]
+}

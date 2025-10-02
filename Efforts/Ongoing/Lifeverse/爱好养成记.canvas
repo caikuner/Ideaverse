@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{
+			"id":"f1d10505b814e6b6",
+			"type":"text",
+			"text":"身体的爱好\n- 健身\n- 跑步、游泳、攀岩\n- 羽毛球\n- 格斗",
+			"styleAttributes":{},
+			"x":-200,
+			"y":-580,
+			"width":300,
+			"height":180,
+			"color":"2"
+		},
+		{
+			"id":"922a1c0112053d0e",
+			"type":"text",
+			"text":"创造输出型爱好\n- 摄影\n- 音乐\n- 艺术",
+			"styleAttributes":{},
+			"x":-200,
+			"y":-340,
+			"width":300,
+			"height":160,
+			"color":"4"
+		},
+		{
+			"id":"9671bca3421dc7c8",
+			"type":"text",
+			"text":"智力型爱好\n- 阅读\n- 写作\n- 下棋…",
+			"styleAttributes":{},
+			"x":-200,
+			"y":-120,
+			"width":300,
+			"height":160,
+			"color":"3"
+		}
+	],
+	"edges":[],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}

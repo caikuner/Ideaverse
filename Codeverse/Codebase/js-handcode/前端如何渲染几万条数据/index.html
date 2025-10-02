@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script type="module" src="./chunkRenderWithRIC.js"></script>
+    主要利用 requestAnimationFrame / requestIdleCallback 去异步调度
+    <ul id="chunk-render-container">
+      控件
+    </ul>
+
+    <script>
+      // 使用示例
+      const data = Array.from({length: 10000}, (_, i) => `Item ${i}`);
+      const container = document.getElementById('chunk-render-container');
+      chunkRenderWithRIC(data, container);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+/*
+ * @lc app=leetcode.cn id=101 lang=javascript
+ *
+ * [101] 对称二叉树
+ *
+ * https://leetcode.cn/problems/symmetric-tree/description/
+ *
+ * algorithms
+ * Easy (60.46%)
+ * Likes:    2747
+ * Dislikes: 0
+ * Total Accepted:    1.1M
+ * Total Submissions: 1.8M
+ * Testcase Example:  '[1,2,2,3,4,4,3]'
+ *
+ * 给你一个二叉树的根节点 root ， 检查它是否轴对称。
+ * 
+ * 
+ * 
+ * 示例 1：
+ * 
+ * 
+ * 输入：root = [1,2,2,3,4,4,3]
+ * 输出：true
+ * 
+ * 
+ * 示例 2：
+ * 
+ * 
+ * 输入：root = [1,2,2,null,3,null,3]
+ * 输出：false
+ * 
+ * 
+ * 
+ * 
+ * 提示：
+ * 
+ * 
+ * 树中节点数目在范围 [1, 1000] 内
+ * -100 <= Node.val <= 100
+ * 
+ * 
+ * 
+ * 
+ * 进阶：你可以运用递归和迭代两种方法解决这个问题吗？
+ * 
+ */
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function (root) {
+    const dfs = (left, right) => {
+        if (!left && !right) {
+            return true
+        } else if (left && right && left.val === right.val) {
+            return dfs(left.left, right.right) && dfs(left.right, right.left)
+        } else {
+            return false
+        }
+    }
+
+    if (!root) return true
+    return dfs(root.left, root.right)
+};
+
+
+
+// @lc code=start
+/** 迭代
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function (root) {
+    if (!root) return true
+    const stack = [root.left, root.right]
+    while(stack.length) {
+        const right = stack.pop()
+        const left = stack.pop()
+
+        if (!left && !right) continue
+        else if (left && right && left.val === right.val) {
+            // 每次放对称的一对节点
+            stack.push(left.right, right.left)
+            stack.push(left.left, right.right)
+        } else {
+            return false
+        }
+    }
+    return true
+}
+// @lc code=end
+

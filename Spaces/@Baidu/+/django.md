@@ -1,0 +1,2 @@
+- select_related只能select本model外键出去的
+- prefetch_related后,如果不filter,就不会再次sql

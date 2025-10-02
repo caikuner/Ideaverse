@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"2e7702801db6cf51","type":"text","text":"电影经典","x":-818,"y":-250,"width":140,"height":60,"color":"2"},
+		{"id":"904d38f6c70e901e","type":"text","text":"文学经典","x":-813,"y":-547,"width":131,"height":50},
+		{"id":"905533fdb4986e18","type":"text","text":"- [戴锦华大师电影课：中国电影50部\\_哔哩哔哩\\_bilibili](https://www.bilibili.com/cheese/play/ss902?bsource=link_copy)\n- 疯狂的石头\n- 星际迷航\n- 白日梦想家","x":-540,"y":-320,"width":520,"height":340},
+		{"id":"c97cdf89734c0e20","type":"text","text":"- [复旦梁永安讲西方经典名著\\_哔哩哔哩\\_bilibili](https://www.bilibili.com/cheese/play/ss4145?bsource=link_copy)\n\t- 巴黎圣母院\n\t- 霍乱时期爱情\n\t- 面纱\n\t- 傲慢与偏见\n\n- 轨道","x":-540,"y":-760,"width":520,"height":380}
+	],
+	"edges":[
+		{"id":"3982efbf99281af0","fromNode":"2e7702801db6cf51","fromSide":"right","toNode":"905533fdb4986e18","toSide":"left"},
+		{"id":"6a2609a06ac7f9e1","fromNode":"904d38f6c70e901e","fromSide":"right","toNode":"c97cdf89734c0e20","toSide":"left"}
+	],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}

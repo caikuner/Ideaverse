@@ -1,0 +1,1335 @@
+.
+├── +
+│   ├── Obsidian使用指南
+│   │   ├── 'Johnny学OB 资料汇总.md'
+│   │   ├── 'MarkDown教程 Obsidian版 2022.4.22.md'
+│   │   ├── obsidian快捷键.md
+│   │   ├── 'obsidian快捷键 1.md'
+│   │   ├── zotero-obsidian联动配置.md
+│   │   ├── 如何提高Obsidian的启动速度？.md
+│   │   └── 跟踪领域内大牛.md
+│   ├── 笔记的方法
+│   │   ├── '+PKM MOC.md'
+│   │   ├── '202303050301 Zettelkasten和flomo.md'
+│   │   ├── '202307091903 笔记方法.md'
+│   │   ├── '202403010000 深度思考-深层工作流程.md'
+│   │   ├── PARA.md
+│   │   ├── 如何构建个人知识管理系统.md
+│   │   ├── 工具流.md
+│   │   ├── 构建第二大脑：入门指南-pkmer.md
+│   │   ├── 深层任务流：核心-思考-深度-维护.canvas
+│   │   ├── 看到了一个很有参考意义的工作流.md
+│   │   └── '第二大脑工作流：CODE + PARA.md'
+│   ├── '2017 - 2023 的JavaScript 性能优化之旅.md'
+│   ├── '2022-05-11 好物.md'
+│   ├── '202205191545 克拉申的语言学习假说.md'
+│   ├── '202307012341 好用的编程字体.md'
+│   ├── '202309230014 护肤.md'
+│   ├── '202309230023 学钢琴.md'
+│   ├── '202503182336 呼吸性碱中毒.md'
+│   ├── '202503201601 依恋理论.md'
+│   ├── '202506071047 HumanSystemOptimization 健康学习到150岁 - 人体系统调优不完全指南.md'
+│   ├── "202506071051 HowToLiveLonger 程序员延寿指南  A programmer's guide to live longer.md"
+│   ├── '202507022128 我的网站，完美适配了暗黑模式.md'
+│   ├── '202507171212 常见的 React 库架构设计.md'
+│   ├── async_await.excalidraw.md
+│   ├── 'Daily Schedule.md'
+│   ├── 'DBA ACID & Transcation.md'
+│   ├── 'Learn English.md'
+│   ├── 'Prompt 工程基本原则.md'
+│   ├── Untitled.md
+│   ├── 'Vue 技术栈.md'
+│   ├── 'What’s new in ECMAScript 2025 ?.md'
+│   ├── 《源泉》.md
+│   ├── 习得性无助.md
+│   ├── 京城花事·春季篇.md
+│   ├── '亲密关系 - 退行.md'
+│   ├── 亲密关系的五本书.md
+│   ├── 保守点，90%的程序员不适合做独立开发.md
+│   ├── 副业.md
+│   ├── 升温聊天话题.md
+│   ├── 坚持两年.canvas
+│   ├── '如何找远程工作 【todo】.md'
+│   ├── 开源之路.md
+│   ├── '影视清单 Base.md'
+│   ├── '心理学 roadmap.md'
+│   ├── '情绪化 plog.md'
+│   ├── 文档工具对比.md
+│   ├── 有用的证书.md
+│   ├── 林间来信.md
+│   ├── 硬笔练字.md
+│   ├── 系统初始安装脚本.md
+│   ├── 练腹动作.md
+│   ├── 英语听说练习.md
+│   ├── 计算机网络学习.md
+│   ├── 课题分离.md
+│   └── 面向对象.md
+├── Atlas
+│   ├── Cards
+│   ├── Maps
+│   │   ├── Books.md
+│   │   ├── Calendar.md
+│   │   ├── Concepts.md
+│   │   ├── Courses.md
+│   │   ├── Games.md
+│   │   ├── 'Habits Map.md'
+│   │   ├── 'Language MOC.md'
+│   │   ├── Library.md
+│   │   ├── 'Life Map.md'
+│   │   ├── 'Meta PKM.md'
+│   │   ├── Movies.md
+│   │   ├── 'My Finances MOC.md'
+│   │   ├── 'My Insurance MOC.md'
+│   │   ├── 'My Virtues (starter).md'
+│   │   ├── Papers.md
+│   │   ├── 'People Map.md'
+│   │   ├── 'Philosophy MOC (kit).md'
+│   │   ├── 'Places MOC.md'
+│   │   ├── 'Plan and Review.md'
+│   │   ├── 'Psychology MOC (kit).md'
+│   │   ├── Songs.md
+│   │   ├── Speeches.md
+│   │   ├── 'Systems MOC (kit).md'
+│   │   ├── 'Tasks Map.md'
+│   │   └── 'Thinking Map.md'
+│   ├── People
+│   │   ├── 梁咏琪.md
+│   │   └── 蔡坤.md
+│   ├── Places
+│   │   └── 什刹海.md
+│   ├── Privacy
+│   │   ├── Health
+│   │   │   ├── 健康管理-妈妈.canvas
+│   │   │   ├── 多发脑白质病变.md
+│   │   │   ├── 多发腔隙性脑梗.md
+│   │   │   ├── 脑萎缩.md
+│   │   │   └── 脑部缺血缺氧.md
+│   │   └── '健康 Longer.md'
+│   ├── Sources
+│   │   ├── Articles
+│   │   │   ├── '+About the Articles Folder.md'
+│   │   │   ├── '2020 - A Case For MOCs - Kyle Pace.md'
+│   │   │   └── '2020 - Reading Comprehension - Bob Bain.md'
+│   │   ├── '+ About Sources.md'
+│   │   ├── '1984 (book).md'
+│   │   ├── 'Analogy as Core (talk).md'
+│   │   ├── 'Atomic Habits (book).md'
+│   │   ├── 'Between the World and Me (book).md'
+│   │   ├── 'Groundhog Day (kit).md'
+│   │   ├── 'Ideaverse Pro.md'
+│   │   ├── 'Obsidian Flight School.md'
+│   │   ├── 'Sinnerman (song).md'
+│   │   ├── 'The Almagest.md'
+│   │   ├── 'The Count of Monte Cristo.md'
+│   │   ├── 'The LYT Workshop.md'
+│   │   ├── 'Willpower - Robinson et al (paper).md'
+│   │   ├── 'Writing Original Works.md'
+│   │   ├── '影之刃·零 (game).md'
+│   │   ├── '明末·渊虚之羽 (game).md'
+│   │   └── '艾尔登法环 (game).md'
+│   ├── Statements
+│   │   ├── 'ACE helps you with context switching.md'
+│   │   ├── 'ACE honors the 3 head spaces of PKM.md'
+│   │   ├── 'A deeper dive into how ACE works.md'
+│   │   ├── 'An asymptotic curve models the development of skills, strength, habits, and more.md'
+│   │   ├── 'Ant pheromone trails act like potential habits.md'
+│   │   ├── 'Ask Gandalf for assistance..md'
+│   │   ├── 'Being able to adapt is an important habit.md'
+│   │   ├── 'Be tempted by power and clip countless articles into your PKM note library..md'
+│   │   ├── 'Changing a habit is really about replacing a routine.md'
+│   │   ├── 'Double down and keep collecting..md'
+│   │   ├── 'Evergreen notes are antifragile.md'
+│   │   ├── 'Evergreen notes are things or statements about things.md'
+│   │   ├── 'Evergreen notes compound in value over time.md'
+│   │   ├── 'Evergreen notes maximize reusability.md'
+│   │   ├── 'Habit formation provides an evolutionary advantage.md'
+│   │   ├── 'Habits carry a ton of hidden inertia.md'
+│   │   ├── 'How Atomic Habits fit into the conversation on habits.md'
+│   │   ├── 'How ideas and efforts play nicely together.md'
+│   │   ├── 'Important habits preserve mental clarity and a sense of control.md'
+│   │   ├── 'Information that crosses our attentional filter becomes knowledge.md'
+│   │   ├── "It's circular but true, we become what we do.md"
+│   │   ├── 'Journaling in the morning is an important habit.md'
+│   │   ├── 'Linking your thinking encourages leaps of insights.md'
+│   │   ├── 'MOCs are both workbenches and maps.md'
+│   │   ├── 'MOCs encourage flexible non-destructive thinking.md'
+│   │   ├── 'Note-making creates unexpected optionality.md'
+│   │   ├── 'Note-making is about the pursuit of truth.md'
+│   │   ├── 'Note-making sharpens your thinking.md'
+│   │   ├── 'Our environment shapes us more than we realize.md'
+│   │   ├── "People's attributes are domain-specific.md"
+│   │   ├── 'Preparing for the next day is an important habit.md'
+│   │   ├── 'Resiliency Routines help regain a sense of control.md'
+│   │   ├── 'Sensemaking happens by triangulation.md'
+│   │   ├── 'Small Wins foster a Sense of Control.md'
+│   │   ├── 'The big differences between efforts and projects.md'
+│   │   ├── 'The Riddle IS the Answer (kit).md'
+│   │   ├── 'The truest habit metaphors are additive - v1.md'
+│   │   ├── 'The truest habit metaphors are additive.md'
+│   │   ├── 'Truffle hunters need to keep perspective, so do parachutists.md'
+│   │   ├── 'Use STIR To Remember More.md'
+│   │   ├── 'We chronically underestimate how long something takes.md'
+│   │   ├── 'Why Categories for Your Notes are a Good Idea.md'
+│   │   ├── 'Why Efforts are Liberating.md'
+│   │   ├── 'Without the Odyssey, there is no Ulysses.md'
+│   │   └── 'Writing down daily goals in the morning is an important habit.md'
+│   ├── '+ About Atlas.md'
+│   ├── Add.md
+│   ├── Communicate.md
+│   ├── Efforts.md
+│   ├── Follows.md
+│   ├── Maps.md
+│   ├── Relate.md
+│   ├── Sources.md
+│   └── Views.md
+├── Bases
+├── Calendar
+│   ├── Journal
+│   │   ├── 2022-05-10.md
+│   │   ├── 2023-02-27.md
+│   │   ├── 2023-02-28.md
+│   │   ├── 2023-08-31.md
+│   │   ├── 2024-03-05.md
+│   │   ├── 2024-03-15.md
+│   │   ├── 2024-03-17.md
+│   │   ├── 2024-12-28.md
+│   │   ├── 2025-01-12.md
+│   │   ├── 2025-01-19.md
+│   │   ├── 2025-02-08.md
+│   │   ├── 2025-02-21.md
+│   │   ├── 2025-02-26.md
+│   │   ├── 2025-02-28.md
+│   │   ├── 2025-03-05.md
+│   │   ├── 2025-03-12.md
+│   │   ├── 2025-03-13.md
+│   │   ├── 2025-03-14.md
+│   │   ├── 2025-03-16.md
+│   │   ├── 2025-03-19.md
+│   │   ├── 2025-03-28.md
+│   │   ├── 2025-04-01.md
+│   │   ├── 2025-04-29.md
+│   │   ├── 2025-04-30.md
+│   │   ├── 2025-05-08.md
+│   │   ├── 2025-05-15.md
+│   │   ├── 2025-06-06.md
+│   │   ├── 2025-07-07.md
+│   │   ├── 2025-07-10.md
+│   │   ├── 2025-07-18.md
+│   │   ├── 2025-07-23.md
+│   │   ├── 2025-08-17.md
+│   │   ├── 2025-08-18.md
+│   │   ├── 2025-08-19.md
+│   │   ├── 2025-08-20.md
+│   │   ├── 2025-09-12.md
+│   │   ├── 2025-09-23.md
+│   │   └── 2025-10-02.md
+│   ├── Logs
+│   │   ├── 'Idea Log (Example).md'
+│   │   └── 'Logs (Example).md'
+│   ├── '+ About Calendar Note.md'
+│   ├── 八段锦跟练.md
+│   ├── 养生吃法.md
+│   ├── '养胃攻略（梁咏琪版） v0.1.md'
+│   ├── 周末安排.md
+│   ├── 百日练字计划.md
+│   ├── 表白信.md
+│   └── '配眼镜攻略 (线下-北京-潘家园).md'
+├── Codeverse
+│   ├── Cards
+│   │   ├── 'AI：MCP-streamable http.md'
+│   │   ├── API：三种便捷登录方式.md
+│   │   ├── API：权限验证.md
+│   │   ├── API：身份认证.md
+│   │   ├── API：风格.md
+│   │   ├── 'Apollo：基于 Apollo 配置中心的实时流量调整方案.md'
+│   │   ├── CDN.md
+│   │   ├── CI·CD：什么是.md
+│   │   ├── 'Commonjs 和 esm 区别；如何处理循环依赖的.md'
+│   │   ├── CSS：animation.md
+│   │   ├── CSS：BFC、IFC.md
+│   │   ├── CSS：Flex.md
+│   │   ├── CSS：Flex：1.md
+│   │   ├── CSS：float.md
+│   │   ├── CSS：Grid.md
+│   │   ├── CSS：position.md
+│   │   ├── CSS：优先级.md
+│   │   ├── CSS：圣杯布局.md
+│   │   ├── CSS：实现一个三角形.md
+│   │   ├── CSS：层叠顺序.md
+│   │   ├── CSS：样式来源和引入.md
+│   │   ├── CSS：毛玻璃特效.md
+│   │   ├── CSS：水平垂直居中.md
+│   │   ├── CSS：盒模型.md
+│   │   ├── CSS：相对单位.md
+│   │   ├── CSS：继承.md
+│   │   ├── CSS：隐藏元素的方法.md
+│   │   ├── DNS：缓存和域名解析过程.md
+│   │   ├── DNS：负载均衡.md
+│   │   ├── GEMINI.md
+│   │   ├── Git：cherry-pick.md
+│   │   ├── 'Git：pull vs. fetch.md'
+│   │   ├── 'Git：rebase vs. merge.md'
+│   │   ├── Git：命令清单.md
+│   │   ├── HTTP：1&2&3.md
+│   │   ├── 'HTTP：OPTIONS 请求.md'
+│   │   ├── HTTP：TLS.md
+│   │   ├── 'HTTP：基于 UDP 的 HTTP3 是如何保证可靠的.md'
+│   │   ├── 'HTTP：简述 HTTPS 过程.md'
+│   │   ├── HTTP：请求.md
+│   │   ├── 'JavaScript Language Tags (BCP 47).md'
+│   │   ├── 'JS WebContainer.md'
+│   │   ├── 'JS 基础知识 前端面试派.md'
+│   │   ├── 'JS 手写代码｜前端面试派.md'
+│   │   ├── 'js 沙箱.md'
+│   │   ├── 'JS 读代码看输出 ⭐️.md'
+│   │   ├── JS：call、apply、bind.md
+│   │   ├── 'JS：JS堆栈 VS. V8堆栈.md'
+│   │   ├── 'JS：Message Channel.md'
+│   │   ├── 'JS：new 的过程.md'
+│   │   ├── 'JS：this 指向问题.md'
+│   │   ├── JS：代理.md
+│   │   ├── JS：实现继承的七种方式.md
+│   │   ├── JS：浮点数问题.md
+│   │   ├── JS：理解Promise.md
+│   │   ├── JS：理解原型和原型链.md
+│   │   ├── JS：理解闭包.md
+│   │   ├── 'JS：箭头函数 VS. 普通函数.md'
+│   │   ├── JS：解释型语言的执行环节.md
+│   │   ├── 'Monorepo 实践指南.md'
+│   │   ├── MySQL：事务操作.md
+│   │   ├── MySQL：如何加行锁.md
+│   │   ├── Nginx：如何实现流量按比例分发.md
+│   │   ├── 'Node.js 处理线上内存泄露问题.md'
+│   │   ├── Node.js：事件循环机制.md
+│   │   ├── Node.js：常见面试题.md
+│   │   ├── 'npm：如何发布 npm 包.md'
+│   │   ├── Polling.md
+│   │   ├── 'PWA：如何快速转换成 PWA.md'
+│   │   ├── 'React Router 的权限控制.md'
+│   │   ├── 'React 与 Vue 的主要异同对比.md'
+│   │   ├── 'React：batchUpdate 批量更新机制.md'
+│   │   ├── 'React：commit 阶段的双缓存优化.md'
+│   │   ├── 'React：Concurrency 并发机制.md'
+│   │   ├── 'React：dev 模式下 useEffect 为什么执行两次.md'
+│   │   ├── 'React：Diff 算法，并对比 Vue.md'
+│   │   ├── 'React：Fiber 架构 vs. 之前的虚拟 DOM 架构.md'
+│   │   ├── React：hooks使用注意事项、闭包陷阱.md
+│   │   ├── 'React：JSX 的本质.md'
+│   │   ├── 'React：React FiberNode vs. Vue VNode.md'
+│   │   ├── 'React：Reconciliation 协调的过程.md'
+│   │   ├── React：Redux1.基本使用和工作流程.md
+│   │   ├── React：Redux2.用过哪些中间件.md
+│   │   ├── 'React：Redux 3.实现一个 mini-redux.md'
+│   │   ├── 'React：setState 是同步还是异步的.md'
+│   │   ├── 'React：SSR vs. SSG.md'
+│   │   ├── 'React：state 不可变原则.md'
+│   │   ├── 'React：state 合并特性.md'
+│   │   ├── 'React：state 和 props 有什么区别.md'
+│   │   ├── 'React：useEffect vs. useLayoutEffect.md'
+│   │   ├── 'React：useEffect 的底层是如何实现的.md'
+│   │   ├── 'React：useState 的底层是如何实现的.md'
+│   │   ├── React：v19有哪些升级.md
+│   │   ├── 'React：为何 Hooks 不能放在条件或循环之内.md'
+│   │   ├── React：单向数据流原则.md
+│   │   ├── React：原理简介.md
+│   │   ├── React：受控和非受控组件.md
+│   │   ├── React：可以做哪些性能优化.md
+│   │   ├── 'React：合成事件和 DOM 事件区别.md'
+│   │   ├── 'React：合成事件机制 (SyntheticEvent).md'
+│   │   ├── React：基本概念.md
+│   │   ├── 'React：如何理解 React Fiber 架构.md'
+│   │   ├── 'React：如何统一监听 React 组件错误.md'
+│   │   ├── 'React：如何让 setState同步执行.md'
+│   │   ├── 'React：实现 todo list.md'
+│   │   ├── 'React：实现 useCountTimer Hook.md'
+│   │   ├── 'React：实现 useDeepEffect.md'
+│   │   ├── 'React：实现 useRequest Hook.md'
+│   │   ├── 'React：实现 useWindowResize Hook.md'
+│   │   ├── 'React：循环中为何要使用 key.md'
+│   │   ├── React：有哪些内置hooks.md
+│   │   ├── React：父子组件生命周期调用顺序.md
+│   │   ├── 'React：用过 SSR 服务端渲染吗.md'
+│   │   ├── React：用过哪些状态管理库.md
+│   │   ├── React：组件渲染和更新的全过程.md
+│   │   ├── React：组件生命周期及hooks模拟.md
+│   │   ├── React：组件通信方式.md
+│   │   ├── React：组件销毁有哪几种方式.md
+│   │   ├── Redis：为什么快.md
+│   │   ├── requestAnimationFrame.md
+│   │   ├── RUM（真实用户监控）.md
+│   │   ├── 'Sentry 使用实践.md'
+│   │   ├── 'Server-Sent Events(SSE).md'
+│   │   ├── 'Service Worker 缓存.md'
+│   │   ├── 'setState 后发生了什么.md'
+│   │   ├── 'setTimeout 不准怎么办.md'
+│   │   ├── 'Streamable HTTP.md'
+│   │   ├── 'Taro·Uniapp 的差量更新机制.md'
+│   │   ├── Taro的实现原理.md
+│   │   ├── TCP.md
+│   │   ├── TCP：为什么建立连接需要三次握手.md
+│   │   ├── TCP：简述建立和断开连接的过程.md
+│   │   ├── 'todo 工程：Code Review 规范.md'
+│   │   ├── 'todo：React：性能优化原则 a1.md'
+│   │   ├── todo：Vite：原理与实践.md
+│   │   ├── TypeScript：interface.md
+│   │   ├── TypeScript：函数重载.md
+│   │   ├── TypeScript：基本类型.md
+│   │   ├── TypeScript：工具类型.md
+│   │   ├── TypeScript：泛型.md
+│   │   ├── TypeScript：装饰器.md
+│   │   ├── TypeScript：面试题汇总.md
+│   │   ├── UDP.md
+│   │   ├── 'Vite 实践.md'
+│   │   ├── Vite：兼容性问题.md
+│   │   ├── Vite：性能优化.md
+│   │   ├── Vite：插件开发流程.md
+│   │   ├── Vite：构建流程.md
+│   │   ├── Vite：热更新原理.md
+│   │   ├── Vite：面试汇总.md
+│   │   ├── 'Vue3 的数组如何实现响应式的.md'
+│   │   ├── 'Vue 使用 前端面试派.md'
+│   │   ├── 'Vue 原理 前端面试派.md'
+│   │   ├── 'Webpack 实践.md'
+│   │   ├── 'Webpack：Treeshaking 原理以及如何禁用.md'
+│   │   ├── Webpack：写一个插件.md
+│   │   ├── Webpack：原理与实践.md
+│   │   ├── Webpack：如何splitChunk.md
+│   │   ├── Webpack：性能优化.md
+│   │   ├── Webpack：构建流程.md
+│   │   ├── Webpack：面试汇总.md
+│   │   ├── WebSocket.md
+│   │   ├── 'Web Worker 类型及使用场景全面介绍.md'
+│   │   ├── 业务：前端截图方案.md
+│   │   ├── 业务：如何做全局的请求封装.md
+│   │   ├── 业务：如何处理大文件上传和下载.md
+│   │   ├── '业务：如何搭建一个 UI 组件库.md'
+│   │   ├── 业务：如何设计一个文件上传功能.md
+│   │   ├── 业务：如何设计一个文件下载功能.md
+│   │   ├── '了解 H5 开发吗.md'
+│   │   ├── '从输入 URL 到页面 2.md'
+│   │   ├── '你了解 AI 吗.md'
+│   │   ├── '保持 FPS 60 帧.md'
+│   │   ├── 内存管理优化.md
+│   │   ├── 前端分包策略.md
+│   │   ├── 前端工程化实践.md
+│   │   ├── 前端常见数据结构及其应用.md
+│   │   ├── 前端常见设计模式及其应用.md
+│   │   ├── 前端异常错误捕获全指南.md
+│   │   ├── 前端日志上报系统.md
+│   │   ├── 前端权限控制最佳实践.md
+│   │   ├── '前端框架：MVVM 架构.md'
+│   │   ├── '前端框架：Virtual DOM.md'
+│   │   ├── 前端框架：路由原理.md
+│   │   ├── '前端模块级热更新（Module-Level Hot Update）.md'
+│   │   ├── 前端灰度发布与快速回滚.md
+│   │   ├── 前端监控系统.md
+│   │   ├── 前端错误监控与快速修复.md
+│   │   ├── '动态更新版本和模块 + servicework 缓存控制.md'
+│   │   ├── 大模型：编排.md
+│   │   ├── '如何从零搭建前端项目 ⭐️.md'
+│   │   ├── 如何实现图片防盗链.md
+│   │   ├── '如何理解 JavaScript 是单线程语言，但浏览器是多线程.md'
+│   │   ├── '如何理解 z-index.md'
+│   │   ├── '如何防止缓存在 CDN 上的视频被盗版.md'
+│   │   ├── '安全：OWASP Top 10.md'
+│   │   ├── 安全：前端常见的安全攻防.md
+│   │   ├── '实现 EventBus 事件总线 ⭐️.md'
+│   │   ├── '实现 LRU 缓存.md'
+│   │   ├── 实现一个小型打包工具.md
+│   │   ├── '实现上传文件，使用 fetch 或 axios.md'
+│   │   ├── 实现单例模式.md
+│   │   ├── 实现发布订阅模式.md
+│   │   ├── 实现图片懒加载.md
+│   │   ├── 实现数组和树互转.md
+│   │   ├── 实现观察者模式.md
+│   │   ├── 实现链式调用.md
+│   │   ├── 对比：Ajax、XHR、Fetch、Axios.md
+│   │   ├── '对比：TCP vs. UDP.md'
+│   │   ├── 对比：WebSocket、SSE、Polling.md
+│   │   ├── '对比：WebSocket 协议 vs. HTTP 协议.md'
+│   │   ├── 对比：观察者模式和发布订阅模式.md
+│   │   ├── 对象：获取属性的方法.md
+│   │   ├── 对象：解构赋值.md
+│   │   ├── 工程：前端开发规范.md
+│   │   ├── 工程：前端有哪些最新技术.md
+│   │   ├── '工程：用分层结构扩展你的 React 项目.md'
+│   │   ├── 微前端原理与实践指南.md
+│   │   ├── 微前端实践.md
+│   │   ├── '性能优化：前端全链路 ⭐️.md'
+│   │   ├── 性能优化：浏览器网页性能指标.md
+│   │   ├── 性能优化：网络层面.md
+│   │   ├── 性能优化：长列表大数据渲染优化方案.md
+│   │   ├── '手写 call、apply​、bind.md'
+│   │   ├── '手写 ES6 Class 继承 polyfill.md'
+│   │   ├── '手写 getType 函数.md'
+│   │   ├── '手写 instanceOf.md'
+│   │   ├── '手写 new.md'
+│   │   ├── '手写 VNode 对象，表示DOM 节点.md'
+│   │   ├── 手写三级级联组件.md
+│   │   ├── 手写深拷贝.md
+│   │   ├── '手写防抖节流 Debounce、Throttle.md'
+│   │   ├── 排序：冒泡排序.md
+│   │   ├── 排序：快速排序.md
+│   │   ├── 排序：插入排序.md
+│   │   ├── 模块化历程.md
+│   │   ├── 浏览器：Cookie.md
+│   │   ├── 浏览器：Devtools.md
+│   │   ├── '浏览器：Script 标签的 defer 和 async 的作用.md'
+│   │   ├── 浏览器：事件循环机制.md
+│   │   ├── 浏览器：事件绑定.md
+│   │   ├── '浏览器：从输入 url 到页面展示的全过程 ⭐️.md'
+│   │   ├── 浏览器：前端持久存储.md
+│   │   ├── 浏览器：同源标签页如何跨页面通信.md
+│   │   ├── '浏览器：多进程架构和渲染进程的多个线程 ⭐️.md'
+│   │   ├── 浏览器：帧原理.md
+│   │   ├── 浏览器：组成结构.md
+│   │   ├── 浏览器：缓存机制.md
+│   │   ├── 浏览器：跨域.md
+│   │   ├── 浏览器：页面加载和渲染过程.md
+│   │   ├── '浏览器：页面资源预取预渲染 dnsfetch、prefetch、prerender、preload.md'
+│   │   ├── 研发流程：做过哪些提效工具.md
+│   │   ├── '移动端：1px 问题.md'
+│   │   ├── '移动端：H5 如何抓包.md'
+│   │   ├── 移动端：底部安全区如何设置.md
+│   │   ├── 移动端：适配方案.md
+│   │   ├── 稳定性：如何考虑前端稳定性.md
+│   │   ├── 算法：时空复杂度.md
+│   │   ├── 网络参考模型.md
+│   │   ├── 网页性能优化总结.md
+│   │   ├── '美团 Keeta.md'
+│   │   ├── '计算机基础  前端面试派.md'
+│   │   ├── 计算机：进程、线程.md
+│   │   ├── 设计一个可视化拖拽搭建平台的技术方案.md
+│   │   └── 请求：xhr-fetch-axios.md
+│   ├── Codebase
+│   │   ├── algo-handcode
+│   │   │   ├── 排序
+│   │   │   │   ├── 912.4.插入排序,.js
+│   │   │   │   ├── 912.5.冒泡排序.js
+│   │   │   │   ├── mergeSort.js
+│   │   │   │   └── quickSort.js
+│   │   │   ├── 3.longest-substring-without-repeating-characters.js
+│   │   │   ├── 5.longest-palindromic-substring.js
+│   │   │   ├── 7.reverse-integer.js
+│   │   │   ├── 11.container-with-most-water.js
+│   │   │   ├── 12.integer-to-roman.js
+│   │   │   ├── 14.2.最长公共后缀.js
+│   │   │   ├── 14.longest-common-prefix.js
+│   │   │   ├── 15.3-sum.js
+│   │   │   ├── 20.valid-parentheses.js
+│   │   │   ├── 21.merge-two-sorted-lists.js
+│   │   │   ├── 22.generate-parentheses.js
+│   │   │   ├── 25.reverse-nodes-in-k-group.js
+│   │   │   ├── 31.next-permutation.js
+│   │   │   ├── 32.longest-valid-parentheses.js
+│   │   │   ├── 34.find-first-and-last-position-of-element-in-sorted-array.js
+│   │   │   ├── 42.trapping-rain-water.js
+│   │   │   ├── 43.multiply-strings.js
+│   │   │   ├── 46.permutations.js
+│   │   │   ├── 47.permutations-ii.js
+│   │   │   ├── 48.rotate-image.js
+│   │   │   ├── 54.spiral-matrix.js
+│   │   │   ├── 77.combinations.js
+│   │   │   ├── 79.word-search.js
+│   │   │   ├── 88.merge-sorted-array.js
+│   │   │   ├── 92.reverse-linked-list-ii.js
+│   │   │   ├── 93.restore-ip-addresses.js
+│   │   │   ├── 94.binary-tree-inorder-traversal.js
+│   │   │   ├── 102.binary-tree-level-order-traversal.js
+│   │   │   ├── 104.maximum-depth-of-binary-tree.js
+│   │   │   ├── 121.best-time-to-buy-and-sell-stock.js
+│   │   │   ├── 141.linked-list-cycle.js
+│   │   │   ├── 142.linked-list-cycle-ii.js
+│   │   │   ├── 144.binary-tree-preorder-traversal.js
+│   │   │   ├── 145.binary-tree-postorder-traversal.js
+│   │   │   ├── 146.lru-cache-map.js
+│   │   │   ├── 146.lru-cache.js
+│   │   │   ├── 150.evaluate-reverse-polish-notation.js
+│   │   │   ├── 165.compare-version-numbers.js
+│   │   │   ├── 200.number-of-islands.js
+│   │   │   ├── 203.remove-linked-list-elements.js
+│   │   │   ├── 206.reverse-linked-list.js
+│   │   │   ├── 226.invert-binary-tree.js
+│   │   │   ├── 232.implement-queue-using-stacks.js
+│   │   │   ├── 236.lowest-common-ancestor-of-a-binary-tree.js
+│   │   │   ├── 239.sliding-window-maximum.js
+│   │   │   ├── 283.move-zeroes.js
+│   │   │   ├── 300.longest-increasing-subsequence.js
+│   │   │   ├── 316.remove-duplicate-letters.js
+│   │   │   ├── 322.coin-change.js
+│   │   │   ├── 338.counting-bits.js
+│   │   │   ├── 344.reverse-string.js
+│   │   │   ├── 384.shuffle-an-array.js
+│   │   │   ├── 394.decode-string.js
+│   │   │   ├── 402.remove-k-digits.js
+│   │   │   ├── 415.add-strings.js
+│   │   │   ├── 494.target-sum.js
+│   │   │   ├── 496.next-greater-element-i.js
+│   │   │   ├── 503.next-greater-element-ii.js
+│   │   │   ├── 518.coin-change-ii.js
+│   │   │   ├── 538.convert-bst-to-greater-tree.js
+│   │   │   ├── 572.subtree-of-another-tree.js
+│   │   │   ├── 662.maximum-width-of-binary-tree.js
+│   │   │   ├── 704.binary-search.js
+│   │   │   ├── 912.sort-an-array.js
+│   │   │   ├── 1143.2-最长公共连续子串.js
+│   │   │   ├── 1143.longest-common-subsequence.js
+│   │   │   ├── 1717.maximum-score-from-removing-substrings.js
+│   │   │   └── 链表求和.js
+│   │   ├── css-handcode
+│   │   │   ├── float
+│   │   │   │   └── float.html
+│   │   │   └── triangle.html
+│   │   ├── js-handcode
+│   │   │   ├── webpack
+│   │   │   │   └── webpack-plugin.js
+│   │   │   ├── 前端如何渲染几万条数据
+│   │   │   │   ├── chunkRenderWithRAF.js
+│   │   │   │   ├── chunkRenderWithRIC.js
+│   │   │   │   └── index.html
+│   │   │   ├── 异步调度器
+│   │   │   │   ├── promise.limit.js
+│   │   │   │   └── TaskScheduler.js
+│   │   │   ├── 日志上报系统
+│   │   │   │   └── logreport.js
+│   │   │   ├── 36进制加法.js
+│   │   │   ├── BinaryHeap.js
+│   │   │   ├── React:实现实时搜索组件.jsx
+│   │   │   ├── 合并单元格.js
+│   │   │   ├── 层序遍历变体.js
+│   │   │   └── 数字转中文数字.js
+│   │   ├── js-output
+│   │   │   ├── closure1.js
+│   │   │   ├── promise1.js
+│   │   │   ├── promise2.js
+│   │   │   └── prototype1.js
+│   │   ├── '+todo code ⭐️.md'
+│   │   ├── apply_call_bind.js
+│   │   ├── array.filter.js
+│   │   ├── array.flat.js
+│   │   ├── array.group.js
+│   │   ├── array.map.js
+│   │   ├── array.reduce.js
+│   │   ├── array.uniq.js
+│   │   ├── async_await.js
+│   │   ├── cloneDeep..js
+│   │   ├── compose_pipe.js
+│   │   ├── curry.js
+│   │   ├── debounce.js
+│   │   ├── es6_polyfill.js
+│   │   ├── EventBus-simple.js
+│   │   ├── EventBus.js
+│   │   ├── getType.js
+│   │   ├── instanceof.js
+│   │   ├── lazyLoad.js
+│   │   ├── lazyMan.js
+│   │   ├── new.js
+│   │   ├── nodeArrayToTree.js
+│   │   ├── nodeTreeToArray.js
+│   │   ├── promise.a+.js
+│   │   ├── promise.all.js
+│   │   ├── promise.allSettled.js
+│   │   ├── promise.any.js
+│   │   ├── promise.js
+│   │   ├── promise.race.js
+│   │   ├── promisify.js
+│   │   ├── throttle.js
+│   │   └── trafficLight.js
+│   ├── Companies
+│   │   ├── 京东.md
+│   │   ├── '京东 主站 web&m 端.md'
+│   │   ├── '京东二面面经 250618.md'
+│   │   ├── '京东前端一面 250617.md'
+│   │   ├── 京东前端两面经历.md
+│   │   ├── '京东即时零售 250618.md'
+│   │   ├── 京东即时零售一面·250619.md
+│   │   ├── 字节.md
+│   │   ├── '字节 前端安全架构.md'
+│   │   ├── 字节项目一面·250627.md
+│   │   ├── 快手.md
+│   │   ├── 快手一二面经.md
+│   │   ├── 快手一面·250623.md
+│   │   ├── 快手用增一面·250626.md
+│   │   ├── 滴滴.md
+│   │   ├── '滴滴全部四面过程 250618.md'
+│   │   ├── '滴滴面经 250620.md'
+│   │   ├── 牵手.md
+│   │   ├── 美团.md
+│   │   ├── 美团IM·250620.md
+│   │   ├── '美团公共技术 250618.md'
+│   │   ├── '美团前端一面  250618.md'
+│   │   ├── '美团前端二面 250618.md'
+│   │   ├── 蓝湖.md
+│   │   ├── 转转.md
+│   │   └── 面试体验差的公司.md
+│   ├── Projects
+│   │   └── 如何介绍项目难点成绩.md
+│   ├── +面试准备指南.md
+│   ├── '00 面试一张纸 ⭐️.md'
+│   ├── '01 项目总结MOC.md'
+│   ├── '02 公司追踪MOC.md'
+│   ├── '03 前端和代码MOC ⭐️.md'
+│   ├── '04 系统和工程MOC ⭐️.md'
+│   ├── '09 面试软技能.md'
+│   ├── '101 CS Roadmaps.md'
+│   ├── '102 Web 全栈全家桶.md'
+│   ├── '103 CSS学习和进阶.md'
+│   ├── '301 算法学习.md'
+│   ├── '401 AI全家桶.md'
+│   ├── '20250615 小程序 前端面试派.md'
+│   ├── '20250615 数据结构和算法 前端面试派.md'
+│   ├── '20250616 HTML 和 CSS.md'
+│   ├── '20250626 交叉面试  前端面试派.md'
+│   ├── '准备：HR 面.md'
+│   ├── '准备：前端 Leader 面试.md'
+│   └── 准备：自我介绍、项目介绍.md
+├── Efforts
+│   ├── Notes
+│   ├── On
+│   │   ├── Coder2Gwy
+│   │   │   ├── 考公指南.canvas
+│   │   │   └── 资料分析.md
+│   │   ├── LearnEnglish
+│   │   │   └── 英语听说读写.project.md
+│   │   ├── Photography
+│   │   │   ├── 培养摄影感.canvas
+│   │   │   └── 摄影MOC.canvas
+│   │   ├── 学习-正确跑步
+│   │   │   ├── '202309230040 跑步恢复体能的原子习惯.md'
+│   │   │   ├── '202309230056 跑步-姿势-学会送髋.md'
+│   │   │   ├── '202309230058 跑步-不伤膝盖.md'
+│   │   │   └── 学习正确跑步.project.md
+│   │   ├── 学习-驾照
+│   │   ├── 离职入职指南
+│   │   │   ├── 入职做什么.md
+│   │   │   ├── 离职前做什么.md
+│   │   │   └── 背调查什么.md
+│   │   ├── 21天生活化减脂.canvas
+│   │   ├── 积极心理学.md
+│   │   └── '🌌 Ideaverse Kit Launch (E) (Example).md'
+│   ├── Ongoing
+│   │   ├── Aiverse
+│   │   │   ├── '使用 Obsidian Canvas 绘制功能框架图.md.md'
+│   │   │   ├── 大模型了解.excalidraw.md
+│   │   │   └── 大模型入门指南.canvas
+│   │   ├── Lifeverse
+│   │   │   ├── 人生指南.canvas
+│   │   │   ├── 爱好养成记.canvas
+│   │   │   ├── 程序员自救指南.canvas
+│   │   │   └── '财富自由访谈 - 喻颖正.md'
+│   │   ├── 书影之间
+│   │   │   ├── 2025书单.md
+│   │   │   └── 经典书影.canvas
+│   │   └── '🌌 Ideaverse Kit (OE) (Example).md'
+│   ├── Simmering
+│   │   └── 独立开发.md
+│   ├── Sleeping
+│   │   └── 'Habits Example'
+│   │       ├── '201303102051 Habit Planning.md'
+│   │       ├── '201502201031 Habit Formation Research Article.md'
+│   │       ├── '201502201713 Habit Concepts and Theory.md'
+│   │       ├── '201901250999 Resiliency Routines.md'
+│   │       ├── 'Assembling a random article on habits.md'
+│   │       ├── 'Example - New Habits MOC.md'
+│   │       ├── 'Example 2 - New Habits MOC.md'
+│   │       ├── 'The neural formation of habits is additive - v1.md'
+│   │       ├── 'The neural formation of habits is additive.md'
+│   │       ├── 'The truest habit metaphors are additive - v1.md'
+│   │       └── 'The truest habit metaphors are additive.md'
+│   └── '🧭 Compass'
+│       ├── '2025 Goals.md'
+│       └── 'Task Kanban.md'
+├── Spaces
+│   ├── @Baidu
+│   │   ├── +
+│   │   │   ├── django.md
+│   │   │   ├── encodeURIComponent.md
+│   │   │   ├── 'For Beginners.md'
+│   │   │   ├── 'git merge.md'
+│   │   │   ├── git操作.md
+│   │   │   ├── hadoop.md
+│   │   │   ├── 'linux command line.md'
+│   │   │   ├── mysql.md
+│   │   │   ├── obsidian插件.md
+│   │   │   ├── package.json.md
+│   │   │   ├── scp.md
+│   │   │   ├── Spark.md
+│   │   │   ├── TM.md
+│   │   │   ├── 上线通报.md
+│   │   │   ├── 主从延迟.md
+│   │   │   ├── 奖项申请.md
+│   │   │   ├── 最佳新人申请.md
+│   │   │   ├── '模拟过滤 diff.md'
+│   │   │   ├── 死锁.md
+│   │   │   ├── 理解编码.md
+│   │   │   ├── 踩坑.md
+│   │   │   └── 踩坑记录.md
+│   │   ├── Calendar
+│   │   │   ├── 2024-06-19.md
+│   │   │   ├── 2024-09-26.md
+│   │   │   ├── 2025-01-07.md
+│   │   │   ├── '20241114 报警平台MRD会议记录.md'
+│   │   │   └── '20241122 报警平台PRD会议记录.md'
+│   │   ├── Compass
+│   │   │   ├── '+Project Kanban.md'
+│   │   │   ├── +TODO.md
+│   │   │   ├── 2023Q1.md
+│   │   │   ├── 2023Q2.md
+│   │   │   ├── 2023Q3.md
+│   │   │   ├── '2023 绩效评估.md'
+│   │   │   ├── '2024Q1 OKR.md'
+│   │   │   ├── '2024Q1 OKR Review.md'
+│   │   │   └── 'OKR review.md'
+│   │   ├── Efforts
+│   │   │   ├── 01.码神训练
+│   │   │   │   ├── 1百度方法之高效研发：敏捷Scrum基础V1.0.pdf
+│   │   │   │   ├── 2百度方法之高效研发：敏捷实践应用V1.2-方法+模板.pdf
+│   │   │   │   ├── 2022-05期码神特训营进阶篇开营仪式.pptx
+│   │   │   │   ├── '岗前篇 - Git&Linux.docx'
+│   │   │   │   ├── 码入门篇开营20220714.pptx
+│   │   │   │   ├── 码神_-平台化.pptx
+│   │   │   │   ├── 码神特训营_-工具链_-完整版.pptx
+│   │   │   │   ├── 码神训练营_-_-敏捷实践应用.pptx
+│   │   │   │   ├── 课时1_-【码神特训营】安全制度要求.pptx
+│   │   │   │   └── 课时2_-【码神训练营】百度安全研发实践v5.pptx
+│   │   │   ├── 04.代码串讲
+│   │   │   │   ├── 业务模块
+│   │   │   │   │   ├── IMG_20220726_201557.jpg
+│   │   │   │   │   ├── IMG_20220726_202034.jpg
+│   │   │   │   │   ├── IMG_20220726_202037.jpg
+│   │   │   │   │   ├── IMG_20220726_210317.jpg
+│   │   │   │   │   ├── IMG_20220726_210330.jpg
+│   │   │   │   │   ├── IMG_20220726_210754.jpg
+│   │   │   │   │   ├── IMG_20220726_211312.jpg
+│   │   │   │   │   ├── IMG_20220726_211319.jpg
+│   │   │   │   │   └── IMG_20220726_220324.jpg
+│   │   │   │   ├── 商业广告
+│   │   │   │   │   ├── IMG_20220713_201548.jpg
+│   │   │   │   │   ├── IMG_20220713_201558.jpg
+│   │   │   │   │   ├── IMG_20220713_201602.jpg
+│   │   │   │   │   ├── IMG_20220713_201605.jpg
+│   │   │   │   │   └── IMG_20220713_205610.jpg
+│   │   │   │   ├── ntunnel_mysql.php
+│   │   │   │   ├── Themis串讲(Worker-lib&Parser-lib).pptx
+│   │   │   │   ├── themis反作弊统一架构-详细设计-20150331.doc
+│   │   │   │   ├── themis反作弊统一架构_v0.5_20150309.pdf
+│   │   │   │   ├── 串讲问题整理.md
+│   │   │   │   ├── 反作弊模型化介绍.pptx
+│   │   │   │   ├── 新人策略串讲_方文征_final_v1.pptx
+│   │   │   │   ├── 点击串讲-杨佳学20140903.pptx
+│   │   │   │   ├── 点击反作弊工作介绍-李学凯-20130820.pptx
+│   │   │   │   ├── 王宇航策略串讲.pptx
+│   │   │   │   ├── '神盾 数据库表结构.png'
+│   │   │   │   ├── '神盾策略管理平台 主要工作总结.docx'
+│   │   │   │   ├── 蔡坤-神盾平台新人串讲PPT-OLD.pptx
+│   │   │   │   ├── 蔡坤-神盾平台新人串讲PPT.pptx
+│   │   │   │   ├── 计算广告.pdf
+│   │   │   │   ├── 计算广告：互联网商业变现的市场与技术.epub
+│   │   │   │   ├── 词表整理第一阶段整理结果.xlsx
+│   │   │   │   └── 词表状态整理.xlsx
+│   │   │   ├── Anti
+│   │   │   │   └── MEG业务架构.png
+│   │   │   └── 项目文档
+│   │   │       ├── Hector
+│   │   │       │   ├── ' 上线 checklist.md'
+│   │   │       │   ├── ' 上线流程规范.md'
+│   │   │       │   ├── ' 升级 Node20 （done）.md'
+│   │   │       │   ├── ' 报表建设.md'
+│   │   │       │   ├── ' 接手串讲文档.md'
+│   │   │       │   └── ' 文档 MOC.md'
+│   │   │       ├── ppt材料
+│   │   │       │   ├── anti-service.xmind
+│   │   │       │   ├── 'anti新人培养练习题C++部分 (1).doc'
+│   │   │       │   ├── anti新人培养练习题C++部分.doc
+│   │   │       │   ├── Ecom入职学习-凤巢大局观.docx
+│   │   │       │   ├── WISE日志反作弊系统_详细设计_20160412.docx
+│   │   │       │   ├── 主要工作总结.docx
+│   │   │       │   ├── 凤巢的前世今生_万昊.pptx
+│   │   │       │   ├── 切词2.0.5使用说明.doc
+│   │   │       │   ├── 刘帅--AntiService串讲.xmind
+│   │   │       │   ├── 反作弊特征中心一期.pptx
+│   │   │       │   ├── 排期表11.png
+│   │   │       │   ├── 排期表Q3.png
+│   │   │       │   ├── 日志反作弊系统技术方案.pptx
+│   │   │       │   ├── 深入浅出凤巢.pdf
+│   │   │       │   ├── 百中平台串讲-王凯凯.pptx
+│   │   │       │   └── '策略平台 (1).png'
+│   │   │       ├── 一站式
+│   │   │       │   ├── '截屏2025-02-19 21.42.37.png'
+│   │   │       │   ├── '截屏2025-02-19 21.42.40.png'
+│   │   │       │   ├── '截屏2025-02-19 21.42.56.png'
+│   │   │       │   ├── '截屏2025-02-19 21.43.00.png'
+│   │   │       │   ├── '截屏2025-02-19 21.43.14.png'
+│   │   │       │   ├── '截屏2025-02-19 21.43.27.png'
+│   │   │       │   ├── '截屏2025-02-19 21.43.49.png'
+│   │   │       │   └── '截屏2025-02-19 21.43.56.png'
+│   │   │       ├── 神盾
+│   │   │       │   ├── '截屏2025-02-19 21.40.44.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.06.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.10.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.16.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.21.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.24.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.32.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.36.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.42.png'
+│   │   │       │   ├── '截屏2025-02-19 21.41.47.png'
+│   │   │       │   ├── '截屏2025-02-19 21.42.02.png'
+│   │   │       │   └── '截屏2025-02-19 21.42.06.png'
+│   │   │       ├── 神盾平台
+│   │   │       │   ├── afs.md
+│   │   │       │   ├── 'open_judge case.md'
+│   │   │       │   ├── 'tm policy 耗时问题排查.md'
+│   │   │       │   ├── 复用功能修改.md
+│   │   │       │   └── 神盾平台运维.md
+│   │   │       ├── flink过滤框架配置方法（适配特征中心版本）.md
+│   │   │       ├── 'TM 配置转 Flink 情况摸底.md'
+│   │   │       ├── 【LLD】报警监控一期.md
+│   │   │       ├── 异常感知平台梳理（工程）.md
+│   │   │       ├── 特征中心的设计和使用分享.md
+│   │   │       ├── 特征配置方法（最新）.md
+│   │   │       ├── 神盾核心功能迁移一站式风控.md
+│   │   │       └── 策略报警平台-现状调研.md
+│   │   └── X
+│   │       └── Assets
+│   │           ├── 'Pasted image 20230303232408.png'
+│   │           ├── 'Pasted image 20230306161353.png'
+│   │           ├── 'Pasted image 20230308165629.png'
+│   │           ├── 'Pasted image 20230308171102.png'
+│   │           ├── 'Pasted image 20230308171918.png'
+│   │           ├── 'Pasted image 20230423173139.png'
+│   │           ├── 'Pasted image 20230423173155.png'
+│   │           ├── 'Pasted image 20230529162246.png'
+│   │           ├── 'Pasted image 20230529162313.png'
+│   │           ├── 'Pasted image 20230609143426.png'
+│   │           ├── 'Pasted image 20230712214924.png'
+│   │           ├── 'Pasted image 20230712215029.png'
+│   │           ├── 'Pasted image 20230712215250.png'
+│   │           ├── 'Pasted image 20230712215501.png'
+│   │           ├── 'Pasted image 20230713105633.png'
+│   │           ├── 'Pasted image 20230713110903.png'
+│   │           ├── 'Pasted image 20230713141734.png'
+│   │           ├── 'Pasted image 20230713154604.png'
+│   │           ├── 'Pasted image 20230713154635.png'
+│   │           ├── 'Pasted image 20230713154722.png'
+│   │           ├── 'Pasted image 20230713155155.png'
+│   │           ├── 'Pasted image 20230713155215.png'
+│   │           ├── 'Pasted image 20230713155311.png'
+│   │           ├── 'Pasted image 20230713155320.png'
+│   │           ├── 'Pasted image 20230713160221.png'
+│   │           ├── 'Pasted image 20230713160233.png'
+│   │           ├── 'Pasted image 20230713161634.png'
+│   │           ├── 'Pasted image 20230713161819.png'
+│   │           ├── 'Pasted image 20231023103336.png'
+│   │           ├── 'Pasted image 20231030155034.png'
+│   │           ├── 'Pasted image 20240520192724.png'
+│   │           ├── 'Recording 20240619193246.webm'
+│   │           ├── 'Recording 20240619193345.webm'
+│   │           └── 'Recording 20240619230624.webm'
+│   └── @bytedance
+├── X
+│   ├── Anki
+│   ├── 'Apple Notes'
+│   │   ├── vscode-leetcode-editor.md
+│   │   ├── 一张纸备忘录.md
+│   │   ├── 产品想法.md
+│   │   ├── 前端职业探索.md
+│   │   ├── 副业.md
+│   │   ├── 周末和假期要做反差大的事情.md
+│   │   ├── '工具 APP.md'
+│   │   └── '脑海中的 app.md'
+│   ├── Archives
+│   │   ├── 入职离职材料
+│   │   │   ├── 字节入职离职材料
+│   │   │   │   ├── '字节合同-2025年07月29日 18_33_00.zip'
+│   │   │   │   ├── 蔡坤-薪资材料收集-2025-20250717.docx
+│   │   │   │   └── 蔡坤_录用通知函.pdf
+│   │   │   └── 百度入职离职材料
+│   │   │       ├── OKR
+│   │   │       │   ├── 'okr_2025-02-18 19.59.10.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.00.17.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.00.44.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.00.54.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.01.06.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.01.14.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.01.28.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.01.36.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.01.53.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.02.02.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.02.24.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.02.30.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.02.41.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.02.52.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.03.20.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.03.31.png'
+│   │   │       │   ├── 'okr_2025-02-18 20.04.07.png'
+│   │   │       │   └── 'okr_2025-02-18 20.04.20.png'
+│   │   │       ├── 三方
+│   │   │       │   ├── 三方-192040100.pdf
+│   │   │       │   ├── 存档-三方.jpg
+│   │   │       │   └── 存档-回原籍申请.jpg
+│   │   │       ├── 绩效
+│   │   │       │   ├── 绩效2022.mhtml
+│   │   │       │   └── 绩效2023.mhtml
+│   │   │       ├── 薪酬证明材料
+│   │   │       │   ├── '1. 招商银行收入流水(2024-07-01-）.pdf'
+│   │   │       │   ├── '2.1 个税 1.jpg'
+│   │   │       │   ├── '2.2 个税 2.jpg'
+│   │   │       │   ├── '3. 校招入职定薪（后面有涨）.png'
+│   │   │       │   ├── '4.1 绩效证明 2023.png'
+│   │   │       │   ├── '4.2 绩效证明 2022.png'
+│   │   │       │   ├── '5.2 年终2022.jpg'
+│   │   │       │   ├── '5. 年终证明 2023.jpg'
+│   │   │       │   └── '参保人员缴费信息查询 202207-202502.pdf'
+│   │   │       ├── 试用期
+│   │   │       │   ├── '截屏2025-02-19 21.49.08.png'
+│   │   │       │   ├── '截屏2025-02-19 21.49.19.png'
+│   │   │       │   └── '截屏2025-02-19 21.49.22.png'
+│   │   │       ├── B226877_校招录用通知.pdf
+│   │   │       ├── B226877_蔡坤_劳动合同.PDF
+│   │   │       ├── B226877_蔡坤_离职证明.PDF
+│   │   │       └── 百度离职背调信息.png
+│   │   └── 简历
+│   │       ├── 校招2021-前端开发-蔡坤.md
+│   │       ├── 校招2021-前端开发-蔡坤.pdf
+│   │       ├── 社招2025-前端开发-3年-蔡坤.md
+│   │       └── 社招2025-前端开发-3年-蔡坤.pdf
+│   ├── Assets
+│   │   ├── 2025书单.png
+│   │   ├── ai_coding_assistants.webp
+│   │   ├── Camera_1040g0k031io10aovhi005pf9jhvh9d1mv2c4ifo.jpg
+│   │   ├── Camera_1040g0k031io108q20s005pf9jhvh9d1mcom9l78.jpg
+│   │   ├── Camera_1040g34o31io10cs90u005pf9jhvh9d1mlrm0lmo.jpg
+│   │   ├── 'CleanShot 2023-07-30 at 21.37.43.png'
+│   │   ├── 'EventLoop 20250615151341.png'
+│   │   ├── feynman-triangulation-1.png
+│   │   ├── feynman-triangulation-2.png
+│   │   ├── feynman-triangulation-3.png
+│   │   ├── flight-school-hotkey-wide.jpg
+│   │   ├── flow-four-factors.png
+│   │   ├── flow-map-original.jpg
+│   │   ├── flow-map.png
+│   │   ├── flow-zone-channel.jpg
+│   │   ├── 'HTML 和 CSS  前端面试派-GVOrdXMepX.png'
+│   │   ├── 'http version.png'
+│   │   ├── 'JS 基础知识  前端面试派-FOOXNbBqLj.jpeg'
+│   │   ├── 'JS 基础知识  前端面试派-lW2hByZgMf.png'
+│   │   ├── 'JS 读代码  前端面试派-qnBxtptsmL.jpeg'
+│   │   ├── lyt-crafting-mocs-0.jpg
+│   │   ├── lyt-crafting-mocs-1.jpg
+│   │   ├── lyt-crafting-mocs-2.jpg
+│   │   ├── lyt-crafting-mocs-3.jpg
+│   │   ├── lyt-crafting-mocs-4.jpg
+│   │   ├── lyt-crafting-mocs-5.jpg
+│   │   ├── lyt-kit-example-cooling-pad-.png
+│   │   ├── lyt-logo-04.png
+│   │   ├── lyt-mapping-the-flexible-flow-of-ideas.jpg
+│   │   ├── lyt-mode-graphic-1.jpg
+│   │   ├── lyt-note-links-to-other-notes.png
+│   │   ├── McCall-pen-sketch-narrow.jpg
+│   │   ├── mckie-ship-and-sea-mid-narrow-.jpg
+│   │   ├── mckie-ship-and-sea-mid-narrow.jpg
+│   │   ├── pale-blue-dot-banner.jpg
+│   │   ├── 'Pasted image 20230312180422.png'
+│   │   ├── 'Pasted image 20230903164355.png'
+│   │   ├── 'Pasted image 20250225195216.png'
+│   │   ├── 'Pasted image 20250515204558.png'
+│   │   ├── 'Pasted image 20250519163910.png'
+│   │   ├── 'Pasted image 20250612134323.png'
+│   │   ├── 'Pasted image 20250612234837.png'
+│   │   ├── 'Pasted image 20250612235000.png'
+│   │   ├── 'Pasted image 20250612235159.png'
+│   │   ├── 'Pasted image 20250613131237.png'
+│   │   ├── 'Pasted image 20250613134552.png'
+│   │   ├── 'Pasted image 20250613164731.png'
+│   │   ├── 'Pasted image 20250613170926.png'
+│   │   ├── 'Pasted image 20250613171043.png'
+│   │   ├── 'Pasted image 20250613171224.png'
+│   │   ├── 'Pasted image 20250613171245.png'
+│   │   ├── 'Pasted image 20250613171256.png'
+│   │   ├── 'Pasted image 20250613205859.png'
+│   │   ├── 'Pasted image 20250613205953.png'
+│   │   ├── 'Pasted image 20250613210022.png'
+│   │   ├── 'Pasted image 20250613210054.png'
+│   │   ├── 'Pasted image 20250613210140.png'
+│   │   ├── 'Pasted image 20250613210210.png'
+│   │   ├── 'Pasted image 20250613210237.png'
+│   │   ├── 'Pasted image 20250613210323.png'
+│   │   ├── 'Pasted image 20250613230902.png'
+│   │   ├── 'Pasted image 20250614003417.png'
+│   │   ├── 'Pasted image 20250614130802.png'
+│   │   ├── 'Pasted image 20250614142918.png'
+│   │   ├── 'Pasted image 20250614144957.png'
+│   │   ├── 'Pasted image 20250615000538.png'
+│   │   ├── 'Pasted image 20250615004148.png'
+│   │   ├── 'Pasted image 20250615004913.png'
+│   │   ├── 'Pasted image 20250615022126.png'
+│   │   ├── 'Pasted image 20250615222202.png'
+│   │   ├── 'Pasted image 20250615222238.png'
+│   │   ├── 'Pasted image 20250616010850.png'
+│   │   ├── 'Pasted image 20250616010936.png'
+│   │   ├── 'Pasted image 20250616015941.png'
+│   │   ├── 'Pasted image 20250616020031.png'
+│   │   ├── 'Pasted image 20250616020040.png'
+│   │   ├── 'Pasted image 20250616022505.png'
+│   │   ├── 'Pasted image 20250616022519.png'
+│   │   ├── 'Pasted image 20250616022537.png'
+│   │   ├── 'Pasted image 20250616105142.png'
+│   │   ├── 'Pasted image 20250616123400.png'
+│   │   ├── 'Pasted image 20250618023414.png'
+│   │   ├── 'Pasted image 20250618194426.png'
+│   │   ├── 'Pasted image 20250618194436.png'
+│   │   ├── 'Pasted image 20250618194442.png'
+│   │   ├── 'Pasted image 20250618194521.png'
+│   │   ├── 'Pasted image 20250619004409.png'
+│   │   ├── 'Pasted image 20250619004432.png'
+│   │   ├── 'Pasted image 20250620103806.png'
+│   │   ├── 'Pasted image 20250620103835.png'
+│   │   ├── 'Pasted image 20250624105440.png'
+│   │   ├── 'Pasted image 20250701155416.png'
+│   │   ├── 'Pasted image 20250703160753.png'
+│   │   ├── 'Pasted image 20250703163159.png'
+│   │   ├── 'Pasted image 20250703163229.png'
+│   │   ├── 'Pasted image 20250703163524.png'
+│   │   ├── 'Pasted image 20250703164005.png'
+│   │   ├── 'Pasted image 20250703164721.png'
+│   │   ├── 'Pasted image 20250703164725.png'
+│   │   ├── 'Pasted image 20250714111613.png'
+│   │   ├── 'Pasted image 20250714111632.png'
+│   │   ├── ptolemy-model.png
+│   │   ├── 'Recording 20240725102444.webm'
+│   │   ├── 'Recording 20240926203213.webm'
+│   │   ├── 'Recording 20250107155655.webm'
+│   │   ├── robert-mccall-A_Decade_of_Achievement_narrow.png
+│   │   ├── robert-mccall-black-hole-concept-art-bottom.jpg
+│   │   ├── 'robert-mccall-black-hole-concept-art copy.jpg'
+│   │   ├── robert-mccall-space-ship-launch-mid.jpg
+│   │   ├── robert-mccall-space-ship-launch-narrow.jpg
+│   │   ├── robert-mccall-space-ship-launch-narrower.png
+│   │   ├── sort-by-file-name-a-to-z.png
+│   │   ├── 'Sort by File name A to Z.png'
+│   │   ├── stay-on-target.jpg
+│   │   ├── 'Triangulation-1a (Drawing).md'
+│   │   ├── 'Vue 原理  前端面试派-DknHOkKcmS.png'
+│   │   ├── 'Vue 原理  前端面试派-hvO174Adzw.png'
+│   │   ├── 'Vue 原理  前端面试派-mEpKMq68jW.png'
+│   │   ├── 'Vue 原理  前端面试派-N2cFrhD4rV.png'
+│   │   ├── 'Vue 原理  前端面试派-qMiKM4zEri.png'
+│   │   ├── 'Vue 原理  前端面试派-r7XEWp4OeN.png'
+│   │   ├── 'Vue 原理  前端面试派-Rf23JACYRA.png'
+│   │   ├── whelan-space-station-1978-mod.jpg
+│   │   ├── whelan-the-wave-1994.jpg
+│   │   ├── wolverine-tethered.jpg
+│   │   ├── 上班的不可能三角.png
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-2w7CS6Ti8P.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-3fnpRSQnL9.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-8NkOLzaJR8.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-bnbVMu7Hzk.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-EWiPzFr5lG.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-f4szWnmm1O.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-F7iOs219pA.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-ItFhoYJK8r.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-LZhh88gCqY.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-MnlubbmHSE.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-nEolahT9BP.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-r7ZsL4xZxT.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-Sxbr7Bu0c2.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-u0E2kmG7GN.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-u5GdhIUd27.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-uzZnVD4IiY.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-xMYNfvld6o.png'
+│   │   ├── '从输入 URL 到浏览器展示，到底经历了什么 （超级详细！）-yzw3YsYORf.png'
+│   │   ├── '前端 Leader 面试  前端面试派-aqymejiGjG.png'
+│   │   ├── '前端 Leader 面试  前端面试派-rhuIsBBqfV.png'
+│   │   ├── '前端 Leader 面试  前端面试派-UjzAnAxRoL.jpeg'
+│   │   ├── 数据结构和算法复杂度.webp
+│   │   ├── '构建第二大脑：入门指南--C.O.D.E 四步法.png'
+│   │   ├── '构建第二大脑：入门指南--不要被动地消费知识 - 将其投入使用.png'
+│   │   ├── 构建第二大脑：入门指南--从零开始.png
+│   │   ├── 构建第二大脑：入门指南--做自己的博物馆馆长.png
+│   │   ├── '构建第二大脑：入门指南--关于 PARA 方法.png'
+│   │   ├── 构建第二大脑：入门指南--创建更小、可重复使用的工作单元.png
+│   │   ├── 构建第二大脑：入门指南--利用好信息工具.png
+│   │   ├── 构建第二大脑：入门指南--务必现在就行动起来.png
+│   │   ├── 构建第二大脑：入门指南--应该创造什么？.png
+│   │   ├── '构建第二大脑：入门指南--摘要法 - 渐进式总结.png'
+│   │   ├── 构建第二大脑：入门指南--精华提炼（Distill）.png
+│   │   ├── 构建第二大脑：入门指南--组织（Organize）.png
+│   │   ├── '计算机基础  前端面试派-3QR55dRfG3.png'
+│   │   ├── '计算机基础  前端面试派-8yt7YYoAsB.png'
+│   │   └── '计算机基础  前端面试派-ggHPiu1xYS.png'
+│   ├── Canvas
+│   ├── Copilot
+│   │   └── copilot-custom-prompts
+│   │       ├── Emojify.md
+│   │       ├── 'Explain like I am 5.md'
+│   │       ├── 'Fix grammar and spelling.md'
+│   │       ├── 'Generate glossary.md'
+│   │       ├── 'Generate table of contents.md'
+│   │       ├── 'Make longer.md'
+│   │       ├── 'Make shorter.md'
+│   │       ├── 'Remove URLs.md'
+│   │       ├── 'Rewrite as press release.md'
+│   │       ├── 'Rewrite as tweet.md'
+│   │       ├── 'Rewrite as tweet thread.md'
+│   │       ├── Simplify.md
+│   │       ├── Summarize.md
+│   │       └── 'Translate to Chinese.md'
+│   ├── Diagrams
+│   │   ├── 策略平台.svg
+│   │   └── 策略配置.drawio
+│   ├── Douban
+│   ├── Excalidraw
+│   │   ├── Libraries
+│   │   │   ├── awesome-icons.excalidrawlib
+│   │   │   ├── data-viz.excalidrawlib
+│   │   │   ├── drwnio.excalidrawlib
+│   │   │   ├── forms.excalidrawlib
+│   │   │   ├── software-architecture.excalidrawlib
+│   │   │   ├── system-design-template.excalidrawlib
+│   │   │   └── system-design.excalidrawlib
+│   │   ├── Scripts
+│   │   │   └── Downloaded
+│   │   │       ├── 'Auto Layout.md'
+│   │   │       ├── 'Auto Layout.svg'
+│   │   │       ├── 'Create DrawIO file.md'
+│   │   │       ├── 'Create DrawIO file.svg'
+│   │   │       ├── 'Create new markdown file and embed into active drawing.md'
+│   │   │       ├── 'Create new markdown file and embed into active drawing.svg'
+│   │   │       ├── 'Full-Year Calendar Generator.md'
+│   │   │       ├── 'Full-Year Calendar Generator.svg'
+│   │   │       ├── 'Mindmap format.md'
+│   │   │       ├── 'Mindmap format.svg'
+│   │   │       ├── 'Organic Line Legacy.md'
+│   │   │       ├── 'Organic Line Legacy.svg'
+│   │   │       ├── 'Set Font Family.md'
+│   │   │       └── 'Set Font Family.svg'
+│   │   ├── Drawing_2025_07_22.excalidraw.md
+│   │   ├── Drawing_2025_08_03.excalidraw.md
+│   │   ├── excalibrain.md
+│   │   └── 神盾_策略配置_2025_07_14.excalidraw.md
+│   ├── Leetcode
+│   ├── Markup
+│   │   ├── url.png
+│   │   ├── 'webpack 打包.png'
+│   │   └── 性能优化.png
+│   ├── scripts
+│   │   ├── dataview
+│   │   │   └── views
+│   │   │       ├── areas.js
+│   │   │       ├── button.js
+│   │   │       ├── goals.js
+│   │   │       ├── habits.js
+│   │   │       ├── links.js
+│   │   │       ├── meetings.js
+│   │   │       ├── notes.js
+│   │   │       ├── progress-bar.js
+│   │   │       ├── projects.js
+│   │   │       └── tasks.js
+│   │   └── templater
+│   │       ├── content
+│   │       │   └── render.js
+│   │       ├── daily
+│   │       │   ├── dailyDateInfo.js
+│   │       │   ├── dailyNextPrevRibbon.js
+│   │       │   └── dailyZoomOutRibbon.js
+│   │       ├── date
+│   │       │   └── dateUtils.js
+│   │       ├── monthly
+│   │       │   ├── monthlyNextPrevRibbon.js
+│   │       │   └── monthlyZoomOutRibbon.js
+│   │       ├── quarterly
+│   │       │   ├── quarterlyDateInfo.js
+│   │       │   ├── quarterlyNextPrevRibbon.js
+│   │       │   └── quarterlyZoomOutRibbon.js
+│   │       ├── weekly
+│   │       │   ├── weeklyDateInfo.js
+│   │       │   ├── weeklyNextPrevRibbon.js
+│   │       │   └── weeklyZoomOutRibbon.js
+│   │       └── yearly
+│   │           └── yearlyNextPrevRibbon.js
+│   ├── Slidev
+│   ├── Templater
+│   │   ├── notes
+│   │   │   └── Fleeting.md
+│   │   ├── para
+│   │   │   ├── Area.md
+│   │   │   ├── Project.md
+│   │   │   └── Resource.md
+│   │   ├── plan
+│   │   │   ├── Daily.md
+│   │   │   ├── Goal.md
+│   │   │   ├── Monthly.md
+│   │   │   ├── Quarterly.md
+│   │   │   ├── Weekly.md
+│   │   │   └── Yearly.md
+│   │   └── work
+│   │       ├── Meeting.md
+│   │       └── People.md
+│   ├── Templates
+│   │   ├── +,Base.md
+│   │   ├── +,Zettelkasten.md
+│   │   ├── +,医学手册.md
+│   │   ├── Atlas,Person.md
+│   │   ├── Atlas,Source.md
+│   │   ├── 'Calendar,Daily Note.md'
+│   │   ├── Codeverse,Algo.md
+│   │   ├── Codeverse,Company.md
+│   │   ├── Codeverse,Handcode.md
+│   │   ├── Efforts,Base.md
+│   │   ├── 'X, Excalidraw.excalidraw'
+│   │   ├── "X, Nick Milo's Custom Callouts.md"
+│   │   ├── ⏳时间线模板.md
+│   │   ├── ✒️周检视模板.md
+│   │   ├── 🍳问题剖析模板.md
+│   │   ├── 💥思维导图模板.md
+│   │   ├── 📊年度检视模板.md
+│   │   ├── 📑概念笔记模板.md
+│   │   ├── 📔笔记迭代模板.md
+│   │   ├── 📖主题研究模板.md
+│   │   ├── 📜文章背诵模板.md
+│   │   ├── 📺视频笔记模板.md
+│   │   ├── 🔖LingQ模板.md
+│   │   ├── 🔖英语学习模板.md
+│   │   ├── 🔨代码片段模板.md
+│   │   ├── 🕓日记模板.md
+│   │   ├── 🗓️月度检视模板.md
+│   │   └── 🧠OB2Anki模板.md
+│   ├── Weread
+│   │   ├── CSS揭秘.md
+│   │   ├── 《金刚经》说什么.md
+│   │   ├── 全球化与国家竞争：新兴七国比较研究.md
+│   │   ├── 吴思历史经典三部曲.md
+│   │   ├── 哥伦比亚的倒影.md
+│   │   ├── 围城.md
+│   │   ├── 天之下.md
+│   │   ├── 太白金星有点烦.md
+│   │   ├── 安·兰德的小说写作课.md
+│   │   ├── 局外人.md
+│   │   ├── 幸福的方法.md
+│   │   ├── 德米安：彷徨少年时（黑塞精选集）.md
+│   │   ├── 悉达多（果麦经典）.md
+│   │   ├── 我们生活在巨大的差距里.md
+│   │   ├── 我的阿勒泰（马伊琍、周依然、于适主演同名电视剧原著）.md
+│   │   ├── 抓落叶.md
+│   │   ├── 掌控习惯：如何养成好习惯并戒除坏习惯（《原子习惯》中文版）（新版）.md
+│   │   ├── 新摄影笔记.md
+│   │   ├── 无法直面的人生：鲁迅传（修订本）.md
+│   │   ├── 梁永安：爱情这门课，你可别挂科！.md
+│   │   ├── 法治的细节.md
+│   │   ├── 深度关系：从建立信任到彼此成就.md
+│   │   ├── 源泉.md
+│   │   ├── 猫咪家庭医学大百科（全新修订版）.md
+│   │   ├── 理想国（汉译世界学术名著丛书）.md
+│   │   ├── 红楼梦.md
+│   │   ├── 被讨厌的勇气：“自我启发之父”阿德勒的哲学课.md
+│   │   ├── 谈美.md
+│   │   ├── 逃避自由（弗洛姆作品系列）.md
+│   │   └── 金刚经说什么.md
+│   └── Zotero
+├── Home.md
+├── 'Home Basic.md'
+├── 'Ideaverse Map.md'
+├── tree.txt
+├── Untitled.md
+└── 利普空.md

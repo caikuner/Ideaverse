@@ -1,0 +1,30 @@
+
+<html>
+<p>三种方式: css-clip、border、scg</p>
+<div class="triangle"></div>
+
+<svg width="20" height="17.32" viewBox="0 0 100 100">
+  <polygon points="0,100 50,0 100,100" fill="red" />
+</svg>
+
+</div>
+<style>
+.triangle {
+  width: 20px;
+  height: 17.32px;  /* 20 × sin(60°) */
+  background-color: red;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%)
+}
+
+@supports not (clip-path: polygon(0% 100%, 50% 0%, 100% 100%)) {
+  .triangle {
+    width: 0; /* 注意设为 0 */
+    height: 0;
+
+    border-left: 10px solid transparent;  /* 边长 20px 的等边三角形，左右 10+10 */
+    border-right: 10px solid transparent;
+    border-bottom: 17.32px solid red;   /* 高度  20 × sin(60°) ≈ 17.32px */
+  }
+}
+</style>
+</html>

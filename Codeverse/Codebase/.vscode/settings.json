@@ -1,0 +1,7 @@
+{
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "typescript": "tsx"
+  },
+  "livePreview.defaultPreviewPath": "/test.html"
+}

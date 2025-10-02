@@ -1,0 +1,32 @@
+/* images 调整 */
+.internal-embed.image-embed img {
+  max-width: 70%;
+  height: auto;
+}
+
+/* 特定图片调整（通过 alt 文本选择） */
+img[alt*="sm"] {
+  width: 200px;
+}
+
+img[alt*="md"] {
+  width: 500px;
+}
+
+img[alt*="lg"] {
+  width: 800px
+}
+
+/* mermaid 图形样式调整 */
+.mermaid {
+  /* max-width: 80% !important; */
+  height: auto;
+}
+.mermaid rect.actor {
+    stroke: #DBD0F4;
+    fill: #ECECFF;
+}
+.mermaid rect.actor {
+    stroke: #C4C25C;
+    fill: #FFF5AD;
+}

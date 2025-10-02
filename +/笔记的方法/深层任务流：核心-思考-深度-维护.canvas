@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"type":"text","text":"《深度思考》","id":"11e11e5a77b5742b","x":-340,"y":-1760,"width":240,"height":60},
+		{"type":"file","file":"+/笔记的方法/202403010000 深度思考-深层工作流程.md","id":"dcfe77011dc567cd","x":-340,"y":-1662,"width":520,"height":545},
+		{"type":"text","text":"深度思考：\n- 优先级1：新的核心的任务和项目，学习阶段\n- 优先级2：创造性、思考性的，刻意练习阶段\n- 优先级3：深度任务，熟练阶段\n- 其他级别：维护性任务，日常任务，会分心的任务","id":"f52c14f7e527f8b8","x":-940,"y":-1662,"width":480,"height":200}
+	],
+	"edges":[
+		{"id":"48c75613193f61a4","fromNode":"dcfe77011dc567cd","fromSide":"left","toNode":"f52c14f7e527f8b8","toSide":"right"},
+		{"id":"66859193de94fb9c","fromNode":"11e11e5a77b5742b","fromSide":"left","toNode":"f52c14f7e527f8b8","toSide":"right"}
+	],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}
