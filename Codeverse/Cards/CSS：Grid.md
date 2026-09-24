@@ -6,6 +6,7 @@ companies:
 created: 2025-06-18
 modified: 2025-06-18
 ---
+
 CSS Grid 是一种**二维布局系统**，可以同时控制行和列，适用于复杂的页面布局（如仪表盘、杂志排版等）。
 
 ## **1. Grid 布局的核心概念**
@@ -43,7 +44,7 @@ CSS Grid 是一种**二维布局系统**，可以同时控制行和列，适用�
 ```css
 .container {
   grid-template-columns: 100px 1fr 2fr; /* 3列：固定100px + 剩余空间1:2分配 */
-  grid-template-rows: 50px auto 100px;   /* 3行：固定50px、自适应、固定100px */
+  grid-template-rows: 50px auto 100px; /* 3行：固定50px、自适应、固定100px */
 }
 ```
 
@@ -64,10 +65,18 @@ CSS Grid 是一种**二维布局系统**，可以同时控制行和列，适用�
     "sidebar main main"
     "footer footer footer";
 }
-.item-header { grid-area: header; }
-.item-sidebar { grid-area: sidebar; }
-.item-main { grid-area: main; }
-.item-footer { grid-area: footer; }
+.item-header {
+  grid-area: header;
+}
+.item-sidebar {
+  grid-area: sidebar;
+}
+.item-main {
+  grid-area: main;
+}
+.item-footer {
+  grid-area: footer;
+}
 ```
 
 ### **（3）`gap`（间距）**
@@ -112,8 +121,8 @@ CSS Grid 是一种**二维布局系统**，可以同时控制行和列，适用�
 
 ```css
 .item {
-  grid-column: 1 / 3;  /* 从第1列到第3列 */
-  grid-row: span 2;     /* 占据2行 */
+  grid-column: 1 / 3; /* 从第1列到第3列 */
+  grid-row: span 2; /* 占据2行 */
 }
 ```
 
@@ -192,12 +201,12 @@ CSS Grid 是一种**二维布局系统**，可以同时控制行和列，适用�
 
 ## **5. Grid vs. Flexbox**
 
-| **特性**       | **CSS Grid**            | **Flexbox**              |
-|--------------|------------------------|------------------------|
-| **维度**      | 二维（行和列）          | 一维（行或列）          |
-| **适用场景**  | 整体页面布局            | 组件内部布局            |
-| **对齐控制**  | `justify-items` / `align-content` | `justify-content` / `align-items` |
-| **项目定位**  | 通过网格线精准控制      | 依赖 `flex-direction` 和 `order` |
+| **特性**     | **CSS Grid**                      | **Flexbox**                       |
+| ------------ | --------------------------------- | --------------------------------- |
+| **维度**     | 二维（行和列）                    | 一维（行或列）                    |
+| **适用场景** | 整体页面布局                      | 组件内部布局                      |
+| **对齐控制** | `justify-items` / `align-content` | `justify-content` / `align-items` |
+| **项目定位** | 通过网格线精准控制                | 依赖 `flex-direction` 和 `order`  |
 
 ---
 

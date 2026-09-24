@@ -16,6 +16,7 @@ Service Worker 提供了强大的缓存控制能力，可以精细化管理 Web 
 ## Service Worker 缓存简介
 
 Service Worker 实现缓存功能一般分为三个步骤：
+
 - 注册 Service Worker
 - Worker 监听到 `install` 事件以后就可以缓存需要的文件
 - 监听 fetch 事件，通过拦截请求的方式查询是否存在缓存，存在缓存的话就可以直接读取缓存文件，否则就去请求数据
@@ -24,45 +25,44 @@ Service Worker 实现缓存功能一般分为三个步骤：
 // index.js
 if (navigator.serviceWorker) {
   navigator.serviceWorker
-    .register('sw.js')
-    .then(function(registration) {
-      console.log('service worker 注册成功')
+    .register("sw.js")
+    .then(function (registration) {
+      console.log("service worker 注册成功");
     })
-    .catch(function(err) {
-      console.log('servcie worker 注册失败')
-    })
+    .catch(function (err) {
+      console.log("servcie worker 注册失败");
+    });
 }
-
 ```
 
 ```js
 // sw.js
 
 // 监听 `install` 事件，回调中缓存所需文件
-self.addEventListener('install', e => {
+self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open('my-cache').then(function(cache) {
-      return cache.addAll(['./index.html', './index.js'])
-    })
-  )
-})
+    caches.open("my-cache").then(function (cache) {
+      return cache.addAll(["./index.html", "./index.js"]);
+    }),
+  );
+});
 
 // 拦截所有请求事件
 // 如果缓存中已经有请求的数据就直接用缓存，否则去请求数据
-self.addEventListener('fetch', e => {
+self.addEventListener("fetch", (e) => {
   e.respondWith(
-    caches.match(e.request).then(function(response) {
+    caches.match(e.request).then(function (response) {
       if (response) {
-        return response
+        return response;
       }
-      console.log('fetch source')
-    })
-  )
-})
+      console.log("fetch source");
+    }),
+  );
+});
 ```
 
 - 打开控制台查看 cache
-![[Pasted image 20250614003417.png||400]]
+  ![[Pasted image 20250614003417.png||400]]
 
 ## Cache API
 
@@ -79,7 +79,7 @@ Service Worker 的 Cache API 是一个专门为离线缓存设计的存储系统
    - 可通过 StorageManager API 查询：
 
    ```javascript
-   navigator.storage.estimate().then(estimate => {
+   navigator.storage.estimate().then((estimate) => {
      console.log(`可用空间: ${estimate.quota - estimate.usage}`);
    });
    ```
@@ -93,7 +93,7 @@ Service Worker 的 Cache API 是一个专门为离线缓存设计的存储系统
 #### 1. 打开/创建缓存
 
 ```javascript
-caches.open('my-cache-v1').then(cache => {
+caches.open("my-cache-v1").then((cache) => {
   // 操作缓存
 });
 ```
@@ -102,14 +102,10 @@ caches.open('my-cache-v1').then(cache => {
 
 ```javascript
 // 添加单个资源
-cache.add('/styles/main.css');
+cache.add("/styles/main.css");
 
 // 批量添加
-cache.addAll([
-  '/',
-  '/index.html',
-  '/scripts/app.js'
-]);
+cache.addAll(["/", "/index.html", "/scripts/app.js"]);
 ```
 
 #### 3. 匹配缓存
@@ -119,7 +115,7 @@ cache.addAll([
 cache.match(request);
 
 // 匹配所有相关项
-cache.matchAll(request, {options});
+cache.matchAll(request, { options });
 ```
 
 #### 4. 删除缓存项
@@ -141,11 +137,12 @@ cache.keys();
 #### 1. 离线优先策略
 
 ```javascript
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(cached => cached || fetch(event.request))
-      .catch(() => caches.match('/offline.html'))
+    caches
+      .match(event.request)
+      .then((cached) => cached || fetch(event.request))
+      .catch(() => caches.match("/offline.html")),
   );
 });
 ```
@@ -153,19 +150,19 @@ self.addEventListener('fetch', event => {
 #### 2. 网络优先策略
 
 ```javascript
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(event.request)
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
-            // 更新缓存
-            caches.open('dynamic-cache').then(cache => {
-              cache.put(event.request, response.clone());
-            });
+          // 更新缓存
+          caches.open("dynamic-cache").then((cache) => {
+            cache.put(event.request, response.clone());
+          });
         }
         return response;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => caches.match(event.request)),
   );
 });
 ```
@@ -173,18 +170,15 @@ self.addEventListener('fetch', event => {
 #### 3. 静态资源长期缓存
 
 ```javascript
-const STATIC_CACHE = 'static-v1';
-const STATIC_URLS = [
-  '/styles/main.css',
-  '/scripts/app.js',
-  '/images/logo.svg'
-];
+const STATIC_CACHE = "static-v1";
+const STATIC_URLS = ["/styles/main.css", "/scripts/app.js", "/images/logo.svg"];
 
-self.addEventListener('install', event => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then(cache => cache.addAll(STATIC_URLS))
-      .then(() => self.skipWaiting())
+    caches
+      .open(STATIC_CACHE)
+      .then((cache) => cache.addAll(STATIC_URLS))
+      .then(() => self.skipWaiting()),
   );
 });
 ```
@@ -192,16 +186,15 @@ self.addEventListener('install', event => {
 ### 2. 缓存版本控制
 
 ```javascript
-const CURRENT_CACHE = 'app-v2';
+const CURRENT_CACHE = "app-v2";
 
-self.addEventListener('activate', event => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then(keys => {
+    caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter(key => key !== CURRENT_CACHE)
-          .map(key => caches.delete(key))
+        keys.filter((key) => key !== CURRENT_CACHE).map((key) => caches.delete(key)),
       );
-    })
+    }),
   );
 });
 ```
@@ -210,18 +203,20 @@ self.addEventListener('activate', event => {
 
 ```javascript
 function cleanOldCaches() {
-    const MAX_CACHE_AGE = 30 * 24 * 60 * 60 * 1000; // 30天
+  const MAX_CACHE_AGE = 30 * 24 * 60 * 60 * 1000; // 30天
 
-  return caches.open('my-cache').then(cache => {
-    return cache.keys().then(requests => {
-      return Promise.all(requests.map(request => {
-        return cache.match(request).then(response => {
-          const cacheTime = new Date(response.headers.get('date')).getTime();
-          if (Date.now() - cacheTime > MAX_CACHE_AGE) {
-            return cache.delete(request);
-          }
-        });
-      }));
+  return caches.open("my-cache").then((cache) => {
+    return cache.keys().then((requests) => {
+      return Promise.all(
+        requests.map((request) => {
+          return cache.match(request).then((response) => {
+            const cacheTime = new Date(response.headers.get("date")).getTime();
+            if (Date.now() - cacheTime > MAX_CACHE_AGE) {
+              return cache.delete(request);
+            }
+          });
+        }),
+      );
     });
   });
 }
@@ -230,14 +225,16 @@ function cleanOldCaches() {
 ### 4. 缓存清理
 
 ```javascript
-self.addEventListener('activate', event => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
-      );
-    }).then(() => self.clients.claim())
+    caches
+      .keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name)),
+        );
+      })
+      .then(() => self.clients.claim()),
   );
 });
 ```
@@ -247,18 +244,14 @@ self.addEventListener('activate', event => {
 ### 1. 离线页面
 
 ```javascript
-const OFFLINE_URL = '/offline.html';
+const OFFLINE_URL = "/offline.html";
 
-self.addEventListener('fetch', event => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith(
-      fetch(event.request)
-        .catch(() => caches.match(OFFLINE_URL))
-    );
+self.addEventListener("fetch", (event) => {
+  if (event.request.mode === "navigate") {
+    event.respondWith(fetch(event.request).catch(() => caches.match(OFFLINE_URL)));
   } else {
     event.respondWith(
-      caches.match(event.request)
-        .then(response => response || fetch(event.request))
+      caches.match(event.request).then((response) => response || fetch(event.request)),
     );
   }
 });
@@ -274,7 +267,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       caches.open(API_CACHE_NAME)
         .then(cache => cache.match(event.request)
-        .then(response => response || 
+        .then(response => response ||
           fetch(event.request)
             .then(response => {
               if (response.ok) {
@@ -297,9 +290,9 @@ self.addEventListener('fetch', event => {
    ```javascript
    // 按类型分开缓存
    const CACHES = {
-     static: 'static-v1',
-     images: 'images-v1',
-     api: 'api-responses'
+     static: "static-v1",
+     images: "images-v1",
+     api: "api-responses",
    };
    ```
 
@@ -307,7 +300,7 @@ self.addEventListener('fetch', event => {
 
    ```javascript
    // 不缓存非GET请求和大文件
-   if (event.request.method !== 'GET' || event.request.url.includes('large-video.mp4')) {
+   if (event.request.method !== "GET" || event.request.url.includes("large-video.mp4")) {
      return fetch(event.request);
    }
    ```
@@ -315,7 +308,7 @@ self.addEventListener('fetch', event => {
 3. **部分响应缓存**：
 
    ```javascript
-   fetch(event.request).then(response => {
+   fetch(event.request).then((response) => {
      // 只缓存响应体前1MB
      const reader = response.body.getReader();
      // …处理部分读取逻辑
@@ -332,30 +325,29 @@ self.addEventListener('fetch', event => {
 
    ```javascript
    // 列出所有缓存
-   caches.keys().then(keys => console.log(keys));
-   
+   caches.keys().then((keys) => console.log(keys));
+
    // 检查特定缓存内容
-   caches.open('my-cache').then(cache => cache.keys());
+   caches.open("my-cache").then((cache) => cache.keys());
    ```
 
 3. **日志记录**：
 
    ```javascript
    // 在Service Worker中添加日志
-   self.addEventListener('fetch', event => {
-     console.log('Fetch:', event.request.url);
+   self.addEventListener("fetch", (event) => {
+     console.log("Fetch:", event.request.url);
      // …
    });
    ```
 
 ```javascript
 // 发现 sw
-navigator.serviceWorker.register('/sw.js')
-  .then(reg => {
-    reg.addEventListener('updatefound', () => {
-      console.log('New Service Worker found');
-    });
+navigator.serviceWorker.register("/sw.js").then((reg) => {
+  reg.addEventListener("updatefound", () => {
+    console.log("New Service Worker found");
   });
+});
 ```
 
 ## 最佳实践
@@ -376,6 +368,5 @@ navigator.serviceWorker.register('/sw.js')
 4. **安全考虑**：
    - 仅缓存安全请求 (GET)
    - 不缓存敏感数据
-
 
 Cache API 为现代 Web 应用提供了强大的离线能力，合理使用可以显著提升用户体验，特别是在网络不稳定或完全离线的场景下。

@@ -11,4 +11,3 @@ tags:
 ```dataviewjs
 await dv.view('scripts/dataview/views/meetings', {type: 'related', withContainer: true})
 ```
-

@@ -6,6 +6,7 @@ companies:
 created: 2025-06-20
 modified: 2025-06-20
 ---
+
 在 React 中实现动态路由和权限拦截确实与 Vue Router 有所不同，但可以通过以下几种方式实现类似的功能。以下是完整的解决方案：
 
 ---
@@ -18,26 +19,26 @@ modified: 2025-06-20
 // src/routes/index.js
 const routes = [
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'public', element: <PublicPage /> },
-      { 
-        path: 'dashboard', 
-        element: <RequireAuth permissions={['dashboard_view']} />,
+      { path: "public", element: <PublicPage /> },
+      {
+        path: "dashboard",
+        element: <RequireAuth permissions={["dashboard_view"]} />,
         children: [
           { index: true, element: <Dashboard /> },
-          { path: 'settings', element: <Settings /> }
-        ]
-      }
-    ]
-  }
-]
+          { path: "settings", element: <Settings /> },
+        ],
+      },
+    ],
+  },
+];
 
 // 动态创建Router
 function createRouter(routes) {
-  return createBrowserRouter(routes)
+  return createBrowserRouter(routes);
 }
 ```
 
@@ -45,27 +46,25 @@ function createRouter(routes) {
 
 ```jsx
 // src/components/RequireAuth.jsx
-import { useSelector } from 'react-redux'
-import { Navigate, useLocation } from 'react-router-dom'
+import { useSelector } from "react-redux";
+import { Navigate, useLocation } from "react-router-dom";
 
 export default function RequireAuth({ children, permissions }) {
-  const user = useSelector(state => state.user)
-  const location = useLocation()
-  
+  const user = useSelector((state) => state.user);
+  const location = useLocation();
+
   // 检查权限
-  const hasPermission = permissions.every(perm => 
-    user.permissions.includes(perm)
-  )
+  const hasPermission = permissions.every((perm) => user.permissions.includes(perm));
 
   if (!user.isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   if (!hasPermission) {
-    return <Navigate to="/403" replace />
+    return <Navigate to="/403" replace />;
   }
 
-  return children
+  return children;
 }
 ```
 
@@ -73,19 +72,19 @@ export default function RequireAuth({ children, permissions }) {
 
 ```jsx
 // src/App.jsx
-import { RouterProvider } from 'react-router-dom'
-import { useMemo } from 'react'
-import { usePermissions } from './hooks/usePermissions'
+import { RouterProvider } from "react-router-dom";
+import { useMemo } from "react";
+import { usePermissions } from "./hooks/usePermissions";
 
 function App() {
-  const { permissions } = usePermissions()
-  
-  const router = useMemo(() => {
-    const filteredRoutes = filterRoutesByPermission(allRoutes, permissions)
-    return createRouter(filteredRoutes)
-  }, [permissions])
+  const { permissions } = usePermissions();
 
-  return <RouterProvider router={router} />
+  const router = useMemo(() => {
+    const filteredRoutes = filterRoutesByPermission(allRoutes, permissions);
+    return createRouter(filteredRoutes);
+  }, [permissions]);
+
+  return <RouterProvider router={router} />;
 }
 ```
 
@@ -99,10 +98,14 @@ function App() {
 // 路由配置
 const routes = [
   {
-    path: '/admin',
-    element: <RequireAuth role="admin"><Admin /></RequireAuth>
-  }
-]
+    path: "/admin",
+    element: (
+      <RequireAuth role="admin">
+        <Admin />
+      </RequireAuth>
+    ),
+  },
+];
 
 // 使用Outlet实现嵌套路由权限
 function AdminLayout() {
@@ -110,7 +113,7 @@ function AdminLayout() {
     <RequireAuth role="admin">
       <Outlet /> {/* 所有子路由自动继承权限检查 */}
     </RequireAuth>
-  )
+  );
 }
 ```
 
@@ -118,25 +121,25 @@ function AdminLayout() {
 
 ```jsx
 // useRouteGuard.js
-import { useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export function useRouteGuard(permission) {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const { hasPermission } = useAuth()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { hasPermission } = useAuth();
 
   useEffect(() => {
     if (!hasPermission(permission)) {
-      navigate('/403', { state: { from: location }, replace: true })
+      navigate("/403", { state: { from: location }, replace: true });
     }
-  }, [permission, hasPermission, navigate, location])
+  }, [permission, hasPermission, navigate, location]);
 }
 
 // 在页面组件中使用
 function AdminPage() {
-  useRouteGuard('admin_access')
-  return <div>Admin Content</div>
+  useRouteGuard("admin_access");
+  return <div>Admin Content</div>;
 }
 ```
 
@@ -146,22 +149,22 @@ function AdminPage() {
 // 后端返回的路由结构
 const asyncRoutes = [
   {
-    path: '/dashboard',
-    component: 'Dashboard',
-    meta: { permission: 'dashboard_view' }
-  }
-]
+    path: "/dashboard",
+    component: "Dashboard",
+    meta: { permission: "dashboard_view" },
+  },
+];
 
 // 前端转换
 function transformRoutes(apiRoutes) {
-  return apiRoutes.map(route => ({
+  return apiRoutes.map((route) => ({
     path: route.path,
     element: createElement(
       RequireAuth,
       { permissions: route.meta.permission },
-      createElement(lazy(() => import(`@/pages/${route.component}`)))
-    )
-  }))
+      createElement(lazy(() => import(`@/pages/${route.component}`))),
+    ),
+  }));
 }
 ```
 
@@ -184,7 +187,7 @@ const router = createBrowserRouter([
 ])
 
 // 错误边界处理
-<RouterProvider router={router} 
+<RouterProvider router={router}
   fallbackElement={<Loading />}
   errorElement={<ErrorBoundary />}
 />
@@ -219,13 +222,13 @@ flowchart TD
 
 ## 四、对比 Vue Router 的实现差异
 
-| 特性               | Vue Router                   | React Router                |
-|--------------------|------------------------------|-----------------------------|
-| 路由守卫           | 全局 beforeEach 守卫           | 包装组件或自定义 hook        |
-| 动态路由           | addRoutes API                | createRouter 动态创建        |
-| 错误处理           | 错误回调                     | ErrorBoundary 组件           |
-| 权限检查时机       | 路由跳转前                   | 组件渲染前                  |
-| 推荐方案           | 全局守卫 +meta 字段            | 高阶组件 + 动态路由生成       |
+| 特性         | Vue Router           | React Router            |
+| ------------ | -------------------- | ----------------------- |
+| 路由守卫     | 全局 beforeEach 守卫 | 包装组件或自定义 hook   |
+| 动态路由     | addRoutes API        | createRouter 动态创建   |
+| 错误处理     | 错误回调             | ErrorBoundary 组件      |
+| 权限检查时机 | 路由跳转前           | 组件渲染前              |
+| 推荐方案     | 全局守卫 +meta 字段  | 高阶组件 + 动态路由生成 |
 
 ---
 
@@ -236,27 +239,27 @@ flowchart TD
    ```jsx
    // 路由结构示例
    const routeStructure = {
-     public: ['/login', '/register'],
+     public: ["/login", "/register"],
      protected: {
-       user: ['/profile', '/settings'],
-       admin: ['/dashboard', '/users']
-     }
-   }
+       user: ["/profile", "/settings"],
+       admin: ["/dashboard", "/users"],
+     },
+   };
    ```
 
 2. **权限缓存优化**
 
    ```javascript
    // 使用缓存避免重复计算
-   const permissionCache = new Map()
-   
+   const permissionCache = new Map();
+
    function checkPermission(permission) {
      if (permissionCache.has(permission)) {
-       return permissionCache.get(permission)
+       return permissionCache.get(permission);
      }
-     const result = userPermissions.includes(permission)
-     permissionCache.set(permission, result)
-     return result
+     const result = userPermissions.includes(permission);
+     permissionCache.set(permission, result);
+     return result;
    }
    ```
 
@@ -264,13 +267,13 @@ flowchart TD
 
    ```typescript
    interface RouteMeta {
-     permission?: string[]
-     roles?: string[]
+     permission?: string[];
+     roles?: string[];
    }
-   
-   declare module 'react-router-dom' {
+
+   declare module "react-router-dom" {
      interface RouteObject {
-       meta?: RouteMeta
+       meta?: RouteMeta;
      }
    }
    ```
@@ -300,9 +303,7 @@ flowchart TD
 
 ```jsx
 // 使用Suspense包装
-<RouterProvider router={router} 
-  fallbackElement={<FullPageLoading />}
-/>
+<RouterProvider router={router} fallbackElement={<FullPageLoading />} />
 ```
 
 ### 2. 权限更新同步
@@ -310,9 +311,9 @@ flowchart TD
 ```javascript
 // 监听权限变化
 useEffect(() => {
-  const newRouter = generateRouter(newPermissions)
-  router.update(newRouter) // React Router 6.4+支持
-}, [permissions])
+  const newRouter = generateRouter(newPermissions);
+  router.update(newRouter); // React Router 6.4+支持
+}, [permissions]);
 ```
 
 ### 3. 404 处理

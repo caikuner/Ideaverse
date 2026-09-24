@@ -16,13 +16,13 @@ modified: 2025-06-17
 
 ```javascript
 function outer() {
-  const outerVar = '我在外部函数中';
-  
+  const outerVar = "我在外部函数中";
+
   function inner() {
     console.log(outerVar); // 访问外部函数的变量
   }
-  
-  return inner;  // ‘闭包函数’
+
+  return inner; // ‘闭包函数’
 }
 
 const myInner = outer();
@@ -30,6 +30,7 @@ myInner(); // 输出: "我在外部函数中"
 ```
 
 在这个例子中，`inner` 函数就是一个闭包，因为它：
+
 1. 可以访问 `outer` 函数的变量 `outerVar`
 2. 即使在 `outer` 函数执行完毕后，仍然能记住并访问这个变量
 
@@ -46,19 +47,19 @@ myInner(); // 输出: "我在外部函数中"
 ```javascript
 function createCounter() {
   let count = 0; // 私有变量
-  
+
   return {
-    increment: function() {
+    increment: function () {
       count++;
       return count;
     },
-    decrement: function() {
+    decrement: function () {
       count--;
       return count;
     },
-    getCount: function() {
+    getCount: function () {
       return count;
-    }
+    },
   };
 }
 
@@ -66,14 +67,14 @@ const counter = createCounter();
 console.log(counter.increment()); // 1
 console.log(counter.increment()); // 2
 console.log(counter.decrement()); // 1
-console.log(counter.getCount());  // 1
+console.log(counter.getCount()); // 1
 ```
 
 ### 2. 在函数式编程中的应用
 
 ```javascript
 function createMultiplier(multiplier) {
-  return function(number) {
+  return function (number) {
     return number * multiplier;
   };
 }
@@ -89,14 +90,14 @@ console.log(triple(5)); // 15
 
 ```javascript
 function setupButtons() {
-  const buttons = document.querySelectorAll('button');
-  
+  const buttons = document.querySelectorAll("button");
+
   for (var i = 0; i < buttons.length; i++) {
-    (function(index) {
-      buttons[index].addEventListener('click', function() {
-        console.log('按钮 ' + index + ' 被点击');
+    (function (index) {
+      buttons[index].addEventListener("click", function () {
+        console.log("按钮 " + index + " 被点击");
       });
-    })(i);  // 可以使用 let 代替这种写法，let 有自己的作用域
+    })(i); // 可以使用 let 代替这种写法，let 有自己的作用域
   }
 }
 ```
@@ -113,9 +114,9 @@ function setupButtons() {
 
    ```javascript
    function leakMemory() {
-     const bigData = new Array(1000000).fill('*');
-     return function() {
-       console.log('闭包保留了bigData的引用');
+     const bigData = new Array(1000000).fill("*");
+     return function () {
+       console.log("闭包保留了bigData的引用");
      };
    }
    ```
@@ -126,14 +127,14 @@ function setupButtons() {
    ```javascript
    // 错误示例
    for (var i = 0; i < 5; i++) {
-     setTimeout(function() {
+     setTimeout(function () {
        console.log(i); // 总是输出5
      }, 100);
    }
-   
+
    // 正确解决方案
    for (let i = 0; i < 5; i++) {
-     setTimeout(function() {
+     setTimeout(function () {
        console.log(i); // 输出0,1,2,3,4
      }, 100);
    }
@@ -148,6 +149,7 @@ function setupButtons() {
 ## 总结
 
 闭包是 JavaScript 中强大而灵活的特性，它：
+
 - 允许函数访问并记住其词法作用域
 - 可以创建私有变量和封装功能
 - 是许多设计模式和高级编程技巧的基础

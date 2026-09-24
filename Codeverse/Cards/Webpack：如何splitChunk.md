@@ -24,28 +24,29 @@ Webpack 的默认 `splitChunks` 配置如下：
 module.exports = {
   optimization: {
     splitChunks: {
-      chunks: 'async', // 只对异步代码进行分割
+      chunks: "async", // 只对异步代码进行分割
       minSize: 20000, // 生成 chunk 的最小体积（字节）
       minRemainingSize: 0,
       minChunks: 1, // 被引用次数
       maxAsyncRequests: 30, // 最大异步请求数
       maxInitialRequests: 30, // 最大初始请求数
       enforceSizeThreshold: 50000,
-      cacheGroups: { // 缓存组
+      cacheGroups: {
+        // 缓存组
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          reuseExistingChunk: true
+          reuseExistingChunk: true,
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
-  }
-}
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
+};
 ```
 
 ## 关键配置项详解
@@ -64,6 +65,7 @@ module.exports = {
 ### 3. `cacheGroups` 缓存组
 
 最强大的功能，可以自定义分割规则：
+
 - 其中，priority 数值越大优先级越高，默认组的 priority 是 0
 
 ```javascript
@@ -144,7 +146,7 @@ cacheGroups: {
 
    ```javascript
    optimization: {
-     runtimeChunk: 'single'
+     runtimeChunk: "single";
    }
    ```
 
@@ -161,11 +163,11 @@ cacheGroups: {
 使用 `webpack-bundle-analyzer` 分析打包结果：
 
 ```javascript
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  plugins: [new BundleAnalyzerPlugin()]
-}
+  plugins: [new BundleAnalyzerPlugin()],
+};
 ```
 
 ## 常见问题解决

@@ -66,12 +66,12 @@ var generateParenthesis = function (n) {
     // - 右括号可以填的条件：左括号 > 右括号
     if (open < n) {
       // (可以) 填左括号
-      path[i] = '('
+      path[i] = "(";
       dfs(i + 1, open + 1);
     }
     if (open > i - open) {
       // (可以) 填右括号   <-- 注意⚠️
-      path[i] = ')'
+      path[i] = ")";
       dfs(i + 1, open);
     }
   };

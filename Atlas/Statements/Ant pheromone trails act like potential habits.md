@@ -5,7 +5,8 @@ related:
   - "[[Cobwebs into Cables]]"
 created: 2021-01-01
 ---
- *Pheromone trails can become pheromone super-highways.*
+
+_Pheromone trails can become pheromone super-highways._
 
 Ants produce a mixture of chemicals that they leave behind as they walk, which we then refer to as pheromone trails. These trails lead the ants to food and water sources.
 

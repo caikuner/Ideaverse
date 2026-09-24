@@ -31,9 +31,9 @@ modified: 2025-07-01
     - 计算最终的状态值
     - 返回最新的状态值和 setter 函数
   - **生成新的虚拟 DOM 树**
-    - 当组件状态或属性变化时，React 会重新调用组件的 `render` 方法，生成新的 **虚拟 DOM 树
-    - Diff 算法（差异对比）**：比较新旧两棵虚拟 DOM 树，找出需要更新的部分，打上更新标记
-        详见 [[React：Diff 算法，并对比 Vue]]
+    - 当组件状态或属性变化时，React 会重新调用组件的 `render` 方法，生成新的 \*\*虚拟 DOM 树
+    - Diff 算法（差异对比）\*\*：比较新旧两棵虚拟 DOM 树，找出需要更新的部分，打上更新标记
+      详见 [[React：Diff 算法，并对比 Vue]]
 
 ## 3. 提交阶段（Commit Phase）同步
 
@@ -53,16 +53,16 @@ modified: 2025-07-01
 
    ```jsx
    const handleClick = () => {
-     setCount(c => c + 1);  // 不会立即更新
-     setCount(c => c + 1);  // 与上一个合并
-   }
+     setCount((c) => c + 1); // 不会立即更新
+     setCount((c) => c + 1); // 与上一个合并
+   };
    ```
 
 2. **更新队列处理**：如果对同一个状态多次调用 setter，更新会按顺序处理
 
    ```jsx
    setCount(1);
-   setCount(c => c + 2);  // 基于前一个更新计算
+   setCount((c) => c + 2); // 基于前一个更新计算
    ```
 
 3. **闭包陷阱**：由于函数组件每次渲染都是独立的闭包，需要注意过时闭包问题
@@ -79,12 +79,12 @@ modified: 2025-07-01
 ```jsx
 function Counter() {
   const [count, setCount] = useState(0);
-  
+
   const handleClick = () => {
-    setCount(prev => prev + 1);  // 1. 创建更新
-    setCount(prev => prev + 1);  // 2. 加入队列
+    setCount((prev) => prev + 1); // 1. 创建更新
+    setCount((prev) => prev + 1); // 2. 加入队列
   };
-  
+
   return <button onClick={handleClick}>{count}</button>;
 }
 ```

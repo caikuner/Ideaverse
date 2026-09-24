@@ -9,45 +9,45 @@ class ListNode {
 
 // 链表翻转
 function reverseLinkedList(head) {
-    let prev = null;
-    while (head) {
-        let next = head.next; // 暂存下一个节点
-        head.next = prev;     // 当前节点指向前一个
-        prev = head;          // 前移
-        head = next;          // 继续遍历
-    }
-    return prev; // 新的头节点
+  let prev = null;
+  while (head) {
+    let next = head.next; // 暂存下一个节点
+    head.next = prev; // 当前节点指向前一个
+    prev = head; // 前移
+    head = next; // 继续遍历
+  }
+  return prev; // 新的头节点
 }
 
 // 主函数：链表求和，结果以链表返回
 function sumLinkedList(l1, l2) {
   // 反转后从低位计算
-  l1 = reverseLinkedList(l1)
-  l2 = reverseLinkedList(l2)
-  
-  const dummy = new ListNode(-1, null)
-  let cur = dummy
+  l1 = reverseLinkedList(l1);
+  l2 = reverseLinkedList(l2);
 
-  let carry = 0
+  const dummy = new ListNode(-1, null);
+  let cur = dummy;
 
-  while(l1 || l2 || carry) {
-    let sum = carry
+  let carry = 0;
+
+  while (l1 || l2 || carry) {
+    let sum = carry;
     if (l1) {
-      sum += l1.val
-      l1 = l1.next
+      sum += l1.val;
+      l1 = l1.next;
     }
     if (l2) {
-      sum += l2.val
-      l2 = l2.next
+      sum += l2.val;
+      l2 = l2.next;
     }
 
-    cur.next = new ListNode(sum % 10)
-    carry = Math.floor(sum / 10)
+    cur.next = new ListNode(sum % 10);
+    carry = Math.floor(sum / 10);
 
-    cur = cur.next
+    cur = cur.next;
   }
 
-  return reverseLinkedList(dummy.next)
+  return reverseLinkedList(dummy.next);
 }
 
 // 测试用例
@@ -57,7 +57,7 @@ let result = sumLinkedList(L1, L2);
 
 let arr = [];
 while (result) {
-    arr.push(result.val);
-    result = result.next;
+  arr.push(result.val);
+  result = result.next;
 }
 console.log(arr); // [7,3,3,2,9]

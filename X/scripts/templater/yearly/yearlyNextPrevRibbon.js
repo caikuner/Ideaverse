@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.yearly.yearlyNextPrevRibbon
+module.exports = app.utils.templater.yearly.yearlyNextPrevRibbon;

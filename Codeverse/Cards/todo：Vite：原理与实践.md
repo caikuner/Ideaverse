@@ -1,7 +1,7 @@
 ---
 tags: [todo]
-up: 
-related: 
+up:
+related:
 companies:
 created: 2025-06-13
 modified: 2025-06-26

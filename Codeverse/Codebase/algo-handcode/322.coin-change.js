@@ -60,9 +60,7 @@
  * @param {number} amount
  * @return {number}
  */
-var coinChange = function (coins, amount) {
-
-}
+var coinChange = function (coins, amount) {};
 // @lc code=end
 
 // 回溯，超时
@@ -81,10 +79,10 @@ var coinChange = function (coins, amount) {
     dfs(i + 1, target);
 
     // 选当前元素 (注意可以重复选, 所以是i)
-    path.push(coins[i])
+    path.push(coins[i]);
     dfs(i, target - coins[i]);
 
-    path.pop()   // 恢复现场
+    path.pop(); // 恢复现场
   };
 
   dfs(0, amount);

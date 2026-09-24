@@ -3,7 +3,7 @@ aliases: []
 tags: []
 up:
 related:
-url: 
+url:
 created: 2024-03-03
 modified: 2025-07-03
 ---
@@ -33,7 +33,6 @@ modified: 2025-07-03
 - useMemo: 用于缓存计算结果，避免在每次渲染时都重新计算。
 - useCallback: 用于缓存回调函数，避免在每次渲染时都创建新的回调。
 
-
 ![[Pasted image 20250703160753.png]]
 
 ### useState
@@ -47,6 +46,7 @@ setCount(prev => prev + 1, （）=> {console.log(count)})
 ```
 
 > [!NOTE] 注意
+>
 > - 多次的 set 会在后面批量更新
 > - 和类组件的 setState 不同，useState 的 setter 方法不会自动合并状态对象
 > - setter 可以根据之前的状态来修改 setState(pre=>next)
@@ -80,9 +80,11 @@ const [state, dispatch] = useReducer(countReducer, 0);
 ### useEffect & useLayoutEffect
 
 ```js
-useEffect(callback, dependencyArray)
+useEffect(callback, dependencyArray);
 
-useEffect(()=>{console.log(count)}, [count])
+useEffect(() => {
+  console.log(count);
+}, [count]);
 ```
 
 > 1. 不要缺少 useEffect 依赖
@@ -91,27 +93,28 @@ useEffect(()=>{console.log(count)}, [count])
 > 4. 什么时候使用：当希望将某个数据状态和浏览器进行同步
 
 - useLayoutEffect 是在 DOM 更新之后，但在浏览器绘制之前**同步**执行。用于获取一些界面相关的状态
-![[Pasted image 20250703163159.png|300]]
+  ![[Pasted image 20250703163159.png|300]]
 
 - useEffect 是浏览器绘制之后**异步**执行
-![[Pasted image 20250703163229.png|300]]
+  ![[Pasted image 20250703163229.png|300]]
 
 ### useRef
 
 用于访问 DOM 元素或组件。
 
 ```js
-const ref = useRef(0)
+const ref = useRef(0);
 
-ref.current  // 可以直接获取和赋值更新
+ref.current; // 可以直接获取和赋值更新
 ```
 
 - ref 是引用，值是可变的
-![[Pasted image 20250703163524.png|400]]
+  ![[Pasted image 20250703163524.png|400]]
 
 ### useMemo & useCallback
 
 用于性能优化。
+
 - useMemo 计算结果并缓存，当依赖数组不变时 (Object.is)，会读取缓存，而不是重新计算。
 - useCallback, 和 useMemo 类似，区别在于是用于包裹函数，缓存函数，适用于吧函数作为 prop 传递给 child，想进行性能优化的情况
 
@@ -126,8 +129,6 @@ const value = useContext(MyContext);
 当组件上层最近的 `<MyContext.Provider>` 更新时，该 Hook 会触发重渲染，并使用最新传递给 `MyContext` provider 的 context `value` 值。
 ![[Pasted image 20250703164005.png|300]]
 
-
-
 忘记 `useContext` 的参数必须是 *context 对象本身*：
 
 - **正确：** `useContext(MyContext)`
@@ -135,7 +136,6 @@ const value = useContext(MyContext);
 - **错误：** `useContext(MyContext.Provider)`
 
 调用了 `useContext` 的组件总会在 context 值变化时重新渲染。如果重渲染组件的开销较大，你可以 [[https://github.com/facebook/react/issues/15156#issuecomment-474590693]]。
-
 
 **把如下代码与 Context.Provider 放在一起**
 
@@ -185,7 +185,7 @@ function ThemedButton() {
 `useTransition` 是 React 18 引入的一个 Hook，用于**优化用户界面的响应性**，特别是在处理耗时任务（如数据加载、大量计算）时，可以避免页面卡顿，保持交互流畅。
 
 ```jsx
-import { useTransition } from 'react';
+import { useTransition } from "react";
 
 function MyComponent() {
   const [isPending, startTransition] = useTransition();
@@ -209,16 +209,16 @@ function MyComponent() {
 
 **参数说明**
 
-| 返回值 | 说明 |
-|--------|------|
-| `isPending` | 布尔值，表示是否有过渡任务正在执行（可用于显示加载状态）。 |
+| 返回值            | 说明                                                                  |
+| ----------------- | --------------------------------------------------------------------- |
+| `isPending`       | 布尔值，表示是否有过渡任务正在执行（可用于显示加载状态）。            |
 | `startTransition` | 函数，用于包裹低优先级任务，告诉 React 可以中断该任务以保持 UI 响应。 |
 
 **使用示例：输入框搜索（防抖 + 过渡）**
 
 ```jsx
 function SearchBox() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [isPending, startTransition] = useTransition();
 
@@ -252,17 +252,15 @@ function SearchBox() {
 3. **错误边界**
    - `startTransition` 内的错误不会冒泡到最近的错误边界（需自行处理）。
 
-
-
 **useDeferredValue**
 
 ![[Pasted image 20250703164725.png|340]]
 
-| 场景                | 解决方案              | 适用 Hook                    |
-| ----------------- | ----------------- | -------------------------- |
-| **优化耗时任务**（如数据加载） | 标记低优先级任务          | `useTransition`            |
-| **延迟显示值**（如输入防抖）  | 延迟渲染某个状态          | `useDeferredValue`         |
-| **路由切换优化**        | 配合 `React Router` | `useTransition + Suspense` |
+| 场景                           | 解决方案            | 适用 Hook                  |
+| ------------------------------ | ------------------- | -------------------------- |
+| **优化耗时任务**（如数据加载） | 标记低优先级任务    | `useTransition`            |
+| **延迟显示值**（如输入防抖）   | 延迟渲染某个状态    | `useDeferredValue`         |
+| **路由切换优化**               | 配合 `React Router` | `useTransition + Suspense` |
 
 ### 参考
 

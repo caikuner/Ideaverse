@@ -11,6 +11,7 @@ in:
   - "[[Sources]]"
 URL: https://www.linkingyourthinking.com/obsidian-flight-school
 ---
+
 > [!Video]+ Youtube Video
 > [Make Notes at the Speed of Thought - YouTube](https://youtu.be/I1RXGhZZ2r0?si=XDYKc2UbcZRTGXeR)
 
@@ -35,17 +36,18 @@ You know Obsidian is the answer, but you still don't know how to best use it. It
 Once you master Obsidian, you will astound yourself with what you are capable of. But to do this, you need to get the reps and work on the right stuff. Break the barriers that are holding you back.
 
 ### Stop watching. Start practicing.
+
 Flight School will help you do the following:
 
-*Work faster than ever before*
+_Work faster than ever before_
 Learn the best ways to rapidly create and open notes, effectively utilize Autocomplete, and effortlessly refactor text.
 
-*Get reps, get better*
+_Get reps, get better_
 Watching videos is not enough. Drilling the exercises and simulations will unlock your full potential.
 
-*Customize your experience*
+_Customize your experience_
 Customize your themes, display panels, plugins, hotkeys, and functions to fine-tune your thinking experience.
 
-
 ### What's inside the vault?
+
 [Learn more](https://www.linkingyourthinking.com/obsidian-flight-school).

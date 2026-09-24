@@ -1,10 +1,10 @@
 ---
 tags:
   - handcode/css
-up: 
-related: 
-rank: 
-companies: 
+up:
+related:
+rank:
+companies:
 created: 2025-06-16
 modified: 2025-06-20
 ---
@@ -25,6 +25,7 @@ BFC (Block formatting context) 直译为 " 块级格式化上下文 "。它是**
 - `display: flow-root`（新语法，用来语义化、安全地创建 BFC，无其他效果）👈
 
 最常被用来的方式：
+
 - `overflow: hidden` 之前是这个
 - `display: flow-root` 优先使用这个，非常安全、语义化，且不会裁剪内容、影响滚动
 
@@ -37,8 +38,8 @@ BFC (Block formatting context) 直译为 " 块级格式化上下文 "。它是**
 - 每个元素的左 margin， 与包含块的左边相接触 (对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
 - 计算 BFC 高度时，浮动元素也会参与计算
 
-
 BFC 的用途：
+
 - 清除浮动
 - 解决外边距合并 (塌陷) 问题
 - 布局
@@ -50,7 +51,7 @@ BFC 的用途：
 .clearfix::after {
   content: "";
   display: table;
-  clear: both;  /*both实际只会清除一边*/
+  clear: both; /*both实际只会清除一边*/
 }
 
 /* 现代方法 */
@@ -82,20 +83,19 @@ BFC 的用途：
 #### IFC 渲染规则
 
 - 内部的 box 水平方向
-    - 横向排列，且起点为外部盒子**顶部**
-    - 内部的 box 横向样式空间**有效** `(padding、border、margin)`
-    - 水平对齐方式：
-        - 当 inline-level boxes 的总宽度少于包含它们的 line box 时，其水平渲染规则由 **text-align** 属性值来决定。
-        - 当一个 “inline box” 超过父元素的宽度时，它会被分割成多个 boxes，这些 boxes 分布在多个 “line box” 中。如果子元素未设置强制换行的情况下，“inline box” 将不可被分割，将会**溢出父元素**。
+  - 横向排列，且起点为外部盒子**顶部**
+  - 内部的 box 横向样式空间**有效** `(padding、border、margin)`
+  - 水平对齐方式：
+    - 当 inline-level boxes 的总宽度少于包含它们的 line box 时，其水平渲染规则由 **text-align** 属性值来决定。
+    - 当一个 “inline box” 超过父元素的宽度时，它会被分割成多个 boxes，这些 boxes 分布在多个 “line box” 中。如果子元素未设置强制换行的情况下，“inline box” 将不可被分割，将会**溢出父元素**。
 - 内部的 box 水平方向垂直方向
-    - 垂直方向样式空间**不会被计算**，`(padding、border、margin)`
-    - 对齐方式：用 `vertical-align` 控制，以它们的底部、顶部对齐，或以它们里面的文本的基线（baseline）对齐（默认，文本与图片对其），例：line-heigth 与 vertical-align。
+  - 垂直方向样式空间**不会被计算**，`(padding、border、margin)`
+  - 对齐方式：用 `vertical-align` 控制，以它们的底部、顶部对齐，或以它们里面的文本的基线（baseline）对齐（默认，文本与图片对其），例：line-heigth 与 vertical-align。
 - float 元素会优先排列
 
 #### 用来设置居中
 
 - 水平居中：当一个块要在环境中水平居中时，设置其为 **inline-block** 则会在外层产生 IFC，通过 **text-align** 则可以使其水平居中。
-    
 - 垂直居中：创建一个 IFC，用其中一个元素撑开父元素的高度，然后设置其 **vertical-align:middle**，其他行内元素则可以在此父元素下垂直居中。
 
 ```html
@@ -104,7 +104,5 @@ BFC 的用途：
   <span class="text">评分</span>
 </div>
 
-.icon {
-  vertical-align: middle; /* 图标与文字中线对齐 */
-}
+.icon { vertical-align: middle; /* 图标与文字中线对齐 */ }
 ```

@@ -11,7 +11,8 @@ modified: 2025-07-22
 version:
   - "1.5"
 ---
- Your launchpad and home base. That's here. That's **home**.
+
+Your launchpad and home base. That's here. That's **home**.
 
 - I want to…[[Add]] ideas.
 - I want to…[[Relate]] ideas.
@@ -29,6 +30,6 @@ Use your ideaverse to take control over your life and be more intentional about 
 
 - I want to…be more intentional about my life » [[Plan and Review]]
 - I want to…journal about specific things » [[Logs (Example)]]
-Use your ideaverse to learn about the basics of knowledge management:
+  Use your ideaverse to learn about the basics of knowledge management:
 
 - I want to…learn about LYT and digital gardens » [[Ideaverse Map]]

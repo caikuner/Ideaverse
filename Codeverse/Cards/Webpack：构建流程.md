@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 companies:
 created: 2025-06-16
 modified: 2025-06-26
@@ -16,7 +16,6 @@ modified: 2025-06-26
 5. 完成模块编译: loader 转换和 plugin 处理，得到每个模块被编译后的最终内容，并构建各模块之间的依赖关系图 (dependency graph)
 6. 模块封装,输出资源：根据依赖关系图，组装成包含多个依赖 module 的 chunk
 7. 输出完成：根据 output 配置，确定要输出的 filename 和 path，输出 bundle
-   
 
 ### 1. 📝 **初始化阶段** - 参数解析与配置准备
 
@@ -135,9 +134,9 @@ graph LR
      // 或者更精细的配置
      optimization: {
        minimize: true,
-       minimizer: [new TerserPlugin({ parallel: true })]
-     }
-   }
+       minimizer: [new TerserPlugin({ parallel: true })],
+     },
+   };
    ```
 
 3. **Tree Shaking**：

@@ -1,4 +1,4 @@
-/*
+/\*
 
 format **the left to right** mind map
 
@@ -8,7 +8,7 @@ format **the left to right** mind map
 
 Mind map is actually a tree, so you must have a **root node**. The script will determine **the leftmost element** of the selected element as the root element (node is excalidraw element, e.g. rectangle, diamond, ellipse, text, image, but it can't be arrow, line, freedraw, **group**)
 
-The element connecting node and node must be an **arrow** and  have the correct direction, e.g. **parent node -> children node**
+The element connecting node and node must be an **arrow** and have the correct direction, e.g. **parent node -> children node**
 
 # sort
 
@@ -368,3 +368,4 @@ generateTree(elements);
 
 ea.copyViewElementsToEAforEditing(elements);
 await ea.addElementsToView(false, false);
+```

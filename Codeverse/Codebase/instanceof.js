@@ -14,8 +14,7 @@ function myInstanceof(val, constructor) {
   }
 }
 
-
 // test
 const o = {};
-console.log(myInstanceof(o, Object))
-console.log(myInstanceof(o, Array))
+console.log(myInstanceof(o, Object));
+console.log(myInstanceof(o, Array));

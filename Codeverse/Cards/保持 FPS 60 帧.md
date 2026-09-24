@@ -33,11 +33,11 @@ FPS（Frames Per Second，每秒帧数）低于 60 通常意味着浏览器无�
 ✅ **分帧处理**：通过 `requestAnimationFrame` 或 `setTimeout` 拆分长任务。
 ✅ **避免强制同步布局（Layout Thrashing）**：
 
-   ```javascript
-   // ❌ 错误：先读后写，触发强制同步布局
-   const width = element.offsetWidth; // 读取
-   element.style.width = width + 10 + 'px'; // 写入
-   ```
+```javascript
+// ❌ 错误：先读后写，触发强制同步布局
+const width = element.offsetWidth; // 读取
+element.style.width = width + 10 + "px"; // 写入
+```
 
 ---
 
@@ -50,8 +50,8 @@ FPS（Frames Per Second，每秒帧数）低于 60 通常意味着浏览器无�
 
   ```javascript
   // ❌ 每次循环都修改 DOM，导致多次重排
-  elements.forEach(el => {
-    el.style.width = '100px';
+  elements.forEach((el) => {
+    el.style.width = "100px";
   });
   ```
 
@@ -74,7 +74,7 @@ FPS（Frames Per Second，每秒帧数）低于 60 通常意味着浏览器无�
   /* ❌ 高性能消耗属性 */
   .card {
     filter: blur(5px);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   ```
 
@@ -83,11 +83,11 @@ FPS（Frames Per Second，每秒帧数）低于 60 通常意味着浏览器无�
 ✅ **简化 CSS 选择器**（避免嵌套过深）。
 ✅ **使用 `will-change` 提示浏览器优化**：
 
-  ```css
-  .animated-element {
-    will-change: transform; /* 告诉浏览器准备 GPU 加速 */
-  }
-  ```
+```css
+.animated-element {
+  will-change: transform; /* 告诉浏览器准备 GPU 加速 */
+}
+```
 
 ---
 
@@ -100,7 +100,7 @@ FPS（Frames Per Second，每秒帧数）低于 60 通常意味着浏览器无�
 
   ```javascript
   // ❌ 未移除的事件监听
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener("scroll", handleScroll);
   // 但页面卸载时未移除
   ```
 
@@ -136,6 +136,7 @@ FPS（Frames Per Second，每秒帧数）低于 60 通常意味着浏览器无�
 ### **6. 浏览器渲染流程（为什么 FPS 下降？）**
 
 浏览器渲染一帧的流程（**像素管道**）：
+
 1. **JavaScript** → 2. **Style 计算** → 3. **Layout（重排）** → 4. **Paint（重绘）** → 5. **Composite（合成）**
 
 如果任何一步耗时超过 **16.67ms**，FPS 就会低于 60。
@@ -150,26 +151,27 @@ FPS（Frames Per Second，每秒帧数）低于 60 通常意味着浏览器无�
 
 ### **7. 调试工具**
 
-| **工具**               | **用途**                                                                 |
-|------------------------|-------------------------------------------------------------------------|
-| **Chrome DevTools → Performance** | 分析帧耗时，找到卡顿点（Long Tasks）。                                   |
-| **Chrome DevTools → Rendering**   | 高亮重绘区域、显示图层边界。                                            |
-| **Frame Rate Meter**              | 实时监控 FPS（目标 ≥ 60）。                                             |
-| **Lighthouse**                    | 检测页面性能问题并提供优化建议。                                        |
+| **工具**                          | **用途**                               |
+| --------------------------------- | -------------------------------------- |
+| **Chrome DevTools → Performance** | 分析帧耗时，找到卡顿点（Long Tasks）。 |
+| **Chrome DevTools → Rendering**   | 高亮重绘区域、显示图层边界。           |
+| **Frame Rate Meter**              | 实时监控 FPS（目标 ≥ 60）。            |
+| **Lighthouse**                    | 检测页面性能问题并提供优化建议。       |
 
 ---
 
 ### **总结：如何保持 60 FPS？**
 
-| **问题**               | **优化方案**                              |
-|------------------------|------------------------------------------|
-| **JS 执行过长**        | 分帧处理、Web Workers                    |
-| **DOM 操作频繁**       | 虚拟 DOM、批量修改                       |
-| **样式复杂**           | 简化 CSS、减少重绘                       |
-| **内存泄漏**           | 及时清理监听器、定时器                   |
-| **图层过多**           | 减少不必要的 `translateZ(0)`            |
+| **问题**         | **优化方案**                 |
+| ---------------- | ---------------------------- |
+| **JS 执行过长**  | 分帧处理、Web Workers        |
+| **DOM 操作频繁** | 虚拟 DOM、批量修改           |
+| **样式复杂**     | 简化 CSS、减少重绘           |
+| **内存泄漏**     | 及时清理监听器、定时器       |
+| **图层过多**     | 减少不必要的 `translateZ(0)` |
 
 **关键原则**：
+
 - **减少主线程负载**（避免长任务）。
 - **优先使用 GPU 加速属性**（`transform`、`opacity`）。
 - **按需渲染**（避免不必要的更新）。

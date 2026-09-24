@@ -1,4 +1,4 @@
-/*
+/\*
 
 ![](https://raw.githubusercontent.com/zsviczian/obsidian-excalidraw-plugin/master/images/scripts-download-raw.jpg)
 
@@ -19,3 +19,4 @@ const fname = await utils.inputPrompt("Filename for new file","Filename",folder)
 const file = await app.fileManager.createAndOpenMarkdownFile(fname,true);
 await ea.addImage(0,0,file);
 ea.addElementsToView(true,true);
+```

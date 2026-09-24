@@ -73,7 +73,7 @@ var longestCommonPrefix = function (strs) {
 // @lc code=end
 
 longestCommonPrefix(["flower", "flow", "flight"]);
-console.log(longestCommonPrefix(["ac", "cd"]))
+console.log(longestCommonPrefix(["ac", "cd"]));
 
 /*
 // @lcpr case=start

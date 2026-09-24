@@ -15,42 +15,41 @@
  * Testcase Example:  '[4,2,7,1,3,6,9]'
  *
  * 给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点。
- * 
- * 
- * 
+ *
+ *
+ *
  * 示例 1：
- * 
- * 
- * 
+ *
+ *
+ *
  * 输入：root = [4,2,7,1,3,6,9]
  * 输出：[4,7,2,9,6,3,1]
- * 
- * 
+ *
+ *
  * 示例 2：
- * 
- * 
- * 
+ *
+ *
+ *
  * 输入：root = [2,1,3]
  * 输出：[2,3,1]
- * 
- * 
+ *
+ *
  * 示例 3：
- * 
+ *
  * 输入：root = []
  * 输出：[]
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  * 提示：
- * 
- * 
+ *
+ *
  * 树中节点数目范围在 [0, 100] 内
  * -100 <= Node.val <= 100
- * 
- * 
+ *
+ *
  */
-
 
 // @lcpr-template-start
 
@@ -68,24 +67,24 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-    if (!root) return null
+var invertTree = function (root) {
+  if (!root) return null;
 
-    const stack = [root]
-    while(stack.length) {
-      // 为什么是 pop？
-      // 左右互换后，左右reverse 了，需要按照入栈的反顺序出
-      const node = stack.pop()
-      if (node.left) stack.push(node.left)
-      if (node.right) stack.push(node.right)
+  const stack = [root];
+  while (stack.length) {
+    // 为什么是 pop？
+    // 左右互换后，左右reverse 了，需要按照入栈的反顺序出
+    const node = stack.pop();
+    if (node.left) stack.push(node.left);
+    if (node.right) stack.push(node.right);
 
-      // swap
-      const right = node.right
-      node.right = node.left
-      node.left = right
-    }
+    // swap
+    const right = node.right;
+    node.right = node.left;
+    node.left = right;
+  }
 
-    return root
+  return root;
 };
 // @lc code=end
 
@@ -116,7 +115,6 @@ var invertTree = function(root) {
 // @lcpr case=end
 
  */
-
 
 // @lcpr-after-debug-begin
 module.exports = invertTree;

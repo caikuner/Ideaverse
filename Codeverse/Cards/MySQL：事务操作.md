@@ -1,9 +1,9 @@
 ---
 tags:
   - be/mysql
-up: 
-related: 
-rank: 
+up:
+related:
+rank:
 created: 2025-07-14
 modified: 2025-07-17
 ---
@@ -16,53 +16,51 @@ modified: 2025-07-17
 ### 1. 基本事务流程
 
 ```javascript
-const mysql = require('mysql2/promise'); // 使用 promise 接口
+const mysql = require("mysql2/promise"); // 使用 promise 接口
 
 async function transferFunds(senderId, receiverId, amount) {
-    // 创建连接
-    const connection = await mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        database: 'bank',
-        password: 'password'
-    });
+  // 创建连接
+  const connection = await mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    database: "bank",
+    password: "password",
+  });
 
-    try {
-        // 1. 开始事务
-        await connection.beginTransaction();
+  try {
+    // 1. 开始事务
+    await connection.beginTransaction();
 
-        // 2. 执行一系列SQL操作
-        // 从发送方账户扣款
-        await connection.query(
-            'UPDATE accounts SET balance = balance - ? WHERE id = ? AND balance >= ?',
-            [amount, senderId, amount]
-        );
+    // 2. 执行一系列SQL操作
+    // 从发送方账户扣款
+    await connection.query(
+      "UPDATE accounts SET balance = balance - ? WHERE id = ? AND balance >= ?",
+      [amount, senderId, amount],
+    );
 
-        // 检查是否扣款成功
-        const [result] = await connection.query(
-            'SELECT ROW_COUNT() as affectedRows'
-        );
-        if (result[0].affectedRows === 0) {
-            throw new Error('扣款失败，余额不足或账户不存在');
-        }
-
-        // 向接收方账户加款
-        await connection.query(
-            'UPDATE accounts SET balance = balance + ? WHERE id = ?',
-            [amount, receiverId]
-        );
-
-        // 3. 提交事务
-        await connection.commit();
-        console.log('转账成功');
-    } catch (error) {
-        // 4. 出错时回滚
-        await connection.rollback();
-        console.error('转账失败:', error.message);
-    } finally {
-        // 5. 释放连接
-        await connection.end();
+    // 检查是否扣款成功
+    const [result] = await connection.query("SELECT ROW_COUNT() as affectedRows");
+    if (result[0].affectedRows === 0) {
+      throw new Error("扣款失败，余额不足或账户不存在");
     }
+
+    // 向接收方账户加款
+    await connection.query("UPDATE accounts SET balance = balance + ? WHERE id = ?", [
+      amount,
+      receiverId,
+    ]);
+
+    // 3. 提交事务
+    await connection.commit();
+    console.log("转账成功");
+  } catch (error) {
+    // 4. 出错时回滚
+    await connection.rollback();
+    console.error("转账失败:", error.message);
+  } finally {
+    // 5. 释放连接
+    await connection.end();
+  }
 }
 ```
 
@@ -72,30 +70,30 @@ async function transferFunds(senderId, receiverId, amount) {
 
 ```javascript
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    database: 'bank',
-    password: 'password',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+  host: "localhost",
+  user: "root",
+  database: "bank",
+  password: "password",
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
 async function poolTransfer(senderId, receiverId, amount) {
-    const connection = await pool.getConnection();
-    
-    try {
-        await connection.beginTransaction();
-        
-        // 执行SQL操作…
-        
-        await connection.commit();
-    } catch (error) {
-        await connection.rollback();
-        throw error; // 抛出错误给上层处理
-    } finally {
-        connection.release(); // 释放连接到池中
-    }
+  const connection = await pool.getConnection();
+
+  try {
+    await connection.beginTransaction();
+
+    // 执行SQL操作…
+
+    await connection.commit();
+  } catch (error) {
+    await connection.rollback();
+    throw error; // 抛出错误给上层处理
+  } finally {
+    connection.release(); // 释放连接到池中
+  }
 }
 ```
 
@@ -105,11 +103,11 @@ MySQL 支持四种隔离级别，可以通过以下方式设置：
 
 ```javascript
 // 设置隔离级别
-await connection.query('SET TRANSACTION ISOLATION LEVEL READ COMMITTED');
+await connection.query("SET TRANSACTION ISOLATION LEVEL READ COMMITTED");
 
 // 查询当前隔离级别
-const [rows] = await connection.query('SELECT @@tx_isolation');
-console.log('当前隔离级别:', rows[0]['@@tx_isolation']);
+const [rows] = await connection.query("SELECT @@tx_isolation");
+console.log("当前隔离级别:", rows[0]["@@tx_isolation"]);
 ```
 
 不同隔离级别的特点：
@@ -125,35 +123,35 @@ console.log('当前隔离级别:', rows[0]['@@tx_isolation']);
 
 ```javascript
 async function complexTransaction() {
-    const connection = await pool.getConnection();
-    
+  const connection = await pool.getConnection();
+
+  try {
+    await connection.beginTransaction();
+
+    // 操作1
+    await connection.query("INSERT INTO table1 VALUES (…)");
+
+    // 设置保存点
+    await connection.query("SAVEPOINT point1");
+
     try {
-        await connection.beginTransaction();
-        
-        // 操作1
-        await connection.query('INSERT INTO table1 VALUES (…)');
-        
-        // 设置保存点
-        await connection.query('SAVEPOINT point1');
-        
-        try {
-            // 操作2
-            await connection.query('UPDATE table2 SET …');
-        } catch (error) {
-            // 回滚到保存点
-            await connection.query('ROLLBACK TO SAVEPOINT point1');
-        }
-        
-        // 操作3
-        await connection.query('DELETE FROM table3 WHERE …');
-        
-        await connection.commit();
+      // 操作2
+      await connection.query("UPDATE table2 SET …");
     } catch (error) {
-        await connection.rollback();
-        throw error;
-    } finally {
-        connection.release();
+      // 回滚到保存点
+      await connection.query("ROLLBACK TO SAVEPOINT point1");
     }
+
+    // 操作3
+    await connection.query("DELETE FROM table3 WHERE …");
+
+    await connection.commit();
+  } catch (error) {
+    await connection.rollback();
+    throw error;
+  } finally {
+    connection.release();
+  }
 }
 ```
 
@@ -161,18 +159,18 @@ async function complexTransaction() {
 
 ```javascript
 // 关闭自动提交
-await connection.query('SET autocommit = 0');
+await connection.query("SET autocommit = 0");
 
 // 执行一些操作…
 
 // 手动提交
-await connection.query('COMMIT');
+await connection.query("COMMIT");
 
 // 或回滚
-await connection.query('ROLLBACK');
+await connection.query("ROLLBACK");
 
 // 重新开启自动提交
-await connection.query('SET autocommit = 1');
+await connection.query("SET autocommit = 1");
 ```
 
 ## 四、事务最佳实践
@@ -185,20 +183,20 @@ await connection.query('SET autocommit = 1');
 
 ```javascript
 async function runWithRetry(transactionFn, maxRetries = 3) {
-    let attempt = 0;
-    while (attempt < maxRetries) {
-        try {
-            return await transactionFn();
-        } catch (error) {
-            if (error.code === 'ER_LOCK_DEADLOCK' && attempt < maxRetries - 1) {
-                attempt++;
-                console.log(`遇到死锁，第${attempt}次重试…`);
-                await new Promise(resolve => setTimeout(resolve, 50 * attempt));
-                continue;
-            }
-            throw error;
-        }
+  let attempt = 0;
+  while (attempt < maxRetries) {
+    try {
+      return await transactionFn();
+    } catch (error) {
+      if (error.code === "ER_LOCK_DEADLOCK" && attempt < maxRetries - 1) {
+        attempt++;
+        console.log(`遇到死锁，第${attempt}次重试…`);
+        await new Promise((resolve) => setTimeout(resolve, 50 * attempt));
+        continue;
+      }
+      throw error;
     }
+  }
 }
 ```
 
@@ -208,15 +206,15 @@ async function runWithRetry(transactionFn, maxRetries = 3) {
 
 ```javascript
 async function safeTransfer() {
-    try {
-        await runWithRetry(() => transferFunds(1, 2, 100));
-    } catch (error) {
-        if (error.code === 'ER_LOCK_DEADLOCK') {
-            console.error('多次重试后仍遇到死锁');
-        } else {
-            console.error('转账错误:', error);
-        }
+  try {
+    await runWithRetry(() => transferFunds(1, 2, 100));
+  } catch (error) {
+    if (error.code === "ER_LOCK_DEADLOCK") {
+      console.error("多次重试后仍遇到死锁");
+    } else {
+      console.error("转账错误:", error);
     }
+  }
 }
 ```
 
@@ -226,33 +224,33 @@ MySQL 不支持真正的嵌套事务，但可以通过保存点模拟：
 
 ```javascript
 async function nestedTransactionExample() {
-    const conn = await pool.getConnection();
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+
+    // 外层事务操作…
+
     try {
-        await conn.beginTransaction();
-        
-        // 外层事务操作…
-        
-        try {
-            // 内层事务开始（保存点）
-            await conn.query('SAVEPOINT inner_transaction');
-            
-            // 内层操作…
-            
-            // 内层提交（释放保存点）
-            await conn.query('RELEASE SAVEPOINT inner_transaction');
-        } catch (innerError) {
-            // 内层回滚
-            await conn.query('ROLLBACK TO SAVEPOINT inner_transaction');
-            throw innerError;
-        }
-        
-        await conn.commit();
-    } catch (error) {
-        await conn.rollback();
-        throw error;
-    } finally {
-        conn.release();
+      // 内层事务开始（保存点）
+      await conn.query("SAVEPOINT inner_transaction");
+
+      // 内层操作…
+
+      // 内层提交（释放保存点）
+      await conn.query("RELEASE SAVEPOINT inner_transaction");
+    } catch (innerError) {
+      // 内层回滚
+      await conn.query("ROLLBACK TO SAVEPOINT inner_transaction");
+      throw innerError;
     }
+
+    await conn.commit();
+  } catch (error) {
+    await conn.rollback();
+    throw error;
+  } finally {
+    conn.release();
+  }
 }
 ```
 

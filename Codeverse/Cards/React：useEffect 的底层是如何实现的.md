@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 created: 2025-06-12
 modified: 2025-06-12
 ---
@@ -30,13 +30,13 @@ React 使用 `useEffectEvent()` 注册 effect，在 commitLayoutEffect 之后�
 
 ```js
 function useEffect(callback, dependencies) {
-  const currentEffect = getCurrentEffect() // 获取当前 Fiber 节点的 Effect
+  const currentEffect = getCurrentEffect(); // 获取当前 Fiber 节点的 Effect
 
   if (!Object.is(currentEffect.dependencies, dependencies)) {
-    cleanupPreviousEffect(currentEffect) // 先执行上次 effect 的清理函数
-    const cleanup = callback() // 执行 useEffect 传入的回调
-    currentEffect.dependencies = dependencies
-    currentEffect.cleanup = cleanup // 存储清理函数
+    cleanupPreviousEffect(currentEffect); // 先执行上次 effect 的清理函数
+    const cleanup = callback(); // 执行 useEffect 传入的回调
+    currentEffect.dependencies = dependencies;
+    currentEffect.cleanup = cleanup; // 存储清理函数
   }
 }
 ```

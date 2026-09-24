@@ -14,7 +14,7 @@ img[alt*="md"] {
 }
 
 img[alt*="lg"] {
-  width: 800px
+  width: 800px;
 }
 
 /* mermaid 图形样式调整 */
@@ -23,10 +23,10 @@ img[alt*="lg"] {
   height: auto;
 }
 .mermaid rect.actor {
-    stroke: #DBD0F4;
-    fill: #ECECFF;
+  stroke: #dbd0f4;
+  fill: #ececff;
 }
 .mermaid rect.actor {
-    stroke: #C4C25C;
-    fill: #FFF5AD;
+  stroke: #c4c25c;
+  fill: #fff5ad;
 }

@@ -57,8 +57,7 @@
  * 
  */
 
-
-/* 
+/*
  74.搜索矩阵 1：从上到下，每一行组成的元素总体上单调。 
  
  本题中，考察左上顶点：在行内最小，在列内也最小，没什么用。
@@ -66,26 +65,27 @@
 */
 
 // @lc code=start
-/** 
+/**
  * 时间复杂度：O(m + n)，空间复杂度：O(1)。
  * @param {number[][]} matrix
  * @param {number} target
  * @return {boolean}
  */
-var searchMatrix = function(matrix, target) {
-    const m = matrix.length, n = matrix[0].length;
+var searchMatrix = function (matrix, target) {
+  const m = matrix.length,
+    n = matrix[0].length;
 
-    let i = 0, j = n - 1;  // 右上顶点
-    while (i < m && j >= 0) {
-        if (matrix[i][j] < target) {
-            i++;
-        } else if (matrix[i][j] > target) {
-            j--;
-        } else {
-            return true;
-        }
+  let i = 0,
+    j = n - 1; // 右上顶点
+  while (i < m && j >= 0) {
+    if (matrix[i][j] < target) {
+      i++;
+    } else if (matrix[i][j] > target) {
+      j--;
+    } else {
+      return true;
     }
-    return false
+  }
+  return false;
 };
 // @lc code=end
-

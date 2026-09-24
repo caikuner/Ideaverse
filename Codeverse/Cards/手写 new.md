@@ -1,7 +1,7 @@
 ---
 tags: [handcode]
 
-related: 
+related:
 rank: "3"
 companies:
 created: 2025-06-16
@@ -19,15 +19,14 @@ new 的过程： [[JS：new 的过程]]
 - 推荐直接在创建时指定原型，Object.create(constructor.prototype)
  */
 function myNew(constructor, ...args) {
-  if (!constructor || !constructor.prototype || typeof constructor !== 'function') return
+  if (!constructor || !constructor.prototype || typeof constructor !== "function") return;
   // 创建一个空的对象，链接到原型，obj 可以访问构造函数原型中的属性
   const obj = Object.create(constructor.prototype);
   // 绑定 this到对象，并执行
   const res = constructor.apply(obj, args);
   // 优先返回构造函数返回的对象，否则直接返回对象自身。这是 new 的规则
   return res instanceof Object ? res : obj;
-};
-
+}
 ```
 
 JavaScript 的 `new` 操作符的返回有以下行为规则：

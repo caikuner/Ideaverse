@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 in:
   - "[[Views]]"
 created: 2024-03-20

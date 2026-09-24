@@ -1,15 +1,14 @@
 ---
-
 excalidraw-plugin: parsed
 tags: [excalidraw]
-
 ---
-==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠== You can decompress Drawing data with the command palette: 'Decompress current Excalidraw file'. For more info check in plugin settings under 'Saving'
 
+==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠== You can decompress Drawing data with the command palette: 'Decompress current Excalidraw file'. For more info check in plugin settings under 'Saving'
 
 # Excalidraw Data
 
 ## Text Elements
+
 await 自动将任何非 Promises 的内容（non-thenables）包装到 Promises 中，语义等同于 Promise.resolve() ^N4IutUAr
 
 async/await 提供更完整的错误捕获堆栈信息 (Stack Trace) ^ZXId67fS
@@ -21,7 +20,9 @@ async/await 统一了异步编程的体验 ^ttN1OpDv
 async/await 不仅仅是 Promise 的语法糖 ^NvhpedLh
 
 %%
+
 ## Drawing
+
 ```compressed-json
 N4KAkARALgngDgUwgLgAQQQDwMYEMA2AlgCYBOuA7hADTgQBuCpAzoQPYB2KqATLZMzYBXUtiRoIACyhQ4zZAHoFAc0JRJQgEYA6bGwC2CgF7N6hbEcK4OCtptbErHALRY8RMpWdx8Q1TdIEfARcZgRmBShcZQUebQBGOJ4aOiCEfQQOKGZuAG1wMFAwYogSbggAOQAWAEkhKABVAEFSFOLIWERyqCwoNpLMbmcAdniAZgSqnmGANkSxgAYqmYAO
 
@@ -59,4 +60,5 @@ fScQPyAgOboIW0SyQALJsDNQ3GFS84sF0mAIeG8yoDVoQBaLoi1qkDKDEiESqQgy8BwzUAqnKlTp7DYI
 
 IBgZktZDB7OPORZVc5Sl4vI9ZzpgklOJcoQvEDZ5ZlZnOhhYAlae83I4QlhB0IAB0QAA
 ```
+
 %%

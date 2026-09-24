@@ -1,7 +1,7 @@
 ---
 tags: [handcode]
 
-related: 
+related:
 rank: "3"
 companies:
 created: 2025-06-16
@@ -18,9 +18,9 @@ instanceof 可以判断是否对象是否是某个数据类型的实例，内部
 
 - 实现一下 instanceOf:
 
-    注意边界情况：
-    - 构造函数没有 prototype, 比如使用了箭头函数、bind
-    - 对象没有隐式原型，比如 Object.create(null)
+  注意边界情况：
+  - 构造函数没有 prototype, 比如使用了箭头函数、bind
+  - 对象没有隐式原型，比如 Object.create(null)
 
 ```js
 /**
@@ -38,7 +38,7 @@ function _instanceOf(obj, constructor) {
 
   while (true) {
     // 原型找到 null 都没找到
-    if (objProto===null) return false;
+    if (objProto === null) return false;
 
     // 找到返回 true
     if (objProto === prototype) return true;
@@ -51,8 +51,6 @@ function _instanceOf(obj, constructor) {
 
 // test
 const o = {};
-console.log(_instanceOf(o, Object))
-console.log(_instanceOf(o, Array))
-
-
+console.log(_instanceOf(o, Object));
+console.log(_instanceOf(o, Array));
 ```

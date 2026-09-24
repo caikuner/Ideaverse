@@ -5,6 +5,7 @@ related:
 created: 2025-06-15
 modified: 2025-06-17
 ---
+
 #x/readitlater #source/article
 
 ## 手写 class 继承 [[https://www.mianshipai.com/docs/written-exam/JS-writing.html#手写-class-继承]]
@@ -30,40 +31,40 @@ modified: 2025-06-17
 ```js
 class BaseMenu {
   constructor(title, icon) {
-    this.title = title
-    this.icon = icon
+    this.title = title;
+    this.icon = icon;
   }
   isDisabled() {
-    return false
+    return false;
   }
 }
 
 class ButtonMenu extends BaseMenu {
   constructor(title, icon) {
-    super(title, icon)
+    super(title, icon);
   }
   exec() {
-    console.log('hello')
+    console.log("hello");
   }
 }
 
 class SelectMenu extends BaseMenu {
   constructor(title, icon) {
-    super(title, icon)
+    super(title, icon);
   }
   exec() {
-    return ['item1', 'item2', 'item3']
+    return ["item1", "item2", "item3"];
   }
 }
 
 class ModalMenu extends BaseMenu {
   constructor(title, icon) {
-    super(title, icon)
+    super(title, icon);
   }
   exec() {
-    const div = document.createElement('div')
-    div.innerText = 'modal'
-    return div
+    const div = document.createElement("div");
+    div.innerText = "modal";
+    return div;
   }
 }
 ```
@@ -169,34 +170,34 @@ js
 
 ```js
 function parseParam(url) {
-  const paramsStr = /.+\?(.+)$/.exec(url)[1] // 将 ? 后面的字符串取出来
+  const paramsStr = /.+\?(.+)$/.exec(url)[1]; // 将 ? 后面的字符串取出来
   // exec() 方法用于检索字符串中的正则表达式的匹配。
-  const paramsArr = paramsStr.split('&') // 将字符串以 & 分割后存到数组中
-  let paramsObj = {}
+  const paramsArr = paramsStr.split("&"); // 将字符串以 & 分割后存到数组中
+  let paramsObj = {};
   // 将 params 存到对象中
   paramsArr.forEach((param) => {
     if (/=/.test(param)) {
       // 处理有 value 的参数
-      let [key, val] = param.split('=') // 分割 key 和 value
-      val = decodeURIComponent(val) // 解码
-      val = /^\d+$/.test(val) ? parseFloat(val) : val // 判断是否转为数字
+      let [key, val] = param.split("="); // 分割 key 和 value
+      val = decodeURIComponent(val); // 解码
+      val = /^\d+$/.test(val) ? parseFloat(val) : val; // 判断是否转为数字
       //test() 方法用于检测一个字符串是否匹配某个模式.
       if (paramsObj.hasOwnProperty(key)) {
         // 如果对象有 key，则添加一个值
-        paramsObj[key] = [].concat(paramsObj[key], val)
+        paramsObj[key] = [].concat(paramsObj[key], val);
         //concat() 方法用于连接两个或多个数组。
         //该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
       } else {
         // 如果对象没有这个 key，创建 key 并设置值
-        paramsObj[key] = val
+        paramsObj[key] = val;
       }
     } else {
       // 处理没有 value 的参数
-      paramsObj[param] = true
+      paramsObj[param] = true;
     }
-  })
+  });
 
-  return paramsObj
+  return paramsObj;
 }
 ```
 
@@ -213,37 +214,37 @@ class MyPromise {
   // 构造方法
   constructor(executor) {
     // 初始化值
-    this.initValue()
+    this.initValue();
     // 初始化this指向
-    this.initBind()
+    this.initBind();
     // 执行传进来的函数
-    executor(this.resolve, this.reject)
+    executor(this.resolve, this.reject);
   }
 
   initBind() {
     // 初始化this
-    this.resolve = this.resolve.bind(this)
-    this.reject = this.reject.bind(this)
+    this.resolve = this.resolve.bind(this);
+    this.reject = this.reject.bind(this);
   }
 
   initValue() {
     // 初始化值
-    this.PromiseResult = null // 终值
-    this.PromiseState = 'pending' // 状态
+    this.PromiseResult = null; // 终值
+    this.PromiseState = "pending"; // 状态
   }
 
   resolve(value) {
     // 如果执行resolve，状态变为fulfilled
-    this.PromiseState = 'fulfilled'
+    this.PromiseState = "fulfilled";
     // 终值为传进来的值
-    this.PromiseResult = value
+    this.PromiseResult = value;
   }
 
   reject(reason) {
     // 如果执行reject，状态变为rejected
-    this.PromiseState = 'rejected'
+    this.PromiseState = "rejected";
     // 终值为传进来的reason
-    this.PromiseResult = reason
+    this.PromiseResult = reason;
   }
 }
 ```

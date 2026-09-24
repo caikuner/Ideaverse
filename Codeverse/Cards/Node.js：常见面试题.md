@@ -1,15 +1,16 @@
 ---
 aliases: []
 tags: []
-up: 
-related: 
-rank: 
-author: 
+up:
+related:
+rank:
+author:
 created: 2025-06-15
 modified: 2025-07-10
-published: 
+published:
 description:
 ---
+
 [[Node.js：事件循环机制]]
 
 ## 对 Node.js 的理解
@@ -18,13 +19,13 @@ Node.js 是一个基于 Chrome V8 引擎的开源、跨平台的 JavaScript 运�
 
 1. **运行环境** ：让 JavaScript 可以在浏览器之外运行，使其成为一个服务器端的运行环境
 2. **异步非阻塞 I/O** ：
-	- 采用非阻塞型 I/O 机制，执行 I/O 操作时不会造成阻塞，操作完成后通过事件通知执行回调函数
-	- 例如：执行数据库操作时，不需要等待数据返回，而是继续执行后续代码，数据库返回结果后再通过回调函数处理
+   - 采用非阻塞型 I/O 机制，执行 I/O 操作时不会造成阻塞，操作完成后通过事件通知执行回调函数
+   - 例如：执行数据库操作时，不需要等待数据返回，而是继续执行后续代码，数据库返回结果后再通过回调函数处理
 3. **事件驱动** ：
-	- 基于事件循环（Event Loop）
-	- 新请求会被压入事件队列
-	- 通过循环检测队列中的事件状态变化
-	- 当检测到状态变化，执行对应的回调函数
+   - 基于事件循环（Event Loop）
+   - 新请求会被压入事件队列
+   - 通过循环检测队列中的事件状态变化
+   - 当检测到状态变化，执行对应的回调函数
 
 ## Node.js 的优缺点
 
@@ -53,26 +54,26 @@ Node.js 是一个基于 Chrome V8 引擎的开源、跨平台的 JavaScript 运�
 **具体应用领域：**
 
 1. **Web 应用系统**
-	- 后台管理系统
-	- 用户表单收集系统
-	- 考试系统
-	- 高并发 Web 应用
+   - 后台管理系统
+   - 用户表单收集系统
+   - 考试系统
+   - 高并发 Web 应用
 2. **实时通讯应用**
-	- 在线聊天室
-	- 实时通讯系统
-	- 图文直播系统
-	- WebSocket 应用
+   - 在线聊天室
+   - 实时通讯系统
+   - 图文直播系统
+   - WebSocket 应用
 3. **接口服务**
-	- RESTful API 服务
-	- 数据库操作接口
-	- 前端/移动端 API 服务
+   - RESTful API 服务
+   - 数据库操作接口
+   - 前端/移动端 API 服务
 4. **工具类应用**
-	- 构建工具（如 webpack）
-	- 开发工具
-	- 自动化脚本
+   - 构建工具（如 webpack）
+   - 开发工具
+   - 自动化脚本
 5. **微服务**
-	- 轻量级微服务
-	- 中间层服务（BFF）
+   - 轻量级微服务
+   - 中间层服务（BFF）
 
 注意：虽然 Node.js 理论上可以开发各种应用，但在选择使用时应该考虑其是否适合特定场景，特别是需要避免在 CPU 密集型场景中使用。
 
@@ -88,55 +89,55 @@ Node.js 的全局对象可以分为两类：
 **真正的全局对象**
 
 1. **Buffer 类**
-	- 用于处理二进制数据
-	- 在 V8 堆外分配物理内存
-	- 创建后大小固定，不可更改
-	- 常用于文件操作、网络操作等场景
+   - 用于处理二进制数据
+   - 在 V8 堆外分配物理内存
+   - 创建后大小固定，不可更改
+   - 常用于文件操作、网络操作等场景
 2. **process**
-	- 提供当前 Node.js 进程信息
-	- 常用属性和方法：
-		- `process.env` ：环境变量
-		- `process.argv` ：命令行参数
-		- `process.cwd()` ：当前工作目录
-		- `process.pid` ：进程 ID
-		- `process.platform` ：运行平台
+   - 提供当前 Node.js 进程信息
+   - 常用属性和方法：
+     - `process.env` ：环境变量
+     - `process.argv` ：命令行参数
+     - `process.cwd()` ：当前工作目录
+     - `process.pid` ：进程 ID
+     - `process.platform` ：运行平台
 3. **console**
-	- `console.log()` ：标准输出
-	- `console.error()` ：错误输出
-	- `console.trace()` ：打印调用栈
-	- `console.time()/timeEnd()` ：计时器
-	- `console.clear()` ：清空控制台
+   - `console.log()` ：标准输出
+   - `console.error()` ：错误输出
+   - `console.trace()` ：打印调用栈
+   - `console.time()/timeEnd()` ：计时器
+   - `console.clear()` ：清空控制台
 4. **定时器函数**
-	- `setTimeout()/clearTimeout()`
-	- `setInterval()/clearInterval()`
-	- `setImmediate()/clearImmediate()`
-	- `process.nextTick()`
+   - `setTimeout()/clearTimeout()`
+   - `setInterval()/clearInterval()`
+   - `setImmediate()/clearImmediate()`
+   - `process.nextTick()`
 5. **global**
-	- 全局命名空间对象
-	- 上述所有全局对象都是 `global` 的属性
+   - 全局命名空间对象
+   - 上述所有全局对象都是 `global` 的属性
 
 **模块级别的全局变量**
 
 这些变量虽然看起来是全局的，但实际上是每个模块独有的：
 
 1. **\_\_dirname**
-	- 当前模块的目录名
-	- 绝对路径
+   - 当前模块的目录名
+   - 绝对路径
 2. **\_\_filename**
-	- 当前模块的文件名
-	- 包含绝对路径
+   - 当前模块的文件名
+   - 包含绝对路径
 3. **exports**
-	- 模块导出的快捷方式
-	- `module.exports` 的引用
+   - 模块导出的快捷方式
+   - `module.exports` 的引用
 4. **module**
-	- 当前模块的引用
-	- 包含模块的元数据
+   - 当前模块的引用
+   - 包含模块的元数据
 5. **require**
-	- 用于导入模块
-	- 可导入的内容：
-		- Node.js 核心模块
-		- 第三方模块
-		- 本地文件
+   - 用于导入模块
+   - 可导入的内容：
+     - Node.js 核心模块
+     - 第三方模块
+     - 本地文件
 
 **注意事项**
 
@@ -159,21 +160,21 @@ process 是 Node.js 中的一个全局对象，它提供了当前 Node.js 进程
 
 - **process.env**：环境变量对象
 
-    ```
-    console.log(process.env.NODE_ENV) // 获取环境变量
-    ```
+  ```
+  console.log(process.env.NODE_ENV) // 获取环境变量
+  ```
 
 - **process.platform**：运行平台
 
-    ```
-    console.log(process.platform) // 'darwin' for macOS
-    ```
+  ```
+  console.log(process.platform) // 'darwin' for macOS
+  ```
 
 - **process.version**：Node.js 版本
 
-    ```
-    console.log(process.version) // 'v16.x.x'
-    ```
+  ```
+  console.log(process.version) // 'v16.x.x'
+  ```
 
 1. 进程信息相关
 
@@ -182,35 +183,35 @@ process 是 Node.js 中的一个全局对象，它提供了当前 Node.js 进程
 - **process.uptime()**：进程运行时间
 - **process.title**：进程名称
 
-    ```
-    console.log(process.pid) // 进程ID
-    process.title = 'my-app' // 设置进程标题
-    ```
+  ```
+  console.log(process.pid) // 进程ID
+  process.title = 'my-app' // 设置进程标题
+  ```
 
 1. 路径与命令行
 
 - **process.cwd()**：当前工作目录
 
-    ```
-    console.log(process.cwd()) // 返回当前工作目录的绝对路径
-    ```
+  ```
+  console.log(process.cwd()) // 返回当前工作目录的绝对路径
+  ```
 
 - **process.argv**：命令行参数
 
-    ```
-    // node app.js --port 3000
-    const args = process.argv.slice(2) // ['--port', '3000']
-    ```
+  ```
+  // node app.js --port 3000
+  const args = process.argv.slice(2) // ['--port', '3000']
+  ```
 
 1. 事件循环相关
 
 - **process.nextTick(callback)**：下一个事件循环触发回调
 
-    ```
-    process.nextTick(() => {
-      console.log('下一个事件循环执行')
-    })
-    ```
+  ```
+  process.nextTick(() => {
+    console.log('下一个事件循环执行')
+  })
+  ```
 
 1. 标准流操作
 
@@ -218,50 +219,49 @@ process 是 Node.js 中的一个全局对象，它提供了当前 Node.js 进程
 - **process.stdin**：标准输入
 - **process.stderr**：标准错误
 
-    ```
-    process.stdout.write('Hello World\n')
-    ```
+  ```
+  process.stdout.write('Hello World\n')
+  ```
 
 1. 事件监听
 
 - **进程异常处理**
 
-    ```
-    process.on('uncaughtException', (err) => {
-      console.error('未捕获的异常：', err)
-    })
-    ```
+  ```
+  process.on('uncaughtException', (err) => {
+    console.error('未捕获的异常：', err)
+  })
+  ```
 
 - **进程退出监听**
 
-    ```
-    process.on('exit', (code) => {
-      console.log(`进程退出码：${code}`)
-    })
-    ```
+  ```
+  process.on('exit', (code) => {
+    console.log(`进程退出码：${code}`)
+  })
+  ```
 
 **使用注意事项**
 
 1. **process.nextTick 与 setTimeout 的区别**
-    
-    - `process.nextTick` 在当前事件循环结束时执行
-    - `setTimeout(fn, 0)` 在下一个事件循环开始时执行
-    - `nextTick` 优先级更高
+   - `process.nextTick` 在当前事件循环结束时执行
+   - `setTimeout(fn, 0)` 在下一个事件循环开始时执行
+   - `nextTick` 优先级更高
+
 2. **环境变量的使用**
 
-    ```
-    // 推荐使用
-    const NODE_ENV = process.env.NODE_ENV || 'development'
-    ```
+   ```
+   // 推荐使用
+   const NODE_ENV = process.env.NODE_ENV || 'development'
+   ```
 
 3. **工作目录**
-    
-    - `process.cwd()` 返回 Node.js 进程执行时的工作目录
-    - 与 `__dirname` 不同，`process.cwd()` 可能会随着工作目录的改变而改变
+   - `process.cwd()` 返回 Node.js 进程执行时的工作目录
+   - 与 `__dirname` 不同，`process.cwd()` 可能会随着工作目录的改变而改变
+
 4. **异常处理**
-    
-    - 建议使用 `uncaughtException` 捕获未处理的异常
-    - 但不建议用它来代替正常的错误处理流程
+   - 建议使用 `uncaughtException` 捕获未处理的异常
+   - 但不建议用它来代替正常的错误处理流程
 
 ## Express middleware(中间件) 工作原理
 
@@ -270,11 +270,11 @@ process 是 Node.js 中的一个全局对象，它提供了当前 Node.js 进程
 **工作流程**
 
 1. **请求处理流程**
-    
-    - 请求从上到下依次经过中间件
-    - 每个中间件可以对请求进行处理和修改
-    - 通过 next() 将请求传递给下一个中间件
-    - 如果不调用 next()，请求将终止
+   - 请求从上到下依次经过中间件
+   - 每个中间件可以对请求进行处理和修改
+   - 通过 next() 将请求传递给下一个中间件
+   - 如果不调用 next()，请求将终止
+
 2. **基本结构**
 
 ```
@@ -353,20 +353,17 @@ app.get('/api', (req, res) => {
 **中间件特点**
 
 1. **顺序重要性**
-    
-    - 中间件的注册顺序决定了执行顺序
-    - 错误处理中间件应该放在最后，这样才能捕获到之前的所有错误
-      
+   - 中间件的注册顺序决定了执行顺序
+   - 错误处理中间件应该放在最后，这样才能捕获到之前的所有错误
+
 2. **功能独立性**
-    
-    - 每个中间件负责特定功能
-    - 可以组合使用多个中间件
-      
+   - 每个中间件负责特定功能
+   - 可以组合使用多个中间件
+
 3. **请求响应周期**
-    
-    - 可以修改请求和响应对象
-    - 可以终止请求 - 响应周期
-    - 可以调用下一个中间件
+   - 可以修改请求和响应对象
+   - 可以终止请求 - 响应周期
+   - 可以调用下一个中间件
 
 **常见使用场景**
 
@@ -401,19 +398,18 @@ app.use(express.urlencoded({ extended: true })) // 解析 URL 编码的请求体
 **最佳实践**
 
 1. **合理使用 next()**
-    
-    - 除非终止请求，否则总是调用 next()
-    - 在异步操作中正确处理 next()
+   - 除非终止请求，否则总是调用 next()
+   - 在异步操作中正确处理 next()
+
 2. **错误处理**
-    
-    - 使用 try-catch 捕获同步错误
-    - 使用 Promise 处理异步错误
-    - 通过 next(error) 传递错误
+   - 使用 try-catch 捕获同步错误
+   - 使用 Promise 处理异步错误
+   - 通过 next(error) 传递错误
+
 3. **中间件设计**
-    
-    - 保持中间件功能单一
-    - 适当使用路由级中间件
-    - 避免中间件中的副作用
+   - 保持中间件功能单一
+   - 适当使用路由级中间件
+   - 避免中间件中的副作用
 
 ## Koa 洋葱模型中间件
 
@@ -428,28 +424,28 @@ Koa 的中间件模型被称为 `"洋葱模型"` ，这是因为请求和响应�
 1. **执行流程**
 
 ```js
-const Koa = require('koa')
-const app = new Koa()
+const Koa = require("koa");
+const app = new Koa();
 
 // 中间件1
 app.use(async (ctx, next) => {
-  console.log('1. 进入中间件1')
-  await next()
-  console.log('5. 离开中间件1')
-})
+  console.log("1. 进入中间件1");
+  await next();
+  console.log("5. 离开中间件1");
+});
 
 // 中间件2
 app.use(async (ctx, next) => {
-  console.log('2. 进入中间件2')
-  await next()
-  console.log('4. 离开中间件2')
-})
+  console.log("2. 进入中间件2");
+  await next();
+  console.log("4. 离开中间件2");
+});
 
 // 中间件3
 app.use(async (ctx) => {
-  console.log('3. 到达中间件3')
-  ctx.body = 'Hello World'
-})
+  console.log("3. 到达中间件3");
+  ctx.body = "Hello World";
+});
 
 // 输出顺序：
 // 1. 进入中间件1
@@ -462,28 +458,26 @@ app.use(async (ctx) => {
 **特点说明**
 
 1. **异步处理**
-    
-    - 通过 async/await 实现异步操作的同步写法
-    - 每个中间件都可以等待下一个中间件执行完成
-      
+   - 通过 async/await 实现异步操作的同步写法
+   - 每个中间件都可以等待下一个中间件执行完成
+
 2. **双向流动**
-    
-    - 请求阶段：从外到内
-    - 响应阶段：从内到外
-    - 可以在响应阶段对数据进行再处理
-      
+   - 请求阶段：从外到内
+   - 响应阶段：从内到外
+   - 可以在响应阶段对数据进行再处理
+
 3. **错误处理** ，在最外层处理
 
 ```js
 app.use(async (ctx, next) => {
   try {
-    await next()
+    await next();
   } catch (err) {
-    ctx.status = err.status || 500
-    ctx.body = err.message
-    ctx.app.emit('error', err, ctx)
+    ctx.status = err.status || 500;
+    ctx.body = err.message;
+    ctx.app.emit("error", err, ctx);
   }
-})
+});
 ```
 
 **实际应用示例**
@@ -492,54 +486,54 @@ app.use(async (ctx, next) => {
 
 ```js
 app.use(async (ctx, next) => {
-  const start = Date.now()
-  await next()
-  const ms = Date.now() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
-})
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
+});
 ```
 
 1. **响应处理**
 
 ```js
 app.use(async (ctx, next) => {
-  await next()
+  await next();
   // 响应阶段可以修改返回数据
   if (ctx.body) {
     ctx.body = {
       code: 0,
       data: ctx.body,
-      message: 'success',
-    }
+      message: "success",
+    };
   }
-})
+});
 ```
 
 ## Koa 与 Express 的区别
 
 1. **中间件机制**
-	- Express：单向流动，中间件通过 next() 线性执行，一旦响应结束就不能修改
-	- Koa：洋葱模型，中间件既可以处理请求也可以处理响应，支持统一的错误处理
+   - Express：单向流动，中间件通过 next() 线性执行，一旦响应结束就不能修改
+   - Koa：洋葱模型，中间件既可以处理请求也可以处理响应，支持统一的错误处理
 2. **异步处理**
-	- Express：基于回调函数，容易陷入回调地狱，异步错误处理相对复杂
-	- Koa：基于 Promise 和 async/await，代码更简洁，异步流程控制更直观
+   - Express：基于回调函数，容易陷入回调地狱，异步错误处理相对复杂
+   - Koa：基于 Promise 和 async/await，代码更简洁，异步流程控制更直观
 3. **上下文对象**
-	- Express：req 和 res 是分离的对象，功能相对分散
-	- Koa：ctx 统一上下文，封装了 request 和 response，API 设计更简洁优雅
+   - Express：req 和 res 是分离的对象，功能相对分散
+   - Koa：ctx 统一上下文，封装了 request 和 response，API 设计更简洁优雅
 4. **功能内置**
-	- Express：内置了很多中间件，功能齐全，开箱即用
-	- Koa：核心功能精简，需要通过第三方中间件扩展，更加灵活
+   - Express：内置了很多中间件，功能齐全，开箱即用
+   - Koa：核心功能精简，需要通过第三方中间件扩展，更加灵活
 5. **路由系统**
-	- Express：内置了强大的路由系统，支持链式调用
-	- Koa：路由需要通过第三方中间件实现（如 koa-router）
+   - Express：内置了强大的路由系统，支持链式调用
+   - Koa：路由需要通过第三方中间件实现（如 koa-router）
 6. **社区生态**
-	- Express：历史更悠久，社区更成熟，资源更丰富
-	- Koa：较新但发展迅速，设计更现代，适合新项目
+   - Express：历史更悠久，社区更成熟，资源更丰富
+   - Koa：较新但发展迅速，设计更现代，适合新项目
 7. **错误处理**
-	- Express：通过特殊的错误处理中间件，需要手动传递错误
-	- Koa：通过 try/catch 优雅地处理错误，统一的错误处理更方便
+   - Express：通过特殊的错误处理中间件，需要手动传递错误
+   - Koa：通过 try/catch 优雅地处理错误，统一的错误处理更方便
 8. **适用场景**
-	- Express：适合快速开发，现有项目迁移，团队熟悉度高
-	- Koa：适合追求优雅代码，需要更好的异步流程控制的场景
+   - Express：适合快速开发，现有项目迁移，团队熟悉度高
+   - Koa：适合追求优雅代码，需要更好的异步流程控制的场景
 
 ---

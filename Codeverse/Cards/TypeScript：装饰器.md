@@ -1,19 +1,16 @@
 ---
 tags: [fe/ts]
-up: 
-related: 
-rank: 
+up:
+related:
+rank:
 created: 2025-07-10
 modified: 2025-07-10
 ---
+
 TS 的 Decorators 装饰器可以方便地注入方法。JS 原生语法已经有提案，但尚未正式支持。
 
 ```ts
-function log(
-  target: Object,
-  propertyKey: string | symbol,
-  descriptor: PropertyDescriptor
-) {
+function log(target: Object, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
 
   descriptor.value = function (...args: any[]) {
@@ -25,7 +22,7 @@ function log(
 }
 
 class Calculator {
-  @log                       // 自动注入
+  @log // 自动注入
   add(a: number, b: number): number {
     return a + b;
   }

@@ -1,7 +1,6 @@
 // 优化： 标记每轮是否发生交换，如果没有，那就可以提前终止。
 // 因为冒泡排序，前面的轮次便利的数多，都没有交换的
 
-
 function bubbleSort(arr) {
   for (let i = arr.length - 1; i >= 0; i--) {
     markSwaped = false; // 标记是否交换过

@@ -1,4 +1,4 @@
-/*
+/\*
 
 ![](https://raw.githubusercontent.com/zsviczian/obsidian-excalidraw-plugin/master/images/scripts-download-raw.jpg)
 
@@ -7,7 +7,6 @@ Download this file and save to your Obsidian Vault including the first line, or 
 ![](https://raw.githubusercontent.com/zsviczian/obsidian-excalidraw-plugin/master/images/scripts-auto-layout.png)
 
 This script performs automatic layout for the selected top-level grouping objects. It is powered by [elkjs](https://github.com/kieler/elkjs) and needs to be connected to the Internet.
-
 
 See documentation for more details:
 https://zsviczian.github.io/obsidian-excalidraw-plugin/ExcalidrawScriptsEngine.html
@@ -36,7 +35,7 @@ if (!settings["Layout Options JSON"]) {
     },
   };
   ea.setScriptSettings(settings);
-} 
+}
 
 if (typeof ELK === "undefined") {
   loadELK(doAutoLayout);
@@ -187,7 +186,7 @@ async function doAutoLayout() {
     nodeNodeBetweenLayersSpacing;
   layoutOptionsJson["org.eclipse.elk.layered.nodePlacement.strategy"] =
     nodePlacementStrategy;
-  layoutOptionsJson["org.eclipse.elk.disco.componentCompaction.componentLayoutAlgorithm"] = 
+  layoutOptionsJson["org.eclipse.elk.disco.componentCompaction.componentLayoutAlgorithm"] =
     discoComponentLayoutAlgorithm;
   layoutOptionsJson["org.eclipse.elk.direction"] = direction;
 
@@ -397,3 +396,4 @@ function recalculateEndPointOfLine(line, el, elB, gapValue) {
     ];
   }
 }
+```

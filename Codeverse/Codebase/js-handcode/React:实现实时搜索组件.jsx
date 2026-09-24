@@ -26,16 +26,15 @@ export default function LiveSearch() {
     setResult(filtered);
   };
 
-  
-    const handleItemSelect = (e) => {
-      const li = e.target.closest('li')  // 触发元素是否是 li
-      if (!li) return
+  const handleItemSelect = (e) => {
+    const li = e.target.closest("li"); // 触发元素是否是 li
+    if (!li) return;
 
-      const selectedValue = li.dataset.value
-      console.log('select: ', selectedValue)
-      setQuery(selectedValue)
-      setResult([])
-    } 
+    const selectedValue = li.dataset.value;
+    console.log("select: ", selectedValue);
+    setQuery(selectedValue);
+    setResult([]);
+  };
 
   return (
     <div>
@@ -44,7 +43,9 @@ export default function LiveSearch() {
       {result?.length > 0 && (
         <ul onClick={handleItemSelect}>
           {result.map((item) => (
-            <li key={item} data-value={item}>{item}</li>
+            <li key={item} data-value={item}>
+              {item}
+            </li>
           ))}
         </ul>
       )}

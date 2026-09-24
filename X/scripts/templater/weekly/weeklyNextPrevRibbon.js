@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.weekly.weeklyNextPrevRibbon
+module.exports = app.utils.templater.weekly.weeklyNextPrevRibbon;

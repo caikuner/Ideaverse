@@ -3,7 +3,7 @@ aliases: [People MOC, Person Map]
 tags: []
 up:
   - "[[Home]]"
-related: 
+related:
 in:
   - "[[Maps]]"
 created: 2023-06-01
@@ -15,14 +15,14 @@ modified: 2025-07-22
 >
 > - 记录下特殊的记忆、值得注意的信息，或者是学习全新的行业知识
 > - Smaller Circles
-> 	- [[People Map#Family and Friends 👫]]
+>   - [[People Map#Family and Friends 👫]]
 > - Bigger Circles
-> 	- [[People by my eras in life]]
+>   - [[People by my eras in life]]
 > - Special Areas
-> 	- [[People Map#Prominent People 🌋|Prominent People 🌋]]
-> 	- [[Entertainment Industry]]
-> 	- [[Literary Industry]]
-> 	- ……
+>   - [[People Map#Prominent People 🌋|Prominent People 🌋]]
+>   - [[Entertainment Industry]]
+>   - [[Literary Industry]]
+>   - ……
 >
 > ---
 
@@ -35,12 +35,13 @@ modified: 2025-07-22
 >  file.link as Person,
 >  birthday as Birthday,
 >  tags as Tags
-> 
-> FROM #person 
+>
+> FROM #person
 > WHERE !startswith(file.path, "X/")
-> 
+>
 > SORT dates asc
 > ```
+>
 > ---
 
 - 陈瑄
@@ -59,10 +60,10 @@ modified: 2025-07-22
 > TABLE WITHOUT ID
 >  file.link as People,
 >  dates as "Years Lived"
-> 
+>
 > FROM #people
 > WHERE !startswith(file.path, "X/")
-> 
+>
 > SORT dates asc
 > ```
 >

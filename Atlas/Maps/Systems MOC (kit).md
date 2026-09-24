@@ -3,10 +3,11 @@ up:
   - "[[Library]]"
 related: []
 created: 2023-08-19
-in: 
-- "[[Maps]]"
+in:
+  - "[[Maps]]"
 ---
-This mapping note is in the **gather phase**. I'm thinking about systems often, so there may be a time soon where I start *colliding* these concepts in the **develop phase** (which is what [[Systems ♻️]] has become).
+
+This mapping note is in the **gather phase**. I'm thinking about systems often, so there may be a time soon where I start _colliding_ these concepts in the **develop phase** (which is what [[Systems ♻️]] has become).
 
 - [[Convergence (defn)]]
 - [[Divergence (defn)]]
@@ -19,5 +20,3 @@ This mapping note is in the **gather phase**. I'm thinking about systems often, 
 - Top-down thinking
 - Middle-out thinking
 - [[Heterarchy]]
-
-

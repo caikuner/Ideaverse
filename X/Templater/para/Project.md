@@ -1,7 +1,7 @@
 ---
 status: ongoing
 priority:
-goal: '[[]]'
+goal: "[[]]"
 deadline:
 completed:
 created: '[[<% tp.file.creation_date("YYYY-MM-DD") %>]]'

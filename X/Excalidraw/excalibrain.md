@@ -12,13 +12,16 @@ tags:
 # Excalidraw Data
 
 ## Text Elements
+
 Open a document in another pane and click it to get started.
 
 For the best experience enable 'Open in adjacent pane'
 in Excalidraw settings under 'Links and Transclusion'. ^4mylk7KK
 
 %%
+
 ## Drawing
+
 ```compressed-json
 N4KAkARALgngDgUwgLgAQQQDwMYEMA2AlgCYBOuA7hADTgQBuCpAzoQPYB2KqATLZMzYBXUtiRoIACyhQ4zZAHoFAc0JRJQgEYA6bGwC2CgF7N6hbEcK4OCtptbErHALRY8RMpWdx8Q1TdIEfARcZgRmBShcZQUebQBGAGZtAAYaOiCEfQQOKGZuAG1wMFAwMuh4cXQoLCh0sshGFnYuND5ixqZWTgA5TjFuJIA2RIAWAE4eeIB2AFZ+csJmABFM
 
@@ -36,4 +39,5 @@ FmIZ0xl8YoxpiJCGDLF0CMBDYDfvgAAmtwKY39WRkhtCAlIGYUijFHuUIwbADDcBZo0AgINBjaBGGmHg
 
 JlJ8LQOEyEHBfFhNICDfEP1kqJJBpY8odh4IIGwHkJ48S4AiLEfE2yUidgRPKJ8QKjBmK4PwEE9ssBECHCSrk9xXBIQDWhAYB+LTcZeLpEqMsoS0DSMqXcAExtMh5JaFsCpOZQhZVmbU+pzVHiU3AI4ug9xgh+mAFTCmQA==
 ```
+
 %%

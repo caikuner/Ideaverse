@@ -1,9 +1,9 @@
 ---
 tags:
-  - efforts
+  - effort
 up: []
 related: []
-created: {{date:YYYY-MM-DD}}
+created:
+  "{ date:YYYY-MM-DD }":
 rank:
 ---
-

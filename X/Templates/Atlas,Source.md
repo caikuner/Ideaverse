@@ -1,13 +1,12 @@
 ---
 tags:
   - source
-up: 
-related: 
+up:
+related:
 year:
-  "{ year }": 
+  "{ year }":
 created:
-  "{ date:YYYY-MM-DD }": 
+  "{ date:YYYY-MM-DD }":
 in:
   - "[[Sources]]"
 ---
-

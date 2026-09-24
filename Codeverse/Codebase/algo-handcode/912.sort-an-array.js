@@ -15,37 +15,36 @@
  * Testcase Example:  '[5,2,3,1]'
  *
  * 给你一个整数数组 nums，请你将该数组升序排列。
- * 
+ *
  * 你必须在 不使用任何内置函数 的情况下解决问题，时间复杂度为 O(nlog(n))，并且空间复杂度尽可能小。
- * 
- * 
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
  * 示例 1：
- * 
+ *
  * 输入：nums = [5,2,3,1]
  * 输出：[1,2,3,5]
- * 
- * 
+ *
+ *
  * 示例 2：
- * 
+ *
  * 输入：nums = [5,1,1,2,0,0]
  * 输出：[0,0,1,1,2,5]
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  * 提示：
- * 
- * 
+ *
+ *
  * 1 <= nums.length <= 5 * 10^4
  * -5 * 10^4 <= nums[i] <= 5 * 10^4
- * 
- * 
+ *
+ *
  */
-
 
 // @lcpr-template-start
 
@@ -60,7 +59,7 @@ var sortArray = function (nums) {
   if (!nums || nums.length <= 0) return nums;
 
   quickSort(nums, 0, nums.length - 1);
-  return nums
+  return nums;
 };
 function quickSort(arr, left = 0, right = arr.length - 1) {
   if (!arr || left >= right) return;
@@ -87,7 +86,8 @@ function partition(arr, left, right) {
 
   let i = left; // 小于基准的边界指针
 
-  for (let j = left; j < right; j++) { // 找 pivot 应该处在的位置：左边都比它小，右边都比它大
+  for (let j = left; j < right; j++) {
+    // 找 pivot 应该处在的位置：左边都比它小，右边都比它大
     if (arr[j] < pivot) {
       // 交换元素位置
       swap(arr, i, j);
@@ -102,8 +102,6 @@ function partition(arr, left, right) {
 
 // @lc code=end
 
-
-
 /*
 // @lcpr case=start
 // [5,2,3,1]\n
@@ -114,4 +112,3 @@ function partition(arr, left, right) {
 // @lcpr case=end
 
  */
-

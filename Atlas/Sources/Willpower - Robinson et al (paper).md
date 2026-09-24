@@ -8,13 +8,13 @@ people:
 year: 2010
 encountered: 2015
 in:
-- "[[Papers]]"
-- "[[Sources]]"
+  - "[[Papers]]"
+  - "[[Sources]]"
 ---
 
 #### A Cognitive Control Perspective of Self-Control Strength and Its Depletion - Robinson, Et al. 2010
-*Abstract*: Self‐control strength is a central construct to theories of willpower, optimal functioning, freedom from addiction, and abilities to override problematic social motives and behaviors (e.g., aggression). Understanding the processing basis of self‐control strength, and more particularly its depletion, is thus of paramount importance to both basic and applied literatures. Self‐control strength, the present review suggests, can be profitably viewed in cognitive control terms, particularly so in relation to operations of a brain‐based cognitive control circuit involving the anterior cingulate cortex (linked to monitoring potential or actual unwanted outcomes) and the dorsolateral prefrontal cortex (linked to controlling potential or actual unwanted outcomes). Also, sufficient task motivation is important to operations of this circuit and depletion effects might be understood in terms of such depletion effects on task motivation. Multiple sources of evidence are marshaled in support of this cognitive control perspective of self‐control strength. It is concluded that viewing self‐control strength in cognitive control terms has considerable merit. Social, cognitive, personality, and clinical sources of data are integrated in the analysis.
-	- why: 
+
+_Abstract_: Self‐control strength is a central construct to theories of willpower, optimal functioning, freedom from addiction, and abilities to override problematic social motives and behaviors (e.g., aggression). Understanding the processing basis of self‐control strength, and more particularly its depletion, is thus of paramount importance to both basic and applied literatures. Self‐control strength, the present review suggests, can be profitably viewed in cognitive control terms, particularly so in relation to operations of a brain‐based cognitive control circuit involving the anterior cingulate cortex (linked to monitoring potential or actual unwanted outcomes) and the dorsolateral prefrontal cortex (linked to controlling potential or actual unwanted outcomes). Also, sufficient task motivation is important to operations of this circuit and depletion effects might be understood in terms of such depletion effects on task motivation. Multiple sources of evidence are marshaled in support of this cognitive control perspective of self‐control strength. It is concluded that viewing self‐control strength in cognitive control terms has considerable merit. Social, cognitive, personality, and clinical sources of data are integrated in the analysis. - why:
 
 #### Extracted Annotations (3/7/2015, 4:26:55 PM)
 
@@ -85,7 +85,7 @@ in:
 ---
 
 - Back Matter
-	- published:: 2010
-	- read:: 2015-03-07
+  - published:: 2010
+  - read:: 2015-03-07
 
 ---

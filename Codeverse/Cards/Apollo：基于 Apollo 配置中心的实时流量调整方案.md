@@ -10,6 +10,7 @@ modified: 2025-06-24
 ## 一、Apollo 配置中心概述
 
 Apollo（阿波罗）是携程开源的一款分布式配置中心，能够实现：
+
 - **实时配置推送**（秒级生效）
 - **多环境管理**（DEV/FAT/UAT/PRO）
 - **权限控制和审计**
@@ -65,10 +66,10 @@ gray.rules = [
 ```java
 @Configuration
 public class TrafficConfig {
-    
+
     @ApolloConfig
     private Config config;
-    
+
     @Bean
     @RefreshScope // 支持配置动态刷新
     public TrafficControlService trafficControlService() {
@@ -87,17 +88,17 @@ public class TrafficConfig {
 ```java
 @RefreshScope
 public class TrafficRouteFilter implements GlobalFilter {
-    
+
     @Value("${service.weights:{}")
     private String weightsConfig;
-    
+
     private Map<String, Integer> serviceWeights;
-    
+
     @PostConstruct
     public void init() {
         serviceWeights = JsonUtil.parse(weightsConfig);
     }
-    
+
     @ApolloConfigChangeListener
     public void onChange(ConfigChangeEvent changeEvent) {
         if (changeEvent.isChanged("service.weights")) {
@@ -106,7 +107,7 @@ public class TrafficRouteFilter implements GlobalFilter {
             );
         }
     }
-    
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         // 根据权重动态路由
@@ -114,7 +115,7 @@ public class TrafficRouteFilter implements GlobalFilter {
         exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, targetService);
         return chain.filter(exchange);
     }
-    
+
     private String selectByWeight(Map<String, Integer> weights) {
         // 权重选择逻辑实现
     }
@@ -129,11 +130,11 @@ public class TrafficRouteFilter implements GlobalFilter {
 public void onConfigChange(ConfigChangeEvent changeEvent) {
     for (String key : changeEvent.changedKeys()) {
         ConfigChange change = changeEvent.getChange(key);
-        logger.info("配置变更 - key: {}, oldValue: {}, newValue: {}", 
-            change.getPropertyName(), 
-            change.getOldValue(), 
+        logger.info("配置变更 - key: {}, oldValue: {}, newValue: {}",
+            change.getPropertyName(),
+            change.getOldValue(),
             change.getNewValue());
-        
+
         // 触发流量策略更新
         trafficManager.refreshStrategy();
     }
@@ -196,13 +197,13 @@ service.degradation = {
 // 流量决策埋点
 @Aspect
 public class TrafficMonitorAspect {
-    
+
     @Pointcut("execution(* com..routing.*.*(..))")
     public void trafficRoutingPointcut() {}
-    
+
     @AfterReturning(pointcut="trafficRoutingPointcut()", returning="result")
     public void afterRouting(JoinPoint jp, Object result) {
-        Metrics.counter("traffic.route", 
+        Metrics.counter("traffic.route",
             "service", result.toString())
             .increment();
     }

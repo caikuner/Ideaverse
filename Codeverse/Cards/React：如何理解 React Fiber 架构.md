@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 created: 2025-06-12
 modified: 2025-06-12
 ---
@@ -39,7 +39,7 @@ const fiberNode = {
   child: nextFiber, // 子节点
   sibling: null, // 兄弟节点
   return: parentFiber, // 父节点
-}
+};
 ```
 
 ### **Fiber 协调流程（两阶段提交）** ⭐️
@@ -47,17 +47,17 @@ const fiberNode = {
 **阶段 1：Reconciliation（协调/渲染阶段）** - 异步可中断
 
 - **可中断的增量计算**： React 将组件树遍历拆解为多个 **Fiber 工作单元**，通过循环（而非递归）逐个处理。
-    - 每次循环执行一个 Fiber 节点，生成子 Fiber 并连接成树。
-    - 进行时间分片，分片通过 `requestIdleCallback`（或 Scheduler 包）在浏览器空闲时段执行，避免阻塞主线程。
+  - 每次循环执行一个 Fiber 节点，生成子 Fiber 并连接成树。
+  - 进行时间分片，分片通过 `requestIdleCallback`（或 Scheduler 包）在浏览器空闲时段执行，避免阻塞主线程。
 - **对比策略**： 根据 `key` 和 `type` 复用节点，标记 `Placement`（新增）、`Update`（更新）、`Deletion`（删除）等副作用。
 
 **阶段 2：Commit（提交阶段）** - 同步不可中断
 
 - **不可中断的 DOM 更新**： 同步执行所有标记的副作用（如 DOM 操作、生命周期调用），确保 UI 一致性。
 - **副作用分类**：
-    - **BeforeMutation**：`getSnapshotBeforeUpdate`。
-    - **Mutation**：DOM 插入/更新/删除。
-    - **Layout**：`useLayoutEffect`、`componentDidMount`/`Update`。
+  - **BeforeMutation**：`getSnapshotBeforeUpdate`。
+  - **Mutation**：DOM 插入/更新/删除。
+  - **Layout**：`useLayoutEffect`、`componentDidMount`/`Update`。
 
 ### **优先级调度机制**
 
@@ -67,36 +67,37 @@ React 通过 **Lane 模型** 管理任务优先级（共 31 个优先级车道
 
 - **事件优先级**：
 
-    ```
-    // 优先级从高到低
-    ImmediatePriority（用户输入）
-    UserBlockingPriority（悬停、点击）
-    NormalPriority（数据请求）
-    LowPriority（分析日志）
-    IdlePriority（非必要任务）
-    ```
+  ```
+  // 优先级从高到低
+  ImmediatePriority（用户输入）
+  UserBlockingPriority（悬停、点击）
+  NormalPriority（数据请求）
+  LowPriority（分析日志）
+  IdlePriority（非必要任务）
+  ```
 
 - **调度策略**：
-    - 高优先级任务可抢占低优先级任务的执行权。
-    - 过期任务（如 Suspense 回退）会被强制同步执行。
+  - 高优先级任务可抢占低优先级任务的执行权。
+  - 过期任务（如 Suspense 回退）会被强制同步执行。
 
 ### Fiber 架构的优缺点
 
 **优势**
+
 - **流畅的用户体验**：异步渲染避免主线程阻塞，保障高优先级任务即时响应。
 - **复杂场景优化**：支持大规模组件树的高效更新（如虚拟滚动、动画串联）。
 - **未来特性基础**：为并发模式（Concurrent Mode）、离线渲染（SSR）提供底层支持。
 
 **局限性**
+
 - **学习成本高**：开发者需理解底层调度逻辑以优化性能。
 - **内存开销**：Fiber 树的双向链表结构比传统虚拟 DOM 占用更多内存。
 
-
 **与旧架构的关键差异**
 
-| 特性        | Stack Reconciler（React 15-） | Fiber Reconciler（React 16+） |
-| --------- | --------------------------- | --------------------------- |
-| **遍历方式**  | 递归（不可中断）                    | 循环（可中断 + 恢复）                |
-| **任务调度**  | 同步执行，阻塞主线程                  | 异步分片，空闲时段执行                 |
-| **优先级控制** | 无                           | 基于 Lane 模型的优先级抢占            |
-| **数据结构**  | 虚拟 DOM 树                    | Fiber 链表树（含调度信息）            |
+| 特性           | Stack Reconciler（React 15-） | Fiber Reconciler（React 16+） |
+| -------------- | ----------------------------- | ----------------------------- |
+| **遍历方式**   | 递归（不可中断）              | 循环（可中断 + 恢复）         |
+| **任务调度**   | 同步执行，阻塞主线程          | 异步分片，空闲时段执行        |
+| **优先级控制** | 无                            | 基于 Lane 模型的优先级抢占    |
+| **数据结构**   | 虚拟 DOM 树                   | Fiber 链表树（含调度信息）    |

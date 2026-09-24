@@ -21,7 +21,7 @@ function throttle(fn, wait) {
 function throttleTimestamp(fn, interval) {
   let last = 0;
   return function (...args) {
-    const context = this
+    const context = this;
     const now = Date.now();
     if (now - last >= interval) {
       fn.apply(context, args);
@@ -30,18 +30,15 @@ function throttleTimestamp(fn, interval) {
   };
 }
 
-
-
 // 使用示例
 (function test() {
-  const throttleLog = throttleTimestamp((n)=> console.log(n), 3000);
+  const throttleLog = throttleTimestamp((n) => console.log(n), 3000);
 
-  throttleLog(1) 
+  throttleLog(1);
   setTimeout(() => {
-    throttleLog(2)
-  }, 1000)            // 2不打印，被3s时间过滤了
+    throttleLog(2);
+  }, 1000); // 2不打印，被3s时间过滤了
   setTimeout(() => {
-    throttleLog(3)
-  }, 3000)
+    throttleLog(3);
+  }, 3000);
 })();
-

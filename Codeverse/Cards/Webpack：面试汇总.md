@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 url: https://www.mianshipai.com/docs/second-exam/engineering.html
 created: 2025-06-13
 modified: 2025-07-09
@@ -129,11 +129,11 @@ Webpack 的核心概念是理解其工作原理和配置的基础，以下是它
 
 **常用占位符**
 
-| 占位符             | 说明                   |
-| --------------- | -------------------- |
-| `[name]`        | 入口名称（如多入口的 `home` ）  |
-| `[hash]`        | 根据构建生成的唯一哈希值，项目级别    |
-| `[chunkhash]`   | 根据代码块生成的哈希值，chunk 级别 |
+| 占位符          | 说明                                     |
+| --------------- | ---------------------------------------- |
+| `[name]`        | 入口名称（如多入口的 `home` ）           |
+| `[hash]`        | 根据构建生成的唯一哈希值，项目级别       |
+| `[chunkhash]`   | 根据代码块生成的哈希值，chunk 级别       |
 | `[contenthash]` | 根据文件内容生成的哈希值，文件级别。推荐 |
 
 ## Webpack：loaders 和 plugins
@@ -182,7 +182,6 @@ Webpack 的核心概念是理解其工作原理和配置的基础，以下是它
 
 **4\. 执行流程对比**
 
-
 **Loaders 的执行流程**
 
 ```text
@@ -199,15 +198,15 @@ Webpack 的核心概念是理解其工作原理和配置的基础，以下是它
 
 ```js
 // webpack.config.js
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   module: {
@@ -215,7 +214,7 @@ module.exports = {
       {
         test: /\.scss$/,
         // Loaders 处理链：sass → css → MiniCssExtractPlugin
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },
@@ -225,7 +224,7 @@ module.exports = {
     // Plugin：生成 HTML
     new HtmlWebpackPlugin(),
   ],
-}
+};
 ```
 
 ## Webpack：如何配置多环境的不同构建配置？
@@ -258,19 +257,19 @@ project/
 
 ```js
 // config/webpack.common.js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "../dist"),
     clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: "./src/index.html",
     }),
   ],
   module: {
@@ -278,15 +277,15 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: "babel-loader",
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
-}
+};
 ```
 
 **步骤 4：编写环境专属配置**
@@ -295,13 +294,13 @@ module.exports = {
 
 ```js
 // config/webpack.dev.js
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
-const webpack = require('webpack')
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
+const webpack = require("webpack");
 
 module.exports = merge(common, {
-  mode: 'development',
-  devtool: 'eval-source-map',
+  mode: "development",
+  devtool: "eval-source-map",
   devServer: {
     hot: true,
     open: true,
@@ -310,38 +309,38 @@ module.exports = merge(common, {
   plugins: [
     // 注入环境变量（可在代码中通过 process.env.API_URL 访问）
     new webpack.DefinePlugin({
-      'process.env.API_URL': JSON.stringify('https://dev.api.com'),
-      'process.env.NODE_ENV': JSON.stringify('development'),
+      "process.env.API_URL": JSON.stringify("https://dev.api.com"),
+      "process.env.NODE_ENV": JSON.stringify("development"),
     }),
   ],
-})
+});
 ```
 
 生产环境 ( `webpack.prod.js` )
 
 ```js
 // config/webpack.prod.js
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const webpack = require('webpack')
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = merge(common, {
-  mode: 'production',
-  devtool: 'source-map',
+  mode: "production",
+  devtool: "source-map",
   optimization: {
     minimizer: [
-      '...', // 保留默认的 JS 压缩配置
+      "...", // 保留默认的 JS 压缩配置
       new CssMinimizerPlugin(),
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.API_URL': JSON.stringify('https://prod.api.com'),
-      'process.env.NODE_ENV': JSON.stringify('production'),
+      "process.env.API_URL": JSON.stringify("https://prod.api.com"),
+      "process.env.NODE_ENV": JSON.stringify("production"),
     }),
   ],
-})
+});
 ```
 
 **步骤 5：配置 `package.json` 脚本**
@@ -360,14 +359,14 @@ module.exports = merge(common, {
 
 ```js
 // src/index.js
-console.log('当前环境:', process.env.NODE_ENV)
-console.log('API 地址:', process.env.API_URL)
+console.log("当前环境:", process.env.NODE_ENV);
+console.log("API 地址:", process.env.API_URL);
 
 // 根据不同环境执行不同逻辑
-if (process.env.NODE_ENV === 'development') {
-  console.log('这是开发环境')
+if (process.env.NODE_ENV === "development") {
+  console.log("这是开发环境");
 } else {
-  console.log('这是生产环境')
+  console.log("这是生产环境");
 }
 ```
 
@@ -390,19 +389,19 @@ npm run build:prod
 
 ```js
 // config/webpack.stage.js
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
-const webpack = require('webpack')
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
+const webpack = require("webpack");
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: "production",
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.API_URL': JSON.stringify('https://stage.api.com'),
-      'process.env.NODE_ENV': JSON.stringify('staging'),
+      "process.env.API_URL": JSON.stringify("https://stage.api.com"),
+      "process.env.NODE_ENV": JSON.stringify("staging"),
     }),
   ],
-})
+});
 ```
 
 1. 添加 `package.json` 脚本
@@ -415,13 +414,13 @@ module.exports = merge(common, {
 }
 ```
 
-| **配置项**     | **开发环境**              | **生产环境**               | **测试环境**                |
-| ----------- | --------------------- | ---------------------- | ----------------------- |
-| `mode`      | `development`         | `production`           | `production`            |
-| `devtool`   | `eval-source-map`     | `source-map`           | `source-map`            |
-| `devServer` | ✅ 启用                  | ❌ 不启用                  | ❌ 不启用                   |
-| **代码压缩**    | ❌ 不压缩                 | ✅ CSS/JS 压缩            | ✅ CSS/JS 压缩             |
-| **环境变量**    | `API_URL=dev.api.com` | `API_URL=prod.api.com` | `API_URL=stage.api.com` ||
+| **配置项**   | **开发环境**          | **生产环境**           | **测试环境**            |
+| ------------ | --------------------- | ---------------------- | ----------------------- | --- |
+| `mode`       | `development`         | `production`           | `production`            |
+| `devtool`    | `eval-source-map`     | `source-map`           | `source-map`            |
+| `devServer`  | ✅ 启用               | ❌ 不启用              | ❌ 不启用               |
+| **代码压缩** | ❌ 不压缩             | ✅ CSS/JS 压缩         | ✅ CSS/JS 压缩          |
+| **环境变量** | `API_URL=dev.api.com` | `API_URL=prod.api.com` | `API_URL=stage.api.com` |     |
 
 ## Webpack：如何处理 CSS 和 Sass
 
@@ -442,22 +441,22 @@ npm install --save-dev \
 ```
 
 - **核心依赖**：
-    - `style-loader`：将 CSS 注入 DOM。
-    - `css-loader`：解析 CSS 文件中的 `@import` 和 `url()`。
-    - `sass-loader`：将 Sass/SCSS 编译为 CSS。
-    - `sass`：Sass 编译器（Dart Sass 实现）。
+  - `style-loader`：将 CSS 注入 DOM。
+  - `css-loader`：解析 CSS 文件中的 `@import` 和 `url()`。
+  - `sass-loader`：将 Sass/SCSS 编译为 CSS。
+  - `sass`：Sass 编译器（Dart Sass 实现）。
 - **可选工具**：
-    - `postcss-loader` 和 `autoprefixer`：自动添加浏览器前缀。
-    - `mini-css-extract-plugin`：提取 CSS 为独立文件（生产环境推荐）。
-    - `css-minimizer-webpack-plugin`：压缩 CSS（生产环境推荐）。
+  - `postcss-loader` 和 `autoprefixer`：自动添加浏览器前缀。
+  - `mini-css-extract-plugin`：提取 CSS 为独立文件（生产环境推荐）。
+  - `css-minimizer-webpack-plugin`：压缩 CSS（生产环境推荐）。
 
 **2. 基础 Webpack 配置** 在 `webpack.config.js` 中添加以下规则和插件：
 
 **配置 CSS 和 SCSS 处理**
 
 ```js
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   module: {
@@ -467,19 +466,19 @@ module.exports = {
         test: /\.css$/,
         use: [
           // 开发环境用 style-loader，生产环境用 MiniCssExtractPlugin.loader
-          process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          'postcss-loader', // 可选：添加浏览器前缀
+          process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          "postcss-loader", // 可选：添加浏览器前缀
         ],
       },
       // 处理 SCSS/Sass 文件
       {
         test: /\.(scss|sass)$/,
         use: [
-          process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          'postcss-loader', // 可选：添加浏览器前缀
-          'sass-loader',
+          process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          "postcss-loader", // 可选：添加浏览器前缀
+          "sass-loader",
         ],
       },
     ],
@@ -487,7 +486,7 @@ module.exports = {
   plugins: [
     // 提取 CSS 为独立文件（生产环境）
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: "[name].[contenthash].css",
     }),
   ],
   optimization: {
@@ -496,7 +495,7 @@ module.exports = {
       new CssMinimizerPlugin(),
     ],
   },
-}
+};
 ```
 
 **3. 配置 PostCSS（可选）** 创建 `postcss.config.js` 文件以启用 `autoprefixer` ：
@@ -652,12 +651,11 @@ const About = lazy(
 **六、验证效果**
 
 1. **构建产物分析**：
-    
-    - 运行 `npx webpack --profile --json=stats.json` 生成构建报告。
-    - 使用 [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) 可视化分析 chunk 分布。
+   - 运行 `npx webpack --profile --json=stats.json` 生成构建报告。
+   - 使用 [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) 可视化分析 chunk 分布。
+
 2. **网络请求验证**：
-    
-    - 打开浏览器开发者工具，观察触发动态导入时是否加载新 chunk。
+   - 打开浏览器开发者工具，观察触发动态导入时是否加载新 chunk。
 
 ## Webpack：什么是 Tree Shaking？如何在 Webpack 中启用它？
 

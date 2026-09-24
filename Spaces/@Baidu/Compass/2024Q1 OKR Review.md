@@ -5,17 +5,11 @@
 
 ---
 
-
 - 神盾线上配置筛选，增加 productid & businessid，方便风控策略检索
-    
--   模拟过滤调用神盾接口增加重试，增强模拟过滤稳定性
-
-
-    
-- AS: 
+- 模拟过滤调用神盾接口增加重试，增强模拟过滤稳定性
+- AS:
 - feature配置时 view 与 data_view 支持使用第三方特征；
-    
-- Flink: 
+- Flink:
 - 动态词表 func 新增支持 RECORD
 - 引用特征映射到单维度，满足flink订单流和电商流字段不一致时的引用需要
 - 增加词表配置项：regular_match和string_contain
@@ -25,6 +19,3 @@
 ---
 
 预上线环境
-
-
-

@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.quarterly.quarterlyDateInfo
+module.exports = app.utils.templater.quarterly.quarterlyDateInfo;

@@ -1,4 +1,3 @@
-
 ```bash
 # Git 解决冲突
 
@@ -15,5 +14,3 @@ git rebase --continue
 ## Step4. 更新patch
 git push origin HEAD:refs/for/hotfixs
 ```
-
-

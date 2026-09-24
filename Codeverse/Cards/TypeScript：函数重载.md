@@ -1,8 +1,8 @@
 ---
 tags: [fe/ts]
-up: 
-related: 
-rank: 
+up:
+related:
+rank:
 created: 2025-06-13
 modified: 2025-07-10
 ---
@@ -30,7 +30,7 @@ function greet(value: string | number): string {
 
 // 调用时根据参数类型推断返回值
 const msg1 = greet("Alice"); // string
-const msg2 = greet(30);      // string
+const msg2 = greet(30); // string
 ```
 
 ---
@@ -46,8 +46,8 @@ function createDate(a: number, b?: number, c?: number): Date {
   return b === undefined ? new Date(a) : new Date(a, b, c);
 }
 
-const d1 = createDate(1625097600000);      // Date
-const d2 = createDate(2023, 5, 15);       // Date
+const d1 = createDate(1625097600000); // Date
+const d2 = createDate(2023, 5, 15); // Date
 ```
 
 ### **(2) 参数类型不同**
@@ -71,13 +71,11 @@ const arr = reverse([1, 2, 3]); // number[]
 function parseInput(input: string): number;
 function parseInput(input: string, radix: number): string;
 function parseInput(input: string, radix?: number): number | string {
-  return radix === undefined 
-    ? parseInt(input) 
-    : parseInt(input, radix).toString(radix);
+  return radix === undefined ? parseInt(input) : parseInt(input, radix).toString(radix);
 }
 
-const num = parseInput("42");       // number
-const str = parseInput("42", 16);   // string ("2a")
+const num = parseInput("42"); // number
+const str = parseInput("42", 16); // string ("2a")
 ```
 
 ---
@@ -107,11 +105,11 @@ const str = parseInput("42", 16);   // string ("2a")
 
 ## **4. 重载 vs. 联合类型**
 
-| **场景**               | **重载**                          | **联合类型**                     |
-|------------------------|-----------------------------------|----------------------------------|
-| **参数逻辑差异大**     | ✅（不同分支独立处理）            | ❌（需类型守卫）                 |
-| **返回类型依赖输入**   | ✅（精确匹配）                    | ❌（返回类型可能混合）           |
-| **代码简洁性**         | ❌（需多签名）                    | ✅（单类型定义）                 |
+| **场景**             | **重载**               | **联合类型**           |
+| -------------------- | ---------------------- | ---------------------- |
+| **参数逻辑差异大**   | ✅（不同分支独立处理） | ❌（需类型守卫）       |
+| **返回类型依赖输入** | ✅（精确匹配）         | ❌（返回类型可能混合） |
+| **代码简洁性**       | ❌（需多签名）         | ✅（单类型定义）       |
 
 **示例对比**：
 

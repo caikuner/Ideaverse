@@ -12,15 +12,16 @@ function myArrayMap(arr, callback, thisArg) {
 
   const newArray = [];
   for (let i = 0; i < arr.length; i++) {
-    if (i in arr) { // 跳过稀疏数据
-      newArray.push(callback.call(thisArg, arr[i], i, arr))
+    if (i in arr) {
+      // 跳过稀疏数据
+      newArray.push(callback.call(thisArg, arr[i], i, arr));
     }
   }
   return newArray;
 }
 
 // 方法2：reduce实现
-function myArrayMapUseReduce (arr, callback, thisArg) {
+function myArrayMapUseReduce(arr, callback, thisArg) {
   if (typeof callback !== "function") throw "参数必须为函数";
 
   return arr.reduce((acc, cur, i, array) => {
@@ -28,9 +29,9 @@ function myArrayMapUseReduce (arr, callback, thisArg) {
     acc.push(callback.call(thisArg, cur, i, array));
     return acc;
   }, []);
-};
+}
 
 // 使用示例
-const numbers = [1, 2, , undefined, null, 3, 4,];
-console.log(myArrayMap(numbers, (item) => item + '_h'))
-console.log(myArrayMapUseReduce(numbers, (item) => item + '_h'))
+const numbers = [1, 2, , undefined, null, 3, 4];
+console.log(myArrayMap(numbers, (item) => item + "_h"));
+console.log(myArrayMapUseReduce(numbers, (item) => item + "_h"));

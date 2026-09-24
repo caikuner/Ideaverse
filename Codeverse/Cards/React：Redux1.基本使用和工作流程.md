@@ -6,7 +6,6 @@ created: 2025-06-11
 modified: 2025-06-12
 ---
 
-
 Redux 是一个用于 JavaScript 应用程序的可预测状态管理容器，它帮助开发者管理应用的全局状态。下面我将从核心概念、工作流程和实现原理几个方面来讲解 Redux 的原理。
 
 ## 三个核心概念
@@ -28,8 +27,8 @@ Redux 是一个用于 JavaScript 应用程序的可预测状态管理容器，�
 
 ```javascript
 const addTodo = (text) => ({
-  type: 'ADD_TODO',
-  payload: { text }
+  type: "ADD_TODO",
+  payload: { text },
 });
 ```
 
@@ -72,14 +71,15 @@ View -> Action -> Reducer -> State -> View
 ## 特点
 
 1. **可预测性** ：
-	- 由于状态更新是通过纯函数（ `reducer` ）完成的，相同的 `state` 和 `action` 总是会生成相同的新的 `state` 。
+   - 由于状态更新是通过纯函数（ `reducer` ）完成的，相同的 `state` 和 `action` 总是会生成相同的新的 `state` 。
 2. **集中管理** ：
-	- 所有状态都存储在单一的 `store` 中，便于调试和管理。避免 props 深层传递
+   - 所有状态都存储在单一的 `store` 中，便于调试和管理。避免 props 深层传递
 3. **易于测试** ：
-	- `reducer` 是纯函数，没有副作用，易于测试。
+   - `reducer` 是纯函数，没有副作用，易于测试。
 4. **易于调试** ：
-	- 通过记录 `action` 和 `state` ，可以实现时间旅行调试（如 Redux DevTools）。  
-- **丰富的生态系统**：中间件、开发者工具等  
+   - 通过记录 `action` 和 `state` ，可以实现时间旅行调试（如 Redux DevTools）。
+
+- **丰富的生态系统**：中间件、开发者工具等
 
 ## 使用示例
 
@@ -121,6 +121,7 @@ store.dispatch(addTodo('Build a project'))
 ## Redux 在现代 React 中的替代方案
 
 虽然 Redux 仍然广泛使用，但现代 React 也提供了其他状态管理方案：
+
 - Context API + useReducer
 - Zustand ⭐️
 - Jotai

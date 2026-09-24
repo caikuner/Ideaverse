@@ -1,15 +1,17 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 created: 2025-06-12
 modified: 2025-06-12
 ---
+
 useState` 是 React Hooks 的核心 API 之一，它的底层实现依赖于 **Fiber 架构** 和 **闭包 + 链表存储** 的机制。以下是其核心实现逻辑：
 
 ## **1. 基本流程**
 
 当函数组件调用 `useState` 时，React 会：
+
 1. **检查当前 Fiber 节点**：确定是初次渲染还是更新。
 2. **读取/更新状态**：
    - 初次渲染：初始化状态，存入 Fiber 节点的 `memoizedState` 链表。
@@ -31,10 +33,10 @@ interface FiberNode {
 }
 
 interface Hook {
-  memoizedState: any;      // 当前状态（如 `useState` 的值）
-  baseState: any;          // 基础状态（用于更新计算）
+  memoizedState: any; // 当前状态（如 `useState` 的值）
+  baseState: any; // 基础状态（用于更新计算）
   queue: UpdateQueue<any>; // 更新队列（存放 setState 的调用）
-  next: Hook | null;       // 指向下一个 Hook
+  next: Hook | null; // 指向下一个 Hook
 }
 
 interface UpdateQueue<T> {
@@ -43,7 +45,7 @@ interface UpdateQueue<T> {
 
 interface Update<T> {
   action: T | ((prevState: T) => T); // setState 的参数
-  next: Update<T> | null;            // 下一个更新
+  next: Update<T> | null; // 下一个更新
 }
 ```
 
@@ -75,7 +77,7 @@ React 通过全局变量 `currentlyRenderingFiber` 跟踪当前组件对应的 F
 1. **调用 `setCount`**：
 
    ```js
-   setCount(prev => prev + 1);
+   setCount((prev) => prev + 1);
    ```
 
 2. **创建更新对象**：
@@ -172,11 +174,11 @@ function useState<T>(initialState: T): [T, (action: T | ((prev: T) => T)) => voi
 
 ## **6. 与 Class 组件 `setState` 的区别**
 
-| **特性**         | **`useState` (Hooks)**               | **`this.setState` (Class)**        |
-|------------------|--------------------------------------|------------------------------------|
-| **存储方式**     | 链表（每个 Hook 独立）              | 合并对象（统一 `this.state`）     |
-| **更新机制**     | 闭包 + 队列                         | 浅合并 + 批量更新                 |
-| **触发时机**     | 每次渲染独立捕获状态                | 实例生命周期内共享状态            |
+| **特性**     | **`useState` (Hooks)** | **`this.setState` (Class)**   |
+| ------------ | ---------------------- | ----------------------------- |
+| **存储方式** | 链表（每个 Hook 独立） | 合并对象（统一 `this.state`） |
+| **更新机制** | 闭包 + 队列            | 浅合并 + 批量更新             |
+| **触发时机** | 每次渲染独立捕获状态   | 实例生命周期内共享状态        |
 
 ---
 

@@ -5,6 +5,7 @@ related:
 created: 2025-07-04
 modified: 2025-07-04
 ---
+
 WebContainer 是一种革命性的浏览器内运行环境，它允许在浏览器标签页中直接运行完整的 Node.js 应用。这项技术由 StackBlitz 团队开发，代表了前端开发环境的最新演进方向。
 
 ## 一、核心架构原理
@@ -34,12 +35,12 @@ graph LR
 
 ```javascript
 // 在浏览器中运行的真实 Node.js 代码
-const fs = require('fs');
-const express = require('express');
+const fs = require("fs");
+const express = require("express");
 
-fs.writeFileSync('test.txt', 'Hello WebContainer!');
+fs.writeFileSync("test.txt", "Hello WebContainer!");
 const app = express();
-app.get('/', (req, res) => res.send(fs.readFileSync('test.txt')));
+app.get("/", (req, res) => res.send(fs.readFileSync("test.txt")));
 app.listen(3000);
 ```
 
@@ -54,43 +55,47 @@ npm install express lodash
 ### 3. 开发工作流示例
 
 ```javascript
-import { WebContainer } from '@webcontainer/api';
+import { WebContainer } from "@webcontainer/api";
 
 // 初始化容器
 const wc = await WebContainer.boot();
 
 // 创建项目文件
 await wc.mount({
-  'package.json': `{
+  "package.json": `{
     "name": "demo",
     "dependencies": {
       "express": "^4.17.0"
     }
   }`,
-  'index.js': `const express = require('express');`
+  "index.js": `const express = require('express');`,
 });
 
 // 安装依赖
-const install = await wc.spawn('npm', ['install']);
+const install = await wc.spawn("npm", ["install"]);
 await install.exit;
 
 // 启动服务器
-const server = await wc.spawn('node', ['index.js']);
-server.output.pipeTo(new WritableStream({
-  write(data) { console.log(data); }
-}));
+const server = await wc.spawn("node", ["index.js"]);
+server.output.pipeTo(
+  new WritableStream({
+    write(data) {
+      console.log(data);
+    },
+  }),
+);
 ```
 
 ## 三、与传统方案的对比
 
-| 特性                | WebContainer       | 本地 Node.js       | 在线 IDE           |
-|---------------------|--------------------|--------------------|--------------------|
-| 运行环境            | 浏览器 WASM        | 系统原生           | 远程服务器         |
-| 启动速度            | 3-5 秒              | 即时               | 10-30 秒            |
-| 文件系统            | 虚拟文件系统       | 真实文件系统       | 远程文件系统       |
-| 网络访问            | Service Worker 代理| 直接访问           | 服务器中转         |
-| 依赖安装            | 浏览器内 npm       | 本地 npm           | 服务器端 npm       |
-| 协作功能            | 内置实时协作       | 需要额外配置       | 部分支持           |
+| 特性     | WebContainer        | 本地 Node.js | 在线 IDE     |
+| -------- | ------------------- | ------------ | ------------ |
+| 运行环境 | 浏览器 WASM         | 系统原生     | 远程服务器   |
+| 启动速度 | 3-5 秒              | 即时         | 10-30 秒     |
+| 文件系统 | 虚拟文件系统        | 真实文件系统 | 远程文件系统 |
+| 网络访问 | Service Worker 代理 | 直接访问     | 服务器中转   |
+| 依赖安装 | 浏览器内 npm        | 本地 npm     | 服务器端 npm |
+| 协作功能 | 内置实时协作        | 需要额外配置 | 部分支持     |
 
 ## 四、技术实现细节
 
@@ -104,14 +109,14 @@ class VirtualFS {
     this.gid = 0;
     this.mode = 0o777;
   }
-  
+
   writeFile(path, content) {
     this.files.set(path, {
       ino: Date.now(),
       content,
       uid: this.uid,
       gid: this.gid,
-      mode: this.mode
+      mode: this.mode,
     });
   }
 }
@@ -148,14 +153,14 @@ sequenceDiagram
 ```javascript
 // 公司内部工具链集成
 const wc = await WebContainer.boot();
-await wc.mount(await loadTemplate('react-starter'));
+await wc.mount(await loadTemplate("react-starter"));
 
 // 代码质量检查
-const lint = await wc.spawn('npm', ['run', 'lint']);
+const lint = await wc.spawn("npm", ["run", "lint"]);
 lint.output.pipeTo(displayStream);
 
 // 安全依赖检查
-const audit = await wc.spawn('npm', ['audit']);
+const audit = await wc.spawn("npm", ["audit"]);
 ```
 
 ### 3. 开源协作
@@ -173,8 +178,8 @@ const audit = await wc.spawn('npm', ['audit']);
 
    ```javascript
    // 以下操作会失败
-   const fs = require('fs');
-   fs.writeFile('/etc/passwd', 'hack'); // 不允许访问真实系统
+   const fs = require("fs");
+   fs.writeFile("/etc/passwd", "hack"); // 不允许访问真实系统
    ```
 
 3. **兼容性问题**：
@@ -186,29 +191,33 @@ const audit = await wc.spawn('npm', ['audit']);
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <script type="module">
-    import { WebContainer } from 'https://cdn.jsdelivr.net/npm/@webcontainer/api@1.0.0/dist/index.min.js';
-    
-    async function init() {
-      const wc = await WebContainer.boot();
-      await wc.mount({
-        'index.js': `console.log('Hello from WebContainer!');`
-      });
-      
-      const process = await wc.spawn('node', ['index.js']);
-      process.output.pipeTo(new WritableStream({
-        write(text) { document.getElementById('output').textContent += text; }
-      }));
-    }
-    
-    document.getElementById('run').addEventListener('click', init);
-  </script>
-</head>
-<body>
-  <button id="run">Run WebContainer</button>
-  <pre id="output"></pre>
-</body>
+  <head>
+    <script type="module">
+      import { WebContainer } from "https://cdn.jsdelivr.net/npm/@webcontainer/api@1.0.0/dist/index.min.js";
+
+      async function init() {
+        const wc = await WebContainer.boot();
+        await wc.mount({
+          "index.js": `console.log('Hello from WebContainer!');`,
+        });
+
+        const process = await wc.spawn("node", ["index.js"]);
+        process.output.pipeTo(
+          new WritableStream({
+            write(text) {
+              document.getElementById("output").textContent += text;
+            },
+          }),
+        );
+      }
+
+      document.getElementById("run").addEventListener("click", init);
+    </script>
+  </head>
+  <body>
+    <button id="run">Run WebContainer</button>
+    <pre id="output"></pre>
+  </body>
 </html>
 ```
 

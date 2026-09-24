@@ -1,5 +1,4 @@
 ---
-area: '[[]]'
 status: ongoing
 deadline:
 achieved:

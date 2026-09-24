@@ -1,0 +1,29 @@
+filters:
+  and:
+    - '!file.folder.containsAny("X/Templates", "X/Templater")'
+    - or:
+        - file.tags.containsAny("project")
+        - "!project.isEmpty()"
+views:
+  - type: table
+    name: 表格
+    groupBy:
+      property: project
+      direction: ASC
+    order:
+      - file.name
+      - file.tags
+      - tags
+      - areas
+    sort:
+      - property: tags
+        direction: DESC
+      - property: file.tags
+        direction: DESC
+      - property: file.name
+        direction: ASC
+      - property: area
+        direction: ASC
+    columnSize:
+      file.name: 200
+      file.tags: 250

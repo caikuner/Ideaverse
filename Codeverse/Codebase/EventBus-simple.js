@@ -5,7 +5,7 @@ class EventBus {
 
   on(eventName, callback) {
     if (!this.deps[eventName]) {
-      this.deps[eventName] = [];   // 简单把相同 eventname 的回调存在一起，这样触发时候 forEach 即可
+      this.deps[eventName] = []; // 简单把相同 eventname 的回调存在一起，这样触发时候 forEach 即可
     }
 
     this.deps[eventName].push(callback);
@@ -17,15 +17,14 @@ class EventBus {
     });
   }
   off(eventName) {
-    delete this.deps[eventName]
+    delete this.deps[eventName];
   }
 }
 
-
 // test
-const eb = new EventBus()
-eb.on('test', (v1, v2) => console.log(v1, v2))
-eb.emit('test', 'cc', 'ck')
-eb.off('test')
+const eb = new EventBus();
+eb.on("test", (v1, v2) => console.log(v1, v2));
+eb.emit("test", "cc", "ck");
+eb.off("test");
 
-eb.emit('test', 'cc', 'ck')
+eb.emit("test", "cc", "ck");

@@ -155,8 +155,7 @@
   "userIgnoreFilters": [
     ".history",
     "X/Assets/",
-    "X/Archive",
-    "X/"
+    "X/Archive"
   ],
   "showInlineTitle": true,
   "newLinkFormat": "shortest",

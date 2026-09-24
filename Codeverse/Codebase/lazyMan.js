@@ -8,12 +8,11 @@
 // 等待1秒...
 // I am eating dinner
 
-
 // 要点：方法返回 this 以支持链式调用；使用 promise链作为任务链；promise 支持异步任务
 class LazyMan {
   constructor(name) {
     this.name = name;
-    this.promiseChain = Promise.resolve(); // 
+    this.promiseChain = Promise.resolve(); //
     this.start();
   }
 
@@ -33,7 +32,7 @@ class LazyMan {
 
   sleep(seconds) {
     this.promiseChain = this.promiseChain.then(() => {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         console.log(`Sleeping for ${seconds} seconds...`);
         setTimeout(() => {
           console.log(`Wake up after ${seconds} seconds`);
@@ -51,56 +50,49 @@ function createLazyMan(name) {
 }
 
 // 测试
-createLazyMan('Tony')
-  .eat('breakfast')
-  .sleep(3)
-  .eat('lunch')
-  .sleep(1)
-  .eat('dinner');
-
-
+createLazyMan("Tony").eat("breakfast").sleep(3).eat("lunch").sleep(1).eat("dinner");
 
 // 方法二：普通函数控制 tash queue
 
 class LazyMan2 {
   constructor(name) {
-    this.name = name
-    this.tasks = [] // 任务队列
+    this.name = name;
+    this.tasks = []; // 任务队列
 
     // 初始任务
     this.tasks.push(() => {
-      console.log(`Hi I am ${name}`)
-      return Promise.resolve()
-    })
+      console.log(`Hi I am ${name}`);
+      return Promise.resolve();
+    });
 
     // 使用 setTimeout 确保所有任务入队后再执行
     setTimeout(() => {
-      this.runTasks()
-    }, 0)
+      this.runTasks();
+    }, 0);
   }
 
   // 执行任务队列
   async runTasks() {
     for (const task of this.tasks) {
-      await task()
+      await task();
     }
   }
 
   eat(food) {
     this.tasks.push(() => {
-      console.log(`I am eating ${food}`)
-      return Promise.resolve()
-    })
-    return this
+      console.log(`I am eating ${food}`);
+      return Promise.resolve();
+    });
+    return this;
   }
 
   sleep(seconds) {
     this.tasks.push(() => {
-      console.log(`等待${seconds}秒...`)
+      console.log(`等待${seconds}秒...`);
       return new Promise((resolve) => {
-        setTimeout(resolve, seconds * 1000)
-      })
-    })
-    return this
+        setTimeout(resolve, seconds * 1000);
+      });
+    });
+    return this;
   }
 }

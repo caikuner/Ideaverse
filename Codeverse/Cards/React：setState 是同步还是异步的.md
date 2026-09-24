@@ -5,6 +5,7 @@ related:
 created: 2025-06-11
 modified: 2025-06-12
 ---
+
 `setState(updater[,callback])` 在 React 中最常用的 API，它目前是异步的。
 
 ### React 18 之前是同步的
@@ -27,7 +28,7 @@ React 18 引入了一种新的协调器，被称为“React Scheduler”。它�
 
 ### 例子
 
- `setState` 的调用并不会马上引起 `state` 的改变，并且如果你一次调用了多个 `setState` ，那么结果可能并不如你期待的一样。
+`setState` 的调用并不会马上引起 `state` 的改变，并且如果你一次调用了多个 `setState` ，那么结果可能并不如你期待的一样。
 
 ```js
 handle() {
@@ -45,7 +46,7 @@ handle() {
 第二，虽然调用了三次 `setState` ，但是 `count` 的值还是为 1。因为多次调用会合并为一次，只有当更新结束后 `state` 才会改变，三次调用等同于如下代码
 
 ```js
-Object.assign(  
+Object.assign(
   {},
   { count: this.state.count + 1 },
   { count: this.state.count + 1 },

@@ -37,6 +37,7 @@ data: {"price": 100}\n\n
 ```
 
 **关键点**：
+
 - 连接必须使用 **HTTP/1.1 或 HTTP/2**（不支持 HTTP/1.0）。
 - 使用的仍然是纯 HTTP，浏览器会限制每个源的 SSE 连接数（通常 6 个），需注意复用连接。
 
@@ -45,6 +46,7 @@ data: {"price": 100}\n\n
 #### **2. 消息结构**
 
 服务端推送的消息格式为一段纯文本
+
 - 必须是 utf-8 编码
 - 每条消息由以下字段组成（字段均可选）：
 
@@ -55,12 +57,12 @@ retry: 10000\n
 data: {"symbol":"BTC","price":"50000"}\n\n
 ```
 
-| 字段       | 作用                                                                 | 示例                          |
-|------------|----------------------------------------------------------------------|-------------------------------|
-| `data:`    | 消息内容（必选）。多行数据需每行前缀 `data:`，最终合并为单行。       | `data: Hello\nWorld` → `Hello\nWorld` |
-| `event:`   | 自定义事件类型（默认 `message`）。客户端可监听特定事件。             | `eventSource.addEventListener("price_update", …)` |
-| `id:`      | 消息 ID。客户端断开重连时，通过 `Last-Event-ID` 头告知服务端断点。    | `Last-Event-ID: 12345`        |
-| `retry:`   | 重连时间（毫秒）。客户端断开后按此间隔重试。                         | `retry: 5000`（5 秒重试）     |
+| 字段     | 作用                                                               | 示例                                              |
+| -------- | ------------------------------------------------------------------ | ------------------------------------------------- |
+| `data:`  | 消息内容（必选）。多行数据需每行前缀 `data:`，最终合并为单行。     | `data: Hello\nWorld` → `Hello\nWorld`             |
+| `event:` | 自定义事件类型（默认 `message`）。客户端可监听特定事件。           | `eventSource.addEventListener("price_update", …)` |
+| `id:`    | 消息 ID。客户端断开重连时，通过 `Last-Event-ID` 头告知服务端断点。 | `Last-Event-ID: 12345`                            |
+| `retry:` | 重连时间（毫秒）。客户端断开后按此间隔重试。                       | `retry: 5000`（5 秒重试）                         |
 
 - 每条消息以 **两个换行符（`\n\n`）** 结尾
 - 注释行以 `:` 开头（服务端可发送心跳包）：
@@ -74,6 +76,7 @@ data: {"symbol":"BTC","price":"50000"}\n\n
 #### **3. 连接保活机制**
 
 **（1）自动重连**
+
 - 客户端断开后自动按 `retry:` 时间重试（默认 3 秒）。
 - 重连时通过 `Last-Event-ID` 头恢复断点：
 
@@ -90,6 +93,7 @@ Last-Event-ID: 12345
 ```
 
 **（3）超时控制**
+
 - 浏览器默认无超时限制，但部分代理服务器可能关闭空闲连接（通常 30 秒）。
 - 可通过 `retry:` 调整重连策略。
 
@@ -98,17 +102,19 @@ Last-Event-ID: 12345
 #### **4. 关闭连接**
 
 **服务端主动关闭**：
+
 - 直接终止 HTTP 连接（无特殊协议）。
 - 客户端会触发 `error` 事件并自动重连。
 
 **客户端主动关闭**：
 
 ```javascript
-const eventSource = new EventSource('/updates');
+const eventSource = new EventSource("/updates");
 eventSource.close(); // 关闭连接
 ```
 
 **关闭后的行为**：
+
 - 客户端停止自动重连。
 - 需重新创建 `EventSource` 实例才能再次连接。
 
@@ -134,9 +140,9 @@ sequenceDiagram
 ### 前端 API
 
 ```javascript
-const eventSource = new EventSource('/api/sse');
+const eventSource = new EventSource("/api/sse");
 eventSource.onmessage = (event) => {
-  console.log('推送数据:', event.data);
+  console.log("推送数据:", event.data);
 };
 eventSource.onerror = (error) => {
   console.log(error);

@@ -8,6 +8,7 @@ description: "如流知识库"
 tags:
   - "clippings"
 ---
+
 AI
 
 通用
@@ -44,7 +45,7 @@ AI
 
 - flink 配置化文件采用yaml的文件格式，对于你写好的yaml，可以在﻿[**https://yamlchecker.com**](https://yamlchecker.com/)﻿检查下。
 
-- 字段命名采用**驼峰表达式**。如字段baiduid\_fresh, 现在写作 baiduidFresh
+- 字段命名采用**驼峰表达式**。如字段baiduid_fresh, 现在写作 baiduidFresh
 
 **怎么上线：**
 
@@ -68,7 +69,7 @@ AI
 
 5.!= =: !~ ~:等运算符左值支持各种类型，计算时会将左值按照java的toString方法进行转换，按照字符串匹配
 
-### 
+###
 
 2.1.2 feature的care条件配置注意事项
 
@@ -86,11 +87,11 @@ AI
 
 RedisFeature: 所有配置readFromRedis为true的都将从redis进行读取，作为RedisFeature
 
-extractFea: 所有featureType不是"calculation"、 "dynamic\_dict"、distribution\_distance、concentration\_ratio 的特征是extractFea，需要在抽取阶段抽取
+extractFea: 所有featureType不是"calculation"、 "dynamic_dict"、distribution_distance、concentration_ratio 的特征是extractFea，需要在抽取阶段抽取
 
-afterJoinFea: featureType是 "calculation"、distribution\_distance、concentration\_ratio的特征是afterJoinFea，在此阶段进行计算
+afterJoinFea: featureType是 "calculation"、distribution_distance、concentration_ratio的特征是afterJoinFea，在此阶段进行计算
 
-afterPolicyFea: featureType是dynamic\_dict的特征，afterPolicyFea是在judge完后进行计算的，根据是否命中某些特征等care条件的配置，觉得是否写动态词表
+afterPolicyFea: featureType是dynamic_dict的特征，afterPolicyFea是在judge完后进行计算的，根据是否命中某些特征等care条件的配置，觉得是否写动态词表
 
 flink目前所有的支持的feature类型如下：
 
@@ -102,7 +103,7 @@ flink目前所有的支持的feature类型如下：
 feaList: "1001"features:  # 一周内用户下回答数，5分钟滑动一次,频控  - featureType: "distinct"    featureId: "1001"    view: "replyUid"    dataView: "replyId"    stepLength: 120    windowLength: 86400    windowType: "time"    care: "[*]"    accMode: "iterative" # iterative:精准模式，每条更新一次累积值。incremental：小批模式，可能多条更新一次累积值。    writeToRedis: "false" # 特征值需要写入redis，二阶特征中使用    readFromRedis: "false" # 提前读取redis中特征值到record中，特征抽取和统计阶段就可以作为一个普通维度使用，二阶特征是一种典型应用场景
 ```
 
-1. feaList配置项，表示生效的特征，每个特征用featureId来表示。 一个文件里只能有一个（和原来不同）**不****要忘记配置feaList！！！！**
+1. feaList配置项，表示生效的特征，每个特征用featureId来表示。 一个文件里只能有一个（和原来不同）**不\*\***要忘记配置feaList！！！！\*\*
 
 1. features表示具体的feature配置，每一个feature用一个数组表示，前面用 - 开头（yaml的语法）。
 
@@ -134,7 +135,7 @@ feaList: "1001"features:  # 一周内用户下回答数，5分钟滑动一次,�
 
 如果一个特征即从redis读取，也在flink内部进行计算。
 
-那么在特征抽取阶段使用的是外部的结果，在计算calculation、dynamic\_dict特征值和进行策略判定的时候将会使用最新的flink内部的计算值。
+那么在特征抽取阶段使用的是外部的结果，在计算calculation、dynamic_dict特征值和进行策略判定的时候将会使用最新的flink内部的计算值。
 
 segment特征没有dataView
 
@@ -142,9 +143,9 @@ segment特征没有dataView
   - featureType: "segment"// 特征类型    featureId: "1006"    view: "replyUid"    windowType: "time"    stepLength: 3600    windowLength: 3600    care: "[*]"    writeToRedis: "false" # 特征值需要写入redis，二阶特征中使用    readFromRedis: "false" # 提前读取特征值到record中，特征抽取和统计阶段就可以作为一个普通维度使用
 ```
 
-#### 
+####
 
-distinct、sum\_segment、max、min、avg
+distinct、sum_segment、max、min、avg
 
 这几类特征除了featureType不同之外其余配置要求均相同，都需要配置dataView。
 
@@ -164,9 +165,9 @@ distinct、sum\_segment、max、min、avg
   - featureType: 'concentration_ratio' // 特征类型    view: 'actId,mobileSub3' // 特征类型 写redis词表的view    dataView: 'mobileSub3' // 对应集中度特征的dataView 用于判断dataView是否是topK之一    referenceFeaId: "1005" // 计算集中度需要引用的featureID 对应集中度特征的featureId    remainNumerator: 10 // 分子remain值，即只有分子大于reamin值才进行后续计算，否则返回ILLEGAL_FEA_RESULT  （不配置则不生效）    remainDenominator: 10 // 分母remain值，即只有分母大于reamin值才进行后续计算，否则返回ILLEGAL_FEA_RESULT（不配置则不生效）    requireHitFilter: true  // 是否要求当前日志的dataView是topk之一 没有配置则为false  原TMfilterMode    featureId: '1006'
 ```
 
-#### 
+####
 
-distinct\_distribution、count\_distribution
+distinct_distribution、count_distribution
 
 分布特征，用于计算特征累计值与基准分布的距离，支持支持chiSquareTest、maxDiff、chiSquareDis、klDivergence四种距离函数。各个配置项解释参考配置示例。
 
@@ -184,9 +185,9 @@ distinct\_distribution、count\_distribution
 
 用于计算特征累计值与基准分布的距离，支持支持chiSquareTest、maxDiff、chiSquareDis、klDivergence四种距离函数。各个配置项解释参考配置示例。
 
-下边是基于一条distinct\_distribution和一条distinct特征计算distribution\_distance的配置示例：
+下边是基于一条distinct_distribution和一条distinct特征计算distribution_distance的配置示例：
 
-对于distribution\_distance特征还需要配置一条distinct才能计算distribution\_distance
+对于distribution_distance特征还需要配置一条distinct才能计算distribution_distance
 
 ```yaml
   - featureId﻿: "1001"    featureType﻿: "distinct_distribution"// 特征类型    view﻿: "actId"    dataView﻿: "replyId"    cumulateView﻿: "uid" // 必填    intervalEndpoints﻿: '100,100000'    windowType﻿: "time"    stepLength﻿: 600    windowLength﻿: 604800    care﻿: "[*]"    writeToRedis﻿: "false" # 特征值需要写入redis，二阶特征中使用    readFromRedis﻿: "false" # 提前读取特征值到record中，特征抽取和统计阶段就可以作为一个普通维度使用  - featureType﻿: "distinct"// 特征类型    featureId﻿: "1002"    view﻿: "actId,replyUid" //     dataView﻿: "uid"    windowType﻿: "time"    stepLength﻿: 3600    windowLength﻿: 3600    care﻿: "[*]"    writeToRedis﻿: "false" # 特征值需要写入redis，二阶特征中使用    readFromRedis﻿: "false" # 提前读取特征值到record中，特征抽取和统计阶段就可以作为一个普通维度使用  - featureType﻿: 'distribution_distance'    view﻿: 'actId,mobileSub3,uid' // 写redis动态词表的view 支持自定义    referenceFeaId﻿: "1001" // 用于分布距离计算的分布特征的featureID    referenceView﻿: "1002"  //必填 对于计数分布和去重分布而言是对应segment和distinct的featureID  对于分布特征而言是字段名    intervalEndpoints﻿: '100,﻿1000﻿,﻿2000﻿,﻿5000﻿,10000' //必填 桶的间隔 用英文逗号隔开    standProb﻿: "0.2909,﻿0.2061﻿,﻿0.1885﻿,﻿0.1765﻿,﻿0.1299﻿,0.1" //必填 基准分布    windowType﻿: 'time'    stepLength﻿: 3600    windowLength﻿: 7200    featureId﻿: '1003'    funcType﻿: "maxDiff" //必填 距离函数,支持chiSquareTest、maxDiff、chiSquareDis、klDivergence四种    countThreshold﻿: 10  //必填 等同于feature_lib的count_thrshold    writeToRedis﻿: "true"
@@ -221,7 +222,7 @@ distinct\_distribution、count\_distribution
 配置示例：
 
 ```yaml
-- featureId: '11111111111'  # 必须配置  featureType: ratio # 必须配置  care: '[''actId'':=''50472'',''50811'']' # 必须配置 整个特征和分母的care条件  view: finalResult # 必须配置  filter: '[''actId'':=''50811'']' # 必须配置 分子的care条件（只有满足care和filter两个条件，分子才会+1）  accMode: incremental # 必须配置  stepLength: 300 # 必须配置  windowType: time # 必须配置  windowLength: 300 # 必须配置  writeToRedis: false # 按需配置  readFromRedis: false # 按需配置
+- featureId: "11111111111" # 必须配置  featureType: ratio # 必须配置  care: '[''actId'':=''50472'',''50811'']' # 必须配置 整个特征和分母的care条件  view: finalResult # 必须配置  filter: '[''actId'':=''50811'']' # 必须配置 分子的care条件（只有满足care和filter两个条件，分子才会+1）  accMode: incremental # 必须配置  stepLength: 300 # 必须配置  windowType: time # 必须配置  windowLength: 300 # 必须配置  writeToRedis: false # 按需配置  readFromRedis: false # 按需配置
 ```
 
 配置示例：
@@ -232,7 +233,7 @@ distinct\_distribution、count\_distribution
 
 上述配置标识当前query下ip变换了多少次
 
-**注意****：**该特征的累积值会受到数据顺序的影响，如数据dataView序列AAAABBBB的累积值为2，ABABABAB的累积值为8。
+**注意\*\***：\*\*该特征的累积值会受到数据顺序的影响，如数据dataView序列AAAABBBB的累积值为2，ABABABAB的累积值为8。
 
 yaml对value类型的检查是自动的，所以对于featureId这种以数字表示的value必须加引号表示为string,否则会被认定为数字类型。如果需要特别标注类型的，可以进行强制类型转换：
 
@@ -272,7 +273,7 @@ poList: "473,474"policies:  - policyId: "473"    policyType: careSpace    careSt
 
  careString 是一个care表达式， care表达式为真时则策略命中。
 
- 左值为**feature\_id**或**日志中字段**或**计算表达式名**，使用单引号包裹。如\['40410200002':>'10'\]表示如 特征 40410200002大于10，则策略命中
+ 左值为**feature_id**或**日志中字段**或**计算表达式名**，使用单引号包裹。如\['40410200002':>'10'\]表示如 特征 40410200002大于10，则策略命中
 
 1. disposeTag取值: 0 / 1 / 2 / 4 / 6
 

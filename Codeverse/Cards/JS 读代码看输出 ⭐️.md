@@ -11,9 +11,9 @@ modified: 2025-06-15
 以下代码，执行结果是什么？
 
 ```js
-var func = 1
+var func = 1;
 function func() {}
-console.log(func + func)
+console.log(func + func);
 ```
 
 答案
@@ -37,7 +37,7 @@ let obj1 = { x: 1 }
 let obj2 = obj1
 
 obj2.y = 2
-console.log('1:', obj1, obj2) 
+console.log('1:', obj1, obj2)
 
 obj2 = { y: 20 }
 console.log('2:', obj1, , obj2)
@@ -71,7 +71,7 @@ ECMAScript 变量可能包含两种不同类型的值：基本类型值和引用
 以下代码，执行结果是什么？
 
 ```js
-['1', '2', '3'].map(parseInt)
+["1", "2", "3"].map(parseInt);
 ```
 
 答案
@@ -87,13 +87,13 @@ ECMAScript 变量可能包含两种不同类型的值：基本类型值和引用
 题目写法没有为 parseInt 指明参数，所有两个参数都被传递进来了。所以等价于：
 
 ```js
-['1', '2', '3'].map((item, index) => parseInt(item, index))
+["1", "2", "3"].map((item, index) => parseInt(item, index));
 
-parseInt('1', 0) // radix 假如指定 0 或未指定，基数将会根据字符串的值进行推算。所以结果为 1。
+parseInt("1", 0); // radix 假如指定 0 或未指定，基数将会根据字符串的值进行推算。所以结果为 1。
 
-parseInt('2', 1) // radix 应该是 2-36 之间的整数，此时为 1，无法解析，返回 NaN
+parseInt("2", 1); // radix 应该是 2-36 之间的整数，此时为 1，无法解析，返回 NaN
 
-parseInt('3', 2) // radix 是 2，表示 2 进制，注意这里不是指将其解析为 2 进制，而是按照 2 进制进行解析，但 3 不是 2 进制里的数字，所以无法解析，返回 NaN
+parseInt("3", 2); // radix 是 2，表示 2 进制，注意这里不是指将其解析为 2 进制，而是按照 2 进制进行解析，但 3 不是 2 进制里的数字，所以无法解析，返回 NaN
 ```
 
 ## JS this 1
@@ -104,12 +104,12 @@ parseInt('3', 2) // radix 是 2，表示 2 进制，注意这里不是指将其�
 const User = {
   count: 1,
   getCount: function () {
-    return this.count
+    return this.count;
   },
-}
-console.log('a ', User.getCount()) // what?
-const func = User.getCount
-console.log('b', func()) // what?
+};
+console.log("a ", User.getCount()); // what?
+const func = User.getCount;
+console.log("b", func()); // what?
 ```
 
 答案
@@ -130,22 +130,22 @@ this 是一个指向对象的指针，this 的指向与所在方法的调用位�
 const obj = {
   f1() {
     const fn = () => {
-      console.log('this1', this)
-    }
-    fn()
-    fn.call(window)
+      console.log("this1", this);
+    };
+    fn();
+    fn.call(window);
   },
   f2: () => {
     function fn() {
-      console.log('this2', this)
+      console.log("this2", this);
     }
-    fn()
-    fn.call(this)
+    fn();
+    fn.call(this);
   },
-}
+};
 
-obj.f1()
-obj.f2()
+obj.f1();
+obj.f2();
 ```
 
 答案
@@ -169,11 +169,11 @@ obj.f2() 时，fn 是普通函数，但 f2 是箭头函数，如果 f2 是普通
 以下代码，执行结果是什么？
 
 ```js
-let i
+let i;
 for (i = 1; i <= 3; i++) {
   setTimeout(function () {
-    console.log(i)
-  }, 0)
+    console.log(i);
+  }, 0);
 }
 ```
 
@@ -190,25 +190,25 @@ i 是全局变量，用来控制循环。循环调用了 3 次 setTimeout 延迟
 以下代码，执行结果是什么？
 
 ```js
-let n = 10
+let n = 10;
 function f1() {
-  n++
+  n++;
   function f2() {
     function f3() {
-      n++
-      console.log('n3', n)
+      n++;
+      console.log("n3", n);
     }
-    let n = 20
-    f3()
-    n++
-    console.log('n2', n)
+    let n = 20;
+    f3();
+    n++;
+    console.log("n2", n);
   }
-  f2()
-  n++
-  console.log('n1', n)
+  f2();
+  n++;
+  console.log("n1", n);
 }
-f1()
-console.log('n', n)
+f1();
+console.log("n", n);
 ```
 
 答案
@@ -221,6 +221,7 @@ n 12
 ```
 
 let 声明为 JavaScript 新增了块级作用域。
+
 - f1 没有新定义 n，和最外层的 n 属于同一作用域，操作的是外层 n
 - f2 内部的 n 是自己定义的，只属于 f2 内部的变量，不会影响外层 n 的变化。
 - f3 没有自己定义 n，使用的是 f2 的 n，而且可以修改
@@ -232,16 +233,16 @@ let 声明为 JavaScript 新增了块级作用域。
 以下代码，执行结果是什么？
 
 ```js
-const n = 10
+const n = 10;
 function print() {
-  console.log(n)
+  console.log(n);
 }
 
 function f1(fn) {
-  const n = 20
-  fn()
+  const n = 20;
+  fn();
 }
-f1(print)
+f1(print);
 ```
 
 答案：
@@ -258,19 +259,19 @@ JavaScript 采用词法作用域 (lexical scoping)，也就是静态作用域。
 
 ```js
 function fn() {
-  let num = 10
+  let num = 10;
   return {
     set: (n) => (num = n),
     get: () => num,
-  }
+  };
 }
 
-let num = 20
-const { get, set } = fn()
-console.log('result1: ', get())
+let num = 20;
+const { get, set } = fn();
+console.log("result1: ", get());
 
-set(100)
-console.log('result2: ', num)
+set(100);
+console.log("result2: ", num);
 ```
 
 答案
@@ -289,13 +290,13 @@ set(100) 修改的是 fn 函数作用域中的 num，而不是全局的 num。
 
 ```js
 const promise = new Promise((resolve, reject) => {
-  console.log(1)
-  console.log(2)
-})
+  console.log(1);
+  console.log(2);
+});
 promise.then(() => {
-  console.log(3)
-})
-console.log(4)
+  console.log(3);
+});
+console.log(4);
 ```
 
 答案
@@ -313,18 +314,18 @@ promise.then() 注册了一个回调函数，但因为 executor 函数没有调�
 
 ```js
 const promise = new Promise((resolve, reject) => {
-  console.log(1)
+  console.log(1);
   setTimeout(() => {
-    console.log('timerStart')
-    resolve('success')
-    console.log('timerEnd')
-  }, 0)
-  console.log(2)
-})
+    console.log("timerStart");
+    resolve("success");
+    console.log("timerEnd");
+  }, 0);
+  console.log(2);
+});
 promise.then((res) => {
-  console.log(res)
-})
-console.log(4)
+  console.log(res);
+});
+console.log(4);
 ```
 
 答案
@@ -355,22 +356,22 @@ setTimeout 回调开始执行，打印 timerStart。此时调用 resolve 函数�
 以下代码，执行结果是什么？
 
 ```js
-console.log('start')
+console.log("start");
 setTimeout(() => {
-  console.log('a')
+  console.log("a");
 
   Promise.resolve().then(() => {
-    console.log('c')
-  })
-})
+    console.log("c");
+  });
+});
 Promise.resolve().then(() => {
-  console.log('b')
+  console.log("b");
 
   setTimeout(() => {
-    console.log('d')
-  })
-})
-console.log('end')
+    console.log("d");
+  });
+});
+console.log("end");
 ```
 
 答案
@@ -407,58 +408,56 @@ Promise.resolve().then() 注册了一个回调函数，会被放入微任务队�
 ```js
 Promise.resolve()
   .then(() => {
-    console.log(0)
-    return Promise.resolve(4)   // 记住延迟2 个 tick
+    console.log(0);
+    return Promise.resolve(4); // 记住延迟2 个 tick
   })
   .then((res) => {
-    console.log(res)
-  })
+    console.log(res);
+  });
 
 Promise.resolve()
   .then(() => {
-    console.log(1)
+    console.log(1);
   })
   .then(() => {
-    console.log(2)
+    console.log(2);
   })
   .then(() => {
-    console.log(3)
+    console.log(3);
   })
   .then(() => {
-    console.log(5)
+    console.log(5);
   })
   .then(() => {
-    console.log(6)
-  })
+    console.log(6);
+  });
 ```
 
 答案
 `0 1 2 3 4 5 6`
 
-
 1. 初始状态：
-    
-    - 两个 Promise.resolve() 创建两个立即 resolved 的 Promise
-    - 它们的 .then 回调都被加入到第一轮微任务队列
+   - 两个 Promise.resolve() 创建两个立即 resolved 的 Promise
+   - 它们的 .then 回调都被加入到第一轮微任务队列
+
 2. 第一轮微任务：
-    
-    - 执行第一个链的第一个 then：打印 0，返回 Promise.resolve(4)
-    - 执行第二个链的第一个 then：打印 1
+   - 执行第一个链的第一个 then：打印 0，返回 Promise.resolve(4)
+   - 执行第二个链的第一个 then：打印 1
+
 3. 第二轮微任务：
-    
-    - 第二个链的第二个 then 执行：打印 2
-    - 第一个链的第二个 then 暂时不执行，因为它在等待 Promise.resolve(4) 的解析
+   - 第二个链的第二个 then 执行：打印 2
+   - 第一个链的第二个 then 暂时不执行，因为它在等待 Promise.resolve(4) 的解析
+
 4. 第三轮微任务：
-    
-    - 第二个链的第三个 then 执行：打印 3
+   - 第二个链的第三个 then 执行：打印 3
+
 5. 第四轮微任务：
-    
-    - **Promise.resolve(4) 完成解析**
-    - 第一个链的第二个 then 执行：打印 4
-    - 第二个链的第四个 then 执行：打印 5
+   - **Promise.resolve(4) 完成解析**
+   - 第一个链的第二个 then 执行：打印 4
+   - 第二个链的第四个 then 执行：打印 5
+
 6. 第五轮微任务：
-    
-    - 第二个链的最后一个 then 执行：打印 6
+   - 第二个链的最后一个 then 执行：打印 6
 
 这道题的难点在于**为什么 4 延迟了 2 个微任务才执行**。
 

@@ -8,6 +8,7 @@ description: "如流知识库"
 tags:
   - "clippings"
 ---
+
 AI
 
 通用
@@ -116,7 +117,7 @@ CREATE TABLE \`anti_policy_alarm_data_source\` (  \`id\` bigint(20) NOT NULL AUT
 CREATE TABLE \`anti_policy_alarm_monitor\` (  \`id\` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',  \`data_source_id\` bigint(20) NOT NULL DEFAULT 0 COMMENT '关联数据源id',  \`monitor_dim\` varchar(256) NOT NULL DEFAULT '' COMMENT '监控维度',  \`monitor_dim_alias\` varchar(256) NOT NULL DEFAULT '' COMMENT '监控维度别名',  \`mark_dim\` varchar(256) NOT NULL DEFAULT '' COMMENT '标注维度',  \`mark_dim_alias\` varchar(256) NOT NULL DEFAULT '' COMMENT '标注维度别名',  \`evaluate_task_conf\` text NOT NULL COMMENT 'json数组，存放评估任务相关配置',  \`creator\` varchar(128) NOT NULL DEFAULT '' COMMENT '创建人',  \`updated_time\` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00' ON UPDATE CURRENT_TIMESTAMP,  \`created_time\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',  PRIMARY KEY (\`id\`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='策略报警平台监控表';
 ```
 
-evaluate\_task\_conf内容如下：
+evaluate_task_conf内容如下：
 
 ```sql
 [{    "product": "马里奥产品线",    "sample_num": "抽取条数，默认20",    "prior_views": "优先查询维度",    "views": "全部查询维度",    "engine": "计算引擎，比如ClickHouse"}]
@@ -125,7 +126,7 @@ evaluate\_task\_conf内容如下：
 计算引擎和数据源没有强关联关系。
 
 ```sql
-CREATE TABLE \`anti_policy_handler\` (                                                                              \`id\` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',                                                           \`product_id\` varchar(64) NOT NULL DEFAULT '' COMMENT '业务线id',                                                \`policy\` varchar(128) NOT NULL DEFAULT '' COMMENT '策略',                                                       \`handler\` varchar(128) NOT NULL DEFAULT '' COMMENT '处理人',                                                    \`updated_time\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',     \`threshold\` bigint(20) NOT NULL DEFAULT '-1' COMMENT '策略对应的阈值，比如独立消费',                            PRIMARY KEY (\`id\`),                                                                                           UNIQUE KEY \`pph\` (\`product_id\`,\`policy\`,\`handler\`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='策略对应处理人表' 
+CREATE TABLE \`anti_policy_handler\` (                                                                              \`id\` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',                                                           \`product_id\` varchar(64) NOT NULL DEFAULT '' COMMENT '业务线id',                                                \`policy\` varchar(128) NOT NULL DEFAULT '' COMMENT '策略',                                                       \`handler\` varchar(128) NOT NULL DEFAULT '' COMMENT '处理人',                                                    \`updated_time\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',     \`threshold\` bigint(20) NOT NULL DEFAULT '-1' COMMENT '策略对应的阈值，比如独立消费',                            PRIMARY KEY (\`id\`),                                                                                           UNIQUE KEY \`pph\` (\`product_id\`,\`policy\`,\`handler\`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='策略对应处理人表'
 ```
 
 ```sql

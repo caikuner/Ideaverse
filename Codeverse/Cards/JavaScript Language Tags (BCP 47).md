@@ -3,13 +3,13 @@ tags: [clippings]
 up:
 related:
 url: https://www.techonthenet.com/js/language_tags.php
-author: 
+author:
 created: 2025-06-30
 modified: 2025-06-30
 description: BCP 47 Language Tags is the Internet Best Current Practices (BCP) for language tags. The purpose of these language tags is to establish codes to help identify languages both spoken and written.
 ---
 
-**BCP 47 Language Tags** is the Internet *Best Current Practices* (BCP) for language tags. The purpose of these language tags is to establish codes to help identify languages both spoken and written. A language tag is composed of a sequence of one or more subtags such as language, region, variant and script subtags. When a language tag is comprised of more than one subtag, the subtag values are separated by the "-" character.
+**BCP 47 Language Tags** is the Internet _Best Current Practices_ (BCP) for language tags. The purpose of these language tags is to establish codes to help identify languages both spoken and written. A language tag is composed of a sequence of one or more subtags such as language, region, variant and script subtags. When a language tag is comprised of more than one subtag, the subtag values are separated by the "-" character.
 
 You will most commonly find language tags written with 2 subtags - language and region. For example:
 
@@ -17,7 +17,7 @@ You will most commonly find language tags written with 2 subtags - language and 
 en-US
 ```
 
-The language tag "en-US" is composed 2 subtags separated by the "-" character. The value "en" is the *language subtag* for English and the value "US" is the *region subtag* for the United States. Therefore, the language tag "en-US" represents US English.
+The language tag "en-US" is composed 2 subtags separated by the "-" character. The value "en" is the _language subtag_ for English and the value "US" is the _region subtag_ for the United States. Therefore, the language tag "en-US" represents US English.
 
 However, language tags can also include additional subtags for variants and scripts, for example:
 
@@ -27,7 +27,7 @@ hy-Latn-IT-arevela
 
 The language tag above would represent Eastern Armenian written in Latin script, as used in Italy.
 
-Since it is impossible to list all of the BCP 47 language tags and their combinations, we have provided a list of what we have found to be the most commonly used language tags (*defined using Language and Region subtags*):
+Since it is impossible to list all of the BCP 47 language tags and their combinations, we have provided a list of what we have found to be the most commonly used language tags (_defined using Language and Region subtags_):
 
 ---
 

@@ -14,7 +14,7 @@ modified: 2025-07-23
 ```dataview
 LIST
 FROM "Projects"
-WHERE !startswith(file.path, "X/") and file.path != this.file.path 
+WHERE !startswith(file.path, "X/") and file.path != this.file.path
 SORT rank desc,file.name ASC
 limit 100
 ```

@@ -1,4 +1,4 @@
-/*
+/\*
 ![](https://raw.githubusercontent.com/zsviczian/obsidian-excalidraw-plugin/master/images/scripts-font-family.jpg)
 
 Sets font family of the text block (Virgil, Helvetica, Cascadia). Useful if you want to set a keyboard shortcut for selecting font family.
@@ -16,3 +16,4 @@ if (isNaN(font)) return;
 elements.forEach((el)=>el.fontFamily = font);
 ea.copyViewElementsToEAforEditing(elements);
 ea.addElementsToView(false,false);
+```

@@ -1,6 +1,6 @@
 {
-  "cssTheme": "Border",
-  "translucency": true,
+  "cssTheme": "Minimal",
+  "translucency": false,
   "baseFontSize": 16,
   "enabledCssSnippets": [
     "murf-ribbon-dragger",
@@ -33,8 +33,8 @@
     "mermaid",
     "image-resize"
   ],
-  "textFontFamily": "LXGW WenKai Mono,孤鹜 仓耳今楷03",
-  "interfaceFontFamily": "LXGW WenKai Mono,孤鹜 仓耳今楷03 W04",
+  "textFontFamily": "孤鹜 仓耳今楷03",
+  "interfaceFontFamily": "孤鹜 仓耳今楷03 W04",
   "theme": "system",
   "accentColor": "",
   "showViewHeader": true,

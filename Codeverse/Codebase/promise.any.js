@@ -10,13 +10,13 @@ Promise.any = function (promises) {
     }
 
     const errors = [];
-    let rejectedCount = 0
+    let rejectedCount = 0;
     promises.forEach((promise, index) => {
       Promise.resolve(promise)
         .then(resolve)
         .catch((err) => {
           errors[index] = err;
-          rejectedCount++
+          rejectedCount++;
           if (rejectedCount === promises.length) {
             reject(new AggregateError(errors, "All promises were rejected"));
           }
@@ -25,10 +25,10 @@ Promise.any = function (promises) {
   });
 };
 
-
-
 // 测试1: 有一个成功
-Promise.any([Promise.reject("error1"), Promise.resolve("success"), Promise.reject("error2")]).then(console.log); // 输出: "success"
+Promise.any([Promise.reject("error1"), Promise.resolve("success"), Promise.reject("error2")]).then(
+  console.log,
+); // 输出: "success"
 
 // 测试2: 全部失败
 Promise.any([Promise.reject("error1"), Promise.reject("error2")]).catch((e) => {

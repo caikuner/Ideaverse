@@ -9,7 +9,7 @@ modified: 2025-06-14
 ```jsx
 // useWindowResize
 
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
 export function useWindowResize() {
   const [windowSize, setWindowSize] = useState({
@@ -25,13 +25,13 @@ export function useWindowResize() {
       });
     };
 
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return windowSize;
-};
+}
 ```

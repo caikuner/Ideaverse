@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.weekly.weeklyZoomOutRibbon
+module.exports = app.utils.templater.weekly.weeklyZoomOutRibbon;

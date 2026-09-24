@@ -3,7 +3,7 @@ function uniq(arr) {
 }
 
 function uniqBy(arr, keyGetter) {
-  const keyGetterFn = typeof keyGetter === 'function' ? keyGetter : (item) => item[keyGetter]
+  const keyGetterFn = typeof keyGetter === "function" ? keyGetter : (item) => item[keyGetter];
   const seen = new Set(); // cache
 
   return arr.reduce((acc, item) => {
@@ -13,7 +13,7 @@ function uniqBy(arr, keyGetter) {
       seen.add(key);
       acc.push(item);
     }
-    return acc
+    return acc;
   }, []);
 }
 
@@ -28,6 +28,3 @@ const users = [
 console.log(uniqBy(users, "id"));
 console.log(uniqBy(users, (user) => user.name.toLowerCase()));
 // [{id: 1, name: 'Alice'}, {id: 2, name: 'Bob'}, {id: 3, name: 'Charlie'}]
-
-
-

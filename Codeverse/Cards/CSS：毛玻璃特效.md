@@ -15,7 +15,7 @@ modified: 2025-07-04
   background-color: rgba(255, 255, 255, 0.3); /* 半透明底色 */
   backdrop-filter: blur(10px); /* 关键模糊效果 */
   -webkit-backdrop-filter: blur(10px); /* Safari兼容 */
-  
+
   /* 可选增强效果 */
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ modified: 2025-07-04
 
 /* eg */
 --bew-filter-glass-1: blur(20px) saturate(180%);
-backdrop-filter: var(--bew-filter-glass-1)
+backdrop-filter: var(--bew-filter-glass-1);
 ```
 
 ## 2. 兼容方案：伪元素 + filter（支持旧浏览器）
@@ -37,7 +37,7 @@ backdrop-filter: var(--bew-filter-glass-1)
 }
 
 .frosted-glass-legacy::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -48,7 +48,7 @@ backdrop-filter: var(--bew-filter-glass-1)
   filter: blur(10px);
   z-index: -1;
   margin: -20px; /* 消除边缘模糊减弱 */
-  
+
   /* 半透明遮罩 */
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -67,7 +67,7 @@ backdrop-filter: var(--bew-filter-glass-1)
 
 ```css
 .background-image {
-  background: url('your-image.jpg') center/cover;
+  background: url("your-image.jpg") center/cover;
   height: 100vh;
   position: relative;
 }
@@ -79,7 +79,7 @@ backdrop-filter: var(--bew-filter-glass-1)
   transform: translate(-50%, -50%);
   padding: 2rem;
   width: 60%;
-  
+
   /* 毛玻璃效果 */
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -97,7 +97,7 @@ backdrop-filter: var(--bew-filter-glass-1)
   background: hsla(240, 60%, 65%, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  
+
   /* 内发光效果 */
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
@@ -132,19 +132,20 @@ backdrop-filter: var(--bew-filter-glass-1)
 
    ```javascript
    // 检测backdrop-filter支持
-   if (!CSS.supports('backdrop-filter', 'blur(1px)')) {
-     document.body.classList.add('no-backdrop-filter');
+   if (!CSS.supports("backdrop-filter", "blur(1px)")) {
+     document.body.classList.add("no-backdrop-filter");
    }
    ```
 
 ## 浏览器兼容性说明
 
-| 属性/方法            | Chrome | Firefox | Safari | Edge |
-|----------------------|--------|---------|--------|------|
-| backdrop-filter      | 76+     | 103+    | 9+     | 17+  |
-| filter (伪元素方案)   | 18+     | 35+     | 6+     | 12+  |
+| 属性/方法           | Chrome | Firefox | Safari | Edge |
+| ------------------- | ------ | ------- | ------ | ---- |
+| backdrop-filter     | 76+    | 103+    | 9+     | 17+  |
+| filter (伪元素方案) | 18+    | 35+     | 6+     | 12+  |
 
 对于不支持 `backdrop-filter` 的浏览器（如旧版 Firefox），建议：
+
 1. 使用伪元素方案作为降级
 2. 或提供纯色半透明替代方案
 
@@ -158,7 +159,7 @@ backdrop-filter: var(--bew-filter-glass-1)
 }
 
 .parallax-glass::before {
-  content: '';
+  content: "";
   position: fixed; /* 关键区别 */
   /* 其余与伪元素方案相同 */
 }

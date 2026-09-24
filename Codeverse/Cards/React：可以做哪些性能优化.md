@@ -13,8 +13,8 @@ modified: 2025-06-12
 ```jsx
 function ExpensiveComponent({ items, filter }) {
   const filteredItems = useMemo(() => {
-    return items.filter((item) => item.includes(filter))
-  }, [items, filter]) // 仅在 items 或 filter 变化时重新计算
+    return items.filter((item) => item.includes(filter));
+  }, [items, filter]); // 仅在 items 或 filter 变化时重新计算
 
   return (
     <ul>
@@ -22,7 +22,7 @@ function ExpensiveComponent({ items, filter }) {
         <li key={item}>{item}</li>
       ))}
     </ul>
-  )
+  );
 }
 ```
 
@@ -32,24 +32,24 @@ function ExpensiveComponent({ items, filter }) {
 
 ```jsx
 function ParentComponent() {
-  const [count, setCount] = React.useState(0)
+  const [count, setCount] = React.useState(0);
 
   const handleClick = React.useCallback(() => {
-    setCount((prevCount) => prevCount + 1)
-  }, []) // 空依赖数组，函数不会重新创建
+    setCount((prevCount) => prevCount + 1);
+  }, []); // 空依赖数组，函数不会重新创建
 
   return (
     <div>
       <ChildComponent onClick={handleClick} />
       <p>Count: {count}</p>
     </div>
-  )
+  );
 }
 
 const ChildComponent = React.memo(({ onClick }) => {
-  console.log('ChildComponent rendered')
-  return <button onClick={onClick}>Click me</button>
-})
+  console.log("ChildComponent rendered");
+  return <button onClick={onClick}>Click me</button>;
+});
 ```
 
 ### React.lazy()
@@ -57,11 +57,11 @@ const ChildComponent = React.memo(({ onClick }) => {
 `组件/路由懒加载`：通过动态导入（dynamic import）将组件拆分为单独的代码块，按需加载。可以减少初始加载的代码量，提升页面加载速度
 
 ```jsx
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import React, { Suspense } from 'react'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { Suspense } from "react";
 
-const Home = React.lazy(() => import('./Home'))
-const About = React.lazy(() => import('./About'))
+const Home = React.lazy(() => import("./Home"));
+const About = React.lazy(() => import("./About"));
 
 function App() {
   return (
@@ -73,7 +73,7 @@ function App() {
         </Routes>
       </Suspense>
     </Router>
-  )
+  );
 }
 ```
 
@@ -83,13 +83,13 @@ function App() {
 可以在未加载时，fallback 显示 loading 或者骨架屏。
 
 ```jsx
-const LazyComponent = React.lazy(() => import('./LazyComponent'))
+const LazyComponent = React.lazy(() => import("./LazyComponent"));
 
 function MyComponent() {
   return (
     <React.Suspense fallback={<div>Loading…</div>}>
       <LazyComponent />
     </React.Suspense>
-  )
+  );
 }
 ```

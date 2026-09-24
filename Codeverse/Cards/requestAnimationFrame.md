@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 rank: "0"
 companies:
 created: 2025-06-19
@@ -39,12 +39,12 @@ requestAnimationFrame(animate);
 
 ## **2. 为什么优于 `setTimeout`/`setInterval`？**
 
-| **特性**               | `requestAnimationFrame`          | `setTimeout`/`setInterval`       |
-|------------------------|----------------------------------|----------------------------------|
-| **执行时机**           | 与浏览器渲染同步，避免丢帧       | 可能因事件循环阻塞导致卡顿       |
-| **性能优化**           | 后台标签页自动暂停               | 持续执行，浪费 CPU               |
-| **帧率控制**           | 自动匹配屏幕刷新率（如 60Hz）    | 需手动设置时间（如 `16ms`）      |
-| **GPU 友好**           | 适合 CSS 动画、Canvas 绘制       | 无特别优化                       |
+| **特性**     | `requestAnimationFrame`       | `setTimeout`/`setInterval`  |
+| ------------ | ----------------------------- | --------------------------- |
+| **执行时机** | 与浏览器渲染同步，避免丢帧    | 可能因事件循环阻塞导致卡顿  |
+| **性能优化** | 后台标签页自动暂停            | 持续执行，浪费 CPU          |
+| **帧率控制** | 自动匹配屏幕刷新率（如 60Hz） | 需手动设置时间（如 `16ms`） |
+| **GPU 友好** | 适合 CSS 动画、Canvas 绘制    | 无特别优化                  |
 
 ---
 
@@ -53,13 +53,13 @@ requestAnimationFrame(animate);
 ### **（1）平滑动画**
 
 ```javascript
-const element = document.getElementById('box');
+const element = document.getElementById("box");
 let position = 0;
 
 function move() {
   position += 1;
   element.style.transform = `translateX(${position}px)`;
-  
+
   if (position < 200) {
     requestAnimationFrame(move);
   }
@@ -87,7 +87,7 @@ requestAnimationFrame(measureFPS);
 ```javascript
 function gameLoop() {
   updateGameState(); // 更新游戏逻辑
-  renderGame();      // 渲染画面
+  renderGame(); // 渲染画面
   requestAnimationFrame(gameLoop);
 }
 
@@ -101,14 +101,14 @@ gameLoop();
 ### **（1）兼容所有浏览器**
 
 ```javascript
-const rAF = 
+const rAF =
   window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame || 
+  window.webkitRequestAnimationFrame ||
   window.mozRequestAnimationFrame ||
-  (callback => setTimeout(callback, 16));
+  ((callback) => setTimeout(callback, 16));
 
 rAF(() => {
-  console.log('动画开始');
+  console.log("动画开始");
 });
 ```
 

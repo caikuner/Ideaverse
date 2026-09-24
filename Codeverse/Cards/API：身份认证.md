@@ -47,20 +47,20 @@ HTTP 提供一个用于权限控制和认证的通用框架，有多个验证方
 
 ```js
 // 编码 (实际由客户端浏览器进行)
-let email = "caikun@test.com"
-let password = "123456"
-let auth = `${email}:${password}`
+let email = "caikun@test.com";
+let password = "123456";
+let auth = `${email}:${password}`;
 
 // browser
 // 先 encodeURIComponent()进行URL编码以支持中文；
 // 再调用全局方法 btoa：从 String 对象中创建一个 base-64 编码的 ASCII 字符串
-const authorization = btoa(encodeURIComponent(auth)); 
-console.log('authorization: ', authorization); // JUU4JTk0JUExJUU1JTlEJUE0JTQwdGVzdC5jb20lM0ExMjM0NTY=
+const authorization = btoa(encodeURIComponent(auth));
+console.log("authorization: ", authorization); // JUU4JTk0JUExJUU1JTlEJUE0JTQwdGVzdC5jb20lM0ExMjM0NTY=
 
 // Node 也演示一下编码
-const buf = Buffer.from(auth, 'ascii');
-const authorization = buf.toString('base64'); 
-console.log('authorization: ', authorization); // Y2Fpa3VuQHRlc3QuY29tOjEyMzQ1Ng==
+const buf = Buffer.from(auth, "ascii");
+const authorization = buf.toString("base64");
+console.log("authorization: ", authorization); // Y2Fpa3VuQHRlc3QuY29tOjEyMzQ1Ng==
 ```
 
 ```js
@@ -68,12 +68,12 @@ console.log('authorization: ', authorization); // Y2Fpa3VuQHRlc3QuY29tOjEyMzQ1Ng
 
 // browser
 const user = decodeURIComponent(atob(authorization));
-console.log('user: ', user); // caikun@test.com:123456
+console.log("user: ", user); // caikun@test.com:123456
 
 // node
-const buf2 = Buffer.from(authorization.split(' ')[0] || '', 'base64');
-const user = buf2.toString('ascii'); 
-console.log('user: ', user); // caikun@test.com:123456
+const buf2 = Buffer.from(authorization.split(" ")[0] || "", "base64");
+const user = buf2.toString("ascii");
+console.log("user: ", user); // caikun@test.com:123456
 ```
 
 ### 其他基于 HTTP 的认证
@@ -97,8 +97,8 @@ IANA 维护了 [一系列的验证方案](http://www.iana.org/assignments/http-a
 
 - 优点：简单
 - 问题：
-	1. 请求上携带验证信息，容易被嗅探到，即使用 base64 也只是常规编码，起不到加密的左右
-	2. 无法注销登录
+  1.  请求上携带验证信息，容易被嗅探到，即使用 base64 也只是常规编码，起不到加密的左右
+  2.  无法注销登录
 
 - 适用场景：一般多被用在**内部**安全性要求不高的的系统上，如路由器网页管理接口
 
@@ -131,11 +131,12 @@ Session 是服务器端的会话管理机制：
 4. 服务器通过 SessionID 找到对应 Session 并识别用户
 
 如下图：
+
 - 用户首次登录
-![[Pasted image 20250615222202.png|400]]
+  ![[Pasted image 20250615222202.png|400]]
 
 - 后续请求的识别认证
-![[Pasted image 20250615222238.png|400]]
+  ![[Pasted image 20250615222238.png|400]]
 
 ### Session 存储
 
@@ -147,7 +148,7 @@ Session 是服务器端的会话管理机制：
 
 上面提到的流程中，缺少 Session 的刷新的环节。expires 时间到期后不能就直接把用户踢出去，而是如果在 Session 有效期间用户一直在操作，这时候 expires 时间就应该刷新才对。
 
-1. 又不能频繁更新 session，会影响性能，所以要在 session **快过期的时候续一次。
+1. 又不能频繁更新 session，会影响性能，所以要在 session \*\*快过期的时候续一次。
 2. 有可能会有 cookie 泄露，导致 sessionID 被盗用而保持了长期有效。所以，可以在生成 sessionID 的同时生成一个 refreshID，在 sessionID 过期之后使用 refreshID 请求服务端生成新的 sessionID（这个方案需要前端判断 sessionID 失效，并携带 refreshID 发请求)。
 
 ### 单设备登录
@@ -185,9 +186,10 @@ Token 是服务端生成的一串字符串，以作为客户端请求的一个�
 - 客户端后续访问时，带上这个 Token，服务端进行验证，从而完成身份认证。
 
 优点：
+
 - 服务器端不需要存放 Token，所以不会对服务器端造成压力，即使是服务器集群，也不需要增加维护成本。
 - Token 可以存放在前端任何地方，可以不用保存在 Cookie 中，提升了页面的安全性。
-缺点：
+  缺点：
 - Token 下发之后，只要在生效时间之内，就一直有效，如果服务器端想收回此 Token 的权限，就不像 cookie 那么容易。
 
 ### JWT (Json Web Token)
@@ -208,24 +210,24 @@ jwt-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibHVzaGlqaWUiLCJpYXQiO
 ### 工作流程
 
 1. 用户登录成功后，服务器创建 JWT
-	- 设置 Header 和 Payload
-	- 使用密钥生成**签名**
-	- 将三部分组合成 token
+   - 设置 Header 和 Payload
+   - 使用密钥生成**签名**
+   - 将三部分组合成 token
 2. 服务器将 token 返回给客户端
-	- 客户端存储在 localStorage 或 cookie 中
+   - 客户端存储在 localStorage 或 cookie 中
 3. 后续请求携带 token
-	- 通常放在 Authorization header
-	- 格式： `Bearer <token>`
+   - 通常放在 Authorization header
+   - 格式： `Bearer <token>`
 4. 服务器验证 token
-	- 检查签名是否有效
-	- 验证是否过期
-	- 验证其他声明（claims）
+   - 检查签名是否有效
+   - 验证是否过期
+   - 验证其他声明（claims）
 
 ```mermaid
 sequenceDiagram
     participant 用户
     participant 服务器
-    
+
     用户->>服务器: 提交登录凭证
     服务器->>服务器: 验证凭证
     alt 验证成功
@@ -236,7 +238,7 @@ sequenceDiagram
     else 验证失败
         服务器-->>用户: 返回错误
     end
-    
+
     用户->>服务器: 后续请求(携带token)
         Note left of 用户: Authorization头<br>Bearer <token>
     服务器->>服务器: 验证token
@@ -291,16 +293,18 @@ sequenceDiagram
 ### 如何使用 token 标识用户
 
 两种方式：
+
 - 无状态：在 payload 中存 userId，后续验证只需要解析 Token 中的 userId 既可
-    - 优点：无需查库
-    - 缺点：用户和 token 强绑定了，除非 token 过期，否则无法使用户失效
-    - 适合：无状态、高并发，如 API 网关
+  - 优点：无需查库
+  - 缺点：用户和 token 强绑定了，除非 token 过期，否则无法使用户失效
+  - 适合：无状态、高并发，如 API 网关
 - 有状态：数据库维护 用户与 Token 的映射关系（如 `user_tokens` 表）
-    - 优点：**精准控制 用户的 Token 生命周期**，如用户下线时候删除 token、主动拉黑 token 等
-    - 缺点：token 需要存库查库；
-    - 适合：严格管理 token 安全性，如金融系统等
+  - 优点：**精准控制 用户的 Token 生命周期**，如用户下线时候删除 token、主动拉黑 token 等
+  - 缺点：token 需要存库查库；
+  - 适合：严格管理 token 安全性，如金融系统等
 
 结合上面的双 token 刷新机制，我们可以混合使用两种标识方式：
+
 - 短期 accesstoken ：直接解析 userid 标识用户
 - 长期 refreshtoken：存数据库，当短期 token 需要刷新时候使用。也可以主动控制 refreshtoken 的生命周期
 

@@ -12,25 +12,25 @@ modified: 2025-06-20
 一、JSX 转换：Taro 通过 自定义 Babel/TypeScript 编译器 将 JSX 转换为通用虚拟 DOM。针对不同前端框架（React/Vue），在编译时生成对应框架的运行时代码，例如：
 
 ```js
-// 输入 
-;<View>Hello</View> 
+// 输入
+<View>Hello</View>;
 
-// React 输出 
-import { createElement } from 'react' 
-createElement('view', {}, 'Hello') 
+// React 输出
+import { createElement } from "react";
+createElement("view", {}, "Hello");
 
-// Vue 输出 
-import { h } from 'vue' 
-h('view', {}, 'Hello')
+// Vue 输出
+import { h } from "vue";
+h("view", {}, "Hello");
 ```
 
 二、多端适配：Taro 的核心架构分为 `编译时 和 运行时` ：
 
 1. 编译时：通过 AST 解析将代码按目标平台转换，生成平台专属模板（如.wxml /.swan）
 2. 运行时：
-	- 实现 统一 API 层（如 Taro.request 映射到 wx.request / my.request）
-	- 提供 虚拟 DOM 渲染器，通过 React Reconciler 对接不同平台渲染引擎
-	- 实现 事件系统桥接，统一各端事件差异
+   - 实现 统一 API 层（如 Taro.request 映射到 wx.request / my.request）
+   - 提供 虚拟 DOM 渲染器，通过 React Reconciler 对接不同平台渲染引擎
+   - 实现 事件系统桥接，统一各端事件差异
 
 三、跨端样式处理：Taro 样式处理包含以下关键机制：
 
@@ -43,30 +43,31 @@ h('view', {}, 'Hello')
 
 1. 插件化架构：通过 @tarojs/plugin- 前缀插件扩展功能
 2. 多编译引擎：
-	- Web 端：仍使用 Webpack/Vite
-	- 小程序：自研模板生成器
+   - Web 端：仍使用 Webpack/Vite
+   - 小程序：自研模板生成器
+
 - 按需编译：通过 Tree-shaking 仅打包使用到的组件
 
 五、运行时性能优化：
 
 1. 数据通信优化：
-	- 自动合并 setData 调用
-	- 使用 差异更新算法 减少数据传输量
+   - 自动合并 setData 调用
+   - 使用 差异更新算法 减少数据传输量
 2. 渲染优化：
-	- 虚拟 DOM 比对后批量更新
-	- 组件按平台实现懒加载
+   - 虚拟 DOM 比对后批量更新
+   - 组件按平台实现懒加载
 3. 包体积优化：
-	- 按目标平台裁剪无用代码
-	- 使用 分包加载 控制主包大小
+   - 按目标平台裁剪无用代码
+   - 使用 分包加载 控制主包大小
 
 ## Taro/Uni-app 跨端原理对比
 
-| 框架 | 技术栈 | 微信小程序 | H5 | App | 支付宝/百度小程序 |
-| --- | --- | --- | --- | --- | --- |
-| Taro | React/Vue | ✅ | ✅ | ✅ | ✅ |
-| uni-app | Vue | ✅ | ✅ | ✅ | ✅ |
-| WePY | Vue | ✅ | ❌ | ❌ | ❌ |
-| mpvue | Vue | ✅ | ✅ | ❌ | ❌ |
+| 框架    | 技术栈    | 微信小程序 | H5  | App | 支付宝/百度小程序 |
+| ------- | --------- | ---------- | --- | --- | ----------------- |
+| Taro    | React/Vue | ✅         | ✅  | ✅  | ✅                |
+| uni-app | Vue       | ✅         | ✅  | ✅  | ✅                |
+| WePY    | Vue       | ✅         | ❌  | ❌  | ❌                |
+| mpvue   | Vue       | ✅         | ✅  | ❌  | ❌                |
 
 **1\. Taro**
 

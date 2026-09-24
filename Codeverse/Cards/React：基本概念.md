@@ -1,11 +1,10 @@
 ---
 tags: [todo]
-up: 
-related: 
+up:
+related:
 created: 2025-05-24
 modified: 2025-07-03
 ---
-
 
 jsx
 props
@@ -31,7 +30,7 @@ function Modal({ onClose, children }) {
         <button onClick={onClose}>关闭</button>
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }
 ```

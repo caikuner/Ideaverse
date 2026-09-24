@@ -22,33 +22,30 @@ function myReduce(arr, callback, initialValue) {
 
   let index = 0;
   let result = initialValue;
-  if (result === undefined) { // 如果没有初始值, 数组第一个元素作为初始值
+  if (result === undefined) {
+    // 如果没有初始值, 数组第一个元素作为初始值
     result = arr[0];
     index = 1;
   }
   for (; index < arr.length; index++) {
-    if (index in arr) { // 跳过稀疏元素
+    if (index in arr) {
+      // 跳过稀疏元素
       result = callback.call(undefined, result, arr[index], index, arr); // result 给下一轮
     }
   }
   return result;
 }
 
-
 // 测试用例：
 
 // 基础功能
-console.log(myReduce([1,2,3], (sum, n) => sum + n, 0)) // 6
-console.log(myReduce([1,2,3], (sum, n) => sum + n)) // 6 [无初始值]
+console.log(myReduce([1, 2, 3], (sum, n) => sum + n, 0)); // 6
+console.log(myReduce([1, 2, 3], (sum, n) => sum + n)); // 6 [无初始值]
 
 // 稀疏数组
-console.log(myReduce([1,,3], (sum, n) => sum + n, 0)) // 4
+console.log(myReduce([1, , 3], (sum, n) => sum + n, 0)); // 4
 
 // 对象处理
 console.log(
-  myReduce(
-    [{x:1}, {x:2}, {x:3}],
-    (acc, cur) => ({x: acc.x + cur.x}),
-    {x:0}
-  )
-) // {x:6}
+  myReduce([{ x: 1 }, { x: 2 }, { x: 3 }], (acc, cur) => ({ x: acc.x + cur.x }), { x: 0 }),
+); // {x:6}

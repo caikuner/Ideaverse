@@ -3,15 +3,15 @@ title: Hector 上线 checklist
 tags:
   - clippings
 url: https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/GUrlPrTtjQ/98kRp0Tg8BEUNI
-author: 
-published: 
+author:
+published:
 created: 2024-10-28
 description: 如流知识库
 ---
+
 - 完整版上线规范详见：[[Hector 上线流程规范]]
 
 - 上线记录可参考：[[Hector 升级 Node20 （done）]]
-
 
 ## 工程开发测试
 
@@ -28,7 +28,6 @@ description: 如流知识库
 - 🌟 切换预发布环境，通过所有测试用例：
 
 - 代码合入，发布新版本
-
 
 ## 小流量上线
 
@@ -62,7 +61,7 @@ https://hectorstatic.baidu.com/d94e62c13d641aa7.js?v=1http://hectorstatic.baidu.
 
 - 一脉查询采集表特征覆盖率
 
-- anti\_ods\_hector\_log\_hour，(udw\_ns.default.anti\_ods\_hector\_log\_hour) 落表有 3h 左右的延迟
+- anti_ods_hector_log_hour，(udw_ns.default.anti_ods_hector_log_hour) 落表有 3h 左右的延迟
 
 如查询版本 30、31总量，版本 31下的某特征命中量
 
@@ -70,8 +69,8 @@ https://hectorstatic.baidu.com/d94e62c13d641aa7.js?v=1http://hectorstatic.baidu.
 select  count(1) total,  sum(case when (hector like '%1s' or hector like '%1t') then 1 else 0 end) v_30,  sum(case when (hector like '%1u' or hector like '%1v') then 1 else 0 end) v_31from  anti_ods_hector_log_hourwhere  event_day = '20240508'  and hector is not null and hector != '-' and hector != ''  and product = 'lu';select  count(1) total,  sum(if (get_json_object(anti_hector (hector), '$.features.37') = '1', 1, 0)) hector_hit_37,from  anti_ods_hector_log_hourwhere  event_day = '20240705' and event_hour='18'  and hector is not null and hector != '-' and hector != ''  and get_json_object(anti_hector (hector), '$.version') = '31';
 ```
 
-
 ## 正式上线
+
 - 搜索产品部邮件审批
 
 - 工程代码修改所有产品线到新版本
@@ -98,7 +97,7 @@ select  count(1) total,  sum(case when (hector like '%1s' or hector like '%1t') 
 
 - 一脉查询采集表特征覆盖率
 
-- anti\_ods\_hector\_log\_hour，(udw\_ns.default.anti\_ods\_hector\_log\_hour) 落表有 3h 左右的延迟
+- anti_ods_hector_log_hour，(udw_ns.default.anti_ods_hector_log_hour) 落表有 3h 左右的延迟
 
 如查询版本 30、31总量，版本 31下的某特征命中量
 

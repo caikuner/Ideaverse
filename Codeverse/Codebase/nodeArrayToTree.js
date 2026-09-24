@@ -7,30 +7,28 @@ function nodeArrayToTree(items, parentId = null) {
 
 // 迭代+map
 function nodeArrayToTree(items) {
-  const res = []
-  const treeMap = {}
+  const res = [];
+  const treeMap = {};
 
   for (const item of items) {
-    treeMap[item.id] = {...item, children: []}
+    treeMap[item.id] = { ...item, children: [] };
   }
 
   for (const item of items) {
-    const {id, parentId} = item
-    const treeItem = treeMap[id]
+    const { id, parentId } = item;
+    const treeItem = treeMap[id];
     if (parentId === null) {
-      res.push(treeItem)
+      res.push(treeItem);
     } else {
       if (!treeMap[parentId]) {
-        treeMap[parentId] = {children: []}
+        treeMap[parentId] = { children: [] };
       }
-      treeMap[parentId].children.push(treeItem)
+      treeMap[parentId].children.push(treeItem);
     }
   }
 
-  return res
+  return res;
 }
-
-
 
 // test
 const flatArray = [

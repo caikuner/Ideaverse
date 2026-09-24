@@ -13,9 +13,9 @@ modified: 2025-06-27
 
 ```javascript
 function Parent() {
-  this.name = 'Parent';
+  this.name = "Parent";
 }
-Parent.prototype.sayName = function() {
+Parent.prototype.sayName = function () {
   console.log(this.name);
 };
 
@@ -27,6 +27,7 @@ child.sayName(); // "Parent"
 ```
 
 **特点**：
+
 - 子类实例共享父类引用类型属性
 - 无法向父类构造函数传参
 
@@ -40,11 +41,12 @@ function Child(name) {
   Parent.call(this, name); // 关键继承语句
 }
 
-const child = new Child('Child');
+const child = new Child("Child");
 console.log(child.name); // "Child"
 ```
 
 **特点**：
+
 - 每个实例有独立属性副本
 - 无法继承父类原型上的方法
 
@@ -54,7 +56,7 @@ console.log(child.name); // "Child"
 function Parent(name) {
   this.name = name;
 }
-Parent.prototype.sayName = function() {
+Parent.prototype.sayName = function () {
   console.log(this.name);
 };
 
@@ -65,11 +67,12 @@ function Child(name, age) {
 Child.prototype = new Parent(); // 第一次调用父类构造函数
 Child.prototype.constructor = Child; // 修复构造函数指向
 
-const child = new Child('Tom', 10);
+const child = new Child("Tom", 10);
 child.sayName(); // "Tom"
 ```
 
 **特点**：
+
 - 结合原型链和构造函数的优点
 - 父类构造函数被调用两次
 
@@ -77,18 +80,19 @@ child.sayName(); // "Tom"
 
 ```javascript
 const parent = {
-  name: 'Parent',
+  name: "Parent",
   sayName() {
     console.log(this.name);
-  }
+  },
 };
 
 const child = Object.create(parent); // 关键继承语句
-child.name = 'Child';
+child.name = "Child";
 child.sayName(); // "Child"
 ```
 
 **特点**：
+
 - 基于现有对象创建新对象
 - ES5 的 `Object.create()` 规范实现
 
@@ -97,18 +101,20 @@ child.sayName(); // "Child"
 ```javascript
 function createChild(parent) {
   const clone = Object.create(parent); // 创建副本
-  clone.sayHi = function() { // 增强对象
-    console.log('Hi!');
+  clone.sayHi = function () {
+    // 增强对象
+    console.log("Hi!");
   };
   return clone;
 }
 
-const parent = { name: 'Parent' };
+const parent = { name: "Parent" };
 const child = createChild(parent);
 child.sayHi(); // "Hi!"
 ```
 
 **特点**：
+
 - 在原型式继承基础上添加新方法
 - 方法不能复用（类似构造函数模式）
 
@@ -116,14 +122,14 @@ child.sayHi(); // "Hi!"
 
 ```javascript
 function inheritPrototype(Child, Parent) {
-    Child.prototype = Object.create(Parent.prototype) // 创建父类原型副本，赋值给子类原型
-    Child.prototype.constructor = Child // 修复构造函数
+  Child.prototype = Object.create(Parent.prototype); // 创建父类原型副本，赋值给子类原型
+  Child.prototype.constructor = Child; // 修复构造函数
 }
 
 function Parent(name) {
   this.name = name;
 }
-Parent.prototype.sayName = function() {
+Parent.prototype.sayName = function () {
   console.log(this.name);
 };
 
@@ -133,11 +139,12 @@ function Child(name, age) {
 }
 inheritPrototype(Child, Parent); // 实现原型继承
 
-const child = new Child('Jerry', 8);
+const child = new Child("Jerry", 8);
 child.sayName(); // "Jerry"
 ```
 
 **特点**：
+
 - 只调用一次父类构造函数
 - 原型链保持完整
 - ES6 `class` 继承的底层实现
@@ -154,35 +161,38 @@ class Parent {
   }
 }
 
-class Child extends Parent { // extends 关键字
+class Child extends Parent {
+  // extends 关键字
   constructor(name, age) {
     super(name); // 调用父类构造函数
     this.age = age;
   }
 }
 
-const child = new Child('Lucy', 12);
+const child = new Child("Lucy", 12);
 child.sayName(); // "Lucy"
 ```
 
 **特点**：
+
 - 语法糖，底层基于寄生组合式继承
 - 使用 `extends` 和 `super` 关键字
 - 支持静态方法继承
 
 ### 继承方式对比表
 
-| 方式               | 原型继承 | 构造函数继承 | 实例独立属性 | 方法复用 | 调用父类次数 |
-|--------------------|----------|--------------|--------------|----------|--------------|
-| 原型链继承        | ✓        | ✗            | ✗            | ✓        | 1            |
-| 构造函数继承      | ✗        | ✓            | ✓            | ✗        | 多次         |
-| 组合继承          | ✓        | ✓            | ✓            | ✓        | 2            |
-| 原型式继承        | ✓        | ✗            | ✗            | ✓        | 0            |
-| 寄生式继承        | ✓        | ✗            | ✓            | ✗        | 0            |
-| 寄生组合式继承    | ✓        | ✓            | ✓            | ✓        | 1            |
-| ES6 Class 继承     | ✓        | ✓            | ✓            | ✓        | 1            |
+| 方式           | 原型继承 | 构造函数继承 | 实例独立属性 | 方法复用 | 调用父类次数 |
+| -------------- | -------- | ------------ | ------------ | -------- | ------------ |
+| 原型链继承     | ✓        | ✗            | ✗            | ✓        | 1            |
+| 构造函数继承   | ✗        | ✓            | ✓            | ✗        | 多次         |
+| 组合继承       | ✓        | ✓            | ✓            | ✓        | 2            |
+| 原型式继承     | ✓        | ✗            | ✗            | ✓        | 0            |
+| 寄生式继承     | ✓        | ✗            | ✓            | ✗        | 0            |
+| 寄生组合式继承 | ✓        | ✓            | ✓            | ✓        | 1            |
+| ES6 Class 继承 | ✓        | ✓            | ✓            | ✓        | 1            |
 
 **推荐选择**：
+
 1. 现代项目：优先使用 **ES6 Class 继承**
 2. 兼容旧环境：使用 **寄生组合式继承**
 3. 简单对象继承：使用 **原型式继承** (`Object.create()`)

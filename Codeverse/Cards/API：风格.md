@@ -92,19 +92,19 @@ HTTP 方法对应操作
 
 #### 表格对比
 
-| **特性**   | **RESTful API**       | **GraphQL**                             | **JSON API** (标准规范)            | **gRPC**                                  |
-| -------- | --------------------- | --------------------------------------- | ------------------------------ | ----------------------------------------- |
-| **协议**   | HTTP(S)               | HTTP(S)                                 | HTTP(S)                        | HTTP/2                                    |
-| **数据格式** | JSON/XML              | JSON                                    | JSON（严格规范）                     | Protocol Buffers（二进制）                     |
-| **查询     | 固定端点，返回完整资源           | 客户端自定义查询，按需获取数据                         | 固定结构，支持稀疏字段                    | 强类型，需预定义服务和方法                             |
-| **请求**   | GET/POST/PUT/DELETE 等 | POST（所有操作通过查询/变更）                       | 遵循 RESTful 方法                  | 基于 Protobuf 的远程过程调用（RPC）                  |
-| **性能**   | 中等（可能多次请求）            | 高（单次请求获取多数据）                            | 中等（类似 RESTful）                 | **极高**（二进制编码 + HTTP/2 多路复用）               |
-| **缓存**   | 完善（HTTP 缓存头）          | 需手动实现                                   | 支持 HTTP 缓存                     | 需自定义（无原生缓存机制）                             |
-| **版本**   | 通过 URL/Header 版本化     | 无版本（通过 Schema 演进）                       | 类似 RESTful                     | 通过 Protobuf 文件版本控制                        |
-| **实时通信** | 需 WebSocket/SSE 扩展    | 需订阅（GraphQL Subscriptions）              | 无原生支持                          | 支持双向流（Streaming）                          |
-| **适用**   | 简单 CRUD、资源型操作         | 复杂查询、多端数据聚合                             | 标准化 JSON 响应（如前后端分离）            | 微服务通信、高性能内部调用                             |
-| **生态**   | 丰富（Swagger/OpenAPI）   | 完善（Apollo/Relay）                        | 较少（特定框架支持）                     | 强大（代码生成、跨语言支持）                            |
-| **示例**   | `GET /users/1`        | `POST /graphql { user(id:1) { name } }` | `GET /users/1?fields=name,age` | `rpc GetUser(UserRequest) returns (User)` |
+| **特性**     | **RESTful API**         | **GraphQL**                             | **JSON API** (标准规范)          | **gRPC**                                  |
+| ------------ | ----------------------- | --------------------------------------- | -------------------------------- | ----------------------------------------- |
+| **协议**     | HTTP(S)                 | HTTP(S)                                 | HTTP(S)                          | HTTP/2                                    |
+| **数据格式** | JSON/XML                | JSON                                    | JSON（严格规范）                 | Protocol Buffers（二进制）                |
+| \*\*查询     | 固定端点，返回完整资源  | 客户端自定义查询，按需获取数据          | 固定结构，支持稀疏字段           | 强类型，需预定义服务和方法                |
+| **请求**     | GET/POST/PUT/DELETE 等  | POST（所有操作通过查询/变更）           | 遵循 RESTful 方法                | 基于 Protobuf 的远程过程调用（RPC）       |
+| **性能**     | 中等（可能多次请求）    | 高（单次请求获取多数据）                | 中等（类似 RESTful）             | **极高**（二进制编码 + HTTP/2 多路复用）  |
+| **缓存**     | 完善（HTTP 缓存头）     | 需手动实现                              | 支持 HTTP 缓存                   | 需自定义（无原生缓存机制）                |
+| **版本**     | 通过 URL/Header 版本化  | 无版本（通过 Schema 演进）              | 类似 RESTful                     | 通过 Protobuf 文件版本控制                |
+| **实时通信** | 需 WebSocket/SSE 扩展   | 需订阅（GraphQL Subscriptions）         | 无原生支持                       | 支持双向流（Streaming）                   |
+| **适用**     | 简单 CRUD、资源型操作   | 复杂查询、多端数据聚合                  | 标准化 JSON 响应（如前后端分离） | 微服务通信、高性能内部调用                |
+| **生态**     | 丰富（Swagger/OpenAPI） | 完善（Apollo/Relay）                    | 较少（特定框架支持）             | 强大（代码生成、跨语言支持）              |
+| **示例**     | `GET /users/1`          | `POST /graphql { user(id:1) { name } }` | `GET /users/1?fields=name,age`   | `rpc GetUser(UserRequest) returns (User)` |
 
 ---
 

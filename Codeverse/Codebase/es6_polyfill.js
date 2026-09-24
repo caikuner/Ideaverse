@@ -10,20 +10,20 @@
 // }
 
 function Parent(name) {
-  this.name = name
-  console.log(this.name)
+  this.name = name;
+  console.log(this.name);
 }
 function Child(name) {
-  Parent.call(this, name)    // 1.构造函数继承
+  Parent.call(this, name); // 1.构造函数继承
 }
 
-
-function inheritPrototype(Child, Parent) { // 2.寄生式继承
-    Child.prototype = Object.create(Parent.prototype) // 创建父类原型副本，赋值给子类原型
-    Child.prototype.constructor = Child // 修复构造函数
+function inheritPrototype(Child, Parent) {
+  // 2.寄生式继承
+  Child.prototype = Object.create(Parent.prototype); // 创建父类原型副本，赋值给子类原型
+  Child.prototype.constructor = Child; // 修复构造函数
 }
-inheritPrototype(Child, Parent)
+inheritPrototype(Child, Parent);
 
 // use
-const c = new Child('x')
-console.log(c.name) // 'father'
+const c = new Child("x");
+console.log(c.name); // 'father'

@@ -16,7 +16,7 @@ function promisify(fn) {
           if (err) {
             reject(err);
           } else {
-            resolve(results.length > 1 ? results : results?.[0])
+            resolve(results.length > 1 ? results : results?.[0]);
           }
         });
       } catch (err) {
@@ -25,8 +25,6 @@ function promisify(fn) {
     });
   };
 }
-
-
 
 // 测试用例
 // 基础功能测试

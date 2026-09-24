@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.content.render
+module.exports = app.utils.templater.content.render;

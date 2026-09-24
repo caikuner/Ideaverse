@@ -6,6 +6,7 @@ companies:
 created: 2025-06-24
 modified: 2025-06-24
 ---
+
 在 React 中，`setState` 默认是异步执行的，这是 React 出于性能考虑所做的优化。但在某些特殊场景下，你可能需要让 `setState` 同步执行。以下是几种实现方式：
 
 ### 1. 使用回调函数
@@ -32,7 +33,7 @@ setTimeout(() => {
 React 的批量更新机制只在 React 事件处理函数中生效，在其他异步代码中（如原生事件、setTimeout、Promise 等）`setState` 会同步执行：
 
 ```javascript
-document.getElementById('btn').addEventListener('click', () => {
+document.getElementById("btn").addEventListener("click", () => {
   this.setState({ count: this.state.count + 1 });
   console.log(this.state.count); // 会输出更新后的值
 });
@@ -43,7 +44,7 @@ document.getElementById('btn').addEventListener('click', () => {
 在 React 18 及以上版本，可以使用 `ReactDOM.flushSync` 强制同步更新：
 
 ```javascript
-import { flushSync } from 'react-dom';
+import { flushSync } from "react-dom";
 
 flushSync(() => {
   this.setState({ count: this.state.count + 1 });
@@ -56,7 +57,7 @@ console.log(this.state.count); // 会输出更新后的值
 对于函数组件，React 18 提供了 `useSyncExternalStore` 钩子来实现同步状态：
 
 ```javascript
-import { useSyncExternalStore } from 'react';
+import { useSyncExternalStore } from "react";
 
 function MyComponent() {
   const state = useSyncExternalStore(store.subscribe, store.getSnapshot);

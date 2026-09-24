@@ -37,10 +37,10 @@ When cooler thoughts prevail, you can better prioritize. Cool?
 
 [[+todo code ⭐️]]
 
-```dataview  or "Codebase"
+```dataview or "Codebase"
 TABLE rank,tags
 FROM #todo or #x/面试派 or #x/yuque
-WHERE !startswith(file.path, "X/") and file.path != this.file.path 
+WHERE !startswith(file.path, "X/") and file.path != this.file.path
 SORT tags,rank DESC,file.name ASC
 limit 50
 ```

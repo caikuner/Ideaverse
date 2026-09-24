@@ -1,8 +1,8 @@
 ---
 title: Hector 升级 Node20 （done）
 url: https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/NWkxDSckt3/oUL1exHKg6_qn0
-author: 
-published: 
+author:
+published:
 created: 2024-10-28
 description: 如流知识库
 tags:
@@ -10,6 +10,7 @@ tags:
 ---
 
 ## 需求开发
+
 - iCafe：[\[AntiPlatform-2364\] 【P1】【ALL】【Hector】Node 版本升级](https://console.cloud.baidu-int.com/devops/icafe/issue/AntiPlatform-2364/show)
 
 - 代码评审：
@@ -17,7 +18,6 @@ tags:
 - [评审：AntiPlatform-2364 \[Story\] 【P1】【ALL】【Hector】Node 版本升级](https://console.cloud.baidu-int.com/devops/icode/repos/baidu/anti/hector/reviews/113332178/files)
 
 - [评审：AntiPlatform-2364 \[Story\] 【P1】【ALL】【Hector】Node 版本校验](https://console.cloud.baidu-int.com/devops/icode/repos/baidu/anti/hector/reviews/113357980)
-
 
 - 主要内容
 
@@ -30,10 +30,10 @@ tags:
 - 建设后端日志监控 [Hector 报表建设](https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/NWkxDSckt3/NUfMvkmKRzB2cI?source=137)
 
 ## 预上线
+
 新增了 ipipe 流水线预上线环节，完全按照正式上线的部署环节，进行预发布。
 
 使用预上线环境的产出进行下述的上线前测试。
-
 
 ## 上线前测试
 

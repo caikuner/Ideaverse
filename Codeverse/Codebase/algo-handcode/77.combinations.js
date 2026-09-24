@@ -87,7 +87,6 @@ var combine = function (n, k) {
       if (n - i - 1 >= k - x) {
         dfs(i + 1, x);
       }
-
     }
   };
 

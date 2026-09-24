@@ -2,11 +2,11 @@
 tags:
   - concept
   - fe/css
-up: 
+up:
 related:
   - 图形学
-rank: 
-companies: 
+rank:
+companies:
 created: 2025-04-19
 modified: 2025-06-23
 ---
@@ -32,18 +32,18 @@ CSS3 动画是一种强大且实用的网页动画技术，可以不依赖 JavaS
 
 ```css
 @keyframes animationName {
-    0% {
-        /* 动画开始时的样式 */
-        property: value;
-    }
-    50% {
-        /* 动画进行到一半时的样式 */
-        property: value;
-    }
-    100% {
-        /* 动画结束时的样式 */
-        property: value;
-    }
+  0% {
+    /* 动画开始时的样式 */
+    property: value;
+  }
+  50% {
+    /* 动画进行到一半时的样式 */
+    property: value;
+  }
+  100% {
+    /* 动画结束时的样式 */
+    property: value;
+  }
 }
 ```
 
@@ -51,12 +51,12 @@ CSS3 动画是一种强大且实用的网页动画技术，可以不依赖 JavaS
 
 ```css
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 ```
 
@@ -69,6 +69,7 @@ CSS3 动画是一种强大且实用的网页动画技术，可以不依赖 JavaS
 **默认值**：`none`（无动画）。
 
 **可选值**：
+
 - 自定义的关键帧名称（如 `pulse`、`bounce`）。
 - `none`（不应用任何动画）。
 
@@ -95,10 +96,10 @@ CSS3 动画是一种强大且实用的网页动画技术，可以不依赖 JavaS
 **可选值**：
 
 - 预定义值：
-	- `linear`：匀速（从头到尾速度一致）。
-	- `ease-in`：慢开始（加速）。
-	- `ease-out`：慢结束（减速）。
-	- `ease-in-out`：慢开始和慢结束（先加速后减速）。
+  - `linear`：匀速（从头到尾速度一致）。
+  - `ease-in`：慢开始（加速）。
+  - `ease-out`：慢结束（减速）。
+  - `ease-in-out`：慢开始和慢结束（先加速后减速）。
 - 贝塞尔曲线：`cubic-bezier(n, n, n, n)`（自定义曲线）
 
 ```
@@ -197,15 +198,15 @@ CSS3 动画是一种强大且实用的网页动画技术，可以不依赖 JavaS
 
 #### 总结
 
-| 属性                          | 必需性     | 核心作用        | 最常用场景                  |
-| --------------------------- | ------- | ----------- | ---------------------- |
-| `animation-name`            | 必需（简写中） | 指定关键帧动画     | 配合 `@keyframes` 定义动画效果 |
-| `animation-duration`        | 必需（简写中） | 定义动画时长      | 控制动画快慢（如 `1s`、`0.3s`）  |
-| `animation-timing-function` | 可选      | 设置动画曲线      |                        |
-| `animation-iteration-count` | 可选      | 控制循环次数      | 无限循环（`infinite`）       |
-| `animation-direction`       | 可选      | 控制播放方向      | 往返动画（`alternate`）      |
-| `animation-fill-mode`       | 可选      | 控制动画前后的样式保留 | 结束后保持状态（`forwards`）    |
-| `animation-play-state`      | 可选      | 控制动画的播放状态   | 鼠标悬停时暂停动画 (paused)     |
+| 属性                        | 必需性         | 核心作用               | 最常用场景                      |
+| --------------------------- | -------------- | ---------------------- | ------------------------------- |
+| `animation-name`            | 必需（简写中） | 指定关键帧动画         | 配合 `@keyframes` 定义动画效果  |
+| `animation-duration`        | 必需（简写中） | 定义动画时长           | 控制动画快慢（如 `1s`、`0.3s`） |
+| `animation-timing-function` | 可选           | 设置动画曲线           |                                 |
+| `animation-iteration-count` | 可选           | 控制循环次数           | 无限循环（`infinite`）          |
+| `animation-direction`       | 可选           | 控制播放方向           | 往返动画（`alternate`）         |
+| `animation-fill-mode`       | 可选           | 控制动画前后的样式保留 | 结束后保持状态（`forwards`）    |
+| `animation-play-state`      | 可选           | 控制动画的播放状态     | 鼠标悬停时暂停动画 (paused)     |
 
 ### 简写属性 animation
 
@@ -221,7 +222,7 @@ animation: name duration timing-function delay iteration-count direction fill-mo
 
 ```css
 .element {
-    animation: fadeIn 2s linear 1s infinite alternate forwards running;
+  animation: fadeIn 2s linear 1s infinite alternate forwards running;
 }
 ```
 
@@ -255,36 +256,34 @@ animation: bounce 0.8s ease-in-out 0.2s infinite alternate;
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
         }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-            animation: fadeInOut 4s linear infinite;
-        }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        animation: fadeInOut 4s linear infinite;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="box"></div>
-</body>
-
+  </body>
 </html>
 ```
 

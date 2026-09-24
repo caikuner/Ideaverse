@@ -8,6 +8,7 @@ description: "如流知识库"
 tags:
   - "clippings"
 ---
+
 AI
 
 通用
@@ -42,7 +43,7 @@ AI
 
 - ratio 特征有 diff：
 
-- rule 的 filter\_mode 判断时过滤分子还是分母空间，对于 TM 的 ratio 特征可以累积计算所有的 ratio，而 flink 由于只是 calculation 特征，只能计算分子和分母都有值的结果。
+- rule 的 filter_mode 判断时过滤分子还是分母空间，对于 TM 的 ratio 特征可以累积计算所有的 ratio，而 flink 由于只是 calculation 特征，只能计算分子和分母都有值的结果。
 
 - 既有分子，又有分母的情况下，才没有 diff
 
@@ -62,7 +63,7 @@ AI
 
 - rule: policy -> rule -> feature
 
-- 模型类： policy -> rule -> feature && policy -> slot\_feature；
+- 模型类： policy -> rule -> feature && policy -> slot_feature；
 
 - 劫持类：policy -> feature
 
@@ -122,15 +123,15 @@ SELECT cr.type,count(cf.feature_id) as rule_feature_pv, group_concat(distinct cf
 
 <table><colgroup><col width="578"><col width="750"></colgroup><tbody><tr><td colspan="1" rowspan="1"><div><p><span><span><span>TM</span></span></span></p></div></td><td colspan="1" rowspan="1"><div><p><span><span><span>flink</span></span></span></p></div></td></tr><tr><td colspan="1" rowspan="1"><div><div><svg width="20" height="20"><g><path></path><path></path></g></svg><div><p><span></span></p><div><p><span></span><span>YAML</span></p></div><p></p><div><p>收起</p><svg width="8" height="8"><g><path></path></g></svg></div></div></div><div><pre><div><p><span><span><span><span>threshold : 0</span></span></span></span></p><p><span><span><span><span>@policy : 3922#1</span></span></span></span></p><p><span><span><span><span>@policy : 564001#1</span></span></span></span></p><p><span><span><span><span>@policy : 7472801#0</span></span></span></span></p></div></pre></div></div></td><td colspan="1" rowspan="1"><div><div><svg width="20" height="20"><g><path></path><path></path></g></svg><div><p><span></span></p><div><p><span></span><span>YAML</span></p></div><p></p><div><p>收起</p><svg width="8" height="8"><g><path></path></g></svg></div></div></div><div><pre><div><p><span><span><span><span>judges:</span></span></span></span></p><p><span><span><span><span>- policyId: '3922'</span></span></span></span></p><p><span><span><span><span>  openJudge: true</span></span></span></span></p><p><span><span><span><span>- policyId: '564001'</span></span></span></span></p><p><span><span><span><span>  openJudge: true</span></span></span></span></p><p><span><span><span><span>- policyId: '7472801'</span></span></span></span></p><p><span><span><span><span>  openJudge: false</span></span></span></span></p></div></pre></div></div></td></tr></tbody></table>
 
-**问题：****挂载点**
+**问题：\*\***挂载点\*\*
 
 1. flink 各流的挂载点还不太一样
 
-1. flink 的根挂载点在 **/home/volume/anti\_afs\_bjyz/dict/flink，**拿不到 TM 的词表: /home/volume/anti\_afs\_bjyz/dict/xxxxxx
+1. flink 的根挂载点在 **/home/volume/anti_afs_bjyz/dict/flink，**拿不到 TM 的词表: /home/volume/anti_afs_bjyz/dict/xxxxxx
 
 1. flink 模拟过滤集群增加挂载dict 根节点
 
-1. 原 TM 有一些词表类似 ‘./data/black\_cfrom\_10001’ 路径下， flink 这边会挂载成 /home/volume/dict\_andi/channel/data/black\_cfrom\_10001
+1. 原 TM 有一些词表类似 ‘./data/black_cfrom_10001’ 路径下， flink 这边会挂载成 /home/volume/dict_andi/channel/data/black_cfrom_10001
 
 1. 这种词表之前 tm 过滤平台拿不到，会让策略同学自己 ftp 上传
 
@@ -138,12 +139,12 @@ SELECT cr.type,count(cf.feature_id) as rule_feature_pv, group_concat(distinct cf
 
 <table><colgroup><col width="557"><col width="83"><col width="729"></colgroup><tbody><tr><td colspan="1" rowspan="1"><div><p><span><span><span>tm</span></span></span></p></div></td><td colspan="1" rowspan="1"><div><p><span><span><span>特殊字段</span></span></span></p></div></td><td colspan="1" rowspan="1"><div><p><span><span><span>flink</span></span></span></p></div></td></tr><tr><td colspan="1" rowspan="1"><div><div><svg width="20" height="20"><g><path></path><path></path></g></svg><div><p><span></span></p><div><p><span></span><span>YAML</span></p></div><p></p><div><p>收起</p><svg width="8" height="8"><g><path></path></g></svg></div></div></div><div><pre><div><p><span><span><span><span>[@file]</span></span></span></span></p><p><span><span><span><span>file_type : gray</span></span></span></span></p><p><span><span><span><span>file_key : 3151_uid.gray</span></span></span></span></p><p><span><span><span><span>file_path : /home/volume/anti_afs_bjyz/dict/fc-click/l1-filter/data/gray/dp3151_uid.gray</span></span></span></span></p><p><span><span><span><span>view_num : 1</span></span></span></span></p></div></pre></div></div></td><td colspan="1" rowspan="1"><div><p><span><span><span>view_num</span></span></span></p></div></td><td colspan="1" rowspan="1"><div><div><svg width="20" height="20"><g><path></path><path></path></g></svg><div><p><span></span></p><div><p><span></span><span>YAML</span></p></div><p></p><div><p>收起</p><svg width="8" height="8"><g><path></path></g></svg></div></div></div><div><pre><div><p><span><span><span><span>dictInfoList:</span></span></span></span></p><p><span><span><span><span>- id: '1'</span></span></span></span></p><p><span><span><span><span>  name: 3151_uid.gray</span></span></span></span></p><p><span><span><span><span>  type: file</span></span></span></span></p><p><span><span><span><span>  category: gray</span></span></span></span></p><p><span><span><span><span>  filePath: /home/volume/xxxxxx</span></span></span></span></p></div></pre></div></div></td></tr><tr><td colspan="1" rowspan="1"><div><div><svg width="20" height="20"><g><path></path><path></path></g></svg><div><p><span></span></p><div><p><span></span><span>YAML</span></p></div><p></p><div><p>收起</p><svg width="8" height="8"><g><path></path></g></svg></div></div></div><div><pre><div><p><span><span><span><span>[@file]</span></span></span></span></p><p><span><span><span><span>file_type : cnmap</span></span></span></span></p><p><span><span><span><span>file_key : ./data/black_cfrom_10001</span></span></span></span></p><p><span><span><span><span>file_path : ./data/black_cfrom_10001</span></span></span></span></p></div></pre></div></div></td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"><div><div><svg width="20" height="20"><g><path></path><path></path></g></svg><div><p><span></span></p><div><p><span></span><span>YAML</span></p></div><p></p><div><p>收起</p><svg width="8" height="8"><g><path></path></g></svg></div></div></div><div><pre><div><p><span><span><span><span>dictInfoList:</span></span></span></span></p><p><span><span><span><span>- id: '2'</span></span></span></span></p><p><span><span><span><span>  name: black_cfrom_10001</span></span></span></span></p><p><span><span><span><span>  type: file</span></span></span></span></p><p><span><span><span><span>  category: cnmap</span></span></span></span></p><p><span><span><span><span>  filePath: /home/volume/dict_andi/channel/data/black_cfrom_10001</span></span></span></span></p></div></pre></div></div></td></tr></tbody></table>
 
-**问题：****flink 的 record 是写死在代码里的，并没有配置化托管**
+**问题：\*\***flink 的 record 是写死在代码里的，并没有配置化托管\*\*
 
 解决： 仍不托管，flink 自行落字段， 策略同学如有新增字段的模拟过滤需求，需要向 flink提需求
 
 ```yaml
-log_type : ClickBaiduLog # view, view_level, exec_func, post_func, default_value@view :  clktype, click_level, direct(clicktype), -
+log_type: ClickBaiduLog # view, view_level, exec_func, post_func, default_value@view :  clktype, click_level, direct(clicktype), -
 ```
 
 1. record
@@ -162,23 +163,23 @@ log_type : ClickBaiduLog # view, view_level, exec_func, post_func, default_value
 
 1. care 转 flink 格式，转特殊运算符
 
-1. view\_level：ad\_level flink 支持？@flink
+1. view_level：ad_level flink 支持？@flink
 
-1. window\_type：pv flink 支持？@flink
+1. window_type：pv flink 支持？@flink
 
-1. window\_length：时间窗口起点, flink 略有不同
+1. window_length：时间窗口起点, flink 略有不同
 
 1. policy
 
-**问题一：ratio 类 rule 的 filter\_mode 表示命中分子或分母 @flink**
+**问题一：ratio 类 rule 的 filter_mode 表示命中分子或分母 @flink**
 
 a. 问题：flink 的模拟 ratio 类特征只能计算同时命中分子和分母的 pv， 其中过滤分母存在 diff。
 
 <table><colgroup><col width="506"><col width="420"></colgroup><tbody><tr><td colspan="1" rowspan="1"><div><p><span><span><span>filter=0:</span></span></span></p><p><span><span><span>A/O &amp; In A</span></span></span></p><p><span><span><span>命中 A，A+1/O+1, 比例增加； （flink 计算特征支持）</span></span></span></p><p><span><span><span>命中 B，</span></span></span><span><span><span><span>因为没有命中 A，比例不变。 </span></span></span></span><span><span><span>（flink 计算特征支持）</span></span></span></p></div></td><td colspan="1" rowspan="2"><div><p><span><span><span>命中 A / B 都会命中 O</span></span></span></p></div></td></tr><tr><td colspan="1" rowspan="1"><div><p><span><span><span>filter=1:</span></span></span></p><p><span><span><span>A/O &amp; In O</span></span></span></p><p><span><span><span>命中 A，A+1/O+1, 比例增加；（flink 计算特征支持）</span></span></span></p><p><span><span><span>命中 B，A/O+1, 比例减小 </span></span></span><span><span><span><span>（flink 计算特征不支持）</span></span></span></span></p></div></td><td colspan="0" rowspan="0"></td></tr></tbody></table>
 
-b. 解决：filter\_mode:0 (默认)的可以直接转，其余不可以；filter\_mode:1 需要 flink 实现一个**正常的 ratio 类特征**
+b. 解决：filter_mode:0 (默认)的可以直接转，其余不可以；filter_mode:1 需要 flink 实现一个**正常的 ratio 类特征**
 
-c. 量级 filter\_mode:1：
+c. 量级 filter_mode:1：
 
 - cpc: 19 / 287
 
@@ -186,31 +187,31 @@ c. 量级 filter\_mode:1：
 
 - refund: 4 / 114
 
-- baiduapp\_active: 2 / 17
+- baiduapp_active: 2 / 17
 
 问题二：segment 类 rule punish 配置和 sqrt 配置
 
-1. punish 配置：根据 上一段 seg\_num 和 punish 配置动态改变阈值。
+1. punish 配置：根据 上一段 seg_num 和 punish 配置动态改变阈值。
 
-1. 问题：变到 flink 中拿不到上一段 seg\_num，flink 不支持。
+1. 问题：变到 flink 中拿不到上一段 seg_num，flink 不支持。
 
 ```yaml
-threshold - = (fea.last_seg_count() - threshold) * punish_kthreshold = threshold > 0.0 ? threshold : 0.0; （下限 0）
+threshold - = (fea.last_seg_count() - threshold) * punish_kthreshold = threshold > 0.0 ? threshold: 0.0; （下限 0）
 ```
 
 1. 解决：
 
-1. 没有 punish 配置或者 punish\_k = 0 的 不变即可。
+1. 没有 punish 配置或者 punish_k = 0 的 不变即可。
 
-1. **punish\_k > 0 需要看****flink是否实现支持**。
+1. **punish_k > 0 需要看\*\***flink是否实现支持\*\*。
 
-1. 量级：punish\_k && punish\_k != 0， 占所有 segment rule 比例
+1. 量级：punish_k && punish_k != 0， 占所有 segment rule 比例
 
 1. asp: 20 / 38
 
 1. hybrid2：44 / 44
 
-1. rule.sqrt 和 feature.pass\_coord\_factor：根据段内坐标动态修改阈值，flink 不支持。
+1. rule.sqrt 和 feature.pass_coord_factor：根据段内坐标动态修改阈值，flink 不支持。
 
 1. 问题：flink 不支持的字段
 
@@ -220,7 +221,7 @@ if (_pass_coord_factor) {    int64_t fea_start_coord = _window.query_start_coord
 
 1. 解决：
 
-1. not rule.sqt || feature.pass\_coord\_factor!=1， => 不变即可
+1. not rule.sqt || feature.pass_coord_factor!=1， => 不变即可
 
 1. threshold=0 || threshold < sqrt, => threshold += 0.5 即可
 
@@ -230,7 +231,7 @@ if (_pass_coord_factor) {    int64_t fea_start_coord = _window.query_start_coord
 
 1. asp: 5 (threshold=0)， 可直接转
 
-1. hybrid2：43, 但目前均未开pass\_coord\_factor，不生效
+1. hybrid2：43, 但目前均未开pass_coord_factor，不生效
 
 另外，为了做到 tm 流能够读取 flik 点击流参数和启动任务，需要给 TM 点击流增加 flink 模拟过滤参数配置。方案：
 

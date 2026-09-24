@@ -5,6 +5,7 @@ related:
 created: 2025-05-21
 modified: 2025-05-21
 ---
+
 搭建 UI 组件库是一个系统性工程，涉及技术选型、架构设计、开发规范、文档维护等多个方面。以下是关键注意事项及最佳实践：
 
 ---
@@ -37,8 +38,8 @@ modified: 2025-05-21
 
   ```typescript
   interface ButtonProps {
-    type?: 'primary' | 'danger'; // 明确可选值
-    size?: 'small' | 'medium';
+    type?: "primary" | "danger"; // 明确可选值
+    size?: "small" | "medium";
   }
   ```
 
@@ -112,19 +113,19 @@ modified: 2025-05-21
 
 ### **常见陷阱与解决方案**
 
-| 问题                | 解决方案                          |
-|---------------------|----------------------------------|
-| **样式污染**        | 使用 CSS Modules 或 Scoped CSS |
-| **API 不一致**      | 制定 Props/Events 命名规范 |
-| **性能瓶颈**        | 避免过度渲染（React.memo） |
+| 问题           | 解决方案                       |
+| -------------- | ------------------------------ |
+| **样式污染**   | 使用 CSS Modules 或 Scoped CSS |
+| **API 不一致** | 制定 Props/Events 命名规范     |
+| **性能瓶颈**   | 避免过度渲染（React.memo）     |
 
 ---
 
 ### **推荐工具链**
 
-- **开发**：Vite + TypeScript  
-- **文档**：Storybook + MDX  
-- **测试**：Jest + @testing-library  
-- **发布**：Changesets（版本管理）  
+- **开发**：Vite + TypeScript
+- **文档**：Storybook + MDX
+- **测试**：Jest + @testing-library
+- **发布**：Changesets（版本管理）
 
 通过以上措施，可构建高可用、易维护的 UI 组件库。如需具体技术实现细节（如 Webpack 配置或主题切换方案），可进一步探讨！

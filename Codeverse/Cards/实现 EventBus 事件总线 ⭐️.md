@@ -1,12 +1,13 @@
 ---
 tags: [handcode]
 
-related: 
+related:
 rank: "5"
 companies:
 created: 2025-06-11
 modified: 2025-06-20
 ---
+
 - 同一 type 支持多个事件注册
 - 注册：保存事件 id 并返回，用于后续清除
 - 单次注册：id 用一个特殊标识，用于后续识别
@@ -28,7 +29,7 @@ class EventBus {
     this.eventObj[name][id] = callbcak
     return id
   }
-  
+
   $emit(name, …args) {
     const eventList = this.eventObj[name]
     for (const id in eventList) {
@@ -38,14 +39,14 @@ class EventBus {
       }
     }
   }
-  
+
   $off(name, id) {
     delete this.eventObj[name][id]
     if (!Object.keys(this.eventObj[name]).length) {
       delete this.eventObj[name]
     }
   }
-  
+
   $once(name, callbcak) {
     if (!this.eventObj[name]) {
       this.eventObj[name] = {}

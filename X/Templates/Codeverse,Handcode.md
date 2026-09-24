@@ -2,8 +2,8 @@
 tags:
   - handcode
 
-related: 
+related:
 rank: "3"
 ---
-> Q: 
 
+> Q:

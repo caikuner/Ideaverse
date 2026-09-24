@@ -20,25 +20,25 @@ Monorepo（单一代码仓库）是一种将多个项目或包存储在同一个
 
 ### 优势 vs 劣势
 
-| 优势 | 劣势 |
-|------|------|
-| 代码共享和复用更方便 | 仓库体积会变得很大 |
-| 跨项目变更更简单 | 需要更复杂的构建工具 |
-| 统一的版本控制和 CI/CD | 权限管理更复杂 |
-| 更好的代码可见性 | 学习曲线较陡 |
+| 优势                   | 劣势                 |
+| ---------------------- | -------------------- |
+| 代码共享和复用更方便   | 仓库体积会变得很大   |
+| 跨项目变更更简单       | 需要更复杂的构建工具 |
+| 统一的版本控制和 CI/CD | 权限管理更复杂       |
+| 更好的代码可见性       | 学习曲线较陡         |
 
 ## 2. Monorepo 实现方案
 
 ### 主流工具对比
 
-| 工具 | 特点 | 适用场景 |
-|------|------|----------|
-| Lerna | 传统的 JS monorepo 工具 | 已有多个 npm 包的项目 |
-| Yarn Workspaces | Yarn 内置的 workspace 功能 | 基于 Yarn 的 JS 项目 |
-| pnpm Workspaces | pnpm 的 workspace 实现 | 追求磁盘效率的 JS 项目 |
-| Nx | 全功能 monorepo 工具 | 大型复杂项目 |
-| Turborepo | 高性能构建系统 | 需要快速增量构建 |
-| Bazel | 工业级构建系统 | 超大型多语言项目 |
+| 工具            | 特点                       | 适用场景               |
+| --------------- | -------------------------- | ---------------------- |
+| Lerna           | 传统的 JS monorepo 工具    | 已有多个 npm 包的项目  |
+| Yarn Workspaces | Yarn 内置的 workspace 功能 | 基于 Yarn 的 JS 项目   |
+| pnpm Workspaces | pnpm 的 workspace 实现     | 追求磁盘效率的 JS 项目 |
+| Nx              | 全功能 monorepo 工具       | 大型复杂项目           |
+| Turborepo       | 高性能构建系统             | 需要快速增量构建       |
+| Bazel           | 工业级构建系统             | 超大型多语言项目       |
 
 ## 3. 具体实现步骤
 
@@ -158,10 +158,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: yarn install
-    - run: yarn affected:build --base=origin/main
-    - run: yarn affected:test --base=origin/main
+      - uses: actions/checkout@v2
+      - run: yarn install
+      - run: yarn affected:build --base=origin/main
+      - run: yarn affected:test --base=origin/main
 ```
 
 ### 变更检测实现
@@ -215,15 +215,19 @@ my-enterprise-repo/
 ## 8. 常见问题解决方案
 
 **问题 1：依赖冲突**
+
 - 解决方案：使用 `resolutions` 字段或升级冲突版本
 
 **问题 2：构建速度慢**
+
 - 解决方案：引入增量构建和缓存机制
 
 **问题 3：权限管理复杂**
+
 - 解决方案：使用代码所有权文件 (CODEOWNERS)
 
 **问题 4：IDE 支持不佳**
+
 - 解决方案：配置项目引用 (tsconfig.json 的 references)
 
 Monorepo 的实施需要根据团队规模和项目复杂度选择合适的工具和架构。对于中小型项目，Yarn Workspaces + Lerna 是不错的起点；对于大型企业项目，Nx 或 Turborepo 提供更完善的功能集。

@@ -9,7 +9,7 @@ modified: 2025-06-17
 ### Q: 简述如何理解原型的
 
 - 每个 JavaScript 对象都有一个原型对象，用于共享属性和方法.
-	- new 对象时，对象的 `__proto__` 指向构造函数的 `prototype` (`myDog.__proto__ → Dog.prototype`)，也就是其原型对象
+  - new 对象时，对象的 `__proto__` 指向构造函数的 `prototype` (`myDog.__proto__ → Dog.prototype`)，也就是其原型对象
 - 构造函数的 `prototype` 也是一个对象，又向上指，直到指向末端 null
 - 构成了一条通过 `__proto__` 链接形成的链式结构，实现继承
 - 当访问一个对象的属性时，JavaScript 会：
@@ -40,12 +40,12 @@ function Person(name) {
 }
 
 // 在原型上添加方法
-Person.prototype.sayHello = function() {
+Person.prototype.sayHello = function () {
   console.log(`Hello, my name is ${this.name}`);
 };
 
-const person1 = new Person('Alice');
-const person2 = new Person('Bob');
+const person1 = new Person("Alice");
+const person2 = new Person("Bob");
 
 person1.sayHello(); // Hello, my name is Alice
 person2.sayHello(); // Hello, my name is Bob
@@ -67,6 +67,7 @@ console.log(Person.prototype.constructor === Person); // true
 ### 1. 什么是原型链？
 
 当访问一个对象的属性时，JavaScript 会：
+
 1. 先在对象**自身属性**中查找
 2. 如果找不到，就去它的**原型对象**中查找
 3. 如果还找不到，就去**原型的原型**中查找
@@ -81,7 +82,7 @@ function Animal(name) {
   this.name = name;
 }
 
-Animal.prototype.eat = function() {
+Animal.prototype.eat = function () {
   console.log(`${this.name} is eating.`);
 };
 
@@ -94,13 +95,13 @@ function Dog(name, breed) {
 Dog.prototype = Object.create(Animal.prototype);
 Dog.prototype.constructor = Dog;
 
-Dog.prototype.bark = function() {
-  console.log('Woof!');
+Dog.prototype.bark = function () {
+  console.log("Woof!");
 };
 
-const myDog = new Dog('Buddy', 'Golden Retriever');
+const myDog = new Dog("Buddy", "Golden Retriever");
 
-myDog.eat();  // 继承自Animal原型
+myDog.eat(); // 继承自Animal原型
 myDog.bark(); // Dog自身的方法
 ```
 
@@ -119,8 +120,8 @@ myDog
 ### 1. `__proto__` 与 `prototype` 的区别 ⭐️
 
 - `prototype` 是函数特有的属性，指向该函数的原型对象
-    - 每个函数在创建之初就有了
-    - 箭头函数没有
+  - 每个函数在创建之初就有了
+  - 箭头函数没有
 - `__proto__` 是每个对象都有的属性，指向创建该对象的构造函数的原型
 
 ```javascript
@@ -191,7 +192,7 @@ class Animal {
   constructor(name) {
     this.name = name;
   }
-  
+
   eat() {
     console.log(`${this.name} is eating.`);
   }
@@ -202,9 +203,9 @@ class Dog extends Animal {
     super(name);
     this.breed = breed;
   }
-  
+
   bark() {
-    console.log('Woof!');
+    console.log("Woof!");
   }
 }
 ```
@@ -218,7 +219,7 @@ function Car() {}
 const car1 = new Car();
 const car2 = new Car();
 
-Car.prototype.color = 'red';
+Car.prototype.color = "red";
 
 console.log(car1.color); // red
 console.log(car2.color); // red
@@ -230,11 +231,15 @@ console.log(car2.color); // red
 
 ```javascript
 // 不推荐
-Array.prototype.myMethod = function() { /*…*/ };
+Array.prototype.myMethod = function () {
+  /*…*/
+};
 
 // 更好的方式
 class MyArray extends Array {
-  myMethod() { /*…*/ }
+  myMethod() {
+    /*…*/
+  }
 }
 ```
 

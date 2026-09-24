@@ -1,13 +1,14 @@
 ---
 tags:
   - handcode/css
-up: 
-related: 
+up:
+related:
 rank: "4"
-companies: 
+companies:
 created: 2025-06-16
 modified: 2025-06-18
 ---
+
 Retina 屏幕（高 DPI 设备）下，CSS 的 `1px` 实际上会显示为多个物理像素，导致边框看起来比设计稿更粗。有什么解决方式？
 
 **1.使用 `transform: scale` 实现。（常用方案）**
@@ -18,7 +19,7 @@ Retina 屏幕（高 DPI 设备）下，CSS 的 `1px` 实际上会显示为多�
 }
 
 .border-1px::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -45,20 +46,20 @@ Retina 屏幕（高 DPI 设备）下，CSS 的 `1px` 实际上会显示为多�
 ```css
 /* 更优雅的写法？待测试 （来自 40 条排坑）*/
 .border-1px {
-    position: relative;
-    width: 200px;
-    height: 80px;
+  position: relative;
+  width: 200px;
+  height: 80px;
 }
 .border-1px::after {
-	position: absolute;
-	left: 0;
-	top: 0;
-	border: 1px solid #f66;
-	width: 200%;
-	height: 200%;
-	content: "";
-	transform: scale(.5);
-	transform-origin: left top;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #f66;
+  width: 200%;
+  height: 200%;
+  content: "";
+  transform: scale(0.5);
+  transform-origin: left top;
 }
 ```
 

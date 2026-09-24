@@ -3,33 +3,38 @@ up:
   - "[[Library]]"
 related: []
 created: 2023-08-19
-in: 
-- "[[Maps]]"
+in:
+  - "[[Maps]]"
 ---
 
 > [!NOTE]+ Notes on this note
+>
 > - Content and links have been removed.
-> - It's *okay* to have incomplete notes! They can still provide valuable scaffolding for me to hang ideas on in the future. That's what I'm doing here.
+> - It's _okay_ to have incomplete notes! They can still provide valuable scaffolding for me to hang ideas on in the future. That's what I'm doing here.
 > - Nick, go here [[Philosophy MOC]].
 
 # Philosophy MOC
+
 - [[Ancient Greece MOC]]
 - [[Collective Intelligence MOC]]
 - [[Design MOC]]
 - [[1952 - The Syntopicon]]
 - [[Dimensions of Reality]]
 
-
 ## Traditional Philosophy
+
 ### Top Philosophers
-*Add as needed*
+
+_Add as needed_
+
 - [[Socrates]], [[Plato]], [[Aristotle]]
 - [[Montaigne]]
 
-### Chronological 
+### Chronological
 
-*Add as needed*
+_Add as needed_
 **5th Century BC**
+
 - 490 – 420 BC - [[Protagoras]] - Sophist
 - 483 – 375 BC - [[Gorgias]] - Sophist
 - 470 – 399 BC - [[Socrates]]
@@ -37,16 +42,20 @@ in:
 - 428 – 347 BC - [[Plato]]
 
 **4th Century BC**
+
 - 384–322 BC - [[Aristotle]]
 
 **3rd Century BC**
-- 
+
+-
 
 **2nd Century BC**
-- 
+
+-
 
 **1st Century BC**
-- 
+
+-
 
 **1st Century AD**
 100 AD (get more accurate date) [[Juvenal]] - Roman poet

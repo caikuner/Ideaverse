@@ -5,13 +5,15 @@ related:
   - "[[Use STIR To Remember More]]"
 created: 2023-08-21
 ---
-The reason why the [[ACE Folder Framework]] works is because it allows you to organize by *Intention*.
 
-- You can use the **Atlas** ***to understand***,
-- You can use the **Calendar** ***to focus***,
-- And you can use **Efforts** ***to act***.
+The reason why the [[ACE Folder Framework]] works is because it allows you to organize by _Intention_.
+
+- You can use the **Atlas** **_to understand_**,
+- You can use the **Calendar** **_to focus_**,
+- And you can use **Efforts** **_to act_**.
 
 # A deeper dive into how ACE works
+
 To truly explain why ACE is the most universal folder system, we have to take a quick detour to talk about how we organize things.
 
 ACE works because it matches the "STI" of [[Use STIR To Remember More|STIR]] (the universal elements of organizing).
@@ -21,7 +23,9 @@ ACE works because it matches the "STI" of [[Use STIR To Remember More|STIR]] (th
 - **E**fforts are for our actions of **I**mportance.
 
 I just threw a lot at you, so hopefully the following story gives some additional context.
+
 ### A quick detour into attempts at organizing
+
 Around 1989, Richard Saul Wurman (founder of the TED Conference) wrote **“Information Anxiety”** (I got the [original hardcover version linked here 17](https://www.amazon.com/Information-Anxiety-Richard-Saul-Wurman/dp/0385243944)).
 
 Wurman argues that there are five ways to organize information. Just five. Think about it for a moment. Can you think of a fundamental way? Here are _**the five ways to organize information**_, according to Richard Saul Wurman.
@@ -51,7 +55,7 @@ versus
 _Well represented - more likely to recall_  
 [![STIR - Well represented](https://forum.obsidian.md/uploads/default/optimized/3X/a/1/a1f3d4d9cde4ddbe184284ef92437310f9616a26_2_690x387.png)
 
-With each element of STIR represented, the chances I am able to recall the right THING, at the right time, are at their highest. 
+With each element of STIR represented, the chances I am able to recall the right THING, at the right time, are at their highest.
 
 (An astute observer will likely recognize another reason why mapping notes like MOCs can be so valuable.)
 
@@ -59,7 +63,7 @@ _Enough of a detour, let’s get back to ACE!_
 
 ---
 
-So that's when I had my “aha” moment: The “STI” of STIR can map to the ACE folder framework—and in the process give us a universal folder system that ***optimizes for recall!*** 
+So that's when I had my “aha” moment: The “STI” of STIR can map to the ACE folder framework—and in the process give us a universal folder system that **_optimizes for recall!_**
 
 - **A**tlas is for the SPACE of ideas, assets, and knowledge
 - **C**alendar is for moments in TIME
@@ -69,15 +73,15 @@ And the “R” in STIR is for the _**links**_ we make between them all!
 
 Here's a table to help:
 
-| Headspace        | Orienting Lens | Intention     | Organizing Principle | Underlying Benefit | Guiding Question              |
-| ------------ | -------------- | ------------- | -------------------- | ------------------ | ----------------------------- |
-| **Atlas**    | Knowledge      | To Understand | **R**elatedness / **S**pace                | Learn              | _Where would you like to go?_ |
-| **Calendar** | Time           | To Focus      | **T**ime                 | Remember           | _What's on your mind?_        |
-| **Efforts**  | Action         | To Act        | **I**mportance           | Create             | _What can you work on?_       |
+| Headspace    | Orienting Lens | Intention     | Organizing Principle        | Underlying Benefit | Guiding Question              |
+| ------------ | -------------- | ------------- | --------------------------- | ------------------ | ----------------------------- |
+| **Atlas**    | Knowledge      | To Understand | **R**elatedness / **S**pace | Learn              | _Where would you like to go?_ |
+| **Calendar** | Time           | To Focus      | **T**ime                    | Remember           | _What's on your mind?_        |
+| **Efforts**  | Action         | To Act        | **I**mportance              | Create             | _What can you work on?_       |
 
 Here's a simple question to ask yourself to drive your focus at any given time:
 
-- *What would Future Me like to see?*
+- _What would Future Me like to see?_
 
 What’s better, is that it actually works in practice. Even further, it truly is universal, as I have implemented it in my mac’s Finder, our team’s Google Drive, and a test version in Tana (all images below).
 
@@ -87,9 +91,8 @@ What’s better, is that it actually works in practice. Even further, it truly i
 
 ![ACE in Tana](https://forum.obsidian.md/uploads/default/original/3X/5/e/5e870c69ca77991e940bdd01ed727098bfef94f7.png)
 
-
-
 ## How STIR matches ACE (Atlas, Calendar, Efforts)
+
 - Space = Atlas
 - Time = Calendar
 - Importance = Efforts
@@ -98,13 +101,15 @@ What’s better, is that it actually works in practice. Even further, it truly i
 [[Use STIR To Remember More]]
 
 ---
+
 ## Q: I used ACCESS, how do I adjust to ACE?
+
 While I liked the aesthetic of 6 folders, there is something too powerful in how ACE maps to [[Use STIR To Remember More]]. Just put `Cards`, `Sources`, and `Special` under `Atlas` for now.
 
 - Atlas
-	- Cards
-	- Sources
-	- Special
+  - Cards
+  - Sources
+  - Special
 - Calendar
 - Efforts
 

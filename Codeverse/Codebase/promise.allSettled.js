@@ -15,7 +15,7 @@ Promise.allSettled = function (promises) {
           },
           (reason) => {
             results[i] = { status: "rejected", reason };
-          }
+          },
         )
         .finally(() => {
           completed++;
@@ -28,4 +28,4 @@ Promise.allSettled = function (promises) {
 };
 
 // 测试
-Promise.allSettled([Promise.resolve(1), Promise.reject(2), Promise.resolve(3)]).then(console.log)
+Promise.allSettled([Promise.resolve(1), Promise.reject(2), Promise.resolve(3)]).then(console.log);

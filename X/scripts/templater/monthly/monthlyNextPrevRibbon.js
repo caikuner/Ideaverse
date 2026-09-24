@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.monthly.monthlyNextPrevRibbon
+module.exports = app.utils.templater.monthly.monthlyNextPrevRibbon;

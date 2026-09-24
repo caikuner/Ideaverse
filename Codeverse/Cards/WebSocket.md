@@ -9,6 +9,7 @@ modified: 2025-06-15
 ### WebSocket 是什么
 
 **WebSocket** 是一个独立的、面向长连接、低延迟的全双工双向通信协议，适合实时应用。
+
 - 建立在 TCP 之上，仅借用 HTTP 完成握手，就可以把 HTTP 协议升级成 WebSocket
 - 使用二进制帧协议实现高效数据传输
 
@@ -34,10 +35,9 @@ sequenceDiagram
   - `Upgrade: websocket`：声明协议升级。
   - `Sec-WebSocket-Key`：客户端随机生成的 Base64 密钥。
   - `Sec-WebSocket-Accept`：服务端用固定算法生成的响应密钥。
-    
 - 客户端拿到服务端响应的 Sec-WebSocket-Accept 后，会拿自己之前生成的 Sec-WebSocket-Key 用相同算法算一次，如果匹配，则握手成功。
 - 然后判断 HTTP Response 状态码是否为 101（切换协议），如果是，则完成连接，建立了一个全双工通信，后续发送和接收消息都会走这一个连接通道。
-  
+
 ![[Pasted image 20250615022126.png]]
 
 #### **2. 二进制帧**
@@ -104,17 +104,17 @@ WebSocket 数据传输以帧（Frame）为单位，数据帧格式（Frame Proto
 - 原生 WebSocket API
 
 ```js
-// Create WebSocket connection. 
-const socket = new WebSocket('ws://localhost:8080');
+// Create WebSocket connection.
+const socket = new WebSocket("ws://localhost:8080");
 
-// Connection opened 
-socket.addEventListener('open', function (event) { 
-	socket.send('Hello Server!'); 
-}); 
+// Connection opened
+socket.addEventListener("open", function (event) {
+  socket.send("Hello Server!");
+});
 
-// Listen for messages 
-socket.addEventListener('message', function (event) { 
-	console.log('Message from server ', event.data); 
+// Listen for messages
+socket.addEventListener("message", function (event) {
+  console.log("Message from server ", event.data);
 });
 ```
 

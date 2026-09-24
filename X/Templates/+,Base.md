@@ -1,8 +1,6 @@
 ---
-tags: 
-up: 
-related: 
-created: {{date:YYYY-MM-DD}}
+tags:
+up:
+related:
+created: { { date:YYYY-MM-DD } }
 ---
-
-

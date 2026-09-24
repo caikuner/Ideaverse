@@ -1,0 +1,46 @@
+filters:
+  and:
+    - file.folder.contains("X/Douban")
+properties:
+  note.genre:
+    displayName: 类型
+  note.datePublished:
+    displayName: 发行日期
+  note.country:
+    displayName: 国家
+views:
+  - type: cards
+    name: 卡片
+    order:
+      - file.name
+      - score
+      - state
+    sort:
+      - property: file.ctime
+        direction: DESC
+    image: note.cover
+  - type: table
+    name: 表格
+    groupBy:
+      property: file.folder
+      direction: ASC
+    order:
+      - file.name
+      - score
+      - status
+      - language
+      - genre
+      - viewURL
+      - file.ctime
+      - datePublished
+    sort:
+      - property: file.ctime
+        direction: DESC
+      - property: file.name
+        direction: ASC
+    columnSize:
+      file.name: 265
+      note.score: 78
+      note.status: 111
+      note.language: 109
+      note.genre: 172

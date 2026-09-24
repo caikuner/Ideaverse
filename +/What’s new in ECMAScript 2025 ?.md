@@ -15,12 +15,10 @@ description: "On 25 June 2025, the 129th Ecma General Assembly approved the ECMA
 
 ```js
 // Static import
-import configData1 from './config-data.json' with { type: 'json' };
+import configData1 from "./config-data.json" with { type: "json" };
 
 // Dynamic import
-const configData2 = await import(
-  './config-data.json', { with: { type: 'json' } }
-);
+const configData2 = await import("./config-data.json", { with: { type: "json" } });
 ```
 
 The object literal syntax after is used for specifying import attributes. is an import attribute.`with` `type`
@@ -46,67 +44,61 @@ assert.deepEqual(
 Some of the iterator helper methods work like the Array methods with the same names:
 
 - Methods that return iterators:
-	- `iterator.filter(filterFn)`
-	- `iterator.map(mapFn)`
-	- `iterator.flatMap(mapFn)`
+  - `iterator.filter(filterFn)`
+  - `iterator.map(mapFn)`
+  - `iterator.flatMap(mapFn)`
 - Methods that return booleans:
-	- `iterator.some(fn)`
-	- `iterator.every(fn)`
+  - `iterator.some(fn)`
+  - `iterator.every(fn)`
 - Methods that return other values:
-	- `iterator.find(fn)`
-	- `iterator.reduce(reducer, initialValue?)`
+  - `iterator.find(fn)`
+  - `iterator.reduce(reducer, initialValue?)`
 - Methods that return no values:
-	- `iterator.forEach(fn)`
+  - `iterator.forEach(fn)`
 
 Other iterator helper methods are unique to iterators:
 
 - `iterator.drop(limit)`
-	- Returns an iterator without the first elements of .`limit` `iterator`
+  - Returns an iterator without the first elements of .`limit` `iterator`
 - `iterator.take(limit)`
-	- Returns an iterator with the first elements of .`limit` `iterator`
+  - Returns an iterator with the first elements of .`limit` `iterator`
 - `iterator.toArray()`
-	- Collects all remaining elements of in an Array and returns it.`iterator`
+  - Collects all remaining elements of in an Array and returns it.`iterator`
 
 #### How are iterator methods an improvement over Arrays methods?
 
 - Iterator methods can be used with any iterable data structure – e.g., they let us filter and map the data structures and .`Set` `Map`
 - Iterator methods don’t create intermediate Arrays and compute data incrementally. That is useful for large amounts of data:
-	- With iterator methods, all methods are applied to the first value, then to the second value, etc.
-	- With Array methods, the first method is applied to all values, then the second method is applied to all results, etc.
+  - With iterator methods, all methods are applied to the first value, then to the second value, etc.
+  - With Array methods, the first method is applied to all values, then the second method is applied to all results, etc.
 
 ### New Set methods
 
 There are several new Set methods:
 
 - [[https://exploringjs.com/js/book/ch_sets.html#combining-sets]]:
-	- `Set.prototype.intersection(other)`
-	- `Set.prototype.union(other)`
-	- `Set.prototype.difference(other)`
-	- `Set.prototype.symmetricDifference(other)`
+  - `Set.prototype.intersection(other)`
+  - `Set.prototype.union(other)`
+  - `Set.prototype.difference(other)`
+  - `Set.prototype.symmetricDifference(other)`
 - [[https://exploringjs.com/js/book/ch_sets.html#checking-set-relationships]]:
-	- `Set.prototype.isSubsetOf(other)`
-	- `Set.prototype.isSupersetOf(other)`
-	- `Set.prototype.isDisjointFrom(other)`
+  - `Set.prototype.isSubsetOf(other)`
+  - `Set.prototype.isSupersetOf(other)`
+  - `Set.prototype.isDisjointFrom(other)`
 
 Examples:
 
 ```js
 assert.deepEqual(
-  new Set(['a', 'b', 'c']).union(new Set(['b', 'c', 'd'])),
-  new Set(['a', 'b', 'c', 'd'])
+  new Set(["a", "b", "c"]).union(new Set(["b", "c", "d"])),
+  new Set(["a", "b", "c", "d"]),
 );
 assert.deepEqual(
-  new Set(['a', 'b', 'c']).intersection(new Set(['b', 'c', 'd'])),
-  new Set(['b', 'c'])
+  new Set(["a", "b", "c"]).intersection(new Set(["b", "c", "d"])),
+  new Set(["b", "c"]),
 );
-assert.deepEqual(
-  new Set(['a', 'b']).isSubsetOf(new Set(['a', 'b', 'c'])),
-  true
-);
-assert.deepEqual(
-  new Set(['a', 'b', 'c']).isSupersetOf(new Set(['a', 'b'])),
-  true
-);
+assert.deepEqual(new Set(["a", "b"]).isSubsetOf(new Set(["a", "b", "c"])), true);
+assert.deepEqual(new Set(["a", "b", "c"]).isSupersetOf(new Set(["a", "b"])), true);
 ```
 
 ### RegExp.escape()
@@ -146,20 +138,14 @@ false
 
 ```js
 const RE = /(?<chars>a+)|(?<chars>b+)/v;
-assert.deepEqual(
-  RE.exec('aaa').groups,
-  {
-    chars: 'aaa',
-    __proto__: null,
-  }
-);
-assert.deepEqual(
-  RE.exec('bb').groups,
-  {
-    chars: 'bb',
-    __proto__: null,
-  }
-);
+assert.deepEqual(RE.exec("aaa").groups, {
+  chars: "aaa",
+  __proto__: null,
+});
+assert.deepEqual(RE.exec("bb").groups, {
+  chars: "bb",
+  __proto__: null,
+});
 ```
 
 ### Promise.try()
@@ -181,6 +167,6 @@ This support provides the following features:
 
 - [[https://exploringjs.com/js/book/ch_math.html#rounding-floats]]
 - [[https://exploringjs.com/js/book/ch_typed-arrays.html#typed-array-element-types]]:
-	- `Float16Array`
-	- `DataView.prototype.getFloat16()`
-	- `DataView.prototype.setFloat16()`
+  - `Float16Array`
+  - `DataView.prototype.getFloat16()`
+  - `DataView.prototype.setFloat16()`

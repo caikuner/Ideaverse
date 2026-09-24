@@ -16,17 +16,17 @@ modified: 2025-06-12
 以下是简单的实现，实际开发可以使用第三方库 **error-boundary**
 
 ```jsx
-import * as React from 'react'
+import * as React from "react";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { hasError: false }
+    super(props);
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError(error) {
     // 更新状态，以便下一次渲染将显示后备 UI。
-    return { hasError: true }
+    return { hasError: true };
   }
 
   componentDidCatch(error, info) {
@@ -40,17 +40,17 @@ class ErrorBoundary extends React.Component {
       info.componentStack,
       // 仅在 react@canary 版本可用
       // 警告：Owner Stack 在生产中不可用
-      React.captureOwnerStack()
-    )
+      React.captureOwnerStack(),
+    );
   }
 
   render() {
     if (this.state.hasError) {
       // 你可以渲染任何自定义后备 UI
-      return this.props.fallback
+      return this.props.fallback;
     }
 
-    return this.props.children
+    return this.props.children;
   }
 }
 ```
@@ -74,34 +74,34 @@ class ErrorBoundary extends React.Component {
 - 使用 window.addEventListener('unhandledrejection', handler) 监听未处理的 Promise 拒绝。
 
 ```jsx
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 
 function GlobalErrorHandler() {
   useEffect(() => {
     // 监听全局错误
     const handleError = (error) => {
-      console.error('Global error:', error)
-    }
+      console.error("Global error:", error);
+    };
 
     // 监听未捕获的错误
     window.onerror = (message, source, lineno, colno, error) => {
-      handleError(error)
-      return true // 阻止默认错误处理
-    }
+      handleError(error);
+      return true; // 阻止默认错误处理
+    };
 
     // 监听未处理的 Promise 拒绝
-    window.addEventListener('unhandledrejection', (event) => {
-      handleError(event.reason)
-    })
+    window.addEventListener("unhandledrejection", (event) => {
+      handleError(event.reason);
+    });
 
     // 清理监听器
     return () => {
-      window.onerror = null
-      window.removeEventListener('unhandledrejection', handleError)
-    }
-  }, [])
+      window.onerror = null;
+      window.removeEventListener("unhandledrejection", handleError);
+    };
+  }, []);
 
-  return null
+  return null;
 }
 
 // 在应用的根组件中使用
@@ -111,10 +111,11 @@ function App() {
       <GlobalErrorHandler />
       <MyComponent />
     </div>
-  )
+  );
 }
 ```
 
 注意事项：
+
 1. 全局错误监听可以捕获 Error Boundaries 无法处理的错误，但无法阻止组件崩溃。
 2. 需要确保在生产环境中正确处理错误信息，避免暴露敏感信息。

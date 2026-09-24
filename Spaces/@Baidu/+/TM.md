@@ -1,20 +1,20 @@
 ![[X/Archive/Obsidian-baidu/Assets/Pasted image 20230306161353.png]]
-conf_featurebase.id                  ->    conf_featurecode.feature_id    ->  29306
-conf_featurebase.feature_id (真实id) ->  conf_feature_ratio.feature_id,  242004006
-conf_featurebase.featureInfoId    ->    conf_feature_ratio.id      ->  13588
+conf_featurebase.id -> conf_featurecode.feature_id -> 29306
+conf_featurebase.feature_id (真实id) -> conf_feature_ratio.feature_id, 242004006
+conf_featurebase.featureInfoId -> conf_feature_ratio.id -> 13588
 
 选择 feature_id (242004006), 生产方服务的project_id (35,click-cpc)
+
 ```sql
 
 select themis_conf from conf_featurecode
-where status=0 
+where status=0
 and feature_id in (
 select id from conf_featurebase where scope=1 and feature_id = 242004006
 )
 order by id desc limit 1
 
 ```
-
 
 ```
 [@feature]

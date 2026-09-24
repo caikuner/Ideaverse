@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.daily.dailyDateInfo
+module.exports = app.utils.templater.daily.dailyDateInfo;

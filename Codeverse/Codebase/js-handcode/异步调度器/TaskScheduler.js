@@ -3,13 +3,12 @@
 class TaskScheduler {
   constructor(limit) {
     this.limit = limit; // 并发限制
-    this.queue = [];    // 等待队列
+    this.queue = []; // 等待队列
     this.running = 0; // 当前执行的任务数量
   }
 
   add(task) {
     return new Promise((resolve, reject) => {
-
       // add a taskFn
       const runTask = () => {
         this.running++;
@@ -23,7 +22,7 @@ class TaskScheduler {
       };
 
       this.queue.push(runTask);
-      this.next()
+      this.next();
     });
   }
 
@@ -39,35 +38,32 @@ class TaskScheduler {
 // 使用示例
 // 模拟异步任务
 function asyncTask(id, delay) {
-  return () => new Promise(resolve => {
-    console.log(`Start ${id}`);
-    setTimeout(() => {
-      console.log(`End ${id}`);
-      resolve(id);
-    }, delay);
-  });
+  return () =>
+    new Promise((resolve) => {
+      console.log(`Start ${id}`);
+      setTimeout(() => {
+        console.log(`End ${id}`);
+        resolve(id);
+      }, delay);
+    });
 }
 const getInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(i =>
-  asyncTask(i, getInt(1000, 3000))
-);
+const tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => asyncTask(i, getInt(1000, 3000)));
 
 // 使用
 const plimit = new TaskScheduler(3);
 
-tasks.forEach(task => plimit.add(task).then(data => console.log('d', data)));
+tasks.forEach((task) => plimit.add(task).then((data) => console.log("d", data)));
 setTimeout(() => {
   plimit.add(asyncTask(10, 1000));
 }, 3000);
-
-
 
 // 2. 进阶：支持链式调用
 function promiseLimit(limit) {
   const controller = new TaskScheduler(limit);
 
-  return function(fn) {
+  return function (fn) {
     return (...args) => controller.add(() => fn(...args));
   };
 }

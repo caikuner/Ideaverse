@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 created: 2025-06-14
 modified: 2025-07-07
 ---
@@ -16,8 +16,8 @@ HTTP Cookie（也叫 Web Cookie 或浏览器 Cookie），是服务器发送到�
 - 每次请求时会自动携带同源域名下的 cookie
 - 可设置过期时间，默认情况下随着浏览器关闭而删除（会话 cookie）
 
-
 使用场景：
+
 - 最早用于客户端存储会话 (seesion) 信息，告知服务端两个请求是否来自同一用户，如保持用户的登录状态。
 - 个性化设置（如用户自定义设置、主题等）
 - 浏览器行为跟踪（如跟踪分析用户行为等）
@@ -27,16 +27,16 @@ HTTP Cookie（也叫 Web Cookie 或浏览器 Cookie），是服务器发送到�
 
 cookie 就是一个字符串，由 `;空格` 拼接，主要有以下字段：
 
-| 属性             | 作用                                                                                                               |
-| -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| 属性           | 作用                                                                                                                                                       |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name=value     | name 不区分大小写，但最好还是区分以避免误解<br>name 和 value 需要进行 URL 编解码 (encodeURIComponent decodeURLComponent)<br>敏感信息需要加密，不要使用明文 |
-| domain=xxx.com | 默认为设置 cookie 的域；<br>注意：**相同 site 共享**，比如不同子域名、不同端口都可共享。和同源区分开）                                                   |
-| path=xx_dir    | 默认 /，包含该路径的才会把 cookie **发到服务器**                                                                                  |
-| max-age=x      | 相对过期时间，单位 s                                                                                                      |
-| expires        | 绝对过期时间，时间戳，eg：Expires=Wed, 21 Oct 2015 07:28:00 GMT;                                                             |
-| http-only      | 不能通过 JS 访问 Cookie，只用于 http 传输，减少 XSS 攻击                                                                          |
-| secure         | 安全标志，设置后只能在协议为 HTTPS 的请求中携带                                                                                      |
-| same-site      | 规定浏览器不能在跨域请求中携带 Cookie，减少 CSRF 攻击                                                                                |
+| domain=xxx.com | 默认为设置 cookie 的域；<br>注意：**相同 site 共享**，比如不同子域名、不同端口都可共享。和同源区分开）                                                     |
+| path=xx_dir    | 默认 /，包含该路径的才会把 cookie **发到服务器**                                                                                                           |
+| max-age=x      | 相对过期时间，单位 s                                                                                                                                       |
+| expires        | 绝对过期时间，时间戳，eg：Expires=Wed, 21 Oct 2015 07:28:00 GMT;                                                                                           |
+| http-only      | 不能通过 JS 访问 Cookie，只用于 http 传输，减少 XSS 攻击                                                                                                   |
+| secure         | 安全标志，设置后只能在协议为 HTTPS 的请求中携带                                                                                                            |
+| same-site      | 规定浏览器不能在跨域请求中携带 Cookie，减少 CSRF 攻击                                                                                                      |
 
 ```http
 Set-Cookie: id=a3fWa; domain=a.com; path=/; max-age=3600; expires=Wed, 21 Oct 2015 07:28:00 GMT; secure; http-only; same-site
@@ -85,9 +85,9 @@ Cookie: yummy_cookie=choco; tasty_cookie=strawberry
 浏览器可以 `document.cookie` 创建/访问存储的 cookie (非 `HttpOnly` 标记)。
 
 ```js
-document.cookie = "yummy_cookie=choco"; 
-document.cookie = "tasty_cookie=strawberry"; 
-console.log(document.cookie); 
+document.cookie = "yummy_cookie=choco";
+document.cookie = "tasty_cookie=strawberry";
+console.log(document.cookie);
 // logs "yummy_cookie=choco; tasty_cookie=strawberry"
 ```
 
@@ -98,12 +98,13 @@ console.log(document.cookie);
 如果要显式带上 cookie:
 
 前端请求要加上 `credentials`
+
 - XHR:
-	- `xhr.withCredentials = true`
+  - `xhr.withCredentials = true`
 - fetch
-	- `credentials: 'include'`
+  - `credentials: 'include'`
 - axios
-	- `axios.defaults.withCredentials = true`
+  - `axios.defaults.withCredentials = true`
 
 后端响应加上响应头：`Access-Control-Allow-Credentials: true`
 
@@ -130,7 +131,7 @@ Cookie 的安全问题导致现在已经不被推荐使用，但是还有一些�
 - Safari 和 Firefox 已默认禁用第三方 Cookie
 - Chrome 计划在 2024 年完全禁用第三方 Cookie
 - 替代方案：
-	- First-Party Cookie
-	- localStorage
-	- Privacy Sandbox
-	- FLoC (Federated Learning of Cohorts)
+  - First-Party Cookie
+  - localStorage
+  - Privacy Sandbox
+  - FLoC (Federated Learning of Cohorts)

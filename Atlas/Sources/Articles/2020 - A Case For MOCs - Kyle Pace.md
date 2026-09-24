@@ -9,11 +9,11 @@ dates: 2020-06-25
 year: 2020
 ---
 
-
 [[Atlas/Notes/Ideas/MOCs Overview]]
 
 # 2020 - A Case For MOCs - Kyle Pace
-When taking notes there are a variety of philosophies about how one should conduct their workflow. No matter the system, the notes one takes start out as individual components to a larger structure. How one chooses to organize that larger structure is a matter of debate. One popular way and one that I think is worth focusing on is to use **Maps of Content** or **MOC**s. 
+
+When taking notes there are a variety of philosophies about how one should conduct their workflow. No matter the system, the notes one takes start out as individual components to a larger structure. How one chooses to organize that larger structure is a matter of debate. One popular way and one that I think is worth focusing on is to use **Maps of Content** or **MOC**s.
 
 <br>
 
@@ -44,16 +44,20 @@ Navigating through a distributed network is like moving through a city with a ma
 
 Finally, we come to a **decentralized network** which works quite well for note-taking in most use cases. In this style of network, there is a centralized index node, but as one moves out from the center there are many additional index nodes or, **MOC**s.
 
-Within this network, users are able to connect notes spontaneously while also having a greater ability to navigate through collections of ideas. Notes are generally stored in a single directory but the network is augmented by adding MOCs to help users collect all relevant notes on a single topic. An MOC can be used in a variety of ways, but generally consist of a broad topic with a collection of backlinks to other notes within. 
+Within this network, users are able to connect notes spontaneously while also having a greater ability to navigate through collections of ideas. Notes are generally stored in a single directory but the network is augmented by adding MOCs to help users collect all relevant notes on a single topic. An MOC can be used in a variety of ways, but generally consist of a broad topic with a collection of backlinks to other notes within.
 
 An example would be:
 
 > # Cats MOC
+>
 > ##### Types of Cats
+>
 > [[Tabby Cats]]
 > [[Bengal Cats]]
 > [[Lazer Cats]]
+>
 > ### What Cats Like
+>
 > [[Boxes]]
 > [[Mice]]
 > [[Lazers]]
@@ -71,6 +75,7 @@ MOCs allow for the use of whichever individual note-taking philosophy one desire
 Maps of Content are navigational beacons in the sea of ideas within the nebulous collection of knowledge that arises in one's "second brain".
 <br>
 
-Notes: 
-* This was greatly inspired by @nickmilo's [LYT] starter kit.
-* While I prefer the term Map of Content one could just as easily call this something else. I like to think of them as maps because it is easy to visualize a map and explain it with anecdotes.
+Notes:
+
+- This was greatly inspired by @nickmilo's [LYT] starter kit.
+- While I prefer the term Map of Content one could just as easily call this something else. I like to think of them as maps because it is easy to visualize a map and explain it with anecdotes.

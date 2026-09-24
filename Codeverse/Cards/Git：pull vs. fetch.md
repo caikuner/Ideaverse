@@ -10,7 +10,7 @@ modified: 2025-06-11
 
 - git fetch 只是将远程仓库的变化下载到本地仓库，并没有和本地分支合并。
 - git pull 会将远程仓库的变化下载下来，并和当前分支合并。
-	- = `git fetch + git merge`
+  - = `git fetch + git merge`
 
 ## 参考
 

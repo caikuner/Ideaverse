@@ -2,12 +2,14 @@
 tags: [clippings]
 up:
 related:
-author: 
+author:
 created: 2025-06-13
 modified: 2025-06-13
-published: 
+published:
 ---
+
 Webpack 的性能优化在于
+
 - 有哪些方式可以减少 Webpack 的打包时间
 - 有哪些方式可以让 Webpack 打出来的包更小
 
@@ -26,22 +28,22 @@ module.exports = {
       {
         // js 文件才使用 babel
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         // 只在 src 文件夹下查找
-        include: [resolve('src')],
+        include: [resolve("src")],
         // 不会去查找的路径
-        exclude: /node_modules/
-      }
-    ]
-  }
-}
+        exclude: /node_modules/,
+      },
+    ],
+  },
+};
 ```
 
 - **将 Babel 编译过的文件 缓存起来**
-下次只需要编译更改过的代码文件即可，这样可以大幅度加快打包时间。
+  下次只需要编译更改过的代码文件即可，这样可以大幅度加快打包时间。
 
 ```js
-loader: 'babel-loader?cacheDirectory=true'
+loader: "babel-loader?cacheDirectory=true";
 ```
 
 ### HappyPack
@@ -79,28 +81,28 @@ plugins: [
 ```js
 // 单独配置在一个文件中
 // webpack.dll.conf.js
-const path = require('path')
-const webpack = require('webpack')
+const path = require("path");
+const webpack = require("webpack");
 module.exports = {
   entry: {
     // 想统一打包的类库
-    vendor: ['react']
+    vendor: ["react"],
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].dll.js',
-    library: '[name]-[hash]'
+    path: path.join(__dirname, "dist"),
+    filename: "[name].dll.js",
+    library: "[name]-[hash]",
   },
   plugins: [
     new webpack.DllPlugin({
       // name 必须和 output.library 一致
-      name: '[name]-[hash]',
+      name: "[name]-[hash]",
       // 该属性需要与 DllReferencePlugin 中一致
       context: __dirname,
-      path: path.join(__dirname, 'dist', '[name]-manifest.json')
-    })
-  ]
-}
+      path: path.join(__dirname, "dist", "[name]-manifest.json"),
+    }),
+  ],
+};
 ```
 
 然后我们需要执行这个配置文件生成依赖文件，接下来我们需要使用 `DllReferencePlugin` 将依赖文件引入项目中
@@ -113,10 +115,10 @@ module.exports = {
     new webpack.DllReferencePlugin({
       context: __dirname,
       // manifest 就是之前打包出来的 json 文件
-      manifest: require('./dist/vendor-manifest.json'),
-    })
-  ]
-}
+      manifest: require("./dist/vendor-manifest.json"),
+    }),
+  ],
+};
 ```
 
 ### 一些小的优化点
@@ -134,7 +136,6 @@ module.exports = {
 ### 代码压缩
 
 - Webpack3 中，一般使用 `UglifyJS` 来压缩代码，但是这个是单线程运行的，为了加快效率，我们可以使用 `webpack-parallel-uglify-plugin` 来并行运行 `UglifyJS` ，从而提高效率。
-  
 - Webpack4+ 中，就不需要以上这些操作，只需要将 `mode` 设置为 `production` 就可以默认开启以上功能。代码压缩也是我们必做的性能优化方案，当然我们不止可以压缩 JS 代码，还可以压缩 HTML、CSS 代码，并且在压缩 JS 代码的过程中，我们还可以通过配置实现比如删除 `console.log` 这类代码的功能。
 
 ### 按需加载
@@ -151,9 +152,9 @@ module.exports = {
 
 ```js
 // test.js
-export const a = 1
+export const a = 1;
 // index.js
-import { a } from './test.js'
+import { a } from "./test.js";
 ```
 
 对于这种情况，我们打包出来的代码会类似这样
@@ -167,8 +168,8 @@ import { a } from './test.js'
   /* 1 */
   function (module, exports, require) {
     //...
-  }
-]
+  },
+];
 ```
 
 但是如果我们使用 Scope Hoisting 的话，代码就会尽可能的合并到一个函数中去，也就变成了这样的类似代码
@@ -178,8 +179,8 @@ import { a } from './test.js'
   /* 0 */
   function (module, exports, require) {
     //...
-  }
-]
+  },
+];
 ```
 
 这样的打包方式生成的代码明显比之前的少多了。如果在 Webpack4 中你希望开启这个功能，只需要启用 `optimization.concatenateModules` 就可以了。
@@ -187,9 +188,9 @@ import { a } from './test.js'
 ```js
 module.exports = {
   optimization: {
-    concatenateModules: true
-  }
-}
+    concatenateModules: true,
+  },
+};
 ```
 
 ### Tree Shaking
@@ -198,10 +199,10 @@ module.exports = {
 
 ```js
 // test.js
-export const a = 1
-export const b = 2
+export const a = 1;
+export const b = 2;
 // index.js
-import { a } from './test.js'
+import { a } from "./test.js";
 ```
 
 对于以上情况， `test` 文件中的变量 `b` 如果没有在项目中使用到的话，就不会被打包到文件中。

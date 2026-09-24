@@ -19,10 +19,7 @@ export default function chunkRenderWithRIC(data, container, chunkSize = 50) {
     const fragment = document.createDocumentFragment();
 
     // 在空闲时间内渲染尽可能多的项目
-    while (
-      index < total &&
-      (deadline.timeRemaining() > 0 || deadline.didTimeout)
-    ) {
+    while (index < total && (deadline.timeRemaining() > 0 || deadline.didTimeout)) {
       fragment.appendChild(createRenderElement(data[index]));
       index++;
 
@@ -42,7 +39,6 @@ export default function chunkRenderWithRIC(data, container, chunkSize = 50) {
 
   renderChunk();
 }
-
 
 // 使用示例
 // const data = Array.from({length: 10000}, (_, i) => `Item ${i}`);

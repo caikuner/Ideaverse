@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 rank: "4"
 created: 2025-06-16
 modified: 2025-06-16
@@ -17,9 +17,10 @@ modified: 2025-06-16
 4. 返回新对象： 执行构造函数内的代码，空对象成为新对象返回。(原始值的构造函数 new 返回包装对象)
 
 注：
+
 - 建议不要直接操作隐式原型，即使操作也请用 Object.setPrototypeOf 代替
--  **Object.create** 会自动设置原型，尽量使用它
-[[手写 new]]
+- **Object.create** 会自动设置原型，尽量使用它
+  [[手写 new]]
 
 ### 所有对象都是 new 出来的
 

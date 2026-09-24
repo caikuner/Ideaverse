@@ -5,6 +5,7 @@ related:
 created: 2025-06-17
 modified: 2025-06-17
 ---
+
 Promise 是 JavaScript 中处理异步操作的核心机制，它提供了一种更优雅的方式来管理异步代码，避免了传统的回调地狱问题。
 
 ## 一、Promise 基本概念
@@ -12,6 +13,7 @@ Promise 是 JavaScript 中处理异步操作的核心机制，它提供了一种
 ### 1. 什么是 Promise？
 
 Promise 是一个表示异步操作最终完成或失败的对象。它有三种状态：
+
 - **pending**（等待中）：初始状态
 - **fulfilled**（已成功）：操作成功完成
 - **rejected**（已失败）：操作失败
@@ -32,9 +34,9 @@ const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     const success = true; // 模拟操作是否成功
     if (success) {
-      resolve('操作成功！'); // 状态变为 fulfilled
+      resolve("操作成功！"); // 状态变为 fulfilled
     } else {
-      reject('操作失败！'); // 状态变为 rejected
+      reject("操作失败！"); // 状态变为 rejected
     }
   }, 1000);
 });
@@ -53,7 +55,7 @@ myPromise
     console.error(error); // 操作失败时执行
   })
   .finally(() => {
-    console.log('无论成功失败都会执行');
+    console.log("无论成功失败都会执行");
   });
 ```
 
@@ -73,16 +75,16 @@ function asyncOperation2(value) {
 }
 
 asyncOperation1()
-  .then(result1 => {
-    console.log('第一步结果:', result1); // 10
+  .then((result1) => {
+    console.log("第一步结果:", result1); // 10
     return asyncOperation2(result1);
   })
-  .then(result2 => {
-    console.log('第二步结果:', result2); // 20
+  .then((result2) => {
+    console.log("第二步结果:", result2); // 20
     return result2 + 5;
   })
-  .then(finalResult => {
-    console.log('最终结果:', finalResult); // 25
+  .then((finalResult) => {
+    console.log("最终结果:", finalResult); // 25
   });
 ```
 
@@ -96,29 +98,27 @@ asyncOperation1()
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve) => {
-  setTimeout(resolve, 100, 'foo');
+  setTimeout(resolve, 100, "foo");
 });
 
-Promise.all([promise1, promise2, promise3])
-  .then(values => {
-    console.log(values); // [3, 42, "foo"]
-  });
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  console.log(values); // [3, 42, "foo"]
+});
 ```
 
 #### Promise.race() - 第一个完成的 Promise
 
 ```javascript
 const promise1 = new Promise((resolve) => {
-  setTimeout(resolve, 500, 'one');
+  setTimeout(resolve, 500, "one");
 });
 const promise2 = new Promise((resolve) => {
-  setTimeout(resolve, 100, 'two');
+  setTimeout(resolve, 100, "two");
 });
 
-Promise.race([promise1, promise2])
-  .then(value => {
-    console.log(value); // "two" (因为更快完成)
-  });
+Promise.race([promise1, promise2]).then((value) => {
+  console.log(value); // "two" (因为更快完成)
+});
 ```
 
 #### Promise.allSettled() - 所有 Promise 都完成（无论成功失败）
@@ -126,17 +126,16 @@ Promise.race([promise1, promise2])
 ```javascript
 const promise1 = Promise.resolve(3);
 const promise2 = new Promise((_, reject) => {
-  setTimeout(reject, 100, 'error');
+  setTimeout(reject, 100, "error");
 });
 
-Promise.allSettled([promise1, promise2])
-  .then(results => {
-    console.log(results);
-    // [
-    //   { status: 'fulfilled', value: 3 },
-    //   { status: 'rejected', reason: 'error' }
-    // ]
-  });
+Promise.allSettled([promise1, promise2]).then((results) => {
+  console.log(results);
+  // [
+  //   { status: 'fulfilled', value: 3 },
+  //   { status: 'rejected', reason: 'error' }
+  // ]
+});
 ```
 
 ### 2. async/await 语法糖
@@ -144,11 +143,11 @@ Promise.allSettled([promise1, promise2])
 ```javascript
 async function fetchData() {
   try {
-    const response = await fetch('https://api.example.com/data');
+    const response = await fetch("https://api.example.com/data");
     const data = await response.json();
     console.log(data);
   } catch (error) {
-    console.error('获取数据失败:', error);
+    console.error("获取数据失败:", error);
   }
 }
 
@@ -162,25 +161,25 @@ fetchData();
 ```javascript
 class MyPromise {
   constructor(executor) {
-    this.state = 'pending';
+    this.state = "pending";
     this.value = undefined;
     this.reason = undefined;
     this.onFulfilledCallbacks = [];
     this.onRejectedCallbacks = [];
 
     const resolve = (value) => {
-      if (this.state === 'pending') {
-        this.state = 'fulfilled';
+      if (this.state === "pending") {
+        this.state = "fulfilled";
         this.value = value;
-        this.onFulfilledCallbacks.forEach(fn => fn());
+        this.onFulfilledCallbacks.forEach((fn) => fn());
       }
     };
 
     const reject = (reason) => {
-      if (this.state === 'pending') {
-        this.state = 'rejected';
+      if (this.state === "pending") {
+        this.state = "rejected";
         this.reason = reason;
-        this.onRejectedCallbacks.forEach(fn => fn());
+        this.onRejectedCallbacks.forEach((fn) => fn());
       }
     };
 
@@ -193,7 +192,7 @@ class MyPromise {
 
   then(onFulfilled, onRejected) {
     const promise2 = new MyPromise((resolve, reject) => {
-      if (this.state === 'fulfilled') {
+      if (this.state === "fulfilled") {
         setTimeout(() => {
           try {
             const x = onFulfilled(this.value);
@@ -202,7 +201,7 @@ class MyPromise {
             reject(e);
           }
         });
-      } else if (this.state === 'rejected') {
+      } else if (this.state === "rejected") {
         setTimeout(() => {
           try {
             const x = onRejected(this.reason);
@@ -242,7 +241,7 @@ class MyPromise {
 function resolvePromise(promise2, x, resolve, reject) {
   // 简化实现，完整实现参考Promise/A+规范
   if (x === promise2) {
-    return reject(new TypeError('Chaining cycle detected for promise'));
+    return reject(new TypeError("Chaining cycle detected for promise"));
   }
   if (x instanceof MyPromise) {
     x.then(resolve, reject);
@@ -277,13 +276,13 @@ function resolvePromise(promise2, x, resolve, reject) {
 Promise 回调是作为微任务（microtask）执行的，优先级高于宏任务（macrotask）如 setTimeout。
 
 ```javascript
-console.log('开始');
+console.log("开始");
 
-setTimeout(() => console.log('setTimeout'), 0);
+setTimeout(() => console.log("setTimeout"), 0);
 
-Promise.resolve().then(() => console.log('Promise'));
+Promise.resolve().then(() => console.log("Promise"));
 
-console.log('结束');
+console.log("结束");
 
 // 输出顺序:
 // 开始

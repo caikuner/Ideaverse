@@ -73,17 +73,17 @@ var permuteUnique = function (nums) {
     for (let j = 0; j < n; j++) {
       if (!used[j]) {
         // 排除重复
-        if(j >0 && nums[j] === nums[j-1] && used[j-1]) {
-          continue
+        if (j > 0 && nums[j] === nums[j - 1] && used[j - 1]) {
+          continue;
         }
 
-        path[i] = nums[j]
-        used[j] = true
+        path[i] = nums[j];
+        used[j] = true;
 
-        backtrack(i+1)
+        backtrack(i + 1);
 
         // 恢复现场
-        used[j] = false
+        used[j] = false;
       }
     }
   }

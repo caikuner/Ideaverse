@@ -12,30 +12,29 @@ Infinity 关键字作为参数时，表示无穷层，无论多少层嵌套，�
 
 function myFlat(arr) {
   return arr.reduce((acc, cur) => {
-    return acc.concat(Array.isArray(cur) ? myFlat(cur) : cur)
-  }, [])
+    return acc.concat(Array.isArray(cur) ? myFlat(cur) : cur);
+  }, []);
 }
 
 // 迭代 bfs
 function myFlat(arr) {
-  const res = []
+  const res = [];
 
-  const queue = []
+  const queue = [];
   for (let i = 0; i < arr.length; i++) {
-    queue.push(arr[i])
+    queue.push(arr[i]);
 
-    while(queue.length) {
-      const cur = queue.shift()
+    while (queue.length) {
+      const cur = queue.shift();
       if (Array.isArray(cur)) {
-        queue.push(...cur)
+        queue.push(...cur);
       } else {
-        res.push(cur)
+        res.push(cur);
       }
     }
   }
 
-  return res
+  return res;
 }
 
-
-console.log(myFlat([1, [2, [3, [4, [5, 6]]]]]))
+console.log(myFlat([1, [2, [3, [4, [5, 6]]]]]));

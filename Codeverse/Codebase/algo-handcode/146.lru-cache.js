@@ -68,7 +68,6 @@
  * 
  */
 
-
 // @lcpr-template-start
 
 // @lcpr-template-end
@@ -76,83 +75,84 @@
 
 class Node {
   constructor(key, value) {
-    this.key = key
-    this.value = value
-    this.prev = null
-    this.next = null
+    this.key = key;
+    this.value = value;
+    this.prev = null;
+    this.next = null;
   }
 }
 /**
  * @param {number} capacity
  */
 class LRUCache {
-    constructor(capacity) {
-      this.capacity = capacity
-      this.cache = {}  // 缓存节点，用于快速查询
-      this.head = new Node(-1, -1)
-      this.tail = new Node(-1, -1)
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.cache = {}; // 缓存节点，用于快速查询
+    this.head = new Node(-1, -1);
+    this.tail = new Node(-1, -1);
 
-      this.head.next = this.tail
-      this.tail.prev = this.head
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+  }
+  #addToHead(node) {
+    // 用于没有旧缓存时，新增。   [容易写错的]👈
+    node.prev = this.head;
+    node.next = this.head.next;
+
+    this.head.next.prev = node;
+    this.head.next = node;
+  }
+
+  #moveToHead(node) {
+    // 用于有旧缓存时，移动到头
+    this.#removeNode(node);
+    this.#addToHead(node);
+  }
+
+  #removeTail() {
+    // 用于容量达到上限时，删除一个尾
+    const tailPrev = this.tail.prev;
+    this.#removeNode(tailPrev);
+    return tailPrev;
+  }
+
+  #removeNode(node) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+  }
+
+  get(key) {
+    if (key in this.cache) {
+      const node = this.cache[key];
+      this.#moveToHead(node);
+      return node.value;
     }
-    #addToHead(node) { // 用于没有旧缓存时，新增。   [容易写错的]👈
-      node.prev = this.head
-      node.next = this.head.next
-
-      this.head.next.prev = node
-      this.head.next = node
+    return -1;
+  }
+  put(key, value) {
+    if (key in this.cache) {
+      // 有就删除
+      this.#removeNode(this.cache[key]);
+      delete this.cache[key];
     }
 
-    #moveToHead(node) { // 用于有旧缓存时，移动到头
-      this.#removeNode(node)
-      this.#addToHead(node)
+    // 容量超了就删除一个尾
+    if (this.capacity <= Object.keys(this.cache).length) {
+      const node = this.#removeTail();
+      delete this.cache[node.key];
     }
 
-    #removeTail() { // 用于容量达到上限时，删除一个尾
-      const tailPrev = this.tail.prev
-      this.#removeNode(tailPrev)
-      return tailPrev
-    }
+    // 新增
+    const newNode = new Node(key, value);
+    this.#addToHead(newNode);
+    this.cache[key] = newNode;
+  }
+}
 
-    #removeNode(node) {
-      node.prev.next = node.next
-      node.next.prev = node.prev
-    }
-
-    get(key) {
-      if (key in this.cache) {
-        const node = this.cache[key]
-        this.#moveToHead(node)
-        return node.value
-      }
-      return -1
-    }
-    put(key, value){
-      if (key in this.cache) { // 有就删除
-        this.#removeNode(this.cache[key])
-        delete this.cache[key]
-      }
-
-      // 容量超了就删除一个尾
-      if (this.capacity <= Object.keys(this.cache).length) {
-        const node = this.#removeTail()
-        delete this.cache[node.key]
-      }
-
-      // 新增
-      const newNode = new Node(key, value)
-      this.#addToHead(newNode)
-      this.cache[key] = newNode
-    }
-};
-
-/** 
+/**
  * Your LRUCache object will be instantiated and called as such:
  * var obj = new LRUCache(capacity)
  * var param_1 = obj.get(key)
  * obj.put(key,value)
  */
 // @lc code=end
-
-
-

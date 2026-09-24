@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 created: 2025-06-12
 modified: 2025-06-16
 ---

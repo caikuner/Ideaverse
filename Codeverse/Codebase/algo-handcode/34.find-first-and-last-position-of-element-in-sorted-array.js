@@ -101,7 +101,7 @@ var searchRange = function (nums, target) {
 };
 // @lc code=end
 
-console.log(searchRange([1,3,5,7], 5))
+console.log(searchRange([1, 3, 5, 7], 5));
 /*
 // @lcpr case=start
 // [5,7,7,8,8,10]\n8\n

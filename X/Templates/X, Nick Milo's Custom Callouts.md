@@ -1,7 +1,8 @@
 Please enjoy over 55 custom callouts for you to use and peruse. A version of this is included and already functioning in Ideaverse for Obsidian, but for other vaults, it requires a couple steps to activate them.
 
 ### Purple
->[!Calendar]
+
+> [!Calendar]
 
 > [!Globe] Globe
 
@@ -15,58 +16,61 @@ Please enjoy over 55 custom callouts for you to use and peruse. A version of thi
 > [!Venetian]- Venetian
 
 > [!VIDEO]- Video
->  For...Videos
-
+> For...Videos
 
 ### Cyan
-> [!Blocks]- Blocks 
 
-> [!MAP]- Map 
+> [!Blocks]- Blocks
+
+> [!MAP]- Map
 > For...the highest level Maps of Content; as a top-level persistent UI
 
-> [!radar]- Radar 
+> [!radar]- Radar
 
-> [!ROCKET]- Rocket 
-> For...Piloting Wing of OFS; 
+> [!ROCKET]- Rocket
+> For...Piloting Wing of OFS;
 
-> [!Planet]- Planet 
+> [!Planet]- Planet
 
-> [!User]- User 
+> [!User]- User
 
 ### Orange
-> [!BOOK]- Book 
+
+> [!BOOK]- Book
 > Testing a callout
 
-> [!Boxes]- Boxes 
+> [!Boxes]- Boxes
 
 > [!Castleo]- Castleo (Orange)
 
-> [!COMPASS]- Compass 
+> [!COMPASS]- Compass
 > For...Directions
 
-> [!KEATON]- Keaton 
+> [!KEATON]- Keaton
 > For...Keaton's comments
 
-> [!Shell]- Shell 
+> [!Shell]- Shell
 
-> [!Tram-front]- Tram-front 
+> [!Tram-front]- Tram-front
 
 ### Yellow
+
 > [!combine]- Combine
 
 > [!Connect]- Connect
 
 > [!PUZZLE]- Puzzle
-> For...Instruments ~~(or Tidbits, Hints, Clues)~~; 
+> For...Instruments ~~(or Tidbits, Hints, Clues)~~;
 
 > [!sparkles]- Sparkles
 
 > [!Sun]- Sun
 
 ### Grey
+
 > [!Box]- Box
 
-> [!COMMAND]- Command 
+> [!COMMAND]- Command
 > For...Resources and Settings ~~(or Instructions)~~
 
 > [!Cross]- Cross
@@ -81,10 +85,11 @@ Please enjoy over 55 custom callouts for you to use and peruse. A version of thi
 > For...Audio transcripts and other scripts
 
 ### Pink
+
 > [!Activity]- Activity
 
 > [!JOYSTICK]- Joystick
->  For...Simulations
+> For...Simulations
 
 > [!Milestone]- Milestone
 
@@ -93,14 +98,15 @@ Please enjoy over 55 custom callouts for you to use and peruse. A version of thi
 > [!Tower]- Tower
 
 ### Mint
+
 > [!Cable-car]- Cable-car
 
-> [!Camera]- Camera 
+> [!Camera]- Camera
 > For...Images
 
 > [!Castle]- Castle (Mint)
 
-> [!COMBO]- Combo 
+> [!COMBO]- Combo
 > For...Keyboard Combos.
 > The lucide-icon is `gamepad` and I switched the css callout name to `combo`.
 
@@ -109,7 +115,8 @@ Please enjoy over 55 custom callouts for you to use and peruse. A version of thi
 > [!Recycle]- Recycle
 
 ### Green
-> [!BIKE]- Bike 
+
+> [!BIKE]- Bike
 > For...Training, Basic Training Wing
 
 > [!Contact]- Contact
@@ -120,11 +127,12 @@ Please enjoy over 55 custom callouts for you to use and peruse. A version of thi
 
 > [!Train]- Train
 
-> [!Training]- Training 
+> [!Training]- Training
 
 > [!Trees]- Trees
 
 ### Blue
+
 > [!Anchor]- Anchor
 > Testing
 
@@ -140,14 +148,14 @@ Please enjoy over 55 custom callouts for you to use and peruse. A version of thi
 
 > [!Snowflake]- Snowflake
 
-
 ### Red
-> [!AWARD]- Award 
+
+> [!AWARD]- Award
 > For...Awards.
 
 > [!Cone]- Cone
 
 > [!Fingerprint]- Fingerprint
 
-> [!Watch]- Watch 
+> [!Watch]- Watch
 > For...Training, Basic Training Wing

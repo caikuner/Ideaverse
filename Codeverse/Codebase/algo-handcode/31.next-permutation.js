@@ -82,14 +82,14 @@ var nextPermutation = function (nums) {
   for (let i = n - 1; i >= 0; i--) {
     if (nums[i - 1] < nums[i]) {
       pos = i - 1;
-      break
+      break;
     }
   }
 
   // 特别的，如果找不出 pos，说明 nums 单调减，就是最大的排列。只需 reverse 得到最小排列即可
   if (pos === -1) {
-    nums.reverse()
-    return
+    nums.reverse();
+    return;
   }
 
   // 从其右边单调减的数据中，找出一个最小的 比他大的数。相互交换
@@ -103,16 +103,18 @@ var nextPermutation = function (nums) {
   // 交换后的右侧数据，需要重新排一个最小的。由于其仍然单调减，所以只需要 reverse
   reverse(nums, pos + 1, n - 1);
 
-  function swap(nums, i, j) { // 原地交换
-    const temp = nums[j]
-    nums[j] = nums[i]
-    nums[i] = temp
+  function swap(nums, i, j) {
+    // 原地交换
+    const temp = nums[j];
+    nums[j] = nums[i];
+    nums[i] = temp;
   }
-  function reverse(nums, l, r){ // 原地reverse
-    while(l < r) {
-      swap(nums, l, r)
-      l++
-      r--
+  function reverse(nums, l, r) {
+    // 原地reverse
+    while (l < r) {
+      swap(nums, l, r);
+      l++;
+      r--;
     }
   }
 };

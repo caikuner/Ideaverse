@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 created: 2025-06-14
 modified: 2025-06-15
 ---
@@ -22,7 +22,7 @@ graph LR
         C --> D[路由器缓存]
         D --> E[本地DNS服务器]
     end
-    
+
     subgraph DNS服务器解析
         E --> F[根域名服务器]
         F --> G[顶级域名服务器]
@@ -82,7 +82,7 @@ graph LR
 - 解析结果沿路径返回：
 
   ```
-  权威服务器 → TLD服务器 → 根服务器 
+  权威服务器 → TLD服务器 → 根服务器
   → 本地DNS → 路由器 → 操作系统 → 浏览器
   ```
 
@@ -105,25 +105,25 @@ graph LR
 
 ### **DNS 记录类型**
 
-| 记录类型      | 作用      | 示例                              |
-| --------- | ------- | ------------------------------- |
-| **A**     | IPv4 地址 | `192.0.2.1`                     |
-| **AAAA**  | IPv6 地址 | `2001:db8::1`                   |
-| **CNAME** | 域名别名    | `www.example.com → example.com` |
-| **MX**    | 邮件服务器   | `10 mail.example.com`           |
-| **NS**    | 权威服务器   | `ns1.example.com`               |
-| **TXT**   | 文本记录    | 验证信息/SPF 记录                     |
+| 记录类型  | 作用       | 示例                            |
+| --------- | ---------- | ------------------------------- |
+| **A**     | IPv4 地址  | `192.0.2.1`                     |
+| **AAAA**  | IPv6 地址  | `2001:db8::1`                   |
+| **CNAME** | 域名别名   | `www.example.com → example.com` |
+| **MX**    | 邮件服务器 | `10 mail.example.com`           |
+| **NS**    | 权威服务器 | `ns1.example.com`               |
+| **TXT**   | 文本记录   | 验证信息/SPF 记录               |
 
 ---
 
 ### **DNS 查询类型**
 
 1. **递归查询**
-   - 客户端 → 本地 DNS：*" 请给我最终答案 "*
+   - 客户端 → 本地 DNS：_" 请给我最终答案 "_
    - 本地 DNS 负责完成所有查询
 
 2. **迭代查询**
-   - 本地 DNS → 根/TLD/权威：*" 谁能回答这个问题？"*
+   - 本地 DNS → 根/TLD/权威：_" 谁能回答这个问题？"_
    - 服务器只返回下一级指引
 
 ---
@@ -147,11 +147,11 @@ graph LR
    - EDNS 扩展协议传递客户端子网信息
 
 4. **DNS 预取**
-[[浏览器：页面资源预取预渲染 dnsfetch、prefetch、prerender、preload]]
+   [[浏览器：页面资源预取预渲染 dnsfetch、prefetch、prerender、preload]]
 
    ```html
    <!-- 网页中声明需要预解析的域名 -->
-   <link rel="dns-prefetch" href="//cdn.example.com">
+   <link rel="dns-prefetch" href="//cdn.example.com" />
    ```
 
 ---

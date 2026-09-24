@@ -17,14 +17,14 @@ graph LR
     A --> F[自动更新]
 ```
 
-| 优势 | 说明 | 技术实现 |
-|------|------|----------|
-| **离线功能** | 通过 Service Worker 缓存核心资源 | Cache API |
-| **安装到桌面** | 无需应用商店分发 | Web App Manifest |
-| **媲美原生** | 全屏/启动画面/手势支持 | manifest.json 配置 |
-| **推送通知** | 提高用户参与度 | Push API + Notification API |
-| **性能优化** | 预缓存关键资源 | Workbox 库 |
-| **跨平台** | 一次开发多端运行 | 响应式设计 |
+| 优势           | 说明                             | 技术实现                    |
+| -------------- | -------------------------------- | --------------------------- |
+| **离线功能**   | 通过 Service Worker 缓存核心资源 | Cache API                   |
+| **安装到桌面** | 无需应用商店分发                 | Web App Manifest            |
+| **媲美原生**   | 全屏/启动画面/手势支持           | manifest.json 配置          |
+| **推送通知**   | 提高用户参与度                   | Push API + Notification API |
+| **性能优化**   | 预缓存关键资源                   | Workbox 库                  |
+| **跨平台**     | 一次开发多端运行                 | 响应式设计                  |
 
 ## 二、快速转换 PWA 的 5 个步骤
 
@@ -44,28 +44,29 @@ graph LR
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "icons": [{
-    "src": "icon-192.png",
-    "sizes": "192x192",
-    "type": "image/png"
-  }]
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
 }
 ```
 
 ```html
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest.json" />
 ```
 
 ### 2. 注册 Service Worker
 
 ```javascript
 // 主线程注册
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('SW registered');
-      });
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").then((registration) => {
+      console.log("SW registered");
+    });
   });
 }
 ```
@@ -74,24 +75,16 @@ if ('serviceWorker' in navigator) {
 
 ```javascript
 // sw.js - 缓存核心资源
-const CACHE_NAME = 'v1';
-const urlsToCache = [
-  '/',
-  '/styles.css',
-  '/app.js'
-];
+const CACHE_NAME = "v1";
+const urlsToCache = ["/", "/styles.css", "/app.js"];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-  );
+self.addEventListener("install", (event) => {
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)));
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
+    caches.match(event.request).then((response) => response || fetch(event.request)),
   );
 });
 ```
@@ -106,11 +99,12 @@ self.addEventListener('fetch', event => {
 
 ```javascript
 // 在sw.js中
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-      .catch(() => caches.match('/offline.html'))
+    caches
+      .match(event.request)
+      .then((response) => response || fetch(event.request))
+      .catch(() => caches.match("/offline.html")),
   );
 });
 ```
@@ -119,18 +113,18 @@ self.addEventListener('fetch', event => {
 
 ```javascript
 // 检测PWA安装条件
-window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
-  const installBtn = document.getElementById('install-btn');
-  installBtn.style.display = 'block';
-  
-  installBtn.addEventListener('click', () => {
+  const installBtn = document.getElementById("install-btn");
+  installBtn.style.display = "block";
+
+  installBtn.addEventListener("click", () => {
     e.prompt();
-    e.userChoice.then(choice => {
-      if (choice.outcome === 'accepted') {
-        console.log('用户同意安装');
+    e.userChoice.then((choice) => {
+      if (choice.outcome === "accepted") {
+        console.log("用户同意安装");
       }
-      installBtn.style.display = 'none';
+      installBtn.style.display = "none";
     });
   });
 });
@@ -142,11 +136,11 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 ```javascript
 // 引入Workbox
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js');
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js");
 
 workbox.routing.registerRoute(
-  ({request}) => request.destination === 'image',
-  new workbox.strategies.CacheFirst()
+  ({ request }) => request.destination === "image",
+  new workbox.strategies.CacheFirst(),
 );
 ```
 
@@ -154,16 +148,15 @@ workbox.routing.registerRoute(
 
 ```javascript
 // 注册同步任务
-navigator.serviceWorker.ready.then(registration => {
-  document.getElementById('submit').addEventListener('click', () => {
-    registration.sync.register('sync-data')
-      .then(() => console.log('后台同步已注册'));
+navigator.serviceWorker.ready.then((registration) => {
+  document.getElementById("submit").addEventListener("click", () => {
+    registration.sync.register("sync-data").then(() => console.log("后台同步已注册"));
   });
 });
 
 // SW中处理
-self.addEventListener('sync', event => {
-  if (event.tag === 'sync-data') {
+self.addEventListener("sync", (event) => {
+  if (event.tag === "sync-data") {
     event.waitUntil(sendDataToServer());
   }
 });
@@ -173,18 +166,18 @@ self.addEventListener('sync', event => {
 
 ```javascript
 // 请求通知权限
-Notification.requestPermission().then(permission => {
-  if (permission === 'granted') {
-    new Notification('欢迎使用PWA!');
+Notification.requestPermission().then((permission) => {
+  if (permission === "granted") {
+    new Notification("欢迎使用PWA!");
   }
 });
 
 // SW中接收推送
-self.addEventListener('push', event => {
+self.addEventListener("push", (event) => {
   const data = event.data.json();
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: '/icon.png'
+    icon: "/icon.png",
   });
 });
 ```
@@ -212,8 +205,7 @@ self.addEventListener('push', event => {
    - 添加元标签
 
    ```html
-   <meta name="theme-color" content="#4285f4">
-   <link rel="apple-touch-icon" href="icon-192.png">
+   <meta name="theme-color" content="#4285f4" /> <link rel="apple-touch-icon" href="icon-192.png" />
    ```
 
 通过以上步骤，普通网页可在 1-2 天内转换为基本 PWA。建议逐步增强功能，优先保证核心体验离线可用。

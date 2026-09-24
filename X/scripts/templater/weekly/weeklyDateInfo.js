@@ -1,1 +1,1 @@
-module.exports = app.utils.templater.weekly.weeklyDateInfo
+module.exports = app.utils.templater.weekly.weeklyDateInfo;

@@ -1,11 +1,12 @@
 ---
 tags: [todo]
-up: 
-related: 
-rank: 
+up:
+related:
+rank:
 created: 2025-05-21
 modified: 2025-07-10
 ---
+
 [Code Review Guide](https://roadmap.sh/code-review)
 [Code Review Best Practices](https://roadmap.sh/best-practices/code-review)
 
@@ -22,7 +23,7 @@ Code Review 是保证代码质量的关键环节，重点关注以下方面可�
    ```javascript
    // 错误示例：未处理空数组
    function getLastItem(arr) {
-     return arr[arr.length - 1]; 
+     return arr[arr.length - 1];
    }
    ```
 
@@ -51,7 +52,7 @@ Code Review 是保证代码质量的关键环节，重点关注以下方面可�
    // 坏实践：多层嵌套
    if (user) {
      if (user.isActive) {
-       // … 
+       // …
      }
    }
    ```
@@ -116,7 +117,7 @@ Code Review 是保证代码质量的关键环节，重点关注以下方面可�
 
    ```javascript
    // 测试用例示例
-   test('should return 0 when input is empty array', () => {
+   test("should return 0 when input is empty array", () => {
      expect(getLastItem([])).toBeUndefined();
    });
    ```

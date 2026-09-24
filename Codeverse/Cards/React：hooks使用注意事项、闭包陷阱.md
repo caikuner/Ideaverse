@@ -8,7 +8,7 @@ modified: 2025-06-12
 
 ### Hooks 好处
 
-*Hook* 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。Class 组件有以下问题：
+_Hook_ 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。Class 组件有以下问题：
 
 - Class 组件之间复用状态逻辑很难
 
@@ -35,13 +35,14 @@ class 是学习 React 的一大屏障，比如 React Class 中 JavaScript 中 `t
 
 ### 1. 不要改变 hooks 的调用顺序
 
-不要在循环、条件、嵌套函数中调用 Hook，确保总是在 React 函数的最顶层或者任何 return 之前调用他们。  
+不要在循环、条件、嵌套函数中调用 Hook，确保总是在 React 函数的最顶层或者任何 return 之前调用他们。
+
 - 这样才能保证 Hook 在每一次渲染中都按照同样的顺序被调用
 - 原理：[[React：为何 Hooks 不能放在条件或循环之内]]
 
 ### 2. 只在 React 函数中调用 Hook
 
-不要在普通的 JavaScript 函数中调用 Hook，这样可以保持纯函数的纯粹 (不要沾染状态逻辑)  
+不要在普通的 JavaScript 函数中调用 Hook，这样可以保持纯函数的纯粹 (不要沾染状态逻辑)
 
 ### 3. 规避闭包陷阱
 
@@ -54,51 +55,52 @@ React Hooks 是依赖 JavaScript 的闭包机制实现的。
 - 当状态或 props 更新时，闭包中的值并不会自动更新。
 
 因此产生闭包陷阱：  
-当使用接收一个回调作为参数的钩子时 (useEffect/useCallback)，可能会创建一个旧的闭包，该闭包会捕获过时的状态或者 prop 变量 (上一次渲染快照的)。  
+当使用接收一个回调作为参数的钩子时 (useEffect/useCallback)，可能会创建一个旧的闭包，该闭包会捕获过时的状态或者 prop 变量 (上一次渲染快照的)。
 
 #### 闭包陷阱例子
 
 ```jsx
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log(count) // 每次打印的都是初始值 0
-    }, 1000)
+      console.log(count); // 每次打印的都是初始值 0
+    }, 1000);
 
-    return () => clearInterval(timer)
-  }, []) // 依赖数组为空，effect 只运行一次
+    return () => clearInterval(timer);
+  }, []); // 依赖数组为空，effect 只运行一次
 
   return (
     <div>
       <p>Count: {count}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
-  )
+  );
 }
 ```
 
 在这个例子中：
+
 - `useEffect` 只在组件挂载时运行一次。
 - `setInterval` 的回调函数形成了一个闭包，捕获了初始的 `count` 值（即 0）。
 - 即使 `count` 状态更新了，`setInterval` 中的回调函数仍然访问的是旧的 `count` 值。
 
 #### 如何规避
 
-为了避免闭包陷阱，要注意把依赖的 state 或 props 添加到 useEffect 的依赖数组中，这样每次状态更新时，useEffect 都会重新运行，闭包中的值也会更新。  
+为了避免闭包陷阱，要注意把依赖的 state 或 props 添加到 useEffect 的依赖数组中，这样每次状态更新时，useEffect 都会重新运行，闭包中的值也会更新。
 
 ```js
-useEffect(callback, deps)
-useCallback(callback, deps)
+useEffect(callback, deps);
+useCallback(callback, deps);
 ```
 
 ```jsx
 useEffect(() => {
   const timer = setInterval(() => {
-    console.log(count) // 每次打印最新的 count 值
-  }, 1000)
+    console.log(count); // 每次打印最新的 count 值
+  }, 1000);
 
-  return () => clearInterval(timer)
-}, [count]) // 将 count 添加到依赖数组
+  return () => clearInterval(timer);
+}, [count]); // 将 count 添加到依赖数组
 ```

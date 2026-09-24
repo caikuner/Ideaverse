@@ -5,6 +5,7 @@ related:
 created: 2025-05-15
 modified: 2025-05-15
 ---
+
 Tree Shaking 是一种通过静态分析来移除 JavaScript 上下文中未引用代码的优化技术，它像 " 摇树 " 一样把无用的 " 枯叶 "（未使用的代码）摇落。
 
 ## 核心原理
@@ -29,7 +30,7 @@ Tree Shaking 是一种通过静态分析来移除 JavaScript 上下文中未引�
    // 支持 Tree Shaking 的写法
    import { funcA } from './moduleA';
    export const funcB = () => {…};
-   
+
    // 不支持 Tree Shaking 的写法
    const moduleA = require('./moduleA');
    module.exports = {…};
@@ -44,7 +45,7 @@ Tree Shaking 是一种通过静态分析来移除 JavaScript 上下文中未引�
    ```json
    // package.json
    {
-     "sideEffects": false  // 或指定有副作用的文件数组
+     "sideEffects": false // 或指定有副作用的文件数组
    }
    ```
 
@@ -68,10 +69,10 @@ Tree Shaking 是一种通过静态分析来移除 JavaScript 上下文中未引�
 ```javascript
 // math.js
 export const add = (a, b) => a + b;
-export const minus = (a, b) => a - b;  // 未被使用的导出
+export const minus = (a, b) => a - b; // 未被使用的导出
 
 // main.js
-import { add } from './math';
+import { add } from "./math";
 console.log(add(1, 2));
 ```
 

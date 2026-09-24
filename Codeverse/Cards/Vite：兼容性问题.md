@@ -5,6 +5,7 @@ related:
 created: 2025-07-10
 modified: 2025-07-10
 ---
+
 Vite 在实际开发中整体稳定性优秀（v5 版本成熟度更高），但在特定场景下仍存在兼容性问题。以下是 2025 年实际开发中的常见兼容问题及解决方案：
 
 ---
@@ -24,13 +25,15 @@ Vite 在实际开发中整体稳定性优秀（v5 版本成熟度更高），但
 
   ```javascript
   // vite.config.ts
-  import commonjs from '@originjs/vite-plugin-commonjs';
+  import commonjs from "@originjs/vite-plugin-commonjs";
 
   export default {
-    plugins: [commonjs({
-      include: ['problem-cjs-package'] // 指定需转换的包名
-    })]
-  }
+    plugins: [
+      commonjs({
+        include: ["problem-cjs-package"], // 指定需转换的包名
+      }),
+    ],
+  };
   ```
 
 ---
@@ -45,12 +48,14 @@ Vite 在实际开发中整体稳定性优秀（v5 版本成熟度更高），但
   // vite.config.ts
   export default {
     build: {
-      target: 'es2020' // 降级编译目标
+      target: "es2020", // 降级编译目标
     },
-    plugins: [legacy({
-      targets: ['defaults', 'not IE 11'] // 使用 @vitejs/plugin-legacy
-    })]
-  }
+    plugins: [
+      legacy({
+        targets: ["defaults", "not IE 11"], // 使用 @vitejs/plugin-legacy
+      }),
+    ],
+  };
   ```
 
 ---
@@ -63,28 +68,28 @@ Vite 在实际开发中整体稳定性优秀（v5 版本成熟度更高），但
 
   ```javascript
   // 条件化访问浏览器 API
-  if (typeof window !== 'undefined') {
-    const webComponent = import('browser-only-package');
+  if (typeof window !== "undefined") {
+    const webComponent = import("browser-only-package");
   }
 
   // 或使用 vite 条件替换
   export default defineConfig({
     define: {
-      'process.env.BROWSER': JSON.stringify(!!process.env.SSR)
-    }
-  })
+      "process.env.BROWSER": JSON.stringify(!!process.env.SSR),
+    },
+  });
   ```
 
 ---
 
 #### **4. 特殊文件格式处理**
 
-| **文件类型**   | **问题**                          | **插件**                     |
-|----------------|----------------------------------|-----------------------------|
-| `.svg`         | 直接导入被解析为字符串           | `vite-plugin-svgr`          |
-| `.wasm`        | 默认未启用支持                   | `vite-plugin-wasm`          |
-| `.worker.js`   | Web Worker 路径错误              | `vite-plugin-worker`        |
-| `?raw` 导入    | 大文件导致内存溢出               | 改用 `fetch()` 异步加载      |
+| **文件类型** | **问题**               | **插件**                |
+| ------------ | ---------------------- | ----------------------- |
+| `.svg`       | 直接导入被解析为字符串 | `vite-plugin-svgr`      |
+| `.wasm`      | 默认未启用支持         | `vite-plugin-wasm`      |
+| `.worker.js` | Web Worker 路径错误    | `vite-plugin-worker`    |
+| `?raw` 导入  | 大文件导致内存溢出     | 改用 `fetch()` 异步加载 |
 
 ---
 
@@ -117,26 +122,26 @@ Vite 在实际开发中整体稳定性优秀（v5 版本成熟度更高），但
 
 ```javascript
 // vite.config.ts 最佳实践
-import legacy from '@vitejs/plugin-legacy';
-import wasm from 'vite-plugin-wasm';
+import legacy from "@vitejs/plugin-legacy";
+import wasm from "vite-plugin-wasm";
 
 export default defineConfig({
   plugins: [
     legacy({
-      targets: ['>0.2%', 'not dead'],
-      modernPolyfills: true // 按需注入 polyfill
+      targets: [">0.2%", "not dead"],
+      modernPolyfills: true, // 按需注入 polyfill
     }),
-    wasm() // WebAssembly 支持
+    wasm(), // WebAssembly 支持
   ],
   build: {
-    target: 'es2022',
+    target: "es2022",
     commonjsOptions: {
-      transformMixedEsModules: true // 混合模块转换
-    }
+      transformMixedEsModules: true, // 混合模块转换
+    },
   },
   optimizeDeps: {
-    include: ['cjs-module-with-side-effects'] // 强制预构建
-  }
+    include: ["cjs-module-with-side-effects"], // 强制预构建
+  },
 });
 ```
 
@@ -144,13 +149,13 @@ export default defineConfig({
 
 ### 📊 **实际项目兼容性数据（2025 抽样统计）**
 
-| **问题类型**         | **发生率** | **严重度** | **解决成本** |
-|----------------------|------------|------------|--------------|
-| CJS 模块兼容         | 38%        | ⭐⭐        | 低           |
-| 旧版浏览器语法       | 22%        | ⭐⭐⭐       | 中           |
-| SSR 环境变量         | 18%        | ⭐⭐        | 低           |
-| 特殊资源加载         | 15%        | ⭐          | 低           |
-| Node 模块误用        | 7%         | ⭐⭐⭐⭐      | 高           |
+| **问题类型**   | **发生率** | **严重度** | **解决成本** |
+| -------------- | ---------- | ---------- | ------------ |
+| CJS 模块兼容   | 38%        | ⭐⭐       | 低           |
+| 旧版浏览器语法 | 22%        | ⭐⭐⭐     | 中           |
+| SSR 环境变量   | 18%        | ⭐⭐       | 低           |
+| 特殊资源加载   | 15%        | ⭐         | 低           |
+| Node 模块误用  | 7%         | ⭐⭐⭐⭐   | 高           |
 
 ---
 
@@ -166,9 +171,9 @@ export default defineConfig({
    // 显式声明子包路径
    export default defineConfig({
      resolve: {
-       preserveSymlinks: true // 避免符号链接问题
-     }
-   })
+       preserveSymlinks: true, // 避免符号链接问题
+     },
+   });
    ```
 
 3. **调试技巧**：

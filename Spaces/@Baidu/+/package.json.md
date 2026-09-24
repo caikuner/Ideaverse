@@ -1,9 +1,8 @@
-
 - http://json.schemastore.org/package
 
 - engines 生效方式: (只会在 install 阶段前置检查)
-	- .npmrc -> engine-strict=true
-	- package.json 中的 **engineStrict** 选项已经废弃，不会生效
+  - .npmrc -> engine-strict=true
+  - package.json 中的 **engineStrict** 选项已经废弃，不会生效
 
 ```
 安装最新的次要版本：你可以说：“给我安装1.2.0版本以及它的小伙伴们吧！”（"package-name": "^1.2.0"）

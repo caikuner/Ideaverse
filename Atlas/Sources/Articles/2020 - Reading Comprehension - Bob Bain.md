@@ -8,15 +8,16 @@ dates: 2020-06-25
 year: 2020
 ---
 
-
 # 2020 - Reading Comprehension - Bob Bain
-*Support, Extend, Challenge*
+
+_Support, Extend, Challenge_
 
 “those verbs emerged from work we did trying to understand active reading to figure out ways to help high school students become active readers about “stuff” teachers were teaching. It occurred to us that all new information or ideas must support, extend, or challenge existing ideas or information you already have and that has led to those verbs being cognitive tools for students” Bob Bain
 
 This effort to encourage active, engaged thinking relates to the mindset behind Evergreen notes, namely that [[Atlas/Notes/Ideas/Evergreen notes compound in value over time]].
 
 ---
+
 "Years ago, we were working on an R&D project in curriculum with high school students in Detroit. The students “read” texts just as I did when I was in high school – skimming it to find sentences to copy to “answer” teacher assigned or questions at back of text. I don’t think I ever read a complete chapter while a high school student, simply skimmed and copied enough to get me a check or a “C”. No active reader or thinker I, but active skimmer! I “studented” my way through high school, not learning much. And we were seeing “studenting” among students with whom we were working.
 
 We puzzled over what made more thoughtful, active readers and started tracking briefly our “no-longer-studenting” reading practices. We concluded that before reading something we had some theory or conjecture about what we’d find there, no matter how vague or naïve. Then, what we were reading either “supported” or “extended” or "challenged’ our pre-reading ideas.

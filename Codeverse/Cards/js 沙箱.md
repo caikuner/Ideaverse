@@ -5,6 +5,7 @@ related:
 created: 2025-07-04
 modified: 2025-07-04
 ---
+
 Simon Willison 在 2025 年 6 月 26 日发布的 [《Sandboxes》](https://simonwillison.net/2025/Jun/26/sandboxes/) 一文中介绍的沙箱实现方法，是基于 **Deno 的权限系统**和 **Web Worker 隔离技术**的组合方案。以下是关键实现要点分析：
 
 ---
@@ -26,20 +27,18 @@ Simon Willison 在 2025 年 6 月 26 日发布的 [《Sandboxes》](https://simo
    - 关键代码结构：
 
      ```javascript
-     const worker = new Worker(URL.createObjectURL(
-       new Blob([`...`], { type: 'text/javascript' })
-     ));
+     const worker = new Worker(URL.createObjectURL(new Blob([`...`], { type: "text/javascript" })));
      ```
 
 ---
 
 ### 技术组合优势
 
-| 技术          | 解决的问题                          | 实现方式                      |
-|---------------|-----------------------------------|-----------------------------|
-| Deno 权限系统  | 文件/网络/环境变量等系统级访问控制   | 启动时声明精确权限             |
-| Web Worker    | 内存隔离和崩溃防护                  | 每个沙箱独立进程               |
-| 消息协议       | 安全的数据交换                      | 结构化克隆算法 (Structured Clone) |
+| 技术          | 解决的问题                         | 实现方式                          |
+| ------------- | ---------------------------------- | --------------------------------- |
+| Deno 权限系统 | 文件/网络/环境变量等系统级访问控制 | 启动时声明精确权限                |
+| Web Worker    | 内存隔离和崩溃防护                 | 每个沙箱独立进程                  |
+| 消息协议      | 安全的数据交换                     | 结构化克隆算法 (Structured Clone) |
 
 ---
 
@@ -49,8 +48,8 @@ Simon Willison 在 2025 年 6 月 26 日发布的 [《Sandboxes》](https://simo
 
    ```javascript
    const sandbox = new Sandbox({
-     permissions: ['net:example.com'], // Deno式权限声明
-     timeout: 1000 // 执行超时
+     permissions: ["net:example.com"], // Deno式权限声明
+     timeout: 1000, // 执行超时
    });
    ```
 
@@ -69,7 +68,7 @@ Simon Willison 在 2025 年 6 月 26 日发布的 [《Sandboxes》](https://simo
    // Worker内部
    self.onmessage = async (e) => {
      try {
-       const fn = new Function('return (' + e.data.code + ')');
+       const fn = new Function("return (" + e.data.code + ")");
        const result = await fn()();
        postMessage({ result });
      } catch (error) {
@@ -97,11 +96,11 @@ Simon Willison 在 2025 年 6 月 26 日发布的 [《Sandboxes》](https://simo
 
 ### 与其他方案的对比
 
-| 方案           | 隔离级别     | 系统访问控制 | 适用场景           |
-|----------------|------------|------------|------------------|
-| 本文方案       | 进程级      | 精确到 API   | 云函数/插件系统    |
-| VM2            | 上下文级    | 无          | 简单脚本执行       |
-| iframe         | 文档级      | 同源策略     | 浏览器内隔离       |
+| 方案     | 隔离级别 | 系统访问控制 | 适用场景        |
+| -------- | -------- | ------------ | --------------- |
+| 本文方案 | 进程级   | 精确到 API   | 云函数/插件系统 |
+| VM2      | 上下文级 | 无           | 简单脚本执行    |
+| iframe   | 文档级   | 同源策略     | 浏览器内隔离    |
 
 ---
 

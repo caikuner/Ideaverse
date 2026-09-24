@@ -1,14 +1,13 @@
 ---
-
 excalidraw-plugin: parsed
-
 ---
-==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 
+==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 
 # Excalidraw Data
 
 ## Text Elements
+
 "I'm Nick!" ^QIkKmyuG
 
 "Pace Layers!" ^AA7Or1Uo
@@ -16,7 +15,9 @@ excalidraw-plugin: parsed
 You ^zylkuhPz
 
 %%
+
 ## Drawing
+
 ```compressed-json
 N4KAkARALgngDgUwgLgAQQQDwMYEMA2AlgCYBOuA7hADTgQBuCpAzoQPYB2KqATLZMzYBXUtiRoIACyhQ4zZAHoFAc0JRJQgEYA6bGwC2CgF7N6hbEcK4OCtptbErHALRY8RMpWdx8Q1TdIEfARcZgRmBShcZQUebQBObR4aOiCEfQQOKGZuAG1wMFAwYuh4cXQgojkkfhLGFnYuNABmAHYARlrIetZOADlOMW4AFnaANgAGCeGxgA4+AshCZgAR
 
@@ -48,4 +49,5 @@ PBZSkPkvI/A9aqs+whAnDG/T6zyb8zjCM9sAoNmXAiXNfV57/oJ4/oD+omPyEaSG47/b+XzP9It+j94N
 
 DFlBoINxnQEAExNDNDmcwAIk09p9y8MQ+9eFOBEIa0H5MZDF/wPNPZcCWRMhBDhDuBQsCRsAqgXDSAzEDgvMrdE0vDp1nZdFaFPCzFSDWRNArgEBsBsgTgvM4BeD+CvMhCG1RCSgOReFGA8FsD8B7DKJv9CQ0gYimIHMhBkQDAv9itq1FcctaY0iglQgoBGFiisiciNdSJwB9CH4IRwgzcSIQASIgA==
 ```
+
 %%

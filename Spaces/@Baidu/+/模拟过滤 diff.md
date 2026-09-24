@@ -1,8 +1,7 @@
-
 - 日志无修改
 - 日志 -> statistic
-diff 策略 target_palicy='15756551', view->userid=27026883, 一致:
-![[X/Archive/Obsidian-baidu/Assets/Pasted image 20230713154722.png]]
+  diff 策略 target_palicy='15756551', view->userid=27026883, 一致:
+  ![[X/Archive/Obsidian-baidu/Assets/Pasted image 20230713154722.png]]
 
 ![[X/Archive/Obsidian-baidu/Assets/Pasted image 20230713154635.png]]
 
@@ -29,6 +28,5 @@ diff 策略 target_palicy='15756551', view->userid=27026883, 一致:
 ![[X/Archive/Obsidian-baidu/Assets/Pasted image 20230713105633.png]]
 
 - 入库结果与 formated 一致
-
 
 ![[X/Archive/Obsidian-baidu/Assets/Pasted image 20230713110903.png]]

@@ -14,39 +14,39 @@
  * Testcase Example:  '[3,9,20,null,null,15,7]'
  *
  * 给你二叉树的根节点 root ，返回其节点值 自底向上的层序遍历 。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
- * 
- * 
- * 
+ *
+ *
+ *
  * 示例 1：
- * 
- * 
+ *
+ *
  * 输入：root = [3,9,20,null,null,15,7]
  * 输出：[[15,7],[9,20],[3]]
- * 
- * 
+ *
+ *
  * 示例 2：
- * 
- * 
+ *
+ *
  * 输入：root = [1]
  * 输出：[[1]]
- * 
- * 
+ *
+ *
  * 示例 3：
- * 
- * 
+ *
+ *
  * 输入：root = []
  * 输出：[]
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  * 提示：
- * 
- * 
+ *
+ *
  * 树中节点数目在范围 [0, 2000] 内
  * -1000 <= Node.val <= 1000
- * 
- * 
+ *
+ *
  */
 
 /**
@@ -61,28 +61,25 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrderBottom = function(root) {
-    if (!root) return []
+var levelOrderBottom = function (root) {
+  if (!root) return [];
 
-    const res = []
-    const queue = [root] 
-    while(queue.length > 0) {
-        const curLen = queue.length
-        const curLevel = []
-        for (let i = 0; i < curLen; i++){
-            const node = queue.shift()
-            curLevel.push(node.val)
+  const res = [];
+  const queue = [root];
+  while (queue.length > 0) {
+    const curLen = queue.length;
+    const curLevel = [];
+    for (let i = 0; i < curLen; i++) {
+      const node = queue.shift();
+      curLevel.push(node.val);
 
-            if (node.left) queue.push(node.left)
-            if (node.right) queue.push(node.right)
-        }
-        res.push(curLevel)
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
-    return res.reverse()
+    res.push(curLevel);
+  }
+  return res.reverse();
 };
-
-
-
 
 // @lc code=start
 /**
@@ -97,20 +94,20 @@ var levelOrderBottom = function(root) {
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrderBottom = function(root) {
-    const traversal = (node, h, res) => {
-        if (!node) return res
+var levelOrderBottom = function (root) {
+  const traversal = (node, h, res) => {
+    if (!node) return res;
 
-        if (!res[h]) res[h] = []
-        res[h].push(node.val)
+    if (!res[h]) res[h] = [];
+    res[h].push(node.val);
 
-        if (node.left) traversal(node.left, h + 1, res)
-        if (node.right) traversal(node.right, h + 1, res)
+    if (node.left) traversal(node.left, h + 1, res);
+    if (node.right) traversal(node.right, h + 1, res);
 
-        return res
-    }
+    return res;
+  };
 
-    const res = traversal(root, 0, [])
-    return res.reverse()
+  const res = traversal(root, 0, []);
+  return res.reverse();
 };
 // @lc code=end

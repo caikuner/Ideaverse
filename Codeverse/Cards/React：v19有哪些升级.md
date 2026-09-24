@@ -10,44 +10,44 @@ modified: 2025-06-12
 
 ## 🌟 核心特性升级
 
-| 特性                | 说明                                                                 |
-|---------------------|----------------------------------------------------------------------|
-| **Actions API**     | 简化数据提交和表单处理，自动管理 pending 状态                          |
-| **Document Metadata** | 直接在组件中定义 `<title>`、`<meta>` 等标签，支持 SSR                   |
-| **资源加载优化**    | 自动预加载字体/样式/图片等资源，减少布局偏移 (CLS)                    |
-| **Web Components 支持** | 原生支持 Web Components，无需额外适配层                              |
+| 特性                    | 说明                                                  |
+| ----------------------- | ----------------------------------------------------- |
+| **Actions API**         | 简化数据提交和表单处理，自动管理 pending 状态         |
+| **Document Metadata**   | 直接在组件中定义 `<title>`、`<meta>` 等标签，支持 SSR |
+| **资源加载优化**        | 自动预加载字体/样式/图片等资源，减少布局偏移 (CLS)    |
+| **Web Components 支持** | 原生支持 Web Components，无需额外适配层               |
 
 ## ⚡ 性能优化
 
-| 优化点              | 效果                                                                 |
-|---------------------|----------------------------------------------------------------------|
-| **编译器优化**      | 新的 React 编译器自动记忆化 (memo)，减少手动 `useMemo`/`useCallback` 需求 |
-| **服务端组件稳定版**| 完整的 RSC(React Server Components) 支持，优化 hydration 过程          |
-| **更快的异步渲染**  | 改进 Suspense 和过渡更新 (transition) 处理机制                           |
+| 优化点               | 效果                                                                      |
+| -------------------- | ------------------------------------------------------------------------- |
+| **编译器优化**       | 新的 React 编译器自动记忆化 (memo)，减少手动 `useMemo`/`useCallback` 需求 |
+| **服务端组件稳定版** | 完整的 RSC(React Server Components) 支持，优化 hydration 过程             |
+| **更快的异步渲染**   | 改进 Suspense 和过渡更新 (transition) 处理机制                            |
 
 ## 🛠️ API 改进
 
-| API               | 变化                                    |
-| ----------------- | ------------------------------------- |
-| **use Hook**      | 新增 `use()` 支持在组件内直接消费 Promise/Context |
-| **useOptimistic** | 新增 useOptimistic Hook，提升交互响应速度        |
-| **ref 作为 prop**   | 现在 ref 可以直接作为 prop 传递，无需 `forwardRef` |
+| API               | 变化                                               |
+| ----------------- | -------------------------------------------------- |
+| **use Hook**      | 新增 `use()` 支持在组件内直接消费 Promise/Context  |
+| **useOptimistic** | 新增 useOptimistic Hook，提升交互响应速度          |
+| **ref 作为 prop** | 现在 ref 可以直接作为 prop 传递，无需 `forwardRef` |
 
 ## 📦 开发者体验
 
-| 改进                | 说明                                                                 |
-|---------------------|----------------------------------------------------------------------|
-| **错误处理增强**    | 更清晰的错误消息和堆栈追踪                                           |
-| **严格模式更新**    | 新增对双重渲染效应的检测和警告                                       |
-| **测试工具集成**    | 改进的 React Test Utils 支持最新特性                                    |
+| 改进             | 说明                                 |
+| ---------------- | ------------------------------------ |
+| **错误处理增强** | 更清晰的错误消息和堆栈追踪           |
+| **严格模式更新** | 新增对双重渲染效应的检测和警告       |
+| **测试工具集成** | 改进的 React Test Utils 支持最新特性 |
 
 ## 🎨 示例代码片段
 
 ```jsx
 // 使用新的Actions API
 async function updateName(formData) {
-  'use server'
-  await db.updateUser(formData.get('name'))
+  "use server";
+  await db.updateUser(formData.get("name"));
 }
 
 function UserProfile() {
@@ -57,7 +57,7 @@ function UserProfile() {
       <button type="submit">保存</button>
       {/* 自动显示pending状态 */}
     </form>
-  )
+  );
 }
 
 // 使用文档元数据
@@ -68,7 +68,7 @@ function BlogPost() {
       <meta name="description" content="React最新版本特性介绍" />
       <article>{/* … */}</article>
     </>
-  )
+  );
 }
 ```
 

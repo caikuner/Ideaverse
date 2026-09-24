@@ -1,13 +1,14 @@
 ---
 tags:
   - handcode/css
-up: 
-related: 
+up:
+related:
 rank: "4"
-companies: 
+companies:
 created: 2025-06-18
 modified: 2025-06-18
 ---
+
 以下是 CSS 实现 **水平居中**、**垂直居中** 和 **水平垂直居中** 的 **最佳实践方案**（现代浏览器均支持）
 
 ### **一、水平居中**
@@ -76,9 +77,7 @@ inline 元素可设置 `line-height` 的值等于 `height` 值，如单行文字
   <span class="text">评分</span>
 </div>
 
-.icon {
-  vertical-align: middle; /* 图标与文字中线对齐 */
-}
+.icon { vertical-align: middle; /* 图标与文字中线对齐 */ }
 ```
 
 #### 3. **Flexbox 方案**
@@ -122,7 +121,7 @@ inline 元素可设置 `line-height` 的值等于 `height` 值，如单行文字
 .parent {
   display: flex;
   justify-content: center; /* 水平 */
-  align-items: center;     /* 垂直 */
+  align-items: center; /* 垂直 */
 }
 ```
 
@@ -153,8 +152,8 @@ inline 元素可设置 `line-height` 的值等于 `height` 值，如单行文字
 
 ```css
 .parent {
-  text-align: center;  /* 水平 */
-  line-height: 200px;  /* 等于容器高度（垂直） */
+  text-align: center; /* 水平 */
+  line-height: 200px; /* 等于容器高度（垂直） */
 }
 ```
 
@@ -162,12 +161,12 @@ inline 元素可设置 `line-height` 的值等于 `height` 值，如单行文字
 
 ### **四、不同场景推荐方案**
 
-| **场景**    | **推荐方案**                     | **兼容性** |
-| --------- | ---------------------------- | ------- |
-| 现代布局      | Flexbox / Grid               | IE11+   |
-| 简单文本      | `text-align` + `line-height` | 全兼容     |
-| 复杂元素（如图片） | 绝对定位 + `transform`           | IE9+    |
-| 需要响应式     | Flexbox                      | 最佳选择    |
+| **场景**           | **推荐方案**                 | **兼容性** |
+| ------------------ | ---------------------------- | ---------- |
+| 现代布局           | Flexbox / Grid               | IE11+      |
+| 简单文本           | `text-align` + `line-height` | 全兼容     |
+| 复杂元素（如图片） | 绝对定位 + `transform`       | IE9+       |
+| 需要响应式         | Flexbox                      | 最佳选择   |
 
 ---
 
@@ -192,7 +191,7 @@ inline 元素可设置 `line-height` 的值等于 `height` 值，如单行文字
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     height: 300px;
     border: 1px solid #ccc;
   }

@@ -12,7 +12,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { rootMargin: "100px" }
+  { rootMargin: "100px" },
 );
 
 const imgs = document.querySelectorAll("img[data-src]");

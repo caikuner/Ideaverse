@@ -2,7 +2,7 @@
 tags:
   - handcode
 
-related: 
+related:
 rank: "1"
 created: 2025-06-16
 modified: 2025-06-16
@@ -19,22 +19,22 @@ modified: 2025-06-16
 
 ```js
 const vnode = {
-  tag: 'div',
+  tag: "div",
   props: {
-    class: 'container',
+    class: "container",
   },
   children: [
     {
-      tag: 'img',
+      tag: "img",
       props: {
-        src: 'x1.png',
+        src: "x1.png",
       },
     },
     {
-      tag: 'p',
+      tag: "p",
       props: {},
-      children: ['hello'],
+      children: ["hello"],
     },
   ],
-}
+};
 ```

@@ -82,14 +82,15 @@ var exist = function (board, word) {
     if (i < 0 || i >= m || j < 0 || j >= n || word[k] !== board[i][j]) return false;
 
     // 不能重复访问，所以需要标记成特殊值
-    const temp = board[i][j]
-    board[i][j] = '#'
+    const temp = board[i][j];
+    board[i][j] = "#";
 
     // 找到了 word[k], 下面寻找k+1
-    const hasPath = dfs(i - 1, j, k + 1) || dfs(i + 1, j, k + 1) || dfs(i, j - 1, k + 1) || dfs(i, j + 1, k + 1);
+    const hasPath =
+      dfs(i - 1, j, k + 1) || dfs(i + 1, j, k + 1) || dfs(i, j - 1, k + 1) || dfs(i, j + 1, k + 1);
 
-    board[i][j] = temp // 还原
-    return hasPath
+    board[i][j] = temp; // 还原
+    return hasPath;
   }
 
   for (let i = 0; i < m; i++) {

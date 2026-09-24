@@ -68,6 +68,11 @@
     "TQ_show_task_count": "checkbox",
     "TQ_show_tree": "checkbox",
     "TQ_show_urgency": "checkbox",
-    "birthday": "date"
+    "birthday": "date",
+    "cover": "text",
+    "excalidraw-embed-md": "checkbox",
+    "project": "text",
+    "area": "multitext",
+    "excalidraw-export-internal-links": "checkbox"
   }
 }

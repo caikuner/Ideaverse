@@ -25,7 +25,7 @@ modified: 2025-07-12
 top -pid <node_pid>
 
 # 查看GC情况
-node --inspect <app.js> 
+node --inspect <app.js>
 # 然后在Chrome DevTools的Memory面板观察
 ```
 
@@ -66,9 +66,9 @@ clinic heapdoctor -- node app.js
 ```javascript
 // 反例：请求数据被意外存入全局数组
 const cache = [];
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   cache.push(req.query); // 内存泄漏!
-  res.send('OK');
+  res.send("OK");
 });
 ```
 
@@ -78,9 +78,9 @@ app.get('/', (req, res) => {
 
 ```javascript
 function createLeak() {
-  const hugeData = new Array(1e6).fill('*');
-  return function() {
-    console.log('Leak!'); // hugeData被闭包引用无法释放
+  const hugeData = new Array(1e6).fill("*");
+  return function () {
+    console.log("Leak!"); // hugeData被闭包引用无法释放
   };
 }
 ```
@@ -90,23 +90,23 @@ function createLeak() {
 ### 3. 未清理的监听器
 
 ```javascript
-const EventEmitter = require('events');
+const EventEmitter = require("events");
 const emitter = new EventEmitter();
 
 function createListener() {
-  emitter.on('event', () => {
+  emitter.on("event", () => {
     // 回调函数持有外部引用
   });
 }
 ```
 
-**诊断**：搜索 EventEmitter 实例的 _listeners 属性
+**诊断**：搜索 EventEmitter 实例的 \_listeners 属性
 
 ### 4. 缓存未设置上限
 
 ```javascript
 const cache = new Map();
-app.get('/cache', (req, res) => {
+app.get("/cache", (req, res) => {
   // 没有淘汰策略的缓存
   cache.set(req.url, heavyData);
 });
@@ -119,7 +119,7 @@ app.get('/cache', (req, res) => {
 ```javascript
 async function query() {
   const conn = await pool.getConnection();
-  const res = await conn.query('...');
+  const res = await conn.query("...");
   // 忘记conn.release();
 }
 ```
@@ -133,8 +133,8 @@ async function query() {
 ```javascript
 // 修复后的缓存实现
 const cache = new LRU({
-  max: 100,  // 限制最大条目
-  maxAge: 1000 * 60 // TTL
+  max: 100, // 限制最大条目
+  maxAge: 1000 * 60, // TTL
 });
 ```
 
@@ -170,7 +170,7 @@ artillery quick --count 1000 -n 50 http://localhost:3000
 
 ```javascript
 // 添加内存监控端点
-app.get('/monitor', (req, res) => {
+app.get("/monitor", (req, res) => {
   res.json(process.memoryUsage());
 });
 ```
@@ -245,7 +245,7 @@ node --cpu-prof --heap-prof app.js
 top -pid <node_pid>
 
 # 查看GC情况
-node --inspect <app.js> 
+node --inspect <app.js>
 # 然后在Chrome DevTools的Memory面板观察
 ```
 
@@ -286,9 +286,9 @@ clinic heapdoctor -- node app.js
 ```javascript
 // 反例：请求数据被意外存入全局数组
 const cache = [];
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   cache.push(req.query); // 内存泄漏!
-  res.send('OK');
+  res.send("OK");
 });
 ```
 
@@ -298,9 +298,9 @@ app.get('/', (req, res) => {
 
 ```javascript
 function createLeak() {
-  const hugeData = new Array(1e6).fill('*');
-  return function() {
-    console.log('Leak!'); // hugeData被闭包引用无法释放
+  const hugeData = new Array(1e6).fill("*");
+  return function () {
+    console.log("Leak!"); // hugeData被闭包引用无法释放
   };
 }
 ```
@@ -310,23 +310,23 @@ function createLeak() {
 ### 3. 未清理的监听器
 
 ```javascript
-const EventEmitter = require('events');
+const EventEmitter = require("events");
 const emitter = new EventEmitter();
 
 function createListener() {
-  emitter.on('event', () => {
+  emitter.on("event", () => {
     // 回调函数持有外部引用
   });
 }
 ```
 
-**诊断**：搜索 EventEmitter 实例的 _listeners 属性
+**诊断**：搜索 EventEmitter 实例的 \_listeners 属性
 
 ### 4. 缓存未设置上限
 
 ```javascript
 const cache = new Map();
-app.get('/cache', (req, res) => {
+app.get("/cache", (req, res) => {
   // 没有淘汰策略的缓存
   cache.set(req.url, heavyData);
 });
@@ -339,7 +339,7 @@ app.get('/cache', (req, res) => {
 ```javascript
 async function query() {
   const conn = await pool.getConnection();
-  const res = await conn.query('…');
+  const res = await conn.query("…");
   // 忘记conn.release();
 }
 ```
@@ -353,8 +353,8 @@ async function query() {
 ```javascript
 // 修复后的缓存实现
 const cache = new LRU({
-  max: 100,  // 限制最大条目
-  maxAge: 1000 * 60 // TTL
+  max: 100, // 限制最大条目
+  maxAge: 1000 * 60, // TTL
 });
 ```
 
@@ -390,7 +390,7 @@ artillery quick --count 1000 -n 50 http://localhost:3000
 
 ```javascript
 // 添加内存监控端点
-app.get('/monitor', (req, res) => {
+app.get("/monitor", (req, res) => {
   res.json(process.memoryUsage());
 });
 ```

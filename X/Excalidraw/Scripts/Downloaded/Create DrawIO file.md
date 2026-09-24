@@ -1,5 +1,6 @@
-/*
+/\*
 Creates a new draw.io diagram file and opens the file in the [Diagram plugin](https://github.com/zapthedingbat/drawio-obsidian) in a new tab.
+
 ```js*/
 
 if(!ea.verifyMinimumPluginVersion || !ea.verifyMinimumPluginVersion("1.9.7")) {
@@ -31,3 +32,4 @@ leaf.setViewState({
     file: filepath
   }
 });
+```

@@ -1,5 +1,5 @@
 ---
-created: '<% tp.file.title %>'
+created: "<% tp.file.title %>"
 modified:
 ---
 

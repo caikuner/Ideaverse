@@ -15,37 +15,37 @@
  *
  * 二叉树中的 路径 被定义为一条节点序列，序列中每对相邻节点之间都存在一条边。同一个节点在一条路径序列中 至多出现一次 。该路径 至少包含一个
  * 节点，且不一定经过根节点。
- * 
+ *
  * 路径和 是路径中各节点值的总和。
- * 
+ *
  * 给你一个二叉树的根节点 root ，返回其 最大路径和 。
- * 
- * 
- * 
+ *
+ *
+ *
  * 示例 1：
- * 
- * 
+ *
+ *
  * 输入：root = [1,2,3]
  * 输出：6
  * 解释：最优路径是 2 -> 1 -> 3 ，路径和为 2 + 1 + 3 = 6
- * 
+ *
  * 示例 2：
- * 
- * 
+ *
+ *
  * 输入：root = [-10,9,20,null,null,15,7]
  * 输出：42
  * 解释：最优路径是 15 -> 20 -> 7 ，路径和为 15 + 20 + 7 = 42
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  * 提示：
- * 
- * 
+ *
+ *
  * 树中节点数目范围是 [1, 3 * 10^4]
  * -1000 <= Node.val <= 1000
- * 
- * 
+ *
+ *
  */
 
 // @lc code=start
@@ -62,22 +62,21 @@
  * @return {number}
  */
 var maxPathSum = function (root) {
-    const dfs = (node) => {
-        // 寻找当前 node 的最大路径和
-        if (!node) return 0
+  const dfs = (node) => {
+    // 寻找当前 node 的最大路径和
+    if (!node) return 0;
 
-        const left = dfs(node.left)
-        const right = dfs(node.right)
+    const left = dfs(node.left);
+    const right = dfs(node.right);
 
-        res = Math.max(res, left + right + node.val)
+    res = Math.max(res, left + right + node.val);
 
-        // 注意一个隐含条件：子路径的最大和不能比 0 小（如果比 0 小干脆不取就更大了。所以需要和 0 取个较大值）
-        return Math.max(Math.max(left, right) + node.val, 0)
-    }
+    // 注意一个隐含条件：子路径的最大和不能比 0 小（如果比 0 小干脆不取就更大了。所以需要和 0 取个较大值）
+    return Math.max(Math.max(left, right) + node.val, 0);
+  };
 
-    let res = -Infinity
-    dfs(root)
-    return res
+  let res = -Infinity;
+  dfs(root);
+  return res;
 };
 // @lc code=end
-

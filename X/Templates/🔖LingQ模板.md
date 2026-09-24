@@ -7,7 +7,6 @@ langr-pos: "5"
 
 ^^^article
 
-
 I appreciate your president having made me an honorary visiting professor, and I will assure you that my first lecture will be very brief.
 
 I appreciate your president having made me an honorary visiting professor, and I will assure you that my first lecture will be very brief. I am delighted to be here, and I'm particularly delighted to be here on this occasion .
@@ -16,10 +15,9 @@ string and string theory is good. setup xxx
 
 ^^^words
 
-
 ^^^notes
 
 > [!success] 使用说明
-![[LingQ案例.jpg]]
+> ![[LingQ案例.jpg]]
 
 ![[LingQ插件使用指南.pdf]]

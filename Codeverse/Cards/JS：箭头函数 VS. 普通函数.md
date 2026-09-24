@@ -20,10 +20,12 @@ modified: 2025-06-16
 **对于普通函数：**
 
 每个函数调用时，内部存在两个特殊对象：
+
 - arguments ：包含调用函数时传入的所有参数的类数组对象，**箭头函数没有**
 - **this**：**箭头函数没有**，它在定义时就确定了
 
 每个函数定义时，都有两个属性：
+
 - `length`：函数定义时的命名参数的个数 ->**箭头函数也有!!!**
 - prototype : 原型对象 **箭头函数没有**
 
@@ -77,8 +79,8 @@ console.log('end')
 **箭头函数的不同：**
 
 - **箭头函数写法更简单**
-    - `let fun = (params) => { // 函数体 };`
-    - 但是注意，箭头函数不能换行
+  - `let fun = (params) => { // 函数体 };`
+  - 但是注意，箭头函数不能换行
 
 ```
 var func = ()
@@ -146,77 +148,77 @@ b.y();
 
 ### 对比：箭头函数和普通函数
 
-| 特性                     | 箭头函数                        | 普通函数                   |
-| ---------------------- | --------------------------- | ---------------------- |
-| 语法                     | =>                          | 使用 `function` 定义       |
-| `this` 绑定              | 词法绑定，继承外层 `this`            | 动态绑定，调用时决定             |
-| `arguments` 对象         | 没有，需要使用 `…args`             | 有自己的 `arguments` 对象    |
-| 是否能作为构造函数              | 不能                          | 可以                     |
-| 是否有 `prototype` 属性     | 没有                          | 有                      |
-| 是否支持 `bind/call/apply` | 不支持                         | 支持                     |
+| 特性                       | 箭头函数                                       | 普通函数                              |
+| -------------------------- | ---------------------------------------------- | ------------------------------------- |
+| 语法                       | =>                                             | 使用 `function` 定义                  |
+| `this` 绑定                | 词法绑定，继承外层 `this`                      | 动态绑定，调用时决定                  |
+| `arguments` 对象           | 没有，需要使用 `…args`                         | 有自己的 `arguments` 对象             |
+| 是否能作为构造函数         | 不能                                           | 可以                                  |
+| 是否有 `prototype` 属性    | 没有                                           | 有                                    |
+| 是否支持 `bind/call/apply` | 不支持                                         | 支持                                  |
 | 适用场景                   | 用于回调函数、闭包、需要继承外层 `this` 的场景 | 需要动态绑定 `this`，或用作构造函数时 |
 
 ```js
 // 箭头函数 this
 const obj = {
-  name: 'Alice',
+  name: "Alice",
   say: () => {
-    console.log(this.name) // undefined (继承全局作用域的 this)
+    console.log(this.name); // undefined (继承全局作用域的 this)
   },
-}
-obj.say()
+};
+obj.say();
 
 // 普通函数 this
 const obj = {
-  name: 'Alice',
+  name: "Alice",
   say: function () {
-    console.log(this.name) // "Alice" (this 指向 obj)
+    console.log(this.name); // "Alice" (this 指向 obj)
   },
-}
-obj.say()
+};
+obj.say();
 
 // 箭头函数 不能作为构造函数
 const Person = (name) => {
-  this.name = name
-}
-const p = new Person('Alice') // TypeError: Person is not a constructor
+  this.name = name;
+};
+const p = new Person("Alice"); // TypeError: Person is not a constructor
 
 // 普通函数 构造函数
 function Person(name) {
-  this.name = name
+  this.name = name;
 }
-const p = new Person('Alice')
-console.log(p.name) // "Alice"
+const p = new Person("Alice");
+console.log(p.name); // "Alice"
 
 // 箭头函数 ...args
 const add = (...args) => {
-  console.log(args) // [1, 2, 3]
-}
-add(1, 2, 3)
+  console.log(args); // [1, 2, 3]
+};
+add(1, 2, 3);
 
 // 普通函数 arguments
 function add() {
-  console.log(arguments) // Arguments(3) [1, 2, 3]
+  console.log(arguments); // Arguments(3) [1, 2, 3]
 }
-add(1, 2, 3)
+add(1, 2, 3);
 
 // 箭头函数 不支持 `bind/call/apply`
 const obj = {
   value: 42,
-}
+};
 const arrowFn = () => {
-  console.log(this.value)
-}
-arrowFn.call(obj) // undefined
+  console.log(this.value);
+};
+arrowFn.call(obj); // undefined
 
 // 普通函数 支持 `bind/call/apply`
 const obj = {
   value: 42,
-}
+};
 function normalFn() {
-  console.log(this.value)
+  console.log(this.value);
 }
-normalFn.call(obj) // 42
+normalFn.call(obj); // 42
 ```
 
 ## 什么时候不能使用箭头函数
@@ -230,7 +232,7 @@ normalFn.call(obj) // 42
 ### Babel 会将箭头函数编译成什么
 
 1. **编译成普通函数**
-2. **当用到 this 和****arguments 时,****存储****外部值，生成临时变量**`**_this**`**和**`**_arguments**`
+2. **当用到 this 和\*\***arguments 时,\***\*存储\*\***外部值，生成临时变量**`**\_this**`**和**`**\_arguments\*\*`
 3. **由于编译后是普通函数，所以具有**`**prototype**`**属性，使用**`**new实例化**`**也不会报错**
 
 这样一来，和普通函数就没啥区别了。

@@ -86,10 +86,10 @@ var merge = function (nums1, m, nums2, n) {
     // 1 3 6 0 0 0, 2 5 5
     if (nums1[i] >= nums2[j]) {
       nums1[ptr] = nums1[i];
-      i--
+      i--;
     } else {
       nums1[ptr] = nums2[j];
-      j--
+      j--;
     }
     ptr--;
   }
@@ -97,11 +97,11 @@ var merge = function (nums1, m, nums2, n) {
   // 剩余元素 (剩余的数组 2 的元素要移动过来)
   while (j >= 0) {
     nums1[j] = nums2[j];
-    j--
+    j--;
   }
 };
 // @lc code=end
-console.log(merge([1,2,3,0,0,0],3, [0,5,6],3))
+console.log(merge([1, 2, 3, 0, 0, 0], 3, [0, 5, 6], 3));
 /*
 // @lcpr case=start
 // [1,2,3,0,0,0]\n3\n[2,5,6]\n3\n

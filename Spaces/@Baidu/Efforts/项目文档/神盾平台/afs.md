@@ -1,4 +1,3 @@
-
 ```
 afs://andi.afs.baidu.com:9902/user/anti_bjyz/configure/flink-feature-service/baidu_app_activate_log/online/
 

@@ -1,5 +1,6 @@
 {
-  "folder": "Calendar/Journal",
+  "folder": "Calendar",
   "template": "X/Templates/Calendar,Daily Note",
-  "autorun": true
+  "autorun": false,
+  "format": "YYYY-MM"
 }

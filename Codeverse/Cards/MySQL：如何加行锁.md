@@ -1,8 +1,8 @@
 ---
 tags: [be/mysql]
-up: 
-related: 
-rank: 
+up:
+related:
+rank:
 created: 2025-07-14
 modified: 2025-07-17
 ---
@@ -39,8 +39,8 @@ SELECT * FROM table WHERE id = 1 FOR UPDATE;
 
 ```sql
 -- 表中添加version字段
-UPDATE products 
-SET stock = stock - 1, version = version + 1 
+UPDATE products
+SET stock = stock - 1, version = version + 1
 WHERE id = 100 AND version = 5;
 -- 如果受影响行数为0，说明版本号已变更，需要重试
 ```
@@ -86,14 +86,14 @@ COMMIT;
 这是最常用的行锁方式，适用于需要修改数据前先锁定记录的场景。
 
 ```javascript
-const mysql = require('mysql2/promise');
+const mysql = require("mysql2/promise");
 
 async function updateWithLock() {
   const connection = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    database: 'test',
-    password: 'password'
+    host: "localhost",
+    user: "root",
+    database: "test",
+    password: "password",
   });
 
   try {
@@ -101,35 +101,33 @@ async function updateWithLock() {
     await connection.beginTransaction();
 
     // 锁定要修改的行
-    const [rows] = await connection.query(
-      'SELECT * FROM products WHERE id = ? FOR UPDATE', 
-      [productId]
-    );
+    const [rows] = await connection.query("SELECT * FROM products WHERE id = ? FOR UPDATE", [
+      productId,
+    ]);
 
     if (rows.length === 0) {
-      throw new Error('Product not found');
+      throw new Error("Product not found");
     }
 
     const product = rows[0];
-    
+
     // 检查库存等业务逻辑
     if (product.stock < quantity) {
-      throw new Error('Insufficient stock');
+      throw new Error("Insufficient stock");
     }
 
     // 更新数据
-    await connection.query(
-      'UPDATE products SET stock = stock - ? WHERE id = ?',
-      [quantity, productId]
-    );
+    await connection.query("UPDATE products SET stock = stock - ? WHERE id = ?", [
+      quantity,
+      productId,
+    ]);
 
     // 提交事务，释放锁
     await connection.commit();
-    
   } catch (error) {
     // 发生错误时回滚
     await connection.rollback();
-    console.error('Transaction failed:', error);
+    console.error("Transaction failed:", error);
   } finally {
     // 关闭连接
     await connection.end();
@@ -143,10 +141,9 @@ async function updateWithLock() {
 
 ```javascript
 async function readWithLock() {
-  const [rows] = await connection.query(
-    'SELECT * FROM products WHERE id = ? LOCK IN SHARE MODE',
-    [productId]
-  );
+  const [rows] = await connection.query("SELECT * FROM products WHERE id = ? LOCK IN SHARE MODE", [
+    productId,
+  ]);
   // 其他会话可以加共享锁但不能加排他锁
 }
 ```
@@ -157,21 +154,20 @@ async function readWithLock() {
 
 ```javascript
 async function updateWithOptimisticLock() {
-  const [rows] = await connection.query(
-    'SELECT id, stock, version FROM products WHERE id = ?',
-    [productId]
-  );
+  const [rows] = await connection.query("SELECT id, stock, version FROM products WHERE id = ?", [
+    productId,
+  ]);
 
   const product = rows[0];
   const newStock = product.stock - quantity;
-  
+
   const [result] = await connection.query(
-    'UPDATE products SET stock = ?, version = version + 1 WHERE id = ? AND version = ?',
-    [newStock, productId, product.version]
+    "UPDATE products SET stock = ?, version = version + 1 WHERE id = ? AND version = ?",
+    [newStock, productId, product.version],
   );
 
   if (result.affectedRows === 0) {
-    throw new Error('Update failed, data may have been modified by another transaction');
+    throw new Error("Update failed, data may have been modified by another transaction");
   }
 }
 ```
@@ -184,20 +180,20 @@ MySQL 还提供了命名锁机制：
 async function useNamedLock() {
   // 获取命名锁
   const [lockResult] = await connection.query(
-    'SELECT GET_LOCK(?, ?) as lock_obtained',
-    ['my_resource_lock', 10] // 锁名称和超时时间(秒)
+    "SELECT GET_LOCK(?, ?) as lock_obtained",
+    ["my_resource_lock", 10], // 锁名称和超时时间(秒)
   );
 
   if (lockResult[0].lock_obtained !== 1) {
-    throw new Error('Could not obtain lock');
+    throw new Error("Could not obtain lock");
   }
 
   try {
     // 执行需要加锁的操作
-    await connection.query('UPDATE products SET stock = stock - 1 WHERE id = 1');
+    await connection.query("UPDATE products SET stock = stock - 1 WHERE id = 1");
   } finally {
     // 释放锁
-    await connection.query('SELECT RELEASE_LOCK(?)', ['my_resource_lock']);
+    await connection.query("SELECT RELEASE_LOCK(?)", ["my_resource_lock"]);
   }
 }
 ```

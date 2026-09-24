@@ -6,6 +6,7 @@ in:
 created: 2024-03-05
 modified: 2025-07-22
 ---
+
 [[ReadItLater]] [[Article]]
 
 # [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#code-四步法]]
@@ -14,13 +15,11 @@ modified: 2025-07-22
 - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#引言]]
 - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#务必现在就行动起来]]
 - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#code-四步法]]
-    - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#捕捉capture]]
-    - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#组织organize]]
-    - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#精华提炼distill]]
-    - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#表达是检验您独特的想法和经验的不二法门]]
+  - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#捕捉capture]]
+  - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#组织organize]]
+  - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#精华提炼distill]]
+  - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#表达是检验您独特的想法和经验的不二法门]]
 - [[https://pkmer.cn/Pkmer-Docs/02-知识管理基础/basb/构建第二大脑-入门指南/#总结]]
-
-
 
 ## 构建第二大脑：入门指南
 

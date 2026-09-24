@@ -5,6 +5,7 @@ related:
 created: 2025-05-15
 modified: 2025-05-15
 ---
+
 在 JavaScript 中，堆栈是一种内存管理机制，用于存储函数调用和变量等信息。而 V8 是谷歌开发的 JavaScript 引擎，它也有自己的堆栈概念，用于执行 JavaScript 代码。以下是 JavaScript 中的堆栈和 V8 中的堆栈的主要区别：
 
 ##### 概念层面

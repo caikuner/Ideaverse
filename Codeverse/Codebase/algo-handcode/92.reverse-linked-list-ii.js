@@ -82,7 +82,8 @@ var reverseBetween = function (head, left, right) {
 
   let prev = null;
   let cur = p0.next;
-  for (let i = 0; i < k; i++) { // 同 206
+  for (let i = 0; i < k; i++) {
+    // 同 206
     const next = cur.next;
     cur.next = prev; // 每次循环只修改一个 next
 

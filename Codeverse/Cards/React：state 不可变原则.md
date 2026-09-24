@@ -36,8 +36,8 @@ React 是使用浅比较（shallow comparison）来检测状态是否发生变�
 
 ```jsx
 // ❌ 错误：直接修改状态
-state.name = 'new name'
-setState(state)
+state.name = "new name";
+setState(state);
 ```
 
 ```jsx
@@ -52,8 +52,8 @@ setState({
 
 ```jsx
 // ❌ 错误：直接修改数组
-state.items.push(newItem)
-setState(state)
+state.items.push(newItem);
+setState(state);
 ```
 
 ```jsx
@@ -69,17 +69,17 @@ setState({
 常用的库有：
 
 - **Immer.js**  
-[Immer](https://immerjs.github.io/immer/) 是一个流行的库，它允许你以可变的方式编写代码，但最终生成不可变的数据。
+  [Immer](https://immerjs.github.io/immer/) 是一个流行的库，它允许你以可变的方式编写代码，但最终生成不可变的数据。
 
 ```jsx
-import produce from 'immer'
+import produce from "immer";
 
 setState(
   produce(state, (draft) => {
-    draft.user.profile.name = 'new name' // 直接修改
-    draft.items.push(newItem) // 直接修改
-  })
-)
+    draft.user.profile.name = "new name"; // 直接修改
+    draft.items.push(newItem); // 直接修改
+  }),
+);
 ```
 
 - **Immutable.js**
@@ -87,8 +87,8 @@ setState(
 [Immutable.js](https://immutable-js.com/) 提供了不可变的数据结构（如 `List`、`Map` 等），可以更方便地处理不可变数据。
 
 ```jsx
-import { Map } from 'immutable'
+import { Map } from "immutable";
 
-const state = Map({ name: 'John', age: 30 })
-const newState = state.set('name', 'Jane')
+const state = Map({ name: "John", age: 30 });
+const newState = state.set("name", "Jane");
 ```

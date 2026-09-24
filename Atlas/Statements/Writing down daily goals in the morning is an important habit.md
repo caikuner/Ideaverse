@@ -5,11 +5,12 @@ related: []
 created: 2014-06-28
 modified: 2020-05-28
 ---
+
 wThis follows: [[Journaling in the morning is an important habit]]. After journaling, set some broad, simple daily goals.
 
-Daily Goals are a continuation of the Morning Journal. Basically ask yourself: *"What actions and tasks would make today feel like a worthwhile day? How much is realistic? In what order should I do them?"*
+Daily Goals are a continuation of the Morning Journal. Basically ask yourself: _"What actions and tasks would make today feel like a worthwhile day? How much is realistic? In what order should I do them?"_
 
-Type or write them down. Keep track of them during the day. Adjust as needed. Writing down your daily goals combats those random attentional detours so you can stay on the main road. 
+Type or write them down. Keep track of them during the day. Adjust as needed. Writing down your daily goals combats those random attentional detours so you can stay on the main road.
 
 If you write out your daily goals, you naturally visualize them and prioritize them in the mind, you have a touchstone with which to check your progress throughout the day. It adds security.
 

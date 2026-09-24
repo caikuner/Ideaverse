@@ -5,6 +5,7 @@ related:
 created: 2025-06-11
 modified: 2025-06-12
 ---
+
 主要是 React 中管理表单数据的不同方式，因为表单需要管理和更新值。
 
 ## 受控组件（Controlled Component）
@@ -29,11 +30,11 @@ modified: 2025-06-12
 
 ```jsx
 function ControlledInput() {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
 
   const handleChange = (event) => {
-    setValue(event.target.value) // 更新状态
-  }
+    setValue(event.target.value); // 更新状态
+  };
 
   return (
     <div>
@@ -44,7 +45,7 @@ function ControlledInput() {
       />
       <p>Current value: {value}</p>
     </div>
-  )
+  );
 }
 ```
 
@@ -74,7 +75,7 @@ function ControlledInput() {
 - 输入提交
 
 ```jsx
-import { useRef } from 'react';
+import { useRef } from "react";
 
 function UncontrolledForm() {
   const inputRef = useRef(null);
@@ -101,7 +102,7 @@ function FileUpload() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('选择的文件:', fileInputRef.current.files[0]);
+    console.log("选择的文件:", fileInputRef.current.files[0]);
   };
 
   return (
@@ -121,10 +122,10 @@ function FormWithDefault() {
 
   return (
     <form>
-      <input 
-        type="text" 
-        ref={inputRef} 
-        defaultValue="初始值"  // 使用 defaultValue 而不是 value
+      <input
+        type="text"
+        ref={inputRef}
+        defaultValue="初始值" // 使用 defaultValue 而不是 value
       />
     </form>
   );
@@ -133,21 +134,21 @@ function FormWithDefault() {
 
 ## 总结对比
 
-| 特性    | 非受控组件  | 受控组件                |
-| ----- | ------ | ------------------- |
-| 数据存储  | DOM 中  | React 状态中           |
-| 值获取方式 | ref    | state               |
-| 更新触发  | DOM 事件 | onChange + setState |
-| 即时验证  | 困难     | 容易                  |
-| 性能    | 更好     | 可能较差                |
-| 代码量   | 更少     | 更多                  |
-| 管理    | 差      | 好                   |
+| 特性       | 非受控组件 | 受控组件            |
+| ---------- | ---------- | ------------------- |
+| 数据存储   | DOM 中     | React 状态中        |
+| 值获取方式 | ref        | state               |
+| 更新触发   | DOM 事件   | onChange + setState |
+| 即时验证   | 困难       | 容易                |
+| 性能       | 更好       | 可能较差            |
+| 代码量     | 更少       | 更多                |
+| 管理       | 差         | 好                  |
 
 ## 最佳实践
 
 - 非受控组件：
-	- 对于简单表单或性能敏感场景、文件输入使用
-	- 在大型应用中谨慎使用，以避免状态管理混乱
-	- 考虑使用 `defaultValue` 和 `defaultChecked` 设置初始值
+  - 对于简单表单或性能敏感场景、文件输入使用
+  - 在大型应用中谨慎使用，以避免状态管理混乱
+  - 考虑使用 `defaultValue` 和 `defaultChecked` 设置初始值
 - 受控组件：
-	- 需要即时反馈或复杂验证时使用受控组件
+  - 需要即时反馈或复杂验证时使用受控组件

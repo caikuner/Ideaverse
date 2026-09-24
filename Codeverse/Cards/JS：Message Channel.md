@@ -27,7 +27,7 @@ const channel = new MessageChannel();
 
 ```javascript
 // 主线程
-const worker = new Worker('worker.js');
+const worker = new Worker("worker.js");
 const channel = new MessageChannel();
 
 // 将 port2 传递给 worker
@@ -35,9 +35,9 @@ worker.postMessage({ port: channel.port2 }, [channel.port2]);
 
 // 使用 port1 通信
 channel.port1.onmessage = (e) => {
-  console.log('收到 worker 消息:', e.data);
+  console.log("收到 worker 消息:", e.data);
 };
-channel.port1.postMessage('主线程消息');
+channel.port1.postMessage("主线程消息");
 ```
 
 ```javascript
@@ -45,8 +45,8 @@ channel.port1.postMessage('主线程消息');
 onmessage = (e) => {
   const port = e.data.port;
   port.onmessage = (e) => {
-    console.log('收到主线程消息:', e.data);
-    port.postMessage('worker 回复');
+    console.log("收到主线程消息:", e.data);
+    port.postMessage("worker 回复");
   };
 };
 ```
@@ -55,13 +55,13 @@ onmessage = (e) => {
 
 ```javascript
 // 父页面
-const iframe = document.querySelector('iframe');
+const iframe = document.querySelector("iframe");
 const channel = new MessageChannel();
 
-iframe.contentWindow.postMessage({ port: channel.port2 }, '*', [channel.port2]);
+iframe.contentWindow.postMessage({ port: channel.port2 }, "*", [channel.port2]);
 
 channel.port1.onmessage = (e) => {
-  console.log('来自 iframe 的消息:', e.data);
+  console.log("来自 iframe 的消息:", e.data);
 };
 ```
 
@@ -69,7 +69,7 @@ channel.port1.onmessage = (e) => {
 // iframe 内部
 window.onmessage = (e) => {
   const port = e.data.port;
-  port.postMessage('iframe 已连接');
+  port.postMessage("iframe 已连接");
 };
 ```
 
@@ -77,10 +77,7 @@ window.onmessage = (e) => {
 
 ```javascript
 // 页面代码
-navigator.serviceWorker.controller.postMessage(
-  { type: 'INIT_PORT' },
-  [channel.port2]
-);
+navigator.serviceWorker.controller.postMessage({ type: "INIT_PORT" }, [channel.port2]);
 ```
 
 ### 4. 同一文档中不同部分通信

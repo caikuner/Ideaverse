@@ -1,7 +1,7 @@
 ---
 tags: []
-up: 
-related: 
+up:
+related:
 url: https://www.mianshipai.com/docs/second-exam/engineering.html
 created: 2025-06-13
 modified: 2025-06-13
@@ -16,9 +16,9 @@ modified: 2025-06-13
 ```js
 export default defineConfig({
   optimizeDeps: {
-    include: ['lodash', 'vue', 'react'], // 预构建依赖
+    include: ["lodash", "vue", "react"], // 预构建依赖
   },
-})
+});
 ```
 
 ### Rolldown
@@ -38,15 +38,15 @@ npm install vite - plugin - compression--save - dev
 配置示例：
 
 ```javascript
-import compression from 'vite-plugin-compression'
+import compression from "vite-plugin-compression";
 export default defineConfig({
   plugins: [
     compression({
-      algorithm: 'gzip', // 或 'brotli' 压缩
+      algorithm: "gzip", // 或 'brotli' 压缩
       threshold: 10240, // 文件大于 10KB 时启用压缩
     }),
   ],
-})
+});
 ```
 
 ### 代码分割
@@ -56,13 +56,13 @@ export default defineConfig({
 使用动态导入实现按需加载，减小初始包的体积，提高页面加载速度。
 
 ```javascript
-const module = import('./module.js') // 动态导入
+const module = import("./module.js"); // 动态导入
 ```
 
 或者在路由中使用懒加载：
 
 ```javascript
-const MyComponent = () => import('./MyComponent.vue')
+const MyComponent = () => import("./MyComponent.vue");
 ```
 
 - 🎯 手动控制分包
@@ -70,26 +70,25 @@ const MyComponent = () => import('./MyComponent.vue')
 在 Vite 中，你可以通过配置 Rollup 的 `manualChunks` 选项来手动控制如何分割代码。这个策略适用于想要将特定的依赖或模块提取成单独的 chunk 文件。
 
 ```javascript
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 export default defineConfig({
   build: {
     minify: false,
     // 在这里配置打包时的rollup配置
     rollupOptions: {
       manualChunks: (id) => {
-        if (id.includes('node_modules')) {
-          return 'vendor'
+        if (id.includes("node_modules")) {
+          return "vendor";
         }
       },
     },
   },
-})
+});
 ```
 
 ### 图片优化
 
 使用 `vite-plugin-imagemin` 插件对项目中的图片进行压缩，减少图片体积，提升加载速度。
-
 
 - 安装依赖
 
@@ -117,5 +116,5 @@ export default defineConfig({
       },
     }),
   ],
-})
+});
 ```

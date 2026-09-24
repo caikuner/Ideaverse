@@ -11,7 +11,6 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
   return arr;
 }
 
-
 // 分区函数（核心）,一次分区会把一个基准值刚到排序后的正确位置
 function partition(arr, left, right) {
   // 随机选择基准值（避免最坏情况），并放到最右
@@ -23,7 +22,8 @@ function partition(arr, left, right) {
 
   let i = left; // i：比基准值 pivot 小的边界指针
 
-  for (let j = left; j < right; j++) { // 找 pivot 应该处在的位置：左边都比它小，右边都比它大
+  for (let j = left; j < right; j++) {
+    // 找 pivot 应该处在的位置：左边都比它小，右边都比它大
     if (arr[j] < pivot) {
       // 交换元素i j位置，把比 pivot 小的放到i 左边
       swap(arr, i, j);
@@ -40,8 +40,6 @@ function swap(arr, i, j) {
   if (!arr || i === j) return;
   [arr[i], arr[j]] = [arr[j], arr[i]];
 }
-
-
 
 const a = [7, 4, 1, 6, 8, 9];
 quickSort(a);

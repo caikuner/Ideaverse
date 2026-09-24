@@ -11,7 +11,8 @@ modified: 2025-06-11
 published:
 description: "LRS是一种旨在清晰分层、高效开发和维护大型 React 项目的方法论"
 ---
-Corbin Crutchley *2025 年 05 月 13 日 09:10*
+
+Corbin Crutchley _2025 年 05 月 13 日 09:10_
 
 前言
 
@@ -279,11 +280,11 @@ asyncfunctionmain(){
 
 这些文件结构，通常被称为文件系统（filesystem），是由操作系统在格式化磁盘时（手动或系统安装时）创建的。不同操作系统有各自默认的文件系统：
 
-| 操作系统 | 默认文件系统 |
-| --- | --- |
-| Windows | NTFS（New Technology File System） |
-| macOS | APFS（Apple File System） |
-| Linux | EXT4（第四代扩展文件系统） |
+| 操作系统 | 默认文件系统                       |
+| -------- | ---------------------------------- |
+| Windows  | NTFS（New Technology File System） |
+| macOS    | APFS（Apple File System）          |
+| Linux    | EXT4（第四代扩展文件系统）         |
 
 每种文件系统都有各自的优缺点，但其中对 Web 开发者来说最重要的区别是：文件名的大小写敏感性。
 
@@ -404,9 +405,9 @@ Kent 是 “Testing Library” 的作者，目前这个测试库已经支持多�
 - **React Testing Library**
 - **User Event**
 - **Jest DOM**  
-	（也支持 Vitest）
+  （也支持 Vitest）
 - **MSW**  
-	（Mock Service Worker）
+  （Mock Service Worker）
 
 ⚠️ 我不建议使用 React Hooks Testing Library。这个库已经很久没有维护了，而且鼓励了一些不太好的测试实践。
 
@@ -465,7 +466,7 @@ Jest 使用的是 JSDom，这虽然模拟了浏览器环境，但调试体验不
 - 集中预览和管理所有 UI 元素
 - 自动生成文档
 - 支持组件演示和测试  
-![图片](https://mmbiz.qpic.cn/sz_mmbiz/meG6Vo0MevhYzvzEMANicBrbnZTnHI8amEEcxH1nkTKzkHOJLWEuL1F2xq7VovEvYk1iaSl2rZ1ibLcJIbMeX2s3w/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
+  ![图片](https://mmbiz.qpic.cn/sz_mmbiz/meG6Vo0MevhYzvzEMANicBrbnZTnHI8amEEcxH1nkTKzkHOJLWEuL1F2xq7VovEvYk1iaSl2rZ1ibLcJIbMeX2s3w/640?wx_fmt=other&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1)
 
 例如一个简单的 Storybook 示例：
 

@@ -1,11 +1,12 @@
 ---
 tags: [fe/ts]
-up: 
-related: 
-rank: 
+up:
+related:
+rank:
 created: 2025-07-10
 modified: 2025-07-10
 ---
+
 以下是 TypeScript 核心类型的简明介绍，按类别分类说明：
 
 ### 原始类型 (Primitive Types)
@@ -87,7 +88,7 @@ modified: 2025-07-10
    ```ts
    enum Direction {
      Up = "UP",
-     Down = "DOWN"
+     Down = "DOWN",
    }
    ```
 
@@ -146,7 +147,7 @@ modified: 2025-07-10
    function error(message: string): never {
      throw new Error(message);
    }
-   
+
    // 类型收窄示例
    type All = string | number;
    function check(value: All) {
@@ -169,38 +170,39 @@ graph TD
   A[类型系统] --> B[原始类型]
   A --> C[对象类型]
   A --> D[特殊类型]
-  
+
   B --> B1(boolean)
   B --> B2(number)
   B --> B3(string)
   B --> B4(void)
   B --> B5(null/undefined)
-  
+
   C --> C1(Interface)
   C --> C2(Class)
   C --> C3(Enum)
   C --> C4(Array)
   C --> C5(Tuple)
-  
+
   D --> D1(any)
   D --> D2(unknown)
   D --> D3(never)
-  
+
   D1 -->|所有类型的超类型| D2
   D3 -->|所有类型的子类型| D2
 ```
 
 ### 关键区别
 
-| 类型        | 特点                          | 使用场景                     |
-|-------------|-------------------------------|------------------------------|
-| **any**     | 完全禁用类型检查              | 迁移 JS 项目或应急方案         |
-| **unknown** | 需类型断言/收窄后才允许操作   | 安全处理第三方数据           |
-| **never**   | 表示不可能存在的状态          | 穷尽检查、错误处理           |
-| **void**    | 无返回值                      | 函数返回类型                 |
-| **null/undefined** | 需显式处理              | 可选值表示                   |
+| 类型               | 特点                        | 使用场景               |
+| ------------------ | --------------------------- | ---------------------- |
+| **any**            | 完全禁用类型检查            | 迁移 JS 项目或应急方案 |
+| **unknown**        | 需类型断言/收窄后才允许操作 | 安全处理第三方数据     |
+| **never**          | 表示不可能存在的状态        | 穷尽检查、错误处理     |
+| **void**           | 无返回值                    | 函数返回类型           |
+| **null/undefined** | 需显式处理                  | 可选值表示             |
 
 > **最佳实践**：
+>
 > - 优先使用 `unknown` 替代 `any`
 > - 用 `never` 实现穷尽检查
 > - 开启 `strictNullChecks` 避免空值错误

@@ -1,7 +1,7 @@
 // 三种状态
-const PENDING = "pending"
-const FULFILLED = "fulfilled"
-const REJECTED = "rejected"
+const PENDING = "pending";
+const FULFILLED = "fulfilled";
+const REJECTED = "rejected";
 
 class MyPromise {
   constructor(executor) {
@@ -38,11 +38,17 @@ class MyPromise {
     // 当参数不是函数类型时，需要创建一个函数直接把参数返回，实现值透传。
     // 如 Promise.resolve(4).then().then(v=>console.log(v))
     const onResolvedCb = typeof onResolved === "function" ? onResolved : (v) => v;
-    const onRejectedCb = typeof onRejected === "function" ? onRejected : (err) => {throw err};
+    const onRejectedCb =
+      typeof onRejected === "function"
+        ? onRejected
+        : (err) => {
+            throw err;
+          };
 
     return new MyPromise((resolve, reject) => {
       const handleFulfilled = () => {
-        queueMicrotask(() => { // 入队微任务
+        queueMicrotask(() => {
+          // 入队微任务
           try {
             const value = onResolvedCb(this.value);
             resolve(value);
@@ -83,7 +89,7 @@ class MyPromise {
   }
   finally(onFinally) {
     // 实现
-    return this.then(onFinally, onFinally)
+    return this.then(onFinally, onFinally);
   }
 
   // 以下是静态方法
@@ -97,16 +103,16 @@ class MyPromise {
 
 // use case
 new MyPromise((resolve, reject) => {
-    resolve(1);
+  resolve(1);
 })
-.then(console.log)  // 1
-.finally(()=>console.log('end'))
+  .then(console.log) // 1
+  .finally(() => console.log("end"));
 
 new MyPromise((resolve, reject) => {
   reject(2);
 })
-.catch(console.log) // 2
-.finally(()=>console.log('end'))
+  .catch(console.log) // 2
+  .finally(() => console.log("end"));
 
 MyPromise.resolve(3).then(console.log);
 MyPromise.reject(4).catch(console.log);

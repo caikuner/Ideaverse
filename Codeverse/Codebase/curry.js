@@ -17,58 +17,57 @@ function curry(fn) {
   };
 }
 
-
 // 追问：支持占位符，用于延迟参数
-function curryWithFilled(fn, placeholder = '_') {
-  const length = fn.length
+function curryWithFilled(fn, placeholder = "_") {
+  const length = fn.length;
 
   return function curried(...args) {
     // 检查是否所有参数都已经填充（不包含占位符）
     const checkFilled = (args) => {
       // 统计非占位符的参数个数
-      const filledArgsCount = args.filter((arg) => arg !== placeholder).length
-      return filledArgsCount >= length
-    }
+      const filledArgsCount = args.filter((arg) => arg !== placeholder).length;
+      return filledArgsCount >= length;
+    };
 
     // 合并新旧参数，处理占位符
     const mergeArgs = (existingArgs, newArgs) => {
-      const result = [...existingArgs]
-      let newArgsIndex = 0
+      const result = [...existingArgs];
+      let newArgsIndex = 0;
 
       // 遍历现有参数，将占位符替换为新参数
       for (let i = 0; i < result.length && newArgsIndex < newArgs.length; i++) {
         if (result[i] === placeholder) {
-          result[i] = newArgs[newArgsIndex++]
+          result[i] = newArgs[newArgsIndex++];
         }
       }
 
       // 将剩余的新参数添加到结果中
-      return result.concat(newArgs.slice(newArgsIndex))
-    }
+      return result.concat(newArgs.slice(newArgsIndex));
+    };
 
-    const mergedArgs = mergeArgs(args, [])
+    const mergedArgs = mergeArgs(args, []);
 
     // 如果参数已经足够，执行原函数
     if (checkFilled(mergedArgs)) {
       // 过滤掉占位符
-      const finalArgs = mergedArgs.slice(0, length).filter((arg) => arg !== placeholder)
-      return fn.apply(this, finalArgs)
+      const finalArgs = mergedArgs.slice(0, length).filter((arg) => arg !== placeholder);
+      return fn.apply(this, finalArgs);
     }
 
     // 否则继续返回柯里化函数
     return function (...nextArgs) {
-      return curried.apply(this, mergeArgs(mergedArgs, nextArgs))
-    }
-  }
+      return curried.apply(this, mergeArgs(mergedArgs, nextArgs));
+    };
+  };
 }
 
 // 使用示例
-const add = (a, b, c) => a + b + c
-const curriedAdd = curryWithFilled(add)
-const _ = '_' // 占位符
+const add = (a, b, c) => a + b + c;
+const curriedAdd = curryWithFilled(add);
+const _ = "_"; // 占位符
 
-console.log(curriedAdd(1)(2)(3)) // 6
-console.log(curriedAdd(1, 2)(3)) // 6
-console.log(curriedAdd(1)(_, 3)(2)) // 6
-console.log(curriedAdd(_, 2)(1)(3)) // 6
-console.log(curriedAdd(_, _, 3)(1)(2)) // 6
+console.log(curriedAdd(1)(2)(3)); // 6
+console.log(curriedAdd(1, 2)(3)); // 6
+console.log(curriedAdd(1)(_, 3)(2)); // 6
+console.log(curriedAdd(_, 2)(1)(3)); // 6
+console.log(curriedAdd(_, _, 3)(1)(2)); // 6

@@ -6,6 +6,7 @@ companies:
 created: 2025-06-20
 modified: 2025-06-20
 ---
+
 以下是关于 Webpack 项目启动、配置实践以及自定义 Loader 和 Plugin 开发的完整指南：
 
 ---
@@ -40,16 +41,16 @@ webpack-demo/
 
 ```javascript
 // config/webpack.common.js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    main: "./src/index.js",
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, "../dist"),
+    filename: "[name].[contenthash].js",
     clean: true,
   },
   module: {
@@ -57,61 +58,61 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: "babel-loader",
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html'
-    })
-  ]
-}
+      template: "./public/index.html",
+    }),
+  ],
+};
 ```
 
 #### 4. 环境分离配置
 
 ```javascript
 // config/webpack.dev.js
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common')
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common");
 
 module.exports = merge(common, {
-  mode: 'development',
-  devtool: 'eval-cheap-module-source-map',
+  mode: "development",
+  devtool: "eval-cheap-module-source-map",
   devServer: {
     hot: true,
     open: true,
     port: 3000,
-    historyApiFallback: true
-  }
-})
+    historyApiFallback: true,
+  },
+});
 ```
 
 ```javascript
 // config/webpack.prod.js
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common')
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common");
 
 module.exports = merge(common, {
-  mode: 'production',
-  devtool: 'source-map',
+  mode: "production",
+  devtool: "source-map",
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
-        }
-      }
-    }
-  }
-})
+          priority: -10,
+        },
+      },
+    },
+  },
+});
 ```
 
 #### 5. 添加 npm scripts
@@ -136,9 +137,9 @@ module.exports = merge(common, {
 // webpack.prod.js
 module.exports = merge(common, {
   performance: {
-    hints: 'warning',
+    hints: "warning",
     maxEntrypointSize: 512000,
-    maxAssetSize: 512000
+    maxAssetSize: 512000,
   },
   optimization: {
     minimizer: [
@@ -146,15 +147,15 @@ module.exports = merge(common, {
         parallel: true,
         terserOptions: {
           compress: {
-            drop_console: true
-          }
-        }
+            drop_console: true,
+          },
+        },
       }),
-      new CssMinimizerPlugin()
+      new CssMinimizerPlugin(),
     ],
-    runtimeChunk: 'single'
-  }
-})
+    runtimeChunk: "single",
+  },
+});
 ```
 
 #### 2. 多页面应用配置
@@ -187,20 +188,20 @@ module.exports = {
 
 ```javascript
 // webpack.config.js
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app1',
-      filename: 'remoteEntry.js',
+      name: "app1",
+      filename: "remoteEntry.js",
       exposes: {
-        './Button': './src/components/Button'
+        "./Button": "./src/components/Button",
       },
-      shared: ['react', 'react-dom']
-    })
-  ]
-}
+      shared: ["react", "react-dom"],
+    }),
+  ],
+};
 ```
 
 ---
@@ -211,15 +212,15 @@ module.exports = {
 
 ```javascript
 // loaders/markdown-loader.js
-const marked = require('marked')
+const marked = require("marked");
 
-module.exports = function(source) {
-  this.cacheable && this.cacheable()
-  
+module.exports = function (source) {
+  this.cacheable && this.cacheable();
+
   // 处理选项
-  const options = this.getOptions() || {}
-  marked.setOptions(options)
-  
+  const options = this.getOptions() || {};
+  marked.setOptions(options);
+
   // 返回JS模块
   return `
     import React from 'react'
@@ -230,8 +231,8 @@ module.exports = function(source) {
         </div>
       )
     }
-  `
-}
+  `;
+};
 ```
 
 #### 2. 使用自定义 Loader
@@ -245,22 +246,22 @@ module.exports = {
         test: /\.md$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: "babel-loader",
           },
           {
-            loader: path.resolve(__dirname, 'loaders/markdown-loader.js'),
+            loader: path.resolve(__dirname, "loaders/markdown-loader.js"),
             options: {
-              breaks: true
-            }
-          }
-        ]
-      }
-    ]
+              breaks: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   resolveLoader: {
-    modules: ['node_modules', path.resolve(__dirname, 'loaders')]
-  }
-}
+    modules: ["node_modules", path.resolve(__dirname, "loaders")],
+  },
+};
 ```
 
 ---
@@ -273,80 +274,80 @@ module.exports = {
 // plugins/build-time-plugin.js
 class BuildTimePlugin {
   apply(compiler) {
-    let startTime
-    
-    compiler.hooks.beforeRun.tap('BuildTimePlugin', () => {
-      startTime = Date.now()
-    })
-    
-    compiler.hooks.done.tap('BuildTimePlugin', stats => {
-      const endTime = Date.now()
-      const buildTime = (endTime - startTime) / 1000
-      
-      stats.compilation.errors.forEach(err => {
-        console.error('❌ Error:', err.message)
-      })
-      
-      console.log(`✅ Build completed in ${buildTime}s`)
-    })
+    let startTime;
+
+    compiler.hooks.beforeRun.tap("BuildTimePlugin", () => {
+      startTime = Date.now();
+    });
+
+    compiler.hooks.done.tap("BuildTimePlugin", (stats) => {
+      const endTime = Date.now();
+      const buildTime = (endTime - startTime) / 1000;
+
+      stats.compilation.errors.forEach((err) => {
+        console.error("❌ Error:", err.message);
+      });
+
+      console.log(`✅ Build completed in ${buildTime}s`);
+    });
   }
 }
 
-module.exports = BuildTimePlugin
+module.exports = BuildTimePlugin;
 ```
 
 #### 2. 自动上传 CDN 插件
 
 ```javascript
 // plugins/cdn-upload-plugin.js
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3')
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 class CDNUploadPlugin {
   constructor(options) {
-    this.options = options
-    this.s3 = new S3Client(options.awsConfig)
+    this.options = options;
+    this.s3 = new S3Client(options.awsConfig);
   }
 
   apply(compiler) {
-    compiler.hooks.afterEmit.tapPromise('CDNUploadPlugin', async compilation => {
-      const { assets } = compilation
-      const uploads = Object.keys(assets).map(async filename => {
-        const content = assets[filename].source()
+    compiler.hooks.afterEmit.tapPromise("CDNUploadPlugin", async (compilation) => {
+      const { assets } = compilation;
+      const uploads = Object.keys(assets).map(async (filename) => {
+        const content = assets[filename].source();
         const command = new PutObjectCommand({
           Bucket: this.options.bucket,
           Key: filename,
-          Body: content
-        })
-        await this.s3.send(command)
-      })
-      
-      await Promise.all(uploads)
-      console.log('All assets uploaded to CDN')
-    })
+          Body: content,
+        });
+        await this.s3.send(command);
+      });
+
+      await Promise.all(uploads);
+      console.log("All assets uploaded to CDN");
+    });
   }
 }
 
-module.exports = CDNUploadPlugin
+module.exports = CDNUploadPlugin;
 ```
 
 #### 3. 使用自定义插件
 
 ```javascript
 // webpack.prod.js
-const BuildTimePlugin = require('./plugins/build-time-plugin')
-const CDNUploadPlugin = require('./plugins/cdn-upload-plugin')
+const BuildTimePlugin = require("./plugins/build-time-plugin");
+const CDNUploadPlugin = require("./plugins/cdn-upload-plugin");
 
 module.exports = merge(common, {
   plugins: [
     new BuildTimePlugin(),
     new CDNUploadPlugin({
-      bucket: 'my-bucket',
+      bucket: "my-bucket",
       awsConfig: {
-        region: 'us-east-1'
-      }
-    })
-  ]
-})
+        region: "us-east-1",
+      },
+    }),
+  ],
+});
 ```
 
 ---
@@ -356,15 +357,15 @@ module.exports = merge(common, {
 #### 1. 环境变量注入
 
 ```javascript
-const webpack = require('webpack')
+const webpack = require("webpack");
 
 module.exports = {
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.API_URL': JSON.stringify(process.env.API_URL)
-    })
-  ]
-}
+      "process.env.API_URL": JSON.stringify(process.env.API_URL),
+    }),
+  ],
+};
 ```
 
 #### 2. 动态加载 Polyfill
@@ -372,9 +373,9 @@ module.exports = {
 ```javascript
 module.exports = {
   entry: {
-    app: ['core-js/stable', './src/index.js']
-  }
-}
+    app: ["core-js/stable", "./src/index.js"],
+  },
+};
 ```
 
 #### 3. 自定义解析规则
@@ -383,12 +384,12 @@ module.exports = {
 module.exports = {
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
-      'react': path.resolve(__dirname, './node_modules/react')
+      "@": path.resolve(__dirname, "src/"),
+      react: path.resolve(__dirname, "./node_modules/react"),
     },
-    extensions: ['.ts', '.js', '.json']
-  }
-}
+    extensions: [".ts", ".js", ".json"],
+  },
+};
 ```
 
 ---
@@ -402,12 +403,12 @@ npm install --save-dev speed-measure-webpack-plugin
 ```
 
 ```javascript
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-const smp = new SpeedMeasurePlugin()
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
 
 module.exports = smp.wrap({
   // 正常webpack配置
-})
+});
 ```
 
 #### 2. 依赖图可视化
@@ -417,15 +418,15 @@ npm install --save-dev webpack-bundle-analyzer
 ```
 
 ```javascript
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   plugins: [
     new BundleAnalyzerPlugin({
-      analyzerMode: 'static'
-    })
-  ]
-}
+      analyzerMode: "static",
+    }),
+  ],
+};
 ```
 
 #### 3. 缓存优化
@@ -433,12 +434,12 @@ module.exports = {
 ```javascript
 module.exports = {
   cache: {
-    type: 'filesystem',
+    type: "filesystem",
     buildDependencies: {
-      config: [__filename]
-    }
-  }
-}
+      config: [__filename],
+    },
+  },
+};
 ```
 
 ---

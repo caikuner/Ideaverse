@@ -1,4 +1,4 @@
-/*
+/\*
 
 This script generates a complete calendar for a specified year, visually distinguishing weekends from weekdays through color coding.
 
@@ -10,8 +10,8 @@ You can personalize the calendar’s appearance by defining your own colors:
 
 1. Create two rectangles in your design.
 2. Select both rectangles before running the script:
-	• The **fill and stroke colors of the first rectangle** will be applied to weekdays.
-	• The **fill and stroke colors of the second rectangle** will be used for weekends.
+   • The **fill and stroke colors of the first rectangle** will be applied to weekdays.
+   • The **fill and stroke colors of the second rectangle** will be used for weekends.
 
 If no rectangle are selected, the default color schema will be used (white and purple).
 
@@ -57,7 +57,7 @@ const SUNDAY = 0;
 const JANUARY = 0;
 const FIRST_DAY_OF_THE_MONTH = 1;
 
-const DAY_NAME_AND_NUMBER_Y_MARGIN = (RECT_HEIGHT - FONT_SIZE_DAY) / 2; 
+const DAY_NAME_AND_NUMBER_Y_MARGIN = (RECT_HEIGHT - FONT_SIZE_DAY) / 2;
 
 // -------------------------------------
 
@@ -120,29 +120,29 @@ do {
 
 
 	let x = START_X + currentMonth * (RECT_WIDTH + MONTH_SPACING);
-	let y = START_Y + curentDayOfTheMonth * (RECT_HEIGHT + DAY_SPACING); 
+	let y = START_Y + curentDayOfTheMonth * (RECT_HEIGHT + DAY_SPACING);
 
 	// only one time per month
 	if(curentDayOfTheMonth == FIRST_DAY_OF_THE_MONTH) {
 
-		// add month name 
+		// add month name
 		ea.style.fontSize = FONT_SIZE_MONTH;
 		ea.addText(x + DAY_NAME_AND_NUMBER_X_MARGIN, START_Y+MONTH_NAME_SPACING, currentDay.toLocaleString('default', { month: 'long' }));
 	}
 
 	// Add day rectangle
 	ea.style.fontSize = FONT_SIZE_DAY;
-	ea.addRect(x, y, RECT_WIDTH, RECT_HEIGHT); 
+	ea.addRect(x, y, RECT_WIDTH, RECT_HEIGHT);
 
-	// set stroke color based on weekday 
+	// set stroke color based on weekday
 	ea.style.strokeColor = isWeekend ? LINE_STROKE_COLOR_WEEKEND : LINE_STROKE_COLOR_WEEKDAY;
 
 	// add line between days
 	//ea.style.strokeColor = LINE_STROKE_COLOR_WEEKDAY;
 	ea.style.strokeWidth = LINE_STROKE_SIZE;
-	ea.addLine([[x,y],[x+RECT_WIDTH, y]]); 
+	ea.addLine([[x,y],[x+RECT_WIDTH, y]]);
 
-	
+
 	// add day number
 	ea.addText(x + DAY_NAME_AND_NUMBER_X_MARGIN, y + DAY_NAME_AND_NUMBER_Y_MARGIN, String(curentDayOfTheMonth));
 	// add day name
@@ -155,3 +155,4 @@ do {
 
 
 await ea.addElementsToView(false, false, true);
+```

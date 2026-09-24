@@ -5,7 +5,7 @@ excerpt: 掌握常用的快捷键事半功倍。
 tags:
   - obsidian附录
 rank: "0"
-status: complete
+status: done
 destination: 03-Projects/黑曜石玩家指南
 share: false
 ---
@@ -17,14 +17,14 @@ share: false
 - `Ctrl+E`：页面预览
 - `Ctrl+Shift+E`：幻灯片预览
 - `Ctrl+Alt+M`：思维导图预览
-- `Ctrl+Q`：quickAdd命令面板
-- `Alt+E`：Templater插入模板面板
+- `Ctrl+Q`：quickAdd 命令面板
+- `Alt+E`：Templater 插入模板面板
 - `Ctrl+L`：锁定页面
 - `Ctrl+Alt+2`：对选定文字背景橙色高亮
 - `Ctrl+K`：对选定文字插入超链接
 - `Ctrl+H`：寻找并替换文字
 - `Ctrl+/`：注释掉选中的文字
-- `Ctrl+Enter`：创建或完成TODO清单
+- `Ctrl+Enter`：创建或完成 TODO 清单
 - `Alt+T`：跳转到今日日志页面
 - `Ctrl+0` ：将编辑器的实时预览切换为纯文本编辑模式
 

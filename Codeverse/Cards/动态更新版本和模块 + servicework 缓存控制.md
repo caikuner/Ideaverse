@@ -30,7 +30,7 @@ const loadModule = async (moduleName) => {
     const module = await import(`./modules/${moduleName}.js?v=${__BUILD_VERSION__}`);
     return module;
   } catch (err) {
-    console.error('模块加载失败:', err);
+    console.error("模块加载失败:", err);
     // 回退策略
   }
 };
@@ -40,41 +40,35 @@ const loadModule = async (moduleName) => {
 
 ```javascript
 // sw.js
-const CACHE_NAME = 'dynamic-modules-v1';
+const CACHE_NAME = "dynamic-modules-v1";
 const VERSIONED_MODULES = new Set();
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(['/main-app.js']))
-  );
+self.addEventListener("install", (event) => {
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(["/main-app.js"])));
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
-  
+
   // 动态模块请求处理
-  if (url.pathname.includes('/modules/')) {
+  if (url.pathname.includes("/modules/")) {
     event.respondWith(
-      caches.match(event.request)
-        .then(cached => {
-          // 网络优先策略
-          return fetch(event.request)
-            .then(networkResponse => {
-              // 更新缓存
-              caches.open(CACHE_NAME)
-                .then(cache => cache.put(event.request, networkResponse.clone()));
-              return networkResponse;
-            })
-            .catch(() => cached || Response.error());
-        })
+      caches.match(event.request).then((cached) => {
+        // 网络优先策略
+        return fetch(event.request)
+          .then((networkResponse) => {
+            // 更新缓存
+            caches
+              .open(CACHE_NAME)
+              .then((cache) => cache.put(event.request, networkResponse.clone()));
+            return networkResponse;
+          })
+          .catch(() => cached || Response.error());
+      }),
     );
   } else {
     // 主应用使用缓存优先
-    event.respondWith(
-      caches.match(event.request)
-        .then(cached => cached || fetch(event.request))
-    );
+    event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request)));
   }
 });
 ```
@@ -86,10 +80,10 @@ self.addEventListener('fetch', (event) => {
 ```javascript
 // 主应用中的更新检查
 async function checkUpdates() {
-  const manifest = await fetch('/asset-manifest.json?v=' + Date.now());
+  const manifest = await fetch("/asset-manifest.json?v=" + Date.now());
   const { version } = await manifest.json();
-  
-  if (version !== localStorage.getItem('appVersion')) {
+
+  if (version !== localStorage.getItem("appVersion")) {
     // 触发更新流程
     notifyUserUpdateAvailable();
   }
@@ -103,13 +97,13 @@ setInterval(checkUpdates, 60 * 60 * 1000);
 
 ```javascript
 // 使用BroadcastChannel通知所有标签页
-const updateChannel = new BroadcastChannel('app-updates');
+const updateChannel = new BroadcastChannel("app-updates");
 
 function notifyUserUpdateAvailable() {
-  updateChannel.postMessage({ type: 'UPDATE_AVAILABLE' });
-  
+  updateChannel.postMessage({ type: "UPDATE_AVAILABLE" });
+
   // 或者显示UI提示
-  if (confirm('新版本可用，是否立即更新？')) {
+  if (confirm("新版本可用，是否立即更新？")) {
     window.location.reload();
   }
 }
@@ -121,17 +115,17 @@ function notifyUserUpdateAvailable() {
 
 ```javascript
 // 激活时清理旧缓存
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.map(cache => {
+        cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
             return caches.delete(cache);
           }
-        })
+        }),
       );
-    })
+    }),
   );
 });
 ```
@@ -141,22 +135,21 @@ self.addEventListener('activate', (event) => {
 ```javascript
 // 模块级版本控制
 function getModuleVersion(moduleName) {
-  return fetch(`/modules/${moduleName}.version`)
-    .then(res => res.text());
+  return fetch(`/modules/${moduleName}.version`).then((res) => res.text());
 }
 
 // 使用前检查版本
 async function useModule(moduleName) {
   const currentVer = await getModuleVersion(moduleName);
   const cachedVer = localStorage.getItem(`module_${moduleName}_version`);
-  
+
   if (currentVer !== cachedVer) {
     // 强制更新模块
     const module = await loadModule(`${moduleName}?force=${Date.now()}`);
     localStorage.setItem(`module_${moduleName}_version`, currentVer);
     return module;
   }
-  
+
   return loadModule(moduleName);
 }
 ```
@@ -195,12 +188,15 @@ async function useModule(moduleName) {
    ```javascript
    // 上报更新状态
    function reportUpdateStatus(module, success) {
-     navigator.sendBeacon('/log', JSON.stringify({
-       type: 'module_update',
-       module,
-       success,
-       timestamp: Date.now()
-     }));
+     navigator.sendBeacon(
+       "/log",
+       JSON.stringify({
+         type: "module_update",
+         module,
+         success,
+         timestamp: Date.now(),
+       }),
+     );
    }
    ```
 
@@ -212,8 +208,10 @@ async function useModule(moduleName) {
      try {
        return await useModule(moduleName);
      } catch (err) {
-       console.warn('加载失败，尝试回退:', err);
-       return loadModule(`${moduleName}?v=${localStorage.getItem(`module_${moduleName}_fallback`)}`);
+       console.warn("加载失败，尝试回退:", err);
+       return loadModule(
+         `${moduleName}?v=${localStorage.getItem(`module_${moduleName}_fallback`)}`,
+       );
      }
    }
    ```

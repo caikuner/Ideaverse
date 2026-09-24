@@ -1,14 +1,10 @@
-
 - Q & A
-Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock'
+  Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock'
 
 sudo mysql -u root -p
 
-
-- 神盾  5.6.23
+- 神盾 5.6.23
 - 特征中心 8.0.26
-
-
 
 - mysql
 
